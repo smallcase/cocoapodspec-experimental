@@ -93,7 +93,9 @@ class CreateViewController: UIViewController {
         
         guard !transactions.isEmpty else {
             showPopup(title: "ERROR: Empty", msg: "Add Items to place order")
-            return }
+            return
+            
+        }
         
         let orderConfig = OrderConfig(type: OrderType.securities.rawValue, scid: nil, iscid: nil, did: nil, orders: transactions)
         
@@ -140,7 +142,7 @@ class CreateViewController: UIViewController {
                     
                 case .failure(let error):
                     print("SST TRANSACTION: ERROR: \(error)")
-                 self?.showPopup(title: "SST TRANSACTION: ERROR:", msg: "\(error)")
+                    self?.showPopup(title: "SST TRANSACTION: ERROR:", msg: "\(error.message)")
                     
                 }
             })

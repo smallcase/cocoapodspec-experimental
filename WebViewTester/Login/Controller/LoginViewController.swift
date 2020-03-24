@@ -239,6 +239,13 @@ class LoginViewController: UIViewController {
             
             if !data {
                 print(error)
+                
+                if let error = error as? TransactionError {
+                    self.showPopup(title: "Error", msg: error.message)
+                }
+                else {
+                    self.showPopup(title: "Error", msg: error.debugDescription)
+                }
                 return
             }
             print(data)
@@ -272,6 +279,7 @@ class LoginViewController: UIViewController {
                     
                 case .failure(let error):
                     print("CONNECT: ERROR :\(error)")
+                    self?.showPopup(title: "Error", msg: "\(error.message)")
                     
                 }
                 print(result)

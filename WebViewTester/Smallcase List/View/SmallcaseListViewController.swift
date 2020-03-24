@@ -68,7 +68,7 @@ class SmallcaseListViewController: UITableViewController {
                     
                 case .failure(let error):
                     print(error)
-                    self?.showPopup(msg: error.localizedDescription)
+                    self?.showPopup(msg: error.message ?? "")
                 }
             }
 
