@@ -1,0 +1,6 @@
+framework module SCGateway {
+  umbrella header "SCGateway-umbrella.h"
+
+  export *
+  module * { export * }
+}

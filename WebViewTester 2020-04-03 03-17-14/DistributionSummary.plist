@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>WebViewTester.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>D11D7658AC25DAFDDE047E32B82F1476FCD7BFE8</string>
+				<key>dateExpires</key>
+				<string>02/04/21</string>
+				<key>type</key>
+				<string>Apple Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>D11D7658AC25DAFDDE047E32B82F1476FCD7BFE8</string>
+						<key>dateExpires</key>
+						<string>02/04/21</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>DynamicBlurView.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>BFHF2F2UCF</string>
+						<key>name</key>
+						<string>Smallcase Technologies Private Limited</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>D11D7658AC25DAFDDE047E32B82F1476FCD7BFE8</string>
+						<key>dateExpires</key>
+						<string>02/04/21</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>PopupDialog.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>BFHF2F2UCF</string>
+						<key>name</key>
+						<string>Smallcase Technologies Private Limited</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>D11D7658AC25DAFDDE047E32B82F1476FCD7BFE8</string>
+						<key>dateExpires</key>
+						<string>02/04/21</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>SCGateway.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>BFHF2F2UCF</string>
+						<key>name</key>
+						<string>Smallcase Technologies Private Limited</string>
+					</dict>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>BFHF2F2UCF.com.smallcase.smartInvesting</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>BFHF2F2UCF</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>Smart Investing.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>5a0334db-49bd-4d1e-8fa0-0dd38d720a9d</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: com.smallcase.smartInvesting</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>BFHF2F2UCF</string>
+				<key>name</key>
+				<string>Smallcase Technologies Private Limited</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
