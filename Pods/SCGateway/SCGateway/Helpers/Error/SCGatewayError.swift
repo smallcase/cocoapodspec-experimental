@@ -26,8 +26,9 @@ public enum SCGatewayError: Int, Error {
     }
 }
 
-public enum TransactionError: Error {
 
+
+public enum TransactionError: Error {
     
     case userMismatch
     case apiError
@@ -36,6 +37,8 @@ public enum TransactionError: Error {
     case insufficientHoldings
     case userAbandoned
     case holdingsImportError
+    case timedOutError
+    case dismissBrokerChooserError
     
    // SDK initialised with invalid Gateway name
     case invalidGateway
@@ -56,8 +59,13 @@ public enum TransactionError: Error {
     
     
     
-    public var message: String? {
+    
+    public var message: String {
         switch self {
+            
+        case .custom(let message):
+            return message
+            
         case .invalidGateway:
             return "invalid_gateway"
             
@@ -75,6 +83,8 @@ public enum TransactionError: Error {
             
         case .userCancelled:
             return "user_cancelled"
+        case .dismissBrokerChooserError:
+            return "user_cancelled"
             
         case .userMismatch:
             return "user_mismatch"
@@ -87,7 +97,8 @@ public enum TransactionError: Error {
             
         case .marketClosed:
             return "market_closed"
-        
+        case .timedOutError:
+            return "timed_out"
         default:
             return "internal_error"
         }
@@ -138,6 +149,8 @@ public enum TransactionError: Error {
             
         case .userCancelled:
             return "USER_CANCELLED"
+        case .dismissBrokerChooserError:
+            return "USER_CANCELLED"
             
         case .consentDenied:
             return "CONSENT_DENIED"
@@ -147,6 +160,9 @@ public enum TransactionError: Error {
             
         case .holdingsImportError:
             return "HOLDING_IMPORT_ERROR"
+            
+        case .timedOutError:
+            return "TIMED_OUT"
             
         default:
             return nil
@@ -170,6 +186,9 @@ extension TransactionError: RawRepresentable {
         case .userCancelled:
             return 1002
             
+        case .dismissBrokerChooserError:
+            return 1003
+            
         case .consentDenied:
             return 1003
             
@@ -181,6 +200,9 @@ extension TransactionError: RawRepresentable {
             
         case .marketClosed:
             return 4004
+            
+        case .timedOutError:
+            return 4003
             
         case .internalError:
             return 20
@@ -231,10 +253,38 @@ extension TransactionError: RawRepresentable {
         case 90: self = .invalidJWT
         case 100: self = .invalidGateway
         case 110: self = .transactionExpired
+        case 4003: self = .timedOutError
   
 
         default:
             return nil
         }
+    }
+}
+
+@objc public class ObjcTransactionError: NSError {
+    var error: TransactionError
+    
+     @objc override public var domain: String {
+        return error.message
+    }
+    @objc public override var code: Int {
+        return error.rawValue
+    }
+    
+    init(error: TransactionError) {
+         self.error = error
+         super.init(domain: error.message, code: error.rawValue, userInfo: ["message": error.message])
+       
+    }
+    
+    init(error: SCGatewayError) {
+        self.error = .internalError
+        super.init(domain: error.message, code: TransactionError.internalError.rawValue, userInfo: ["message": error.message])
+       
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

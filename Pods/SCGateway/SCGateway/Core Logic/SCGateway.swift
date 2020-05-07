@@ -45,10 +45,51 @@ import UIKit
         }
     }
     
+    private func registerAllFonts()
+    {
+        UIFont.jbs_registerFont(
+            withFilenameString: "GraphikApp-Bold.ttf",
+            bundle: Bundle(for: SCGateway.self)
+        )
+        UIFont.jbs_registerFont(
+            withFilenameString: "GraphikApp-Light.ttf",
+            bundle: Bundle(for: SCGateway.self)
+            )
+        UIFont.jbs_registerFont(
+            withFilenameString: "GraphikApp-Medium.ttf",
+            bundle: Bundle(for: SCGateway.self)
+        )
+        UIFont.jbs_registerFont(
+            withFilenameString: "GraphikApp-MediumItalic.ttf",
+            bundle: Bundle(for: SCGateway.self)
+        )
+        UIFont.jbs_registerFont(
+            withFilenameString: "GraphikApp-Regular.ttf",
+            bundle: Bundle(for: SCGateway.self)
+        )
+        UIFont.jbs_registerFont(
+            withFilenameString: "GraphikApp-RegularItalic.ttf",
+            bundle: Bundle(for: SCGateway.self)
+        )
+        UIFont.jbs_registerFont(
+            withFilenameString: "GraphikApp-Semibold.ttf",
+            bundle: Bundle(for: SCGateway.self)
+        )
+        for family: String in UIFont.familyNames
+               {
+                   print("\(family)")
+                   for names: String in UIFont.fontNames(forFamilyName: family)
+                   {
+                          print("== \(names)")
+                   }
+               }
+    }
+    
     //MARK:- Methods
     
     @objc public func setup(config: GatewayConfig) {
-        
+       
+       registerAllFonts()
         Config.gatewayName = config.gatewayName
         Config.brokerConfigType = config.brokerConfig
         Config.baseEnvironment = config.apiEnvironment
@@ -110,8 +151,11 @@ import UIKit
                         completion?(false, TransactionError.invalidJWT)
                     }
                     else {
-                        completion?(false, TransactionError.internalError)
+                         completion?(true, nil)
                     }
+//                    else {
+//                        completion?(false, TransactionError.internalError)
+//                    }
                     return
                 }
                 
@@ -170,7 +214,7 @@ import UIKit
                                     return
                                 }
                                 /// Triggers BrokerSelect Coordinator
-                                self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId, completion: completion)
+                                self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId, transactionIntent: true,completion: completion)
                                 
                             case .failure(let error):
                                 print(error)
@@ -179,14 +223,14 @@ import UIKit
                         })
                     }
                     else {
-                        self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId, completion: completion)
+                        self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId,transactionIntent: true ,completion: completion)
                                                        
                     }
                   
                     
                 case .connect, .holdingsImport:
                     print("TRANSACTION INTENT: Connect/Holdings")
-                    self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId, completion: completion)
+                    self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId,transactionIntent: false ,completion: completion)
                     
                 }
                 
@@ -201,10 +245,10 @@ import UIKit
     }
     
     //Only for objective C compatibility
-   @objc public func triggerTransactionFlow(transactionId: String, presentingController: UIViewController, completion: @escaping(Any?, Error?) -> Void){
+   @objc public func triggerTransactionFlow(transactionId: String, presentingController: UIViewController, completion: @escaping(Any?, ObjcTransactionError?) -> Void){
     
         //Throws an error if config is not setup
-        if Config.gatewayName == nil || Config.sdkToken == nil {  completion(nil,SCGatewayError.uninitialized) }
+        if Config.gatewayName == nil || Config.sdkToken == nil {  completion(nil, ObjcTransactionError(error: .uninitialized)) }
         //Gets the intent of the transaction
         fetchTransactionStatus(transactionId: transactionId) { [weak self] (result) in
             switch result {
@@ -226,33 +270,33 @@ import UIKit
                                                switch result {
                                                case .success(let isOpen):
                                                    if !isOpen {
-                                                       completion(nil, TransactionError.marketClosed)
+                                                    completion(nil, ObjcTransactionError(error: .marketClosed))
                                                    }
                                                    /// Triggers BrokerSelect Coordinator
                                                    
                                                    
-                                                   self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId, completion: completion)
+                                                   self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId,transactionIntent: true ,completion: completion)
                                                    
                                                case .failure(let error):
                                                    print(error)
-                                                   completion(nil, TransactionError.internalError)
+                                                   completion(nil, ObjcTransactionError(error: .internalError))
                                                }
                                            })
                         
                     }
                     else {
-                        self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId, completion: completion)
+                        self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId,transactionIntent: true ,completion: completion)
                     }
                    
                     
                 case .connect, .holdingsImport:
                     print("TRANSACTION INTENT: Connect/Holdings")
-                    self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId, completion: completion)
+                    self?.openBrokerSelect(presentingController: presentingController, transactionId: transactionId,transactionIntent: false ,completion: completion)
                     
                 }
                 
             case .failure(let error):
-                completion(nil, error)
+                completion(nil, ObjcTransactionError(error: error))
                 print(error)
                 
             }
@@ -262,17 +306,17 @@ import UIKit
     }
     
     //Only for objective C compatibility
-    @objc private func openBrokerSelect( presentingController: UIViewController, transactionId: String, completion: @escaping (Any?, Error?) -> Void ) {
+    @objc private func openBrokerSelect( presentingController: UIViewController, transactionId: String,transactionIntent:Bool, completion: @escaping (Any?, ObjcTransactionError?) -> Void ) {
           DispatchQueue.main.async { [weak self] in
-              self?.brokerSelectCoordinator = BrokerSelectCoordinator(presentingViewController: presentingController, transactionId: transactionId, completion: completion)
+            self?.brokerSelectCoordinator = BrokerSelectCoordinator(presentingViewController: presentingController, transactionId: transactionId, transactionIntent: transactionIntent, completion: completion)
               self?.brokerSelectCoordinator.start()
           }
           
       }
     
-    private func openBrokerSelect( presentingController: UIViewController, transactionId: String, completion: @escaping (Result<TransactionIntent, TransactionError>) -> Void ) {
+    private func openBrokerSelect( presentingController: UIViewController, transactionId: String,transactionIntent:Bool, completion: @escaping (Result<TransactionIntent, TransactionError>) -> Void ) {
         DispatchQueue.main.async { [weak self] in
-            self?.brokerSelectCoordinator = BrokerSelectCoordinator(presentingViewController: presentingController, transactionId: transactionId, completion: completion)
+            self?.brokerSelectCoordinator = BrokerSelectCoordinator(presentingViewController: presentingController, transactionId: transactionId,transactionIntent: transactionIntent, completion: completion)
             self?.brokerSelectCoordinator.start()
         }
         

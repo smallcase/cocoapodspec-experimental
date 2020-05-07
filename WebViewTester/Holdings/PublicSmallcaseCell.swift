@@ -1,0 +1,28 @@
+//
+//  PublicSmallcaseCell.swift
+//  WebViewTester
+//
+//  Created by Dip on 30/04/20.
+//  Copyright © 2020 smallcase. All rights reserved.
+//
+
+import UIKit
+
+class PublicSmallcaseCell: UITableViewCell {
+    @IBOutlet weak var publicImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var detailsLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+    
+}

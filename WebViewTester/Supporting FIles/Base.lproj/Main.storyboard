@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RxB-wz-Kt9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RxB-wz-Kt9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,6 +22,7 @@
                         <segue destination="7fV-Oj-u98" kind="relationship" relationship="viewControllers" id="eap-p2-rCX"/>
                         <segue destination="Xdp-hH-UIl" kind="relationship" relationship="viewControllers" id="fBD-5T-6iR"/>
                         <segue destination="eeb-ie-y01" kind="relationship" relationship="viewControllers" id="gXo-aI-2og"/>
+                        <segue destination="Bxo-vJ-VxX" kind="relationship" relationship="viewControllers" id="rbJ-jU-1S0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BSI-N0-lmV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -31,7 +32,7 @@
         <!--smallcases-->
         <scene sceneID="77Z-rC-Tqi">
             <objects>
-                <tableViewController id="TYu-sU-Rqa" customClass="SmallcaseListViewController" customModule="WebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="TYu-sU-Rqa" customClass="SmallcaseListViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NBI-ZV-jyZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,13 +52,7 @@
                             <outlet property="delegate" destination="TYu-sU-Rqa" id="N9b-yt-bil"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="smallcases" id="BqZ-jS-5Wh">
-                        <barButtonItem key="rightBarButtonItem" title="Holdings" id="Unv-9b-r87">
-                            <connections>
-                                <action selector="triggeringHoldings:" destination="TYu-sU-Rqa" id="AdI-3v-hbx"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="smallcases" id="BqZ-jS-5Wh"/>
                     <connections>
                         <segue destination="lIM-wt-HK4" kind="show" identifier="showSmallcaseProfile" id="K18-IJ-hMV"/>
                         <segue destination="S7b-1d-VbO" kind="show" identifier="showInvestedSmallcases" id="hW9-tl-VlC"/>
@@ -104,7 +99,7 @@
         <!--URL Loader-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +174,7 @@
         <!--Web View Controller-->
         <scene sceneID="YPK-YM-8Bq">
             <objects>
-                <viewController id="4q4-Em-8sH" customClass="WebViewController" customModule="WebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4q4-Em-8sH" customClass="WebViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" id="W0I-dS-7nM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,7 +205,7 @@
         <!--Investments List View Controller-->
         <scene sceneID="Ffe-nO-qGr">
             <objects>
-                <viewController id="S7b-1d-VbO" customClass="InvestmentsListViewController" customModule="WebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="S7b-1d-VbO" customClass="InvestmentsListViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cl3-PS-dAJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,7 +250,7 @@
         <!--Investment Details View Controller-->
         <scene sceneID="XoJ-XU-ODH">
             <objects>
-                <viewController id="JMC-0A-gWN" customClass="InvestmentDetailsViewController" customModule="WebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JMC-0A-gWN" customClass="InvestmentDetailsViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rkk-Bf-suC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -424,7 +419,7 @@
         <!--Create Transaction-->
         <scene sceneID="YzW-lg-n4j">
             <objects>
-                <viewController id="nDD-E2-lJf" customClass="CreateViewController" customModule="WebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nDD-E2-lJf" customClass="CreateViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HN1-jb-5a6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -590,7 +585,7 @@
         <!--Login View Controller-->
         <scene sceneID="b20-2J-PIg">
             <objects>
-                <viewController id="dEj-3t-DsY" customClass="LoginViewController" customModule="WebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dEj-3t-DsY" customClass="LoginViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MEM-n0-0bU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -775,7 +770,7 @@
         <!--Smallcase Profile View Controller-->
         <scene sceneID="Vpy-Qh-O0i">
             <objects>
-                <viewController id="lIM-wt-HK4" customClass="SmallcaseProfileViewController" customModule="WebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lIM-wt-HK4" customClass="SmallcaseProfileViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EU6-oV-jqx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -910,7 +905,7 @@
         <!--News-->
         <scene sceneID="p0j-Rb-ntR">
             <objects>
-                <tableViewController id="bIa-Fa-xm0" customClass="NewsViewController" customModule="WebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="bIa-Fa-xm0" customClass="NewsViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gxh-bC-VjX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -939,7 +934,7 @@
         <!--Historical View Controller-->
         <scene sceneID="L8X-kU-zZ1">
             <objects>
-                <viewController id="81N-sx-ugV" customClass="HistoricalViewController" customModule="WebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="81N-sx-ugV" customClass="HistoricalViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4DP-RI-htl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -967,6 +962,90 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCs-I0-UnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2611.594202898551" y="-752.00892857142856"/>
+        </scene>
+        <!--Holdings-->
+        <scene sceneID="Z0Q-Ux-fzm">
+            <objects>
+                <viewController id="Bxo-vJ-VxX" customClass="HoldingsViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FRS-MS-VbD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xRD-H0-cla">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="gcY-zO-yPR"/>
+                                    <constraint firstAttribute="height" constant="44" id="zgq-lL-2NH"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Holdings" id="2jO-Wh-LCL"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruP-om-a1N">
+                                <rect key="frame" x="20" y="96" width="374" height="39"/>
+                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="VJ0-Uv-VmP"/>
+                                    <constraint firstAttribute="width" constant="374" id="c0g-Dd-2ny"/>
+                                </constraints>
+                                <state key="normal" title="UPDATE HOLDINGS"/>
+                                <connections>
+                                    <action selector="updateHoldings:" destination="Bxo-vJ-VxX" eventType="touchUpInside" id="QVY-jm-hol"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZu-xM-5AT">
+                                <rect key="frame" x="20" y="155" width="374" height="39"/>
+                                <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="0Ts-iE-l0U"/>
+                                    <constraint firstAttribute="width" constant="374" id="0y6-ib-h1p"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="e8W-Sc-1rR"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="rnY-A4-vC2"/>
+                                </constraints>
+                                <state key="normal" title="SHOW UPDATED HOLDINGS"/>
+                                <connections>
+                                    <action selector="showUpdatedHoldings:" destination="Bxo-vJ-VxX" eventType="touchUpInside" id="68g-OY-7cR"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a4p-cG-1ZM">
+                                <rect key="frame" x="0.0" y="202" width="414" height="611"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Kc6-fI-apE" firstAttribute="trailing" secondItem="KZu-xM-5AT" secondAttribute="trailing" constant="20" id="0jq-qJ-a3E"/>
+                            <constraint firstItem="xRD-H0-cla" firstAttribute="top" secondItem="Kc6-fI-apE" secondAttribute="top" id="FcH-zM-ClV"/>
+                            <constraint firstItem="Kc6-fI-apE" firstAttribute="trailing" secondItem="ruP-om-a1N" secondAttribute="trailing" constant="20" id="H68-ZQ-6Be"/>
+                            <constraint firstItem="xRD-H0-cla" firstAttribute="trailing" secondItem="Kc6-fI-apE" secondAttribute="trailing" id="LJP-UE-s1u"/>
+                            <constraint firstItem="KZu-xM-5AT" firstAttribute="leading" secondItem="Kc6-fI-apE" secondAttribute="leading" constant="20" id="LRc-a8-P0D"/>
+                            <constraint firstItem="xRD-H0-cla" firstAttribute="leading" secondItem="Kc6-fI-apE" secondAttribute="leading" id="MSI-28-l2C"/>
+                            <constraint firstItem="ruP-om-a1N" firstAttribute="top" secondItem="xRD-H0-cla" secondAttribute="bottom" constant="8" id="Nxn-bk-G2h"/>
+                            <constraint firstItem="ruP-om-a1N" firstAttribute="leading" secondItem="Kc6-fI-apE" secondAttribute="leading" constant="20" id="Pjp-5R-aYV"/>
+                            <constraint firstItem="Kc6-fI-apE" firstAttribute="trailing" secondItem="KZu-xM-5AT" secondAttribute="trailing" constant="20" id="YPU-2P-IdY"/>
+                            <constraint firstItem="a4p-cG-1ZM" firstAttribute="top" secondItem="KZu-xM-5AT" secondAttribute="bottom" constant="8" id="YVr-Wf-ds3"/>
+                            <constraint firstItem="a4p-cG-1ZM" firstAttribute="bottom" secondItem="Kc6-fI-apE" secondAttribute="bottom" id="aio-x1-VLf"/>
+                            <constraint firstItem="KZu-xM-5AT" firstAttribute="top" secondItem="ruP-om-a1N" secondAttribute="bottom" constant="20" id="bbP-C8-pJ2"/>
+                            <constraint firstItem="ruP-om-a1N" firstAttribute="leading" secondItem="Kc6-fI-apE" secondAttribute="leading" constant="20" id="eDg-NC-AKB"/>
+                            <constraint firstItem="KZu-xM-5AT" firstAttribute="leading" secondItem="Kc6-fI-apE" secondAttribute="leading" constant="20" id="imL-Ta-JWf"/>
+                            <constraint firstItem="a4p-cG-1ZM" firstAttribute="trailing" secondItem="Kc6-fI-apE" secondAttribute="trailing" id="mlx-XG-JP6"/>
+                            <constraint firstItem="a4p-cG-1ZM" firstAttribute="leading" secondItem="Kc6-fI-apE" secondAttribute="leading" id="rsN-Fu-Rh7"/>
+                            <constraint firstItem="Kc6-fI-apE" firstAttribute="trailing" secondItem="ruP-om-a1N" secondAttribute="trailing" constant="20" id="sr0-jS-aFD"/>
+                            <constraint firstItem="ruP-om-a1N" firstAttribute="leading" secondItem="Kc6-fI-apE" secondAttribute="leading" constant="20" id="uVu-7y-QmL"/>
+                            <constraint firstItem="Kc6-fI-apE" firstAttribute="trailing" secondItem="KZu-xM-5AT" secondAttribute="trailing" constant="20" id="vMe-1f-Oqs"/>
+                            <constraint firstItem="Kc6-fI-apE" firstAttribute="trailing" secondItem="ruP-om-a1N" secondAttribute="trailing" constant="20" id="wPU-aj-hiS"/>
+                            <constraint firstItem="KZu-xM-5AT" firstAttribute="leading" secondItem="Kc6-fI-apE" secondAttribute="leading" constant="20" id="yrQ-g9-B1f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kc6-fI-apE"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Holdings" id="4jE-cx-50A"/>
+                    <connections>
+                        <outlet property="holdingsTableView" destination="a4p-cG-1ZM" id="YK2-SE-Qn8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c7a-gK-sa0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2684.057971014493" y="-394.41964285714283"/>
         </scene>
     </scenes>
 </document>

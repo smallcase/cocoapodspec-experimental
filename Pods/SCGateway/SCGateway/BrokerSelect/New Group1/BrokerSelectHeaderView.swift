@@ -20,8 +20,8 @@ class BrokerSelectHeaderView: UICollectionReusableView {
     //MARK:- UI Components
     
     fileprivate var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        let label = PaddingLabel.init(withInsets: 10, 10, 0, 0)
+        label.font = UIFont(name: "GraphikApp-Medium", size: 22 )
         label.textAlignment = .left
         label.textColor = Color.TextColor.dark
         label.text = ViewState.brokerSelect.copyConfig?.title ?? ""
@@ -32,16 +32,21 @@ class BrokerSelectHeaderView: UICollectionReusableView {
     fileprivate let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Color.backgroundLight
+        view.backgroundColor = .white
         return view
     }()
     
     fileprivate lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.numberOfLines = 0
+        label.font = UIFont(name: "GraphikApp-Regular", size: 15 )
+        label.numberOfLines = 3
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.attributedText = attrText(str: ViewState.brokerSelect.copyConfig?.subTitle)
+        let paragraphStyle = NSMutableParagraphStyle()
+        //line height size
+        paragraphStyle.lineSpacing = 7
+        let attrString = NSMutableAttributedString(string: ViewState.brokerSelect.copyConfig?.subTitle ?? ""  )
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+        label.attributedText = attrString
         label.textColor = Color.TextColor.light
         return label
     }()
@@ -118,8 +123,8 @@ class BrokerSelectHeaderView: UICollectionReusableView {
         cancelButton.widthAnchor.constraint(equalToConstant: 16).isActive = true
         
         stackView.topAnchor.constraint(equalTo: cancelButton.topAnchor, constant: 8).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: (UIScreen.main.bounds.width - 312) / 2 ).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -((UIScreen.main.bounds.width - 312) / 2)).isActive = true
         
     }
     

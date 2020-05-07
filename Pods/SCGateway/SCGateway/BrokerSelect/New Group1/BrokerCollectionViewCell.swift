@@ -57,7 +57,7 @@ internal class BrokerCollectionViewCell: UICollectionViewCell {
     
     fileprivate let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        label.font = UIFont(name: "GraphikApp-Medium", size: 13 )
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.blue
         label.tintColor = UIColor.blue
@@ -80,7 +80,7 @@ internal class BrokerCollectionViewCell: UICollectionViewCell {
         
         
         //ContainerView
-        containerView.fillSuperview(padding: .allSides(2))
+        containerView.fillSuperview()
         
         // Stack View
         stackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0).isActive = true
@@ -108,9 +108,9 @@ internal class BrokerCollectionViewCell: UICollectionViewCell {
         //Border
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = Color.border.cgColor
-        containerView.layer.cornerRadius = 4
+        containerView.layer.cornerRadius = 2
         
-        self.containerView.addShadow()
+        //self.containerView.addShadow()
         
     }
     
@@ -119,19 +119,14 @@ internal class BrokerCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension UIView {
+extension BrokerCollectionViewCell {
     func addShadow() {
-        let spread: CGFloat = 3.0
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowRadius =  5
-        layer.masksToBounds = true
-        layer.shadowOpacity = 0.5
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 0.1)
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOpacity = 0.1
+        self.layer.masksToBounds = false
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.containerView.layer.cornerRadius).cgPath
         
-        let dx = -spread
-        let rect = bounds.insetBy(dx: dx, dy: dx)
-        layer.shadowPath = UIBezierPath(rect: rect).cgPath
-        
-        //layer.shadowPath = UIBezierPath(roundedRect: bounds,
-        //  cornerRadius: layer.cornerRadius).cgPath
     }
 }

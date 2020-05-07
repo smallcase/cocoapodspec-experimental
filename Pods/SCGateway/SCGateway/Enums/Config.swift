@@ -22,5 +22,6 @@ internal enum Config {
     static var broker: Broker?
     static var brokerConfig: [BrokerConfig] = []
     static var copyConfig: GatewayCopyConfig?
+    static var userBrokerConfig: BrokerConfig?
 }
 

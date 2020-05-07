@@ -18,7 +18,7 @@ class BrokerSelectFooterView: UICollectionReusableView {
         label.textAlignment = .center
         let txt = "Don’t have a broker account?"
         label.text = txt
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont(name: "GraphikApp-Regular", size: 15 )
         label.textColor = Color.TextColor.light
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -28,7 +28,7 @@ class BrokerSelectFooterView: UICollectionReusableView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Sign Up", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        button.titleLabel?.font = UIFont(name: "GraphikApp-Regular", size: 15 )
         button.setTitleColor(Color.linkBlue, for: .normal)
         return button
     }()
@@ -66,7 +66,6 @@ class BrokerSelectFooterView: UICollectionReusableView {
     //MARK:- Setup
     
     func setupViews() {
-        
         addSubview(containerView)
         containerView.addSubview(stackView)
         stackView.addArrangedSubview(titleLabel)
@@ -76,6 +75,7 @@ class BrokerSelectFooterView: UICollectionReusableView {
     
     func setupLayouts() {
         containerView.fillSuperview()
+        containerView.addBorders(edges: .top, color: Color.border)
         stackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
         stackView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
     }

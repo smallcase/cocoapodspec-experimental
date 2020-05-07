@@ -15,7 +15,7 @@ internal class BrokerSelectCoordinator: NSObject, Coordinator {
     
     var transactionCompletion: ((Result<TransactionIntent, TransactionError>) -> Void)?
     
-    var objcTransactionCompletion: ((Any?, Error?) -> Void)?
+    var objcTransactionCompletion: ((Any?, ObjcTransactionError?) -> Void)?
     
     var presentingViewController: UIViewController
     
@@ -26,28 +26,32 @@ internal class BrokerSelectCoordinator: NSObject, Coordinator {
     var gatewayFlowViewController: GatewayFlowViewController!
     
     var viewModel: BrokerSelectViewModelProtocol!
+    
+    var transactionIntent:Bool
 
 
-    init(presentingViewController: UIViewController, transactionId: String, completion: @escaping (Result<TransactionIntent, TransactionError>) -> Void) {
+    init(presentingViewController: UIViewController, transactionId: String,transactionIntent:Bool ,completion: @escaping (Result<TransactionIntent, TransactionError>) -> Void) {
 
         self.presentingViewController = presentingViewController
         self.transactionId = transactionId
         self.transactionCompletion = completion
         self.objcTransactionCompletion = nil
+        self.transactionIntent = transactionIntent
     }
     //OBJC COmpatible
-    init(presentingViewController: UIViewController, transactionId: String, completion: @escaping (Any?, Error?) -> Void) {
+    init(presentingViewController: UIViewController, transactionId: String,transactionIntent:Bool ,completion: @escaping (Any?, ObjcTransactionError?) -> Void) {
 
         self.presentingViewController = presentingViewController
         self.transactionId = transactionId
         self.objcTransactionCompletion = completion
         self.transactionCompletion = nil
+        self.transactionIntent = transactionIntent
     }
     
     func start() {
        
         let model = BrokerSelectModel()
-        viewModel = BrokerSelectViewModel(model: model, transactionId: transactionId!)
+        viewModel = BrokerSelectViewModel(model: model, transactionId: transactionId!,transactionIntent: transactionIntent)
         viewModel.coordinatorDelegate = self
         gatewayFlowViewController = GatewayFlowViewController(viewModel: viewModel)
         gatewayFlowViewController.modalPresentationStyle = .overCurrentContext
@@ -60,42 +64,56 @@ internal class BrokerSelectCoordinator: NSObject, Coordinator {
 extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
     
     func transactionCompleted(transactionId: String, transactionData: TransactionIntent, authToken: String) {
-        if transactionCompletion != nil {
-            transactionCompletion!(.success(transactionData))
-        }
-        else if objcTransactionCompletion != nil {
-            switch transactionData {
-            case let .transaction(authToken, transactionData):
-                objcTransactionCompletion!(_ObjcTransactionIntentTransaction(authToken, transactionData), nil)
-            case let .connect(authToken, transactionData):
-                objcTransactionCompletion!(_ObjCTransactionIntentConnect(authToken, transactionData), nil)
-                
-            case let .holdingsImport(authToken, status):
-                objcTransactionCompletion!(_ObjcTransactionIntentHoldingsImport(authToken, status), nil)
-            }
+        dismissBrokerSelect{ [weak self] in
+            guard let self = self else { return }
             
+            if self.transactionCompletion != nil {
+                self.transactionCompletion!(.success(transactionData))
+                   }
+            else if self.objcTransactionCompletion != nil {
+                       switch transactionData {
+                       case let .transaction(authToken, transactionData):
+                        self.objcTransactionCompletion!(_ObjcTransactionIntentTransaction(authToken, transactionData), nil)
+                       case let .connect(authToken, transactionData):
+                        self.objcTransactionCompletion!(_ObjCTransactionIntentConnect(authToken, transactionData), nil)
+                           
+                       case let .holdingsImport(authToken, status, transactionId):
+                        self.objcTransactionCompletion!(_ObjcTransactionIntentHoldingsImport(authToken, status, transactionId), nil)
+                       }
+                       
+                   }
         }
+        
+       
           
     }
     
     func transactionErrored(transactionId: String, error: TransactionError) {
         
-        if transactionCompletion != nil {
-            transactionCompletion!(.failure(error))
+        print(error)
+        
+        dismissBrokerSelect{ [weak self] in
+            guard let self = self else { return }
+            
+            if self.transactionCompletion != nil {
+                self.transactionCompletion!(.failure(error))
+            }
+            else if self.objcTransactionCompletion != nil {
+                self.objcTransactionCompletion!(nil, ObjcTransactionError(error: error))
+            }
         }
-        else if objcTransactionCompletion != nil {
-            objcTransactionCompletion!(nil, error)
-        }
+        
          
     }
 
     
-    func dismissBrokerSelect() {
+    func dismissBrokerSelect(completion: (() -> Void)?) {
             DispatchQueue.main.async { [weak self] in
-            self?.gatewayFlowViewController.dismiss(animated: false, completion: nil)
+                self?.gatewayFlowViewController.dismiss(animated: false, completion: nil)
+                completion?()
         }
-       
-    }
+        
+}
         
     
 }

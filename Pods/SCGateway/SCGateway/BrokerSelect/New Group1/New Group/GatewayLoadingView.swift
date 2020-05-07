@@ -18,9 +18,10 @@ class GatewayLoadingView: UIView {
     
     var viewState: ViewState = .loading(showBrokerLoading: true) {
         didSet {
-    
-            titleLabel.text = sanitize(viewState.loadingText, brokerName: brokerName)
-            descriptionLabel.attributedText = setDescription(text: viewState.loadingDescription)
+            print(viewState.loadingText)
+            print(viewState.loadingDescription)
+            titleLabel.text = sanitize(viewState.loadingText, brokerName: brokerName )
+            descriptionLabel.attributedText = setDescription(text: sanitize(viewState.loadingDescription, brokerName: Config.userBrokerConfig?.brokerDisplayName))
             
             if case ViewState.loadHoldings = viewState.self {
                 loaderImageView.image = UIImage.gif(name: "holdings-fetching")
@@ -43,11 +44,13 @@ class GatewayLoadingView: UIView {
     
     fileprivate let titleLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.font = UIFont(name: "GraphikApp-Medium", size: 16)
         label.text =  "Connecting to broker gateway"
         label.textColor = Color.TextColor.dark
+        label.sizeToFit()
         return label
     }()
     
@@ -55,9 +58,9 @@ class GatewayLoadingView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont(name: "GraphikApp-Regular", size: 15 )
         //Attributes
-        label.textColor = Color.TextColor.normal
+        label.textColor = Color.TextColor.light
         return label
     }()
     
@@ -75,7 +78,7 @@ class GatewayLoadingView: UIView {
         let label = UILabel()
         label.textAlignment = .center
         let txt = "Powered by"
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont(name: "GraphikApp-Regular", size: 12 )
         label.text = txt
         label.textColor = Color.TextColor.light
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -196,9 +199,13 @@ class GatewayLoadingView: UIView {
     func sanitize(_ text: String?, brokerName: String?) -> String? {
         guard var text = text else { return nil }
         let distributorName = Config.gatewayName ?? Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? ""
+        let smallcaseName = Config.gateway?.displayName ?? ""
         
         text = text.replacingOccurrences(of: "<BROKER>", with: "\(brokerName ?? "")")
         text = text.replacingOccurrences(of: "<DISTRIBUTOR>", with: "\(distributorName )")
+        text = text.replacingOccurrences(of: "<SMALLCASE>", with: "\(smallcaseName )")
+        print(brokerName)
+        print(distributorName)
         
         return text
     }

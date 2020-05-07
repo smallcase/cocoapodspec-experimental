@@ -33,19 +33,19 @@ protocol BrokerSelectViewModelProtocol: HeaderFooterTapDelegate {
     
     func getConnectedBrokerConfig (brokersConfigArray: [BrokerConfig]) -> BrokerConfig?
     
-    init(model: BrokerSelectModelProtocol, transactionId: String)
+    init(model: BrokerSelectModelProtocol, transactionId: String,transactionIntent: Bool)
     
 }
 
 protocol BrokerSelectVMDelegate: class {
     func showBrokerSelector()
-    func changeState(to viewState: ViewState)
+    func changeState(to viewState: ViewState, completion: ((Bool) -> Void)?)
     func leprechaunStateChanged()
 }
 
 protocol BrokerSelectCoordinatorVMDelegate: class {
     
-    func dismissBrokerSelect()
+    func dismissBrokerSelect(completion: (() -> Void)?)
     func transactionCompleted(transactionId: String, transactionData: TransactionIntent, authToken: String)
     func transactionErrored(transactionId: String, error: TransactionError)
 }
@@ -60,6 +60,7 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
         
         /// Max number of times the request has to be polled
         static let MAX_POLL_COUNT = 3
+        static let MAX_POLL_HOLDINGS = 15
         
         // number of seconds delay between every poll request
         static let POLL_DELAY_INTERVAL = 2.0
@@ -78,12 +79,15 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
     
     internal weak var coordinatorDelegate: BrokerSelectCoordinatorVMDelegate?
     
+    internal var transactionIntent:Bool
+    
     ///Wrapper for web auth session
     private var webAuthProvider: WebAuthenticationProvider!
     
     /// Gets set Whenever user selects a config (from broker choser
     internal var userBrokerConfig: BrokerConfig? {
         didSet {
+            Config.userBrokerConfig = userBrokerConfig
             triggerFlowBasedOnSelectedBrokerConfig()
         }
     }
@@ -104,8 +108,7 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
         set {
             Config.isLeprechaunActive = newValue
             delegate?.leprechaunStateChanged()
-            
-        }
+            }
     }
     
     // For Polling transaction status (in case of pending transaction processing )
@@ -114,6 +117,8 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
     
     // number of times the request has to be polled
     private var pollingRequestsRemaining = Constants.MAX_POLL_COUNT
+    
+    private var pollingReqestsRemainingHoldings = Constants.MAX_POLL_HOLDINGS
     
     // MARK: - Table View Data source
     internal  var numberOfItems: Int {
@@ -146,7 +151,10 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
         var absoluteBrokerName = Config.broker?.name
         if let broker = Config.broker {
             if broker.name?.contains(Constants.leprechaunPostFix) ?? false {
-                leprechaunActivated = true
+                if !leprechaunActivated {
+                    leprechaunActivated = true
+                }
+                
                 absoluteBrokerName = broker.name?.replacingOccurrences(of: Constants.leprechaunPostFix, with: "")
             }
         }
@@ -165,6 +173,10 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
         
         // removes leprechaun substring if set
         if userBrokerConfig != nil {
+            if(transactionIntent)
+            {
+                delegate?.changeState(to: .orderFlowWaiting, completion: nil)
+            }
             initiateGatewayWebView(transactionId: transactionId)
         }
         else {
@@ -243,17 +255,68 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
         }
         
         if (err != nil) {
+            print("Error \(err!)")
             webAuthProvider = nil
-            //TODO: Check Error Case
-            var responseError: TransactionError = .apiError
-            if ((err as? WebAuthenticationProvider.Error) != nil) {
-                responseError = .userCancelled
+            SCGateway.shared.fetchTransactionStatus(transactionId: transactionId) { [weak self] (result) in
+                switch result {
+                case .success(let response):
+                    guard
+                        let status = response.data?.transaction?.status,
+                        let statusType = TransactionOrderStatus(rawValue: status) else
+                    {
+                        //  self?.coordinatorDelegate?.dismissBrokerSelect()
+                        self?.coordinatorDelegate?.transactionErrored(transactionId: self!.transactionId, error: .invalidResponse)
+                        return
+                        
+                    }
+                    
+                    if self?.isTransactionErrored(trxError: response.data?.transaction?.error) ?? true {
+                        
+                        self?.handleTransactionError(error: response.data!.transaction!.error! , completionStatus: .errored, errorReason: nil)
+                        
+                    }
+                    else {
+                        switch statusType {
+                        case .used , .initialized :
+                            if response.data?.transaction?.expired ?? false {
+                                self?.coordinatorDelegate?.transactionErrored(transactionId: self!.transactionId, error: .transactionExpired)
+                            }else
+                            {
+                                self?.coordinatorDelegate?.transactionErrored(transactionId: self?.transactionId ?? "", error: .userCancelled)
+                                self?.markTransactionErrored(.userCancelled)
+                            }
+                            
+                        case .errored :
+                            self?.coordinatorDelegate?.transactionErrored(transactionId: self?.transactionId ?? "", error: .internalError)
+                        case .completed :
+                            self?.handleTransactionSuccess(transactionId: self?.transactionId ?? "", transaction: response.data!.transaction!, transactionStatus: statusType, errorReason: nil, completionStatus: .completed)
+                        default:
+                            //TODO
+                            guard let transactionData = response.data?.transaction else {
+                                return
+                            }
+                            guard let intentObject = SCGateway.shared.getTransactionType(transactionData: transactionData)
+                            else { return }
+                            if case TransactionIntent.holdingsImport = intentObject {
+                                self?.pollForTransactionStatusHoldings()
+                            }else
+                            {
+                               self?.pollForTransactionStatus()
+                            }
+                            
+                        }
+                        
+                        
+                    }
+                    
+                case .failure(let error):
+                    // self?.coordinatorDelegate?.dismissBrokerSelect()
+                    self?.coordinatorDelegate?.transactionErrored(transactionId: self!.transactionId, error: error)
+                    
+                }
             }
             
-            coordinatorDelegate?.transactionErrored(transactionId: self.transactionId, error: responseError)
             
-            markTransactionErrored(responseError)
-            coordinatorDelegate?.dismissBrokerSelect()
         }
         
         //Destroy web auth instance
@@ -277,7 +340,7 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
                     let status = response.data?.transaction?.status,
                     let statusType = TransactionOrderStatus(rawValue: status) else
                 {
-                    self?.coordinatorDelegate?.dismissBrokerSelect()
+                    //  self?.coordinatorDelegate?.dismissBrokerSelect()
                     self?.coordinatorDelegate?.transactionErrored(transactionId: self!.transactionId, error: .invalidResponse)
                     return
                     
@@ -292,9 +355,9 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
                     self?.handleTransactionSuccess(transactionId: self?.transactionId ?? "", transaction: response.data!.transaction!, transactionStatus: statusType, errorReason: errorReason, completionStatus: completionStatus)
                 }
                 
-            case .failure(_):
-                self?.coordinatorDelegate?.dismissBrokerSelect()
-                self?.coordinatorDelegate?.transactionErrored(transactionId: self!.transactionId, error: .invalidTransactionId)
+            case .failure(let error):
+                // self?.coordinatorDelegate?.dismissBrokerSelect()
+                self?.coordinatorDelegate?.transactionErrored(transactionId: self!.transactionId, error: error)
                 
             }
         }
@@ -319,17 +382,21 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
             }
             
             resetPollingCounter()
+            resetPollingStatusHoldings()
             //TODO: - Show Errored UI Screen
         }
         
         if trxError! == TransactionError.userMismatch {
-            delegate?.changeState(to: .loginFailed)
+            delegate?.changeState(to: .loginFailed){ [weak self] _ in
+                guard let self = self else { return }
+                self.coordinatorDelegate?.transactionErrored(transactionId: self.transactionId, error: trxError!)
+            }
         }
         else {
-            coordinatorDelegate?.dismissBrokerSelect()
+            coordinatorDelegate?.transactionErrored(transactionId: self.transactionId, error: trxError!)
+            
         }
         
-        coordinatorDelegate?.transactionErrored(transactionId: self.transactionId, error: trxError!)
         
     }
     
@@ -338,26 +405,37 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
             let intentObject = SCGateway.shared.getTransactionType(transactionData: transaction)
             else { return }
         let authToken = transaction.success.smallcaseAuthToken
+        print("TransactionStatus \(transactionStatus)")
+        print("errorReason \(String(describing: errorReason ?? TransactionErrorReason(rawValue: "error reason empty")))")
+        print("completionstatus \(completionStatus)")
         switch transactionStatus {
         case .completed:
-            
             resetPollingCounter()
-            
-            if case TransactionIntent.connect = intentObject {
-                if SCGateway.shared.delegate?.shouldDisplayConnectCompletion?() ?? true {
-                    delegate?.changeState(to: .connected)
-                }
+            resetPollingStatusHoldings()
+            switch intentObject {
+            case TransactionIntent.connect :
+                 if SCGateway.shared.delegate?.shouldDisplayConnectCompletion?() ?? true {
+                                   delegate?.changeState(to: .connected) { [weak self] _ in
+                                       guard let self = self else { return }
+                                       self.coordinatorDelegate?.transactionCompleted(transactionId: transactionId, transactionData: intentObject, authToken: authToken!)
+                                       
+                                   }
+                               }
+                               else {
+                                   self.coordinatorDelegate?.transactionCompleted(transactionId: transactionId, transactionData: intentObject, authToken: authToken!)
+                               }
+            case TransactionIntent.holdingsImport:
+                 delegate?.changeState(to: .loadHoldings, completion: nil)
+                DispatchQueue.main.asyncAfter(wallDeadline: .now() + 3, execute: {
+                    self.coordinatorDelegate?.transactionCompleted(transactionId: transactionId, transactionData: intentObject, authToken: authToken!)
+                })
+            default:
+                coordinatorDelegate?.transactionCompleted(transactionId: transactionId, transactionData: intentObject, authToken: authToken!)
             }
-            else {
-                coordinatorDelegate?.dismissBrokerSelect()
-            }
-            coordinatorDelegate?.transactionCompleted(transactionId: transactionId, transactionData: intentObject, authToken: authToken!)
-            
             
         case .initialized, .used:
             
             switch completionStatus {
-                
                 
             case .errored, .cancelled:
                 
@@ -370,12 +448,16 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
                 
                 if case TransactionIntent.connect = intentObject {
                     //Broker mismatch
-                    delegate?.changeState(to: .loginFailed)
+                    delegate?.changeState(to: .loginFailed) { [weak self] _ in
+                        guard let self = self else { return }
+                        self.coordinatorDelegate?.transactionErrored(transactionId: transactionId, error: transactionError)
+                        
+                        
+                    }
                 }
                 else {
-                    coordinatorDelegate?.dismissBrokerSelect()
+                    coordinatorDelegate?.transactionErrored(transactionId: transactionId, error: transactionError)
                 }
-                coordinatorDelegate?.transactionErrored(transactionId: transactionId, error: transactionError)
                 
             //TODO:- Handle Failiure UI Screens
             default:
@@ -387,26 +469,42 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
         case .processing:
             
             if case TransactionIntent.holdingsImport = intentObject {
-                guard let authId = transaction.authId else { return }
-                coordinatorDelegate?.dismissBrokerSelect()
-                coordinatorDelegate?.transactionCompleted(transactionId: transactionId, transactionData: intentObject, authToken: authId)
+                //guard let authId = transaction.authId else { return }
+                delegate?.changeState(to: .loadHoldings, completion: nil)
+                pollForTransactionStatusHoldings()
+                //coordinatorDelegate?.transactionCompleted(transactionId: transactionId, transactionData: intentObject, authToken: authId)
                 return
             }
             else {
+                if case TransactionIntent.holdingsImport = intentObject {
+                                                          self.pollForTransactionStatusHoldings()
+                                                      }else
+                                                      {
+                                                         self.pollForTransactionStatus()
+                                                      }
                 
-                switch completionStatus {
+               /** switch completionStatus {
                 case .cancelled :
-                    pollForTransactionStatus()
+                    
                     
                 //TODO:- Trigger Polling
                 case .pending:
-                    delegate?.changeState(to: .orderInQueue)
-                    coordinatorDelegate?.transactionErrored(transactionId: transactionId, error: .userAbandoned)
+                    delegate?.changeState(to: .orderInQueue) { [weak self] _ in
+                        guard let self = self else { return }
+                        self.coordinatorDelegate?.transactionErrored(transactionId: transactionId, error: .userAbandoned)
+                        
+                    }
+                    
                     
                 default :
-                    return
+                    if case TransactionIntent.holdingsImport = intentObject {
+                                           self.pollForTransactionStatusHoldings()
+                                       }else
+                                       {
+                                          self.pollForTransactionStatus()
+                                       }
                     
-                }
+                }*/
             }
             
         default:
@@ -428,7 +526,7 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
         case .marketClosed:
             trxError = .marketClosed
         case .transactionExpired:
-            trxError = .marketClosed
+            trxError = .transactionExpired
         case .apiError:
             trxError = .internalError
         case .userMismatch:
@@ -436,7 +534,7 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
         }
         return trxError
     }
- 
+    
     //MARK:- Polling -
     
     func pollForTransactionStatus() {
@@ -447,17 +545,38 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
         }
         
         if pollingRequestsRemaining == 0 {
-            
             resetPollingCounter()
-            
-            //TODO: - Trigger Completion
-            delegate?.changeState(to: .orderInQueue)
-            coordinatorDelegate?.transactionErrored(transactionId: transactionId, error: .userAbandoned)
+            delegate?.changeState(to: .orderInQueue) { [weak self] _ in
+                guard let self = self else { return }
+                self.coordinatorDelegate?.transactionErrored(transactionId: self.transactionId, error: .userAbandoned)
+            }
         }
             
         else {
             DispatchQueue.main.asyncAfter(deadline: .now() + Constants.POLL_DELAY_INTERVAL) { [weak self] in
                 self?.pollingRequestsRemaining -= 1
+                self?.updateTransactionStatus(completionStatus: .cancelled, errorReason: nil)
+            }
+        }
+    }
+    
+    func pollForTransactionStatusHoldings() {
+        
+        if !pollingTransactionStatus && pollingReqestsRemainingHoldings == Constants.MAX_POLL_HOLDINGS {
+            
+            pollingTransactionStatus = true
+        }
+        
+        if pollingReqestsRemainingHoldings == 0 {
+            resetPollingStatusHoldings()
+            //Mark Errored
+            markTransactionErrored(.timedOutError)
+            self.coordinatorDelegate?.transactionErrored(transactionId: self.transactionId, error: .timedOutError)
+        }
+            
+        else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Constants.POLL_DELAY_INTERVAL) { [weak self] in
+                self?.pollingReqestsRemainingHoldings -= 1
                 self?.updateTransactionStatus(completionStatus: .cancelled, errorReason: nil)
             }
         }
@@ -471,11 +590,23 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol {
         }
     }
     
+    func resetPollingStatusHoldings() {
+        if pollingTransactionStatus {
+                   pollingTransactionStatus = false
+            pollingReqestsRemainingHoldings = Constants.MAX_POLL_HOLDINGS
+               }
+    }
+    
+    
+    
+    
+    
     // MARK: - Initialization
     
-    required init(model: BrokerSelectModelProtocol, transactionId: String) {
+    required init(model: BrokerSelectModelProtocol, transactionId: String,transactionIntent:Bool) {
         self.model = model
         self.transactionId = transactionId
+        self.transactionIntent = transactionIntent
     }
     
 }
@@ -496,7 +627,9 @@ extension BrokerSelectViewModel: HeaderFooterTapDelegate {
     }
     
     func dismissPopup() {
-        coordinatorDelegate?.dismissBrokerSelect()
+        markTransactionErrored(.dismissBrokerChooserError)
+        self.coordinatorDelegate?.transactionErrored(transactionId: self.transactionId, error: .dismissBrokerChooserError)
+        //coordinatorDelegate?.dismissBrokerSelect(completion: nil)
     }
     
 }

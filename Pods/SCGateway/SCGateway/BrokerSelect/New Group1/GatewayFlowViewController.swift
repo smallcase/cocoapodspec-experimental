@@ -28,6 +28,9 @@ class GatewayFlowViewController: UIViewController {
     //Shows smallcase loader gif instead of loading gateway view.
     private var showBrokerLoader = true
     
+    // Is Triggered when the onComplete popup is closed
+    private var transactionCompletion : ((Bool) -> Void)? = nil
+    
     internal var viewModel: BrokerSelectViewModelProtocol!
     
     //.loading(showBrokerLoading: true)
@@ -37,6 +40,7 @@ class GatewayFlowViewController: UIViewController {
             transactionFinalStatusView.brokerName = viewModel.userBrokerConfig?.brokerDisplayName
             transactionFinalStatusView.componentType = viewState
             loadingView.brokerName = viewModel.getConnectedBrokerConfig(brokersConfigArray: Config.brokerConfig)?.brokerDisplayName
+            print("GatewayFlowViewController \(viewModel.getConnectedBrokerConfig(brokersConfigArray: Config.brokerConfig)?.brokerDisplayName)")
             
             switch viewState {
                 
@@ -65,6 +69,13 @@ class GatewayFlowViewController: UIViewController {
                 loadingView.isHidden = true
                 transactionFinalStatusView.isHidden  = true
                 smallcaseLoaderImageView.isHidden = true
+                
+            case .orderFlowWaiting:
+                brokerSelectStackView.isHidden = true
+                loadingView.isHidden = false
+                loadingView.viewState = viewState
+                transactionFinalStatusView.isHidden = true
+                smallcaseLoaderImageView.isHidden = true
   
              //For all other intermediate states, only final transaction completion view would be visible
             default:
@@ -86,7 +97,7 @@ class GatewayFlowViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        view.layer.cornerRadius = 15
+        view.layer.cornerRadius = 5
         view.clipsToBounds = true
         return view
     }()
@@ -114,12 +125,13 @@ class GatewayFlowViewController: UIViewController {
     fileprivate lazy var collectionViewLayout: UICollectionViewLayout = {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: (view.bounds.width - 64)/2, height: 40)
-        layout.headerReferenceSize = CGSize(width: view.bounds.width, height: 120)
+        layout.itemSize = CGSize(width: 148, height: 42)
+        layout.headerReferenceSize = CGSize(width: view.bounds.width, height: (requiredHeight(width: 312, labelText: ViewState.brokerSelect.copyConfig?.subTitle ?? "" , font: UIFont(name: "GraphikApp-Regular", size: 15 )!, attributed: true)+requiredHeight(width: 312, labelText: ViewState.brokerSelect.copyConfig?.title ?? "" , font: UIFont(name: "GraphikApp-Medium", size: 22 )!, attributed: false)+62))
         layout.minimumInteritemSpacing = 16
+        layout.minimumLineSpacing = 16
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 24, left: 24, bottom: 48, right: 24)
-        layout.footerReferenceSize = CGSize(width: view.bounds.width, height: 64)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: (view.bounds.width - 312)/2, bottom: 24, right: (view.bounds.width - 312)/2)
+        layout.footerReferenceSize = CGSize(width: view.bounds.width, height: 60)
         return layout
     }()
     
@@ -141,6 +153,7 @@ class GatewayFlowViewController: UIViewController {
     /// Shows Collection of supported brokers in a popup
     fileprivate lazy var brokerSelectCollectionView: ContentSizedCollectionView = {
         
+        
         let cv = ContentSizedCollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         
         //Register cells
@@ -156,6 +169,7 @@ class GatewayFlowViewController: UIViewController {
         //Properties
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.backgroundColor = .white
+        //cv.contentSize = CGSize(width: view.bounds.width, height: cv.collectionViewLayout.collectionViewContentSize.height)
         
         return cv
     }()
@@ -284,7 +298,7 @@ extension GatewayFlowViewController: UICollectionViewDataSource {
             let urlStr = "\(Constants.imageBaseUrl)\(config.broker).png"
             cell.imageUrl = URL(string: urlStr)
         }
-        
+        cell.addShadow()
         
         return cell
     }
@@ -322,10 +336,13 @@ extension GatewayFlowViewController: BrokerSelectVMDelegate {
         
     }
     
-    func changeState(to viewState: ViewState) {
-        
+    func changeState(to viewState: ViewState, completion: ((Bool) -> Void)?) {
+        transactionCompletion = completion
         DispatchQueue.main.async { [weak self] in
             self?.viewState = viewState
+            
+            
+            
         }
     }
     
@@ -341,6 +358,7 @@ extension GatewayFlowViewController: BrokerSelectVMDelegate {
 extension GatewayFlowViewController: ViewStateComponentDelegate {
     
     func onClickCancel() {
+        self.transactionCompletion?(true)
         self.dismiss(animated: false, completion: nil)
         self.removeFromParent()
     }

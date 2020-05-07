@@ -54,7 +54,7 @@ class TransactionCompletionStatusView: UIView {
         
         let label = UILabel()
         label.textColor = Color.TextColor.dark
-        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.font = UIFont(name: "GraphikApp-Medium", size: 16)
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -63,8 +63,8 @@ class TransactionCompletionStatusView: UIView {
     fileprivate var descriptionLabel: UILabel = {
         
         let label = UILabel()
-        label.textColor = Color.TextColor.normal
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.textColor = Color.TextColor.light
+        label.font = UIFont(name: "GraphikApp-Regular", size: 15 )
         label.numberOfLines = 0
         return label
     }()
@@ -79,9 +79,9 @@ class TransactionCompletionStatusView: UIView {
     fileprivate var redirectLabel:  UILabel = {
         
         let label = UILabel()
-        label.textColor = Color.TextColor.normal
+        label.textColor = Color.TextColor.light
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont(name: "GraphikApp-Regular", size: 14 )
         return label
     }()
     
@@ -156,11 +156,11 @@ class TransactionCompletionStatusView: UIView {
     
     func setupButton() {
         
-       ctaButton.titleLabel?.font =  UIFont.systemFont(ofSize: 14, weight: .medium)
+       ctaButton.titleLabel?.font =  UIFont(name: "GraphikApp-Medium", size: 15 )
         
         switch componentType! {
         case .orderInQueue:
-            ctaButton.setTitle("Close Window", for: .normal)
+            ctaButton.setTitle("Got it" , for: .normal)
             ctaButton.tintColor = Color.linkBlue
             ctaButton.backgroundColor = .clear
             ctaButton.setTitleColor(Color.linkBlue, for: .normal)
@@ -214,6 +214,7 @@ class TransactionCompletionStatusView: UIView {
             redirectStack.isHidden = true
             buttonStack.isHidden = false
             cancelButton.isHidden = false
+            
             
             
         default:

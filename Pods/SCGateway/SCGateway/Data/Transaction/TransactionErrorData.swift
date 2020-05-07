@@ -8,9 +8,9 @@
 
 import Foundation
 
-public struct TransactionErrorResponse: Codable {
-    var value: Bool
-    var message: String?
+@objc public class TransactionErrorResponse: NSObject, Codable {
+    @objc var value: Bool
+    @objc var message: String?
     var code: Int?
     
     enum CodingKeys: String, CodingKey {

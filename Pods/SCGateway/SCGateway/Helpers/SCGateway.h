@@ -11,6 +11,9 @@
 
 
 @class SCGateway;
+@class ObjCTransactionIntentConnect;
+@class ObjcTransactionIntentTransaction;
+@class ObjcTransactionIntentHoldingsImport;
 
 FOUNDATION_EXPORT double SCGatewayVersionNumber;
 

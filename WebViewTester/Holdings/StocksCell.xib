@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stock_cell" rowHeight="86" id="B2Z-gC-vFw" customClass="StocksCell" customModule="Smart_Investing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B2Z-gC-vFw" id="AeV-3c-qKU">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC8-KD-Egt">
+                        <rect key="frame" x="20" y="6" width="374" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="374" id="5uk-eA-Q6e"/>
+                            <constraint firstAttribute="height" constant="21" id="zXs-6V-61d"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shares" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kw0-Qu-EQs">
+                        <rect key="frame" x="20" y="30" width="374" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="0m2-DI-LmC"/>
+                            <constraint firstAttribute="width" constant="374" id="udd-FK-Gaw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avg price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovl-nA-Ul7">
+                        <rect key="frame" x="20" y="54" width="374" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="374" id="Fvz-Nf-kJw"/>
+                            <constraint firstAttribute="height" constant="21" id="Mi5-F6-hJK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ovl-nA-Ul7" secondAttribute="trailing" constant="20" id="8PD-XG-Dkb"/>
+                    <constraint firstItem="kw0-Qu-EQs" firstAttribute="leading" secondItem="AeV-3c-qKU" secondAttribute="leading" constant="20" id="LFm-my-avT"/>
+                    <constraint firstAttribute="trailing" secondItem="kw0-Qu-EQs" secondAttribute="trailing" constant="20" id="Loo-1A-0Fu"/>
+                    <constraint firstItem="kw0-Qu-EQs" firstAttribute="centerY" secondItem="AeV-3c-qKU" secondAttribute="centerY" id="Q0O-dc-CnQ"/>
+                    <constraint firstItem="ovl-nA-Ul7" firstAttribute="top" secondItem="kw0-Qu-EQs" secondAttribute="bottom" constant="3" id="Q5O-ag-rFg"/>
+                    <constraint firstItem="XC8-KD-Egt" firstAttribute="leading" secondItem="AeV-3c-qKU" secondAttribute="leading" constant="20" id="UMu-VP-3eZ"/>
+                    <constraint firstItem="ovl-nA-Ul7" firstAttribute="leading" secondItem="AeV-3c-qKU" secondAttribute="leading" constant="20" id="ge7-F5-jg5"/>
+                    <constraint firstItem="kw0-Qu-EQs" firstAttribute="top" secondItem="XC8-KD-Egt" secondAttribute="bottom" constant="3" id="hJE-fi-DKy"/>
+                    <constraint firstItem="XC8-KD-Egt" firstAttribute="top" secondItem="AeV-3c-qKU" secondAttribute="top" constant="6" id="iQW-ch-oaq"/>
+                    <constraint firstAttribute="bottom" secondItem="ovl-nA-Ul7" secondAttribute="bottom" constant="11" id="n10-Kd-iha"/>
+                    <constraint firstAttribute="trailing" secondItem="XC8-KD-Egt" secondAttribute="trailing" constant="20" id="nAi-LP-d7V"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="averagePriceLabel" destination="ovl-nA-Ul7" id="c62-6L-9OR"/>
+                <outlet property="sharesLabel" destination="kw0-Qu-EQs" id="GIp-gh-blc"/>
+                <outlet property="titleLabel" destination="XC8-KD-Egt" id="WMf-x5-cef"/>
+            </connections>
+            <point key="canvasLocation" x="182.60869565217394" y="213.61607142857142"/>
+        </tableViewCell>
+    </objects>
+</document>

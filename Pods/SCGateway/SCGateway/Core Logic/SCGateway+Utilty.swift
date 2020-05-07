@@ -93,8 +93,7 @@ internal extension  SCGateway {
             switch result {
             case .success(let response):
                 print(response)
-                guard let transaction = response.data?.transaction,
-                    self?.getTransactionType(transactionData: transaction) != nil
+                guard let transaction = response.data?.transaction
                     else {
                         completion(.failure(TransactionError.invalidTransactionId))
                         return
@@ -105,10 +104,9 @@ internal extension  SCGateway {
                     completion(.failure(.transactionExpired))
                     return
                 }
-                
-                // For any other error case
-                if transaction.error?.value ?? false {
-                    completion(.failure(.internalError))
+     
+                guard self?.getTransactionType(transactionData: transaction) != nil else {
+                    completion(.failure(.invalidTransactionId))
                     return
                 }
                 completion(.success(response))
@@ -189,18 +187,21 @@ internal extension  SCGateway {
             
             
             let authToken = transactionData.success.smallcaseAuthToken ?? Config.sdkToken ?? "" 
-            return .connect(authToken: authToken, transactionData: transactionData)
+            return .connect(smallcaseAuthToken: authToken, transactionData: transactionData)
            
         case Intent.INTENT_TRANSACTION:
             guard let orderData = transactionData.success.data else { return nil }
             let authToken = transactionData.success.smallcaseAuthToken
-            return .transaction(authToken: authToken ?? Config.sdkToken ?? ""
+            return .transaction(smallcaseAuthToken: authToken ?? Config.sdkToken ?? ""
                 , transactionData: orderData)
       
         case Intent.INTENT_HOLDINGS:
 
             guard let authToken = transactionData.success.smallcaseAuthToken ?? transactionData.authId ?? Config.sdkToken else { return nil }
-            return .holdingsImport(authToken: authToken, status: transactionData.status!)
+            guard let transactionId = transactionData.transactionId else {
+                return nil
+            }
+            return .holdingsImport(smallcaseAuthToken: authToken, status: true,transactionId: transactionId )
          
             
         default:

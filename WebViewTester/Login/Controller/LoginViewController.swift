@@ -272,8 +272,9 @@ class LoginViewController: UIViewController {
                     
                 
                         //TODO: - Handle Later
-                    case .holdingsImport(let authToken, let status):
-                       return
+                    
+                    case .holdingsImport(let smallcaseAuthToken, let status, let transactionId):
+                        return
                     }
                     
                     

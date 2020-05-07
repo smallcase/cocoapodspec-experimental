@@ -14,6 +14,14 @@
 		365897612384317B0083F299 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365897602384317B0083F299 /* News.swift */; };
 		36589763238433C90083F299 /* UIImageVIew+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36589762238433C90083F299 /* UIImageVIew+Ext.swift */; };
 		3658977123855F210083F299 /* HistoricalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658977023855F210083F299 /* HistoricalViewController.swift */; };
+		366C262C2464892300C638B1 /* GetHoldingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C26242464892200C638B1 /* GetHoldingsResponse.swift */; };
+		366C262D2464892300C638B1 /* PublicSmallcaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366C26252464892200C638B1 /* PublicSmallcaseCell.xib */; };
+		366C262E2464892300C638B1 /* PublicSmallcaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C26262464892200C638B1 /* PublicSmallcaseCell.swift */; };
+		366C262F2464892300C638B1 /* StocksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C26272464892200C638B1 /* StocksCell.swift */; };
+		366C26302464892300C638B1 /* HoldingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C26282464892200C638B1 /* HoldingsViewController.swift */; };
+		366C26312464892300C638B1 /* PrivateSmallcaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366C26292464892300C638B1 /* PrivateSmallcaseCell.xib */; };
+		366C26322464892300C638B1 /* PrivateSmallcaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C262A2464892300C638B1 /* PrivateSmallcaseCell.swift */; };
+		366C26332464892300C638B1 /* StocksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366C262B2464892300C638B1 /* StocksCell.xib */; };
 		3692146E237FEC5F0087DF04 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692146D237FEC5F0087DF04 /* Transaction.swift */; };
 		36997E142386B4E8002597BF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36997E132386B4E8002597BF /* NetworkManager.swift */; };
 		36997E162386B55B002597BF /* AuthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36997E152386B55B002597BF /* AuthTokenResponse.swift */; };
@@ -59,6 +67,7 @@
 		36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */; };
 		4A934F881781F5401EE314E1 /* Pods_WebViewTesterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4261E9447BFC465711784C /* Pods_WebViewTesterUITests.framework */; };
 		52CB1AA124EE5A70B0A946E9 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734890CFB827C37A3C8BB334 /* Pods_WebViewTesterTests.framework */; };
+		93D0C2C42779B2FCDB516450 /* Pods_WebViewTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4173EB317487C82F89DA3C83 /* Pods_WebViewTester.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +101,14 @@
 		365897602384317B0083F299 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		36589762238433C90083F299 /* UIImageVIew+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageVIew+Ext.swift"; sourceTree = "<group>"; };
 		3658977023855F210083F299 /* HistoricalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalViewController.swift; sourceTree = "<group>"; };
+		366C26242464892200C638B1 /* GetHoldingsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHoldingsResponse.swift; sourceTree = "<group>"; };
+		366C26252464892200C638B1 /* PublicSmallcaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PublicSmallcaseCell.xib; sourceTree = "<group>"; };
+		366C26262464892200C638B1 /* PublicSmallcaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicSmallcaseCell.swift; sourceTree = "<group>"; };
+		366C26272464892200C638B1 /* StocksCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StocksCell.swift; sourceTree = "<group>"; };
+		366C26282464892200C638B1 /* HoldingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoldingsViewController.swift; sourceTree = "<group>"; };
+		366C26292464892300C638B1 /* PrivateSmallcaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivateSmallcaseCell.xib; sourceTree = "<group>"; };
+		366C262A2464892300C638B1 /* PrivateSmallcaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateSmallcaseCell.swift; sourceTree = "<group>"; };
+		366C262B2464892300C638B1 /* StocksCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StocksCell.xib; sourceTree = "<group>"; };
 		3692146D237FEC5F0087DF04 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		36997E132386B4E8002597BF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		36997E152386B55B002597BF /* AuthTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenResponse.swift; sourceTree = "<group>"; };
@@ -155,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D0C2C42779B2FCDB516450 /* Pods_WebViewTester.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +232,21 @@
 				3658977023855F210083F299 /* HistoricalViewController.swift */,
 			);
 			path = Historical;
+			sourceTree = "<group>";
+		};
+		366C2623246488D000C638B1 /* Holdings */ = {
+			isa = PBXGroup;
+			children = (
+				366C26242464892200C638B1 /* GetHoldingsResponse.swift */,
+				366C26282464892200C638B1 /* HoldingsViewController.swift */,
+				366C262A2464892300C638B1 /* PrivateSmallcaseCell.swift */,
+				366C26292464892300C638B1 /* PrivateSmallcaseCell.xib */,
+				366C26262464892200C638B1 /* PublicSmallcaseCell.swift */,
+				366C26252464892200C638B1 /* PublicSmallcaseCell.xib */,
+				366C26272464892200C638B1 /* StocksCell.swift */,
+				366C262B2464892300C638B1 /* StocksCell.xib */,
+			);
+			path = Holdings;
 			sourceTree = "<group>";
 		};
 		36AEFD97237E9AC600E45E63 /* Helpers */ = {
@@ -336,6 +369,7 @@
 		36F7D44322A9485A003B357A /* WebViewTester */ = {
 			isa = PBXGroup;
 			children = (
+				366C2623246488D000C638B1 /* Holdings */,
 				3658976F23855F000083F299 /* Historical */,
 				3658975B23842F380083F299 /* News */,
 				36DC3F222380A7D60058DE04 /* Investments */,
@@ -560,14 +594,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				366C26312464892300C638B1 /* PrivateSmallcaseCell.xib in Resources */,
 				36F7D4B922B10397003B357A /* SearchCell.xib in Resources */,
 				36F7D44F22A9485C003B357A /* LaunchScreen.storyboard in Resources */,
+				366C262D2464892300C638B1 /* PublicSmallcaseCell.xib in Resources */,
 				36AEFDB1237EF69200E45E63 /* SmallcaseConstituentsTVCell.xib in Resources */,
 				36F7D44C22A9485C003B357A /* Assets.xcassets in Resources */,
 				3658975F23842F580083F299 /* NewsTableViewCell.xib in Resources */,
 				36F7D44A22A9485A003B357A /* Main.storyboard in Resources */,
 				36AEFDB3237F044D00E45E63 /* ConstiuentsHeaderView.xib in Resources */,
 				36F7D4A622B0D462003B357A /* CreateTableViewCell.xib in Resources */,
+				366C26332464892300C638B1 /* StocksCell.xib in Resources */,
 				36AEFDA8237EC33E00E45E63 /* SmallcaseTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,16 +717,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				36997E142386B4E8002597BF /* NetworkManager.swift in Sources */,
+				366C26322464892300C638B1 /* PrivateSmallcaseCell.swift in Sources */,
 				36DC3F462383F7290058DE04 /* InvestmentDetailsViewController.swift in Sources */,
 				36F7D4AA22B0D723003B357A /* CreateViewController.swift in Sources */,
 				36AEFDAA237EC8D200E45E63 /* SmallcaseResponse.swift in Sources */,
 				36AEFDA0237EB99F00E45E63 /* CreateTransactionResponse.swift in Sources */,
 				36AEFDA7237EC33E00E45E63 /* SmallcaseTableViewCell.swift in Sources */,
+				366C262F2464892300C638B1 /* StocksCell.swift in Sources */,
 				36DC3F202380A2BA0058DE04 /* SmallcaseListHeaderView.swift in Sources */,
 				36F7D44722A9485A003B357A /* ViewController.swift in Sources */,
 				36DC3F2B2382A5AA0058DE04 /* Constituent.swift in Sources */,
+				366C262E2464892300C638B1 /* PublicSmallcaseCell.swift in Sources */,
 				36DC3F432382E3B60058DE04 /* LoadingOverlay.swift in Sources */,
 				36F7D4AD22B0E936003B357A /* Stock.swift in Sources */,
+				366C262C2464892300C638B1 /* GetHoldingsResponse.swift in Sources */,
 				36DC3F292382A5900058DE04 /* Smallcase.swift in Sources */,
 				36F7D4B822B10397003B357A /* SearchCell.swift in Sources */,
 				36AEFDA4237EC2CA00E45E63 /* SmallcaseListViewController.swift in Sources */,
@@ -701,6 +742,7 @@
 				36F7D4B322B0EA25003B357A /* QueryService.swift in Sources */,
 				36F7D44522A9485A003B357A /* AppDelegate.swift in Sources */,
 				3692146E237FEC5F0087DF04 /* Transaction.swift in Sources */,
+				366C26302464892300C638B1 /* HoldingsViewController.swift in Sources */,
 				3658975E23842F580083F299 /* NewsTableViewCell.swift in Sources */,
 				36DC3F2F2382A74E0058DE04 /* Investment.swift in Sources */,
 				36AEFDB0237EF69200E45E63 /* SmallcaseConstituentsTVCell.swift in Sources */,

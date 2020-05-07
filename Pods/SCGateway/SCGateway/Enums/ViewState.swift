@@ -16,6 +16,8 @@ enum ViewState {
     case loginFailed
     case loadHoldings
     case orderInQueue
+    case orderFlowWaiting
+    
     
     var copyConfig: CopyConfig? {
     switch self {
@@ -33,6 +35,9 @@ enum ViewState {
         
     case .orderInQueue:
         return Config.copyConfig?.orderInQueue
+        
+    case .orderFlowWaiting:
+        return Config.copyConfig?.orderFlowWaiting
         
     default:
         return nil
@@ -64,7 +69,13 @@ enum ViewState {
             return brokerStr ?? "Connecting to broker gateway"
             
         case .loadHoldings:
-            return "Fetching your holdings…"
+            return Config.copyConfig?.postHoldingsImport?.title ?? "Fetching your holdings…"
+            
+        case .orderFlowWaiting:
+            return copyConfig?.title
+            
+            
+            
         default: return nil
         }
     }
@@ -75,7 +86,10 @@ enum ViewState {
             let descriptionString = Config.broker != nil ? Config.copyConfig?.preBrokerChooser?.subTitle : Config.copyConfig?.preConnect.subTitle
             return descriptionString ?? "Redirecting to the broker gateway. Do not press back, refresh or close the page."
         case .loadHoldings:
-            return "Please wait while we fetch holding details from your broker "
+            return Config.copyConfig?.postHoldingsImport?.subTitle ?? "Please wait while we fetch holding details from your broker "
+            
+        case .orderFlowWaiting:
+            return copyConfig?.subTitle
         default: return nil
         }
     }

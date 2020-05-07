@@ -30,6 +30,8 @@ struct GatewayCopyConfig: Codable {
     var orderInQueue: CopyConfig
     var preConnect: CopyConfig
     var preBrokerChooser: CopyConfig?
+    var orderFlowWaiting: CopyConfig
+    var postHoldingsImport: CopyConfig?
 
    
     
@@ -40,6 +42,8 @@ struct GatewayCopyConfig: Codable {
         case orderInQueue = "order-in-queue"
         case preBrokerChooser = "pre-broker-chooser"
         case preConnect = "pre-connect"
+        case orderFlowWaiting = "orderflow-waiting"
+        case postHoldingsImport = "post-holdings-import"
       
         
     }

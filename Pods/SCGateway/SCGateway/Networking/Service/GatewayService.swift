@@ -79,12 +79,23 @@ enum GatewayService: ServiceProtocol {
             return ["transactionId": trxid]
             
         case let .markTransactionErrored(trxId, trxError):
-            return [
-                "transactionId": trxId,
-                "status": "ERRORED",
-                "errorCode": trxError.rawValue,
-                "errorMessage": trxError.markErrorStatus ?? ""
-            ]
+            if trxError == .dismissBrokerChooserError {
+                return [
+                               "transactionId": trxId,
+                               "status": "ERRORED",
+                               "errorCode":  1003,
+                               "errorMessage": trxError.markErrorStatus ?? ""
+                           ]
+            } else
+            {
+                return [
+                                              "transactionId": trxId,
+                                              "status": "ERRORED",
+                                              "errorCode":  trxError.rawValue,
+                                              "errorMessage": trxError.markErrorStatus ?? ""
+                                          ]
+            }
+           
             
         case let .getSmallcases(params):
             return params
@@ -230,11 +241,11 @@ enum GatewayService: ServiceProtocol {
             headerStruct["x-sc-csrf"] = csrf
         }
         
-        if var broker = Config.broker?.name {
+        if let broker = Config.broker?.name {
             
-            if broker.contains("-leprechaun") {
-                broker = broker.replacingOccurrences(of: "-leprechaun", with: "")
-            }
+            //if broker.contains("-leprechaun") {
+             //   broker = broker.replacingOccurrences(of: "-leprechaun", with: "")
+            //}
             
             headerStruct["x-sc-broker"] = broker
         }

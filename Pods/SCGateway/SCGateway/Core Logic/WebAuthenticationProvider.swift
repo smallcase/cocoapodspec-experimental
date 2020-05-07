@@ -32,6 +32,7 @@ final class WebAuthenticationProvider {
     
     @available(iOS 13, *)
     init(url: URL, callbackURLScheme: String?, presentationContextProvider: ASWebAuthenticationPresentationContextProviding?,  completionHandler handler: @escaping (_ responseURL: URL?, _ error: Swift.Error?) -> ()) {
+        print("url \(url)")
     let completionHandler = { (url: URL?, error: Swift.Error?) in
         
         if case ASWebAuthenticationSessionError.canceledLogin? = error {
@@ -51,6 +52,7 @@ final class WebAuthenticationProvider {
 }
     
     init(url: URL, callbackURLScheme: String?,  completionHandler handler: @escaping (_ responseURL: URL?, _ error: Swift.Error?) -> ()) {
+        print("url \(url)")
         let completionHandler = { (url: URL?, error: Swift.Error?) in
             if #available(iOS 12.0, *), case ASWebAuthenticationSessionError.canceledLogin? = error {
                 handler(url, Error.canceledLogin)

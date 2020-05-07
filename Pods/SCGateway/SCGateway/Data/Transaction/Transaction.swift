@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Transaction: Codable {
+ public struct Transaction: Codable {
     
     var orderConfig: OrderConfig?
     var expireAt: String?
@@ -24,7 +24,7 @@ public struct Transaction: Codable {
     var expired: Bool?
     
     
-    struct SuccessData: Codable {
+    public struct SuccessData: Codable {
         var data: OrderData?
         var smallcaseAuthToken: String?
         
@@ -35,10 +35,10 @@ public struct Transaction: Codable {
     }
     
     
-    struct OrderConfig: Codable{
-        var type: String?
-        var scid: String?
-        var name: String?
+    public struct OrderConfig: Codable{
+         var type: String?
+         var scid: String?
+         var name: String?
         
         enum CodingKeys: String, CodingKey {
             case type, scid, name
@@ -81,14 +81,14 @@ public struct OrderBatch: Codable {
     var batchId: String?
     var quantity: Int?
     var status: String
-    var completedDate: String
+    var completedDate: String?
     
     
     enum CodingKeys: String, CodingKey {
         case filled, variety, buyAmount, sellAmount, orders, unplaced, batchId, quantity, status, completedDate
     }
 }
-public struct OrderData: Codable {
+ public struct OrderData: Codable {
     var batches: [OrderBatch]?
     
 }

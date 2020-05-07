@@ -10,43 +10,50 @@ import Foundation
 
 public enum TransactionIntent {
     
-    case connect(authToken: String, transactionData: Transaction)
-    case transaction(authToken: String, transactionData: OrderData)
-    case holdingsImport(authToken: String, status: String)
+    case connect(smallcaseAuthToken: String, transactionData: Transaction)
+    case transaction(smallcaseAuthToken: String, transactionData: OrderData)
+    case holdingsImport(smallcaseAuthToken: String, status: Bool,transactionId: String)
 }
 
 
 @objc(ObjCTransactionIntentConnect)
 final public class _ObjCTransactionIntentConnect: NSObject {
-    let authToken: String
+    @objc  public let authToken: String
+    @objc public let transaction: String?
+    
     let transactionData: Transaction
     
-
+    
     init(_ authToken: String, _ transactionData: Transaction) {
         self.authToken = authToken
         self.transactionData = transactionData
+        self.transaction = try? JSONEncoder().encode(transactionData).base64EncodedString()
     }
 }
 
 @objc(ObjcTransactionIntentTransaction)
 final public class _ObjcTransactionIntentTransaction: NSObject {
-    let authToken: String
+    @objc public let authToken: String
+    @objc public let transaction: String?
+    
     let transactionData: OrderData
     
     init(_ authToken: String, _ transactionData: OrderData) {
         self.authToken = authToken
         self.transactionData = transactionData
-    }
+        self.transaction = try? JSONEncoder().encode(transactionData).base64EncodedString()     }
     
 }
 
 @objc(ObjcTransactionIntentHoldingsImport)
 final public class _ObjcTransactionIntentHoldingsImport: NSObject {
-    let authToken: String
-    let status: String
+    @objc public let authToken: String
+    @objc public let status: Bool
+    @objc public let transactionId: String
     
-    init(_ authToken: String, _ status: String) {
+    init(_ authToken: String, _ status: Bool,_ transactionId: String ) {
         self.authToken = authToken
         self.status = status
+        self.transactionId = transactionId
     }
 }
