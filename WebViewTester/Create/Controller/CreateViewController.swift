@@ -142,7 +142,7 @@ class CreateViewController: UIViewController {
                     
                 case .failure(let error):
                     print("SST TRANSACTION: ERROR: \(error)")
-                    self?.showPopup(title: "SST TRANSACTION: ERROR:", msg: "\(error.message)")
+                    self?.showPopup(title: "SST TRANSACTION: ERROR:", msg: "\(error.message) \(error.rawValue)")
                     
                 }
             })

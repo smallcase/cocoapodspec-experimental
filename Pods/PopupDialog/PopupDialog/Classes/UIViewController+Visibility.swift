@@ -49,5 +49,4 @@ internal extension UIViewController {
             return self.presentedViewController == nil && self.isVisible
         }
     }
-    
 }

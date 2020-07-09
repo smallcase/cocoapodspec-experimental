@@ -133,7 +133,9 @@ class LoginViewController: UIViewController {
                                               brokerConfig: brokerConfig ,
                                               apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
                                               isLeprechaunActive: self.leprechaunSwitch.isOn)
-                   SCGateway.shared.setup(config: config)
+            SCGateway.shared.setup(config: config){data,error in
+                print(data)
+            }
         }
        
     }
@@ -279,8 +281,9 @@ class LoginViewController: UIViewController {
                     
                     
                 case .failure(let error):
+                    
                     print("CONNECT: ERROR :\(error)")
-                    self?.showPopup(title: "Error", msg: "\(error.message)")
+                    self?.showPopup(title: "Error", msg: "\(error.message)  \(error.rawValue)")
                     
                 }
                 print(result)

@@ -52,7 +52,7 @@ class HoldingsViewController: UIViewController {
                        
                    case .failure(let error):
                        print(error)
-                       self?.showPopup(msg: error.message )
+                       self?.showPopup(msg: "\(error.message)  \(error.rawValue)" )
                    }
                }
 
@@ -64,7 +64,7 @@ class HoldingsViewController: UIViewController {
        }
     
     func showPopup(title: String = "Error" , msg: String) {
-           DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                let popup = PopupDialog(title: title, message: msg)
                self?.present(popup, animated: true, completion: nil)
            }
