@@ -22,8 +22,8 @@
 		366C26312464892300C638B1 /* PrivateSmallcaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366C26292464892300C638B1 /* PrivateSmallcaseCell.xib */; };
 		366C26322464892300C638B1 /* PrivateSmallcaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C262A2464892300C638B1 /* PrivateSmallcaseCell.swift */; };
 		366C26332464892300C638B1 /* StocksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366C262B2464892300C638B1 /* StocksCell.xib */; };
-		367CB41924A9BB6000F47859 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CB41824A9BB4E00F47859 /* SCGateway.framework */; };
-		367CB41A24A9BB6000F47859 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 367CB41824A9BB4E00F47859 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3674EBA824B87358003A3B44 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3674EBA724B8726C003A3B44 /* SCGateway.framework */; };
+		3674EBA924B87358003A3B44 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3674EBA724B8726C003A3B44 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3692146E237FEC5F0087DF04 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692146D237FEC5F0087DF04 /* Transaction.swift */; };
 		36997E142386B4E8002597BF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36997E132386B4E8002597BF /* NetworkManager.swift */; };
 		36997E162386B55B002597BF /* AuthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36997E152386B55B002597BF /* AuthTokenResponse.swift */; };
@@ -73,9 +73,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		367CB41724A9BB4E00F47859 /* PBXContainerItemProxy */ = {
+		3674EBA624B8726C003A3B44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 367CB41224A9BB4D00F47859 /* SCGateway.xcodeproj */;
+			containerPortal = 3674EBA124B8726B003A3B44 /* SCGateway.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 36F1DE5F2372A08900E36C39;
 			remoteInfo = SCGateway;
@@ -103,7 +103,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				367CB41A24A9BB6000F47859 /* SCGateway.framework in Embed Frameworks */,
+				3674EBA924B87358003A3B44 /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,7 +131,7 @@
 		366C26292464892300C638B1 /* PrivateSmallcaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivateSmallcaseCell.xib; sourceTree = "<group>"; };
 		366C262A2464892300C638B1 /* PrivateSmallcaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateSmallcaseCell.swift; sourceTree = "<group>"; };
 		366C262B2464892300C638B1 /* StocksCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StocksCell.xib; sourceTree = "<group>"; };
-		367CB41224A9BB4D00F47859 /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = "../scgateway-ios/SCGateway.xcodeproj"; sourceTree = "<group>"; };
+		3674EBA124B8726B003A3B44 /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = "../scgateway-ios/SCGateway.xcodeproj"; sourceTree = "<group>"; };
 		3692146D237FEC5F0087DF04 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		36997E132386B4E8002597BF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		36997E152386B55B002597BF /* AuthTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenResponse.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B2ED8B2EBA12A6AC2B4E23F /* Pods_WebViewTester.framework in Frameworks */,
-				367CB41924A9BB6000F47859 /* SCGateway.framework in Frameworks */,
+				3674EBA824B87358003A3B44 /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,10 +272,10 @@
 			path = Holdings;
 			sourceTree = "<group>";
 		};
-		367CB41324A9BB4D00F47859 /* Products */ = {
+		3674EBA224B8726B003A3B44 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				367CB41824A9BB4E00F47859 /* SCGateway.framework */,
+				3674EBA724B8726C003A3B44 /* SCGateway.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -377,7 +377,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				367CB41224A9BB4D00F47859 /* SCGateway.xcodeproj */,
+				3674EBA124B8726B003A3B44 /* SCGateway.xcodeproj */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -531,6 +531,7 @@
 				36F7D43F22A9485A003B357A /* Resources */,
 				8ED8A465B4E1E61627AD67F4 /* [CP] Embed Pods Frameworks */,
 				3622F79524A6874000A427FA /* Embed Frameworks */,
+				366B6F4724B79127009D369E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -615,8 +616,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 367CB41324A9BB4D00F47859 /* Products */;
-					ProjectRef = 367CB41224A9BB4D00F47859 /* SCGateway.xcodeproj */;
+					ProductGroup = 3674EBA224B8726B003A3B44 /* Products */;
+					ProjectRef = 3674EBA124B8726B003A3B44 /* SCGateway.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -629,11 +630,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		367CB41824A9BB4E00F47859 /* SCGateway.framework */ = {
+		3674EBA724B8726C003A3B44 /* SCGateway.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SCGateway.framework;
-			remoteRef = 367CB41724A9BB4E00F47859 /* PBXContainerItemProxy */;
+			remoteRef = 3674EBA624B8726C003A3B44 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -696,6 +697,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		366B6F4724B79127009D369E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# skip if we run in debug\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\necho \"Skip frameworks cleaning in debug version\"\nexit 0\nfi\n\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
 		};
 		8ED8A465B4E1E61627AD67F4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -985,7 +1003,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -999,7 +1017,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smallcase.smartInvesting;
 				PRODUCT_NAME = "Smart Investing";
 				SWIFT_VERSION = 5.0;
@@ -1013,7 +1031,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1027,7 +1045,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smallcase.smartInvesting;
 				PRODUCT_NAME = "Smart Investing";
 				SWIFT_VERSION = 5.0;

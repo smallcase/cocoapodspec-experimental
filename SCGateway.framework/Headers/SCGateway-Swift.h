@@ -255,7 +255,8 @@ SWIFT_CLASS("_TtC9SCGateway9SCGateway")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SCGateway * _Nonnull shared;)
 + (SCGateway * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, weak) id <SCGatewayTransactionDelegate> _Nullable delegate;
-- (void)setupWithConfig:(GatewayConfig * _Nonnull)config;
+- (void)setupWithConfig:(GatewayConfig * _Nonnull)config SWIFT_DEPRECATED;
+- (void)setupWithConfig:(GatewayConfig * _Nonnull)config completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
 /// <ul>
 ///   <li>
 ///     Parameter: gatewayName -> This is a unique name given to every gateway consumer
@@ -292,10 +293,24 @@ SWIFT_PROTOCOL("_TtP9SCGateway28SCGatewayTransactionDelegate_")
 
 
 
+@class UICollectionViewLayoutAttributes;
+
+SWIFT_CLASS("_TtC9SCGateway33SeparatorCollectionViewFlowLayout")
+@interface SeparatorCollectionViewFlowLayout : UICollectionViewFlowLayout
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)prepareLayout;
+- (UICollectionViewLayoutAttributes * _Nullable)layoutAttributesForDecorationViewOfKind:(NSString * _Nonnull)elementKind atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<UICollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 
 SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 @interface TransactionErrorResponse : NSObject
 @end
+
+
 
 
 
