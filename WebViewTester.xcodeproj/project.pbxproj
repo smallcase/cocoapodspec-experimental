@@ -22,8 +22,6 @@
 		366C26312464892300C638B1 /* PrivateSmallcaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366C26292464892300C638B1 /* PrivateSmallcaseCell.xib */; };
 		366C26322464892300C638B1 /* PrivateSmallcaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C262A2464892300C638B1 /* PrivateSmallcaseCell.swift */; };
 		366C26332464892300C638B1 /* StocksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366C262B2464892300C638B1 /* StocksCell.xib */; };
-		3674EBA824B87358003A3B44 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3674EBA724B8726C003A3B44 /* SCGateway.framework */; };
-		3674EBA924B87358003A3B44 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3674EBA724B8726C003A3B44 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3692146E237FEC5F0087DF04 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692146D237FEC5F0087DF04 /* Transaction.swift */; };
 		36997E142386B4E8002597BF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36997E132386B4E8002597BF /* NetworkManager.swift */; };
 		36997E162386B55B002597BF /* AuthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36997E152386B55B002597BF /* AuthTokenResponse.swift */; };
@@ -51,6 +49,8 @@
 		36DC3F3F2382C4F60058DE04 /* ExitedSmallcaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F3E2382C4F60058DE04 /* ExitedSmallcaseResponse.swift */; };
 		36DC3F432382E3B60058DE04 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F422382E3B60058DE04 /* LoadingOverlay.swift */; };
 		36DC3F462383F7290058DE04 /* InvestmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F452383F7290058DE04 /* InvestmentDetailsViewController.swift */; };
+		36ED526924D0A69700E205F1 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36ED526724D0A5CD00E205F1 /* SCGateway.framework */; };
+		36ED526A24D0A69700E205F1 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36ED526724D0A5CD00E205F1 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36F7D44522A9485A003B357A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D44422A9485A003B357A /* AppDelegate.swift */; };
 		36F7D44722A9485A003B357A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D44622A9485A003B357A /* ViewController.swift */; };
 		36F7D44A22A9485A003B357A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36F7D44822A9485A003B357A /* Main.storyboard */; };
@@ -73,13 +73,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3674EBA624B8726C003A3B44 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3674EBA124B8726B003A3B44 /* SCGateway.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 36F1DE5F2372A08900E36C39;
-			remoteInfo = SCGateway;
-		};
 		36F7D45622A9485C003B357A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 36F7D43922A9485A003B357A /* Project object */;
@@ -103,7 +96,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3674EBA924B87358003A3B44 /* SCGateway.framework in Embed Frameworks */,
+				36ED526A24D0A69700E205F1 /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,7 +124,6 @@
 		366C26292464892300C638B1 /* PrivateSmallcaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivateSmallcaseCell.xib; sourceTree = "<group>"; };
 		366C262A2464892300C638B1 /* PrivateSmallcaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateSmallcaseCell.swift; sourceTree = "<group>"; };
 		366C262B2464892300C638B1 /* StocksCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StocksCell.xib; sourceTree = "<group>"; };
-		3674EBA124B8726B003A3B44 /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = "../scgateway-ios/SCGateway.xcodeproj"; sourceTree = "<group>"; };
 		3692146D237FEC5F0087DF04 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		36997E132386B4E8002597BF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		36997E152386B55B002597BF /* AuthTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenResponse.swift; sourceTree = "<group>"; };
@@ -159,6 +151,7 @@
 		36DC3F3E2382C4F60058DE04 /* ExitedSmallcaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitedSmallcaseResponse.swift; sourceTree = "<group>"; };
 		36DC3F422382E3B60058DE04 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		36DC3F452383F7290058DE04 /* InvestmentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentDetailsViewController.swift; sourceTree = "<group>"; };
+		36ED526724D0A5CD00E205F1 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
 		36F7D44122A9485A003B357A /* Smart Investing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Investing.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36F7D44422A9485A003B357A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36F7D44622A9485A003B357A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -196,7 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B2ED8B2EBA12A6AC2B4E23F /* Pods_WebViewTester.framework in Frameworks */,
-				3674EBA824B87358003A3B44 /* SCGateway.framework in Frameworks */,
+				36ED526924D0A69700E205F1 /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,14 +263,6 @@
 				366C262B2464892300C638B1 /* StocksCell.xib */,
 			);
 			path = Holdings;
-			sourceTree = "<group>";
-		};
-		3674EBA224B8726B003A3B44 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3674EBA724B8726C003A3B44 /* SCGateway.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		36AEFD97237E9AC600E45E63 /* Helpers */ = {
@@ -377,7 +362,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				3674EBA124B8726B003A3B44 /* SCGateway.xcodeproj */,
+				36ED526724D0A5CD00E205F1 /* SCGateway.framework */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -614,12 +599,6 @@
 			mainGroup = 36F7D43822A9485A003B357A;
 			productRefGroup = 36F7D44222A9485A003B357A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 3674EBA224B8726B003A3B44 /* Products */;
-					ProjectRef = 3674EBA124B8726B003A3B44 /* SCGateway.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				36F7D44022A9485A003B357A /* WebViewTester */,
@@ -628,16 +607,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		3674EBA724B8726C003A3B44 /* SCGateway.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SCGateway.framework;
-			remoteRef = 3674EBA624B8726C003A3B44 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		36F7D43F22A9485A003B357A /* Resources */ = {
@@ -1003,7 +972,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1017,7 +986,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 0.2.6;
+				MARKETING_VERSION = 0.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smallcase.smartInvesting;
 				PRODUCT_NAME = "Smart Investing";
 				SWIFT_VERSION = 5.0;
@@ -1031,7 +1000,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 31;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1045,7 +1014,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 0.2.6;
+				MARKETING_VERSION = 0.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smallcase.smartInvesting;
 				PRODUCT_NAME = "Smart Investing";
 				SWIFT_VERSION = 5.0;

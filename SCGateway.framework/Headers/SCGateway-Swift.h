@@ -254,6 +254,9 @@ SWIFT_CLASS("_TtC9SCGateway9SCGateway")
 /// Shared Instance
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SCGateway * _Nonnull shared;)
 + (SCGateway * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull currentTransactionId;)
++ (NSString * _Nonnull)currentTransactionId SWIFT_WARN_UNUSED_RESULT;
++ (void)setCurrentTransactionId:(NSString * _Nonnull)value;
 @property (nonatomic, weak) id <SCGatewayTransactionDelegate> _Nullable delegate;
 - (void)setupWithConfig:(GatewayConfig * _Nonnull)config SWIFT_DEPRECATED;
 - (void)setupWithConfig:(GatewayConfig * _Nonnull)config completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
@@ -309,6 +312,8 @@ SWIFT_CLASS("_TtC9SCGateway33SeparatorCollectionViewFlowLayout")
 SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 @interface TransactionErrorResponse : NSObject
 @end
+
+
 
 
 

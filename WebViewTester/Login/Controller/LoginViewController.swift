@@ -153,6 +153,34 @@ class LoginViewController: UIViewController {
         ENVIRONMENT = getApiEnv(index: sender.selectedSegmentIndex)
     }
     
+   
+    @IBAction func OnClickTransactionId(_ sender: Any) {
+        promptForTransactionId()
+    
+    }
+    
+   
+    @IBAction func copyToClipBoard(_ sender: Any){
+        UIPasteboard.general.string = SCGateway.currentTransactionId
+    }
+    
+    func promptForTransactionId() {
+        
+        let ac = UIAlertController(title: "Enter transactionId", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        
+        let submitAction = UIAlertAction(title: "Trigger Transaction", style: .default) { [weak self] _ in
+            //  let answer =
+            
+            self?.connectGateway(transactionId: ac.textFields![0].text ?? "")
+            // do something interesting with "answer" here
+        }
+        
+        ac.addAction(submitAction)
+        
+        present(ac, animated: true)
+    }
+    
     @IBAction func onClickConnect(_ sender: Any) {
         
         createTransaction()
