@@ -49,8 +49,8 @@
 		36DC3F3F2382C4F60058DE04 /* ExitedSmallcaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F3E2382C4F60058DE04 /* ExitedSmallcaseResponse.swift */; };
 		36DC3F432382E3B60058DE04 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F422382E3B60058DE04 /* LoadingOverlay.swift */; };
 		36DC3F462383F7290058DE04 /* InvestmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F452383F7290058DE04 /* InvestmentDetailsViewController.swift */; };
-		36ED526924D0A69700E205F1 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36ED526724D0A5CD00E205F1 /* SCGateway.framework */; };
-		36ED526A24D0A69700E205F1 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36ED526724D0A5CD00E205F1 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		36ED527E24D0BF8700E205F1 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36ED527C24D0BF8100E205F1 /* SCGateway.framework */; };
+		36ED527F24D0BF8700E205F1 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36ED527C24D0BF8100E205F1 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36F7D44522A9485A003B357A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D44422A9485A003B357A /* AppDelegate.swift */; };
 		36F7D44722A9485A003B357A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D44622A9485A003B357A /* ViewController.swift */; };
 		36F7D44A22A9485A003B357A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36F7D44822A9485A003B357A /* Main.storyboard */; };
@@ -96,7 +96,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				36ED526A24D0A69700E205F1 /* SCGateway.framework in Embed Frameworks */,
+				36ED527F24D0BF8700E205F1 /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,7 +151,7 @@
 		36DC3F3E2382C4F60058DE04 /* ExitedSmallcaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitedSmallcaseResponse.swift; sourceTree = "<group>"; };
 		36DC3F422382E3B60058DE04 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		36DC3F452383F7290058DE04 /* InvestmentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentDetailsViewController.swift; sourceTree = "<group>"; };
-		36ED526724D0A5CD00E205F1 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
+		36ED527C24D0BF8100E205F1 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
 		36F7D44122A9485A003B357A /* Smart Investing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Investing.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36F7D44422A9485A003B357A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36F7D44622A9485A003B357A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B2ED8B2EBA12A6AC2B4E23F /* Pods_WebViewTester.framework in Frameworks */,
-				36ED526924D0A69700E205F1 /* SCGateway.framework in Frameworks */,
+				36ED527E24D0BF8700E205F1 /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +362,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				36ED526724D0A5CD00E205F1 /* SCGateway.framework */,
+				36ED527C24D0BF8100E205F1 /* SCGateway.framework */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
