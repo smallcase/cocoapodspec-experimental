@@ -11,8 +11,6 @@ struct Constant {
     static let gatewayKey = "gateway"
     static let userJwt = "jwt"
     static let gatewaySegueToWebView = "openGateway"
-    
-    
 }
 
 

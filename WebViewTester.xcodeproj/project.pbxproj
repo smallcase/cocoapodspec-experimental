@@ -22,6 +22,8 @@
 		366C26312464892300C638B1 /* PrivateSmallcaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366C26292464892300C638B1 /* PrivateSmallcaseCell.xib */; };
 		366C26322464892300C638B1 /* PrivateSmallcaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C262A2464892300C638B1 /* PrivateSmallcaseCell.swift */; };
 		366C26332464892300C638B1 /* StocksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366C262B2464892300C638B1 /* StocksCell.xib */; };
+		36862D9024D33C40009312D2 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36862D8F24D33C36009312D2 /* SCGateway.framework */; };
+		36862D9124D33C40009312D2 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36862D8F24D33C36009312D2 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3692146E237FEC5F0087DF04 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3692146D237FEC5F0087DF04 /* Transaction.swift */; };
 		36997E142386B4E8002597BF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36997E132386B4E8002597BF /* NetworkManager.swift */; };
 		36997E162386B55B002597BF /* AuthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36997E152386B55B002597BF /* AuthTokenResponse.swift */; };
@@ -38,6 +40,7 @@
 		36AEFDB5237F053D00E45E63 /* ConstiuentsHeaderVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AEFDB4237F053D00E45E63 /* ConstiuentsHeaderVIew.swift */; };
 		36B34BB622B137B5001FD051 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B34BB522B137B5001FD051 /* LoginViewController.swift */; };
 		36B34BBB22B253BE001FD051 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B34BBA22B253BE001FD051 /* Constants.swift */; };
+		36BBD4D424E19FC30020C9EA /* LeadGenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BBD4D324E19FC30020C9EA /* LeadGenViewController.swift */; };
 		36DC3F202380A2BA0058DE04 /* SmallcaseListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F1F2380A2BA0058DE04 /* SmallcaseListHeaderView.swift */; };
 		36DC3F242380A7F20058DE04 /* InvestmentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F232380A7F20058DE04 /* InvestmentsListViewController.swift */; };
 		36DC3F292382A5900058DE04 /* Smallcase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F282382A5900058DE04 /* Smallcase.swift */; };
@@ -49,8 +52,6 @@
 		36DC3F3F2382C4F60058DE04 /* ExitedSmallcaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F3E2382C4F60058DE04 /* ExitedSmallcaseResponse.swift */; };
 		36DC3F432382E3B60058DE04 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F422382E3B60058DE04 /* LoadingOverlay.swift */; };
 		36DC3F462383F7290058DE04 /* InvestmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC3F452383F7290058DE04 /* InvestmentDetailsViewController.swift */; };
-		36ED527E24D0BF8700E205F1 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36ED527C24D0BF8100E205F1 /* SCGateway.framework */; };
-		36ED527F24D0BF8700E205F1 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36ED527C24D0BF8100E205F1 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36F7D44522A9485A003B357A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D44422A9485A003B357A /* AppDelegate.swift */; };
 		36F7D44722A9485A003B357A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D44622A9485A003B357A /* ViewController.swift */; };
 		36F7D44A22A9485A003B357A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36F7D44822A9485A003B357A /* Main.storyboard */; };
@@ -73,6 +74,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		36862D8E24D33C36009312D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36862D8924D33C35009312D2 /* SCGateway.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 36F1DE5F2372A08900E36C39;
+			remoteInfo = SCGateway;
+		};
 		36F7D45622A9485C003B357A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 36F7D43922A9485A003B357A /* Project object */;
@@ -96,7 +104,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				36ED527F24D0BF8700E205F1 /* SCGateway.framework in Embed Frameworks */,
+				36862D9124D33C40009312D2 /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +132,7 @@
 		366C26292464892300C638B1 /* PrivateSmallcaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrivateSmallcaseCell.xib; sourceTree = "<group>"; };
 		366C262A2464892300C638B1 /* PrivateSmallcaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateSmallcaseCell.swift; sourceTree = "<group>"; };
 		366C262B2464892300C638B1 /* StocksCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StocksCell.xib; sourceTree = "<group>"; };
+		36862D8924D33C35009312D2 /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = "../scgateway-ios/SCGateway.xcodeproj"; sourceTree = "<group>"; };
 		3692146D237FEC5F0087DF04 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		36997E132386B4E8002597BF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		36997E152386B55B002597BF /* AuthTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenResponse.swift; sourceTree = "<group>"; };
@@ -140,6 +149,7 @@
 		36AEFDB4237F053D00E45E63 /* ConstiuentsHeaderVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstiuentsHeaderVIew.swift; sourceTree = "<group>"; };
 		36B34BB522B137B5001FD051 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		36B34BBA22B253BE001FD051 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		36BBD4D324E19FC30020C9EA /* LeadGenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadGenViewController.swift; sourceTree = "<group>"; };
 		36DC3F1F2380A2BA0058DE04 /* SmallcaseListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallcaseListHeaderView.swift; sourceTree = "<group>"; };
 		36DC3F232380A7F20058DE04 /* InvestmentsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsListViewController.swift; sourceTree = "<group>"; };
 		36DC3F282382A5900058DE04 /* Smallcase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smallcase.swift; sourceTree = "<group>"; };
@@ -151,7 +161,6 @@
 		36DC3F3E2382C4F60058DE04 /* ExitedSmallcaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitedSmallcaseResponse.swift; sourceTree = "<group>"; };
 		36DC3F422382E3B60058DE04 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		36DC3F452383F7290058DE04 /* InvestmentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentDetailsViewController.swift; sourceTree = "<group>"; };
-		36ED527C24D0BF8100E205F1 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
 		36F7D44122A9485A003B357A /* Smart Investing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Investing.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36F7D44422A9485A003B357A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36F7D44622A9485A003B357A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B2ED8B2EBA12A6AC2B4E23F /* Pods_WebViewTester.framework in Frameworks */,
-				36ED527E24D0BF8700E205F1 /* SCGateway.framework in Frameworks */,
+				36862D9024D33C40009312D2 /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +272,14 @@
 				366C262B2464892300C638B1 /* StocksCell.xib */,
 			);
 			path = Holdings;
+			sourceTree = "<group>";
+		};
+		36862D8A24D33C35009312D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36862D8F24D33C36009312D2 /* SCGateway.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		36AEFD97237E9AC600E45E63 /* Helpers */ = {
@@ -339,6 +356,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		36BBD4D024E19F9F0020C9EA /* Lead Gen */ = {
+			isa = PBXGroup;
+			children = (
+				36BBD4D324E19FC30020C9EA /* LeadGenViewController.swift */,
+			);
+			path = "Lead Gen";
+			sourceTree = "<group>";
+		};
 		36DC3F222380A7D60058DE04 /* Investments */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,7 +387,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				36ED527C24D0BF8100E205F1 /* SCGateway.framework */,
+				36862D8924D33C35009312D2 /* SCGateway.xcodeproj */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -386,6 +411,7 @@
 		36F7D44322A9485A003B357A /* WebViewTester */ = {
 			isa = PBXGroup;
 			children = (
+				36BBD4D024E19F9F0020C9EA /* Lead Gen */,
 				366C2623246488D000C638B1 /* Holdings */,
 				3658976F23855F000083F299 /* Historical */,
 				3658975B23842F380083F299 /* News */,
@@ -599,6 +625,12 @@
 			mainGroup = 36F7D43822A9485A003B357A;
 			productRefGroup = 36F7D44222A9485A003B357A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 36862D8A24D33C35009312D2 /* Products */;
+					ProjectRef = 36862D8924D33C35009312D2 /* SCGateway.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				36F7D44022A9485A003B357A /* WebViewTester */,
@@ -607,6 +639,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		36862D8F24D33C36009312D2 /* SCGateway.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SCGateway.framework;
+			remoteRef = 36862D8E24D33C36009312D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		36F7D43F22A9485A003B357A /* Resources */ = {
@@ -776,6 +818,7 @@
 				36DC3F242380A7F20058DE04 /* InvestmentsListViewController.swift in Sources */,
 				36B34BBB22B253BE001FD051 /* Constants.swift in Sources */,
 				36F7D4B322B0EA25003B357A /* QueryService.swift in Sources */,
+				36BBD4D424E19FC30020C9EA /* LeadGenViewController.swift in Sources */,
 				36F7D44522A9485A003B357A /* AppDelegate.swift in Sources */,
 				3692146E237FEC5F0087DF04 /* Transaction.swift in Sources */,
 				366C26302464892300C638B1 /* HoldingsViewController.swift in Sources */,

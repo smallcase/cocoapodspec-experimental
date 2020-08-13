@@ -133,9 +133,7 @@ class LoginViewController: UIViewController {
                                               brokerConfig: brokerConfig ,
                                               apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
                                               isLeprechaunActive: self.leprechaunSwitch.isOn)
-            SCGateway.shared.setup(config: config){data,error in
-                print(data)
-            }
+            SCGateway.shared.setup(config: config)
         }
        
     }
@@ -161,7 +159,7 @@ class LoginViewController: UIViewController {
     
    
     @IBAction func copyToClipBoard(_ sender: Any){
-        UIPasteboard.general.string = SCGateway.currentTransactionId
+        //UIPasteboard.general.string = SCGateway.currentTransactionId
     }
     
     func promptForTransactionId() {
