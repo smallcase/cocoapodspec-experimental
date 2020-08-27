@@ -159,7 +159,7 @@ class LoginViewController: UIViewController {
     
    
     @IBAction func copyToClipBoard(_ sender: Any){
-        //UIPasteboard.general.string = SCGateway.currentTransactionId
+        UIPasteboard.general.string = SCGateway.currentTransactionId
     }
     
     func promptForTransactionId() {
