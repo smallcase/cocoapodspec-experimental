@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RxB-wz-Kt9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RxB-wz-Kt9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -793,7 +793,7 @@
                                 <rect key="frame" x="16" y="667" width="382" height="30"/>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rgp-H9-hNW">
-                                <rect key="frame" x="16" y="398" width="382" height="204"/>
+                                <rect key="frame" x="16" y="444" width="382" height="158"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
                             </tableView>
@@ -838,6 +838,15 @@
                                     <action selector="onClickSetup:" destination="dEj-3t-DsY" eventType="touchUpInside" id="iHX-48-RI8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is Amo Disabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-kE-eey">
+                                <rect key="frame" x="20" y="388" width="123.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-eR-IdQ">
+                                <rect key="frame" x="343" y="388" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -848,18 +857,21 @@
                             <constraint firstItem="Rgp-H9-hNW" firstAttribute="leading" secondItem="Bcf-t1-0vg" secondAttribute="leading" id="9cY-Og-D4d"/>
                             <constraint firstItem="Bcf-t1-0vg" firstAttribute="leading" secondItem="4p5-LY-Mpp" secondAttribute="leading" constant="16" id="ASA-tu-wxm"/>
                             <constraint firstItem="Rgp-H9-hNW" firstAttribute="leading" secondItem="4p5-LY-Mpp" secondAttribute="leading" constant="16" id="B9o-36-vRu"/>
+                            <constraint firstItem="Mhp-eR-IdQ" firstAttribute="top" secondItem="XtF-rt-8pt" secondAttribute="bottom" constant="14" id="Cjg-HG-VgV"/>
+                            <constraint firstItem="Rgp-H9-hNW" firstAttribute="top" secondItem="Mhp-eR-IdQ" secondAttribute="bottom" constant="25" id="DTv-Od-2Jq"/>
                             <constraint firstItem="XtF-rt-8pt" firstAttribute="top" secondItem="4p5-LY-Mpp" secondAttribute="top" constant="32" id="GFj-vc-P4o"/>
+                            <constraint firstItem="Vaf-kE-eey" firstAttribute="top" secondItem="XtF-rt-8pt" secondAttribute="bottom" constant="14" id="Hd5-fq-BY9"/>
                             <constraint firstItem="BF6-lG-xLi" firstAttribute="leading" secondItem="4p5-LY-Mpp" secondAttribute="leading" constant="16" id="HsJ-YG-HfU"/>
                             <constraint firstItem="4p5-LY-Mpp" firstAttribute="trailing" secondItem="ry9-1m-HK9" secondAttribute="trailing" constant="16" id="OfT-hh-2PH"/>
-                            <constraint firstItem="Rgp-H9-hNW" firstAttribute="top" secondItem="XtF-rt-8pt" secondAttribute="bottom" constant="24" id="PLS-1C-b1X"/>
-                            <constraint firstItem="Rgp-H9-hNW" firstAttribute="top" secondItem="XtF-rt-8pt" secondAttribute="bottom" constant="24" id="Q7P-hd-hWq"/>
                             <constraint firstItem="BF6-lG-xLi" firstAttribute="leading" secondItem="4p5-LY-Mpp" secondAttribute="leading" constant="16" id="YsP-d4-kWg"/>
                             <constraint firstItem="4p5-LY-Mpp" firstAttribute="trailing" secondItem="vtW-9M-TtM" secondAttribute="trailing" constant="16" id="ZWr-ct-yXK"/>
                             <constraint firstItem="4p5-LY-Mpp" firstAttribute="trailing" secondItem="XtF-rt-8pt" secondAttribute="trailing" constant="16" id="cmW-rd-4B0"/>
                             <constraint firstItem="4p5-LY-Mpp" firstAttribute="trailing" secondItem="pKI-hs-TFF" secondAttribute="trailing" constant="16" id="dHh-og-bGT"/>
+                            <constraint firstItem="4p5-LY-Mpp" firstAttribute="trailing" secondItem="Mhp-eR-IdQ" secondAttribute="trailing" constant="22" id="drn-Mv-hYh"/>
                             <constraint firstItem="pKI-hs-TFF" firstAttribute="leading" secondItem="4p5-LY-Mpp" secondAttribute="leading" constant="16" id="fyi-qD-jZh"/>
                             <constraint firstItem="4p5-LY-Mpp" firstAttribute="trailing" secondItem="pKI-hs-TFF" secondAttribute="trailing" constant="16" id="gnT-Kw-yy0"/>
                             <constraint firstItem="XtF-rt-8pt" firstAttribute="leading" secondItem="4p5-LY-Mpp" secondAttribute="leading" constant="16" id="hJd-sU-1mw"/>
+                            <constraint firstItem="Vaf-kE-eey" firstAttribute="leading" secondItem="4p5-LY-Mpp" secondAttribute="leading" constant="20" id="kfK-jq-QN4"/>
                             <constraint firstItem="4p5-LY-Mpp" firstAttribute="bottom" secondItem="ry9-1m-HK9" secondAttribute="bottom" constant="10" id="l7p-aP-Fk2"/>
                             <constraint firstItem="vtW-9M-TtM" firstAttribute="leading" secondItem="4p5-LY-Mpp" secondAttribute="leading" constant="16" id="mdO-8a-zIA"/>
                             <constraint firstItem="Rgp-H9-hNW" firstAttribute="trailing" secondItem="Bcf-t1-0vg" secondAttribute="trailing" id="pTc-0b-8l8"/>
@@ -895,6 +907,7 @@
                         <outlet property="brokerListTableView" destination="Rgp-H9-hNW" id="jUn-gq-3ON"/>
                         <outlet property="envSegmentControl" destination="QvO-pM-Udm" id="Bf7-7s-QRe"/>
                         <outlet property="gatewayNameTextField" destination="lRG-5q-npd" id="5TB-PC-H8W"/>
+                        <outlet property="isAmoEnabled" destination="Mhp-eR-IdQ" id="fmm-j6-8JB"/>
                         <outlet property="leprechaunSwitch" destination="OUJ-TC-Yee" id="hdu-7v-DRO"/>
                         <outlet property="smartInvestingEnvSegmentControl" destination="PDf-44-6PR" id="hVZ-Iy-Kd6"/>
                     </connections>

@@ -97,6 +97,8 @@ class LoginViewController: UIViewController {
         brokerListTableView.isHidden = !sender.isOn
     }
     
+    @IBOutlet weak var isAmoEnabled:UISwitch!
+    
     var shouldConnect: Bool = false
     //MARK:- Lifecycle
     
@@ -132,7 +134,7 @@ class LoginViewController: UIViewController {
             let config = GatewayConfig(gatewayName: self.gatewayNameTextField.text ?? "",
                                               brokerConfig: brokerConfig ,
                                               apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
-                                              isLeprechaunActive: self.leprechaunSwitch.isOn)
+                                              isLeprechaunActive: self.leprechaunSwitch.isOn, isAmoEnabled: self.isAmoEnabled.isOn)
             SCGateway.shared.setup(config: config)
         }
        

@@ -232,7 +232,8 @@ typedef SWIFT_ENUM(NSInteger, Environment, closed) {
 SWIFT_CLASS("_TtC9SCGateway13GatewayConfig")
 @interface GatewayConfig : NSObject
 @property (nonatomic, copy) NSString * _Null_unspecified gatewayName;
-- (nonnull instancetype)initWithGatewayName:(NSString * _Nonnull)gatewayName brokerConfig:(NSArray<NSString *> * _Nullable)brokerConfig apiEnvironment:(enum Environment)apiEnvironment isLeprechaunActive:(BOOL)isLeprechaunActive OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic) BOOL isAmoEnabled;
+- (nonnull instancetype)initWithGatewayName:(NSString * _Nonnull)gatewayName brokerConfig:(NSArray<NSString *> * _Nullable)brokerConfig apiEnvironment:(enum Environment)apiEnvironment isLeprechaunActive:(BOOL)isLeprechaunActive isAmoEnabled:(BOOL)isAmoEnabled OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -270,6 +271,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 /// </ul>
 - (void)initializeGatewayWithSdkToken:(NSString * _Nonnull)sdkToken completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
 - (void)triggerTransactionFlowWithTransactionId:(NSString * _Nonnull)transactionId presentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(id _Nullable, ObjcTransactionError * _Nullable))completion;
+- (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

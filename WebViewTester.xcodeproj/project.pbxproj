@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18E4B692251A00A400366414 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E4B690251A009F00366414 /* SCGateway.framework */; };
+		18E4B693251A00A400366414 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18E4B690251A009F00366414 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		361995C7241665300054D5CF /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361995C6241665300054D5CF /* UIViewController+Ext.swift */; };
 		3658975923842F300083F299 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658975823842F300083F299 /* NewsViewController.swift */; };
 		3658975E23842F580083F299 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658975C23842F580083F299 /* NewsTableViewCell.swift */; };
@@ -69,8 +71,6 @@
 		7BA997C782895AD512849B43 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D3713FB2D6829EDBD4EF7C /* Pods_WebViewTesterTests.framework */; };
 		9B2ED8B2EBA12A6AC2B4E23F /* Pods_WebViewTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B46379D7336090F28581DDA /* Pods_WebViewTester.framework */; };
 		A56E1FE4C84CB9E051F897D1 /* Pods_WebViewTesterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4A82AD83AB5283351E7E5E /* Pods_WebViewTesterUITests.framework */; };
-		A9539DA724EEC8DE00FD44D2 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9539DA324EEC8B900FD44D2 /* SCGateway.framework */; };
-		A9539DA824EEC8DE00FD44D2 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9539DA324EEC8B900FD44D2 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,13 +88,6 @@
 			remoteGlobalIDString = 36F7D44022A9485A003B357A;
 			remoteInfo = WebViewTester;
 		};
-		A9539DA224EEC8B900FD44D2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A9539D9D24EEC8B900FD44D2 /* SCGateway.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 36F1DE5F2372A08900E36C39;
-			remoteInfo = SCGateway;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -104,7 +97,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A9539DA824EEC8DE00FD44D2 /* SCGateway.framework in Embed Frameworks */,
+				18E4B693251A00A400366414 /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +105,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18E4B690251A009F00366414 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
 		24D3713FB2D6829EDBD4EF7C /* Pods_WebViewTesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4A82AD83AB5283351E7E5E /* Pods_WebViewTesterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		361995C6241665300054D5CF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
@@ -184,7 +178,6 @@
 		36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateViewController+SearchDelegate.swift"; sourceTree = "<group>"; };
 		3D7B63B581DD42F792585C1C /* Pods-WebViewTesterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTesterUITests/Pods-WebViewTesterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B46379D7336090F28581DDA /* Pods_WebViewTester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9539D9D24EEC8B900FD44D2 /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = "../scgateway-ios/SCGateway.xcodeproj"; sourceTree = "<group>"; };
 		AC553BBD8E502644CF44D2F1 /* Pods-WebViewTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTester.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.debug.xcconfig"; sourceTree = "<group>"; };
 		B6854550741B1E3A4E0DD48C /* Pods-WebViewTesterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterTests.release.xcconfig"; path = "Target Support Files/Pods-WebViewTesterTests/Pods-WebViewTesterTests.release.xcconfig"; sourceTree = "<group>"; };
 		C091083A9CBFB7CF18755DCD /* Pods-WebViewTesterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterTests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTesterTests/Pods-WebViewTesterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -198,7 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B2ED8B2EBA12A6AC2B4E23F /* Pods_WebViewTester.framework in Frameworks */,
-				A9539DA724EEC8DE00FD44D2 /* SCGateway.framework in Frameworks */,
+				18E4B692251A00A400366414 /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +372,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				A9539D9D24EEC8B900FD44D2 /* SCGateway.xcodeproj */,
+				18E4B690251A009F00366414 /* SCGateway.framework */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -521,14 +514,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		A9539D9E24EEC8B900FD44D2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A9539DA324EEC8B900FD44D2 /* SCGateway.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -625,12 +610,6 @@
 			mainGroup = 36F7D43822A9485A003B357A;
 			productRefGroup = 36F7D44222A9485A003B357A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = A9539D9E24EEC8B900FD44D2 /* Products */;
-					ProjectRef = A9539D9D24EEC8B900FD44D2 /* SCGateway.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				36F7D44022A9485A003B357A /* WebViewTester */,
@@ -639,16 +618,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		A9539DA324EEC8B900FD44D2 /* SCGateway.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SCGateway.framework;
-			remoteRef = A9539DA224EEC8B900FD44D2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		36F7D43F22A9485A003B357A /* Resources */ = {
