@@ -351,10 +351,40 @@ SWIFT_CLASS_NAMED("_ObjCTransactionIntentConnect")
 @end
 
 
+SWIFT_CLASS_NAMED("_ObjcTransactionIntentAuthoriseHoldings")
+@interface ObjcTransactionIntentAuthoriseHoldings : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
+@property (nonatomic, readonly) BOOL status;
+@property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("_ObjcTransactionIntentFetchFunds")
+@interface ObjcTransactionIntentFetchFunds : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
+@property (nonatomic, readonly) double fund;
+@property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS_NAMED("_ObjcTransactionIntentHoldingsImport")
 @interface ObjcTransactionIntentHoldingsImport : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
 @property (nonatomic, readonly) BOOL status;
+@property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("_ObjcTransactionIntentSipSetup")
+@interface ObjcTransactionIntentSipSetup : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
+@property (nonatomic, readonly, copy) NSString * _Nonnull sipAction;
 @property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
