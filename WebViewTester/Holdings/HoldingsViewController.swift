@@ -18,7 +18,52 @@ class HoldingsViewController: UIViewController {
     var privateSmallcase: Stats? = nil
     @IBOutlet weak var holdingsTableView: UITableView!
     
-  
+    
+    @IBOutlet weak var fundsLabel: UILabel!
+    
+    @IBAction func authoriseHoldings(_ sender: Any) {
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let params = CreateTransactionBody(id: username, intent: IntentType.authoriseHoldings.rawValue, orderConfig: nil)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                guard let transactionId = response.transactionId else { return }
+                self?.startHoldingTrx(transactionId: transactionId)
+                
+                
+            case .failure(let error):
+                print(error)
+                self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                //TODO: - Show Failiure popup
+                
+            }
+        }
+    }
+    
+    
+    @IBAction func fetchFunds(_ sender: Any) {
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let params = CreateTransactionBody(id: username, intent: IntentType.fetchFunds.rawValue, orderConfig: nil)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                guard let transactionId = response.transactionId else { return }
+                self?.startFetchFundsTrx(transactionId: transactionId)
+                
+                
+            case .failure(let error):
+                print(error)
+                self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                //TODO: - Show Failiure popup
+                
+            }
+        }
+    }
+    
     
     @IBAction func updateHoldings(_ sender: Any) {
         guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
@@ -62,6 +107,35 @@ class HoldingsViewController: UIViewController {
                self.showPopup(title: "Gateway Error", msg: err.localizedDescription)
            }
        }
+    
+    func startFetchFundsTrx(transactionId: String) {
+             do {
+                 try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self) { [weak self] (result) in
+                     switch result {
+                     case .success(let response):
+                         print("HOLDING RESPONSE: \(response)")
+                         self?.showPopup(title: "Holdings Response", msg: "\(response)")
+                        
+                         switch response {
+                         case .fetchFunds( _,let fund, _):
+                            self?.fundsLabel.text = String(fund)
+                         default:
+                            return
+                        }
+                         
+                         
+                     case .failure(let error):
+                         print(error)
+                         self?.showPopup(msg: "\(error.message)  \(error.rawValue)" )
+                     }
+                 }
+
+             }
+             catch let err {
+                 print(err)
+                 self.showPopup(title: "Gateway Error", msg: err.localizedDescription)
+             }
+         }
     
     func showPopup(title: String = "Error" , msg: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in

@@ -27,6 +27,54 @@ class InvestmentDetailsViewController: UIViewController {
         }
     }
     
+    @IBAction func sipSetup(_ sender: Any) {
+        
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let orderConfig = OrderConfig(type: nil, scid: nil, iscid: iscid, did: nil, orders: nil)
+        let params = CreateTransactionBody(id: username, intent: IntentType.sipSetup.rawValue, orderConfig: orderConfig)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+                guard let transactionId = response.transactionId else { return }
+                self?.startSipSetupTrx(transactionId: transactionId)
+                
+                
+            case .failure(let error):
+                print(error)
+                self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                //TODO: - Show Failiure popup
+                
+            }
+        }
+    }
+    
+    
+    func startSipSetupTrx(transactionId: String) {
+        do {
+            try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self) { [weak self] (result) in
+                switch result {
+                case .success(let response):
+                    print("HOLDING RESPONSE: \(response)")
+                    self?.showPopup(title: "Sip setup Success", msg: "\(response)")
+                    
+                    
+                case .failure(let error):
+                    print(error)
+                    self?.showPopup(title: "Sip setup failure", msg: "\(error.message)  \(error.rawValue)" )
+                }
+            }
+
+        }
+        catch let err {
+            print(err)
+            self.showPopup(title: "Gateway Error", msg: err.localizedDescription)
+        }
+    }
+    
+    
+    
     var investmentDetails: InvestmentData? {
         didSet {
             guard let investmentDetails = investmentDetails else { return }

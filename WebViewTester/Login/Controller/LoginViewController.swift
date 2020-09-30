@@ -305,7 +305,11 @@ class LoginViewController: UIViewController {
                     
                     case .holdingsImport(let smallcaseAuthToken, let status, let transactionId):
                         return
+                        
+                    default:
+                        return
                     }
+                
                     
                     
                 case .failure(let error):

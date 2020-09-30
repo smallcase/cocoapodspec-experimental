@@ -13,6 +13,9 @@ enum IntentType: String {
     case connect = "CONNECT"
     case transaction = "TRANSACTION"
     case holding = "HOLDINGS_IMPORT"
+    case fetchFunds = "FETCH_FUNDS"
+    case sipSetup = "SIP_SETUP"
+    case authoriseHoldings = "AUTHORISE_HOLDINGS"
 }
 
 enum OrderType: String {
@@ -26,7 +29,7 @@ enum OrderType: String {
     case securities = "SECURITIES"
 }
 struct OrderConfig: Codable {
-    var type: String
+    var type: String?
     var scid: String?
     var iscid: String?
     var did: String?
