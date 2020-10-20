@@ -93,8 +93,10 @@ class SmallcaseProfileViewController: UIViewController {
             try? SCGateway.shared.triggerTransactionFlow(transactionId: trxId, presentingController: self) { (result) in
                 switch result {
                 case.success(let response):
+                    self.showPopup(title: "Success", msg: "\(response)")
                     print(response)
                 case .failure(let error):
+                    self.showPopup(title: "Failed!", msg: "\(error)")
                     print(error)
                 }
             }

@@ -6,7 +6,27 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		dY2BF6iBlso+qrPY0k9BDxVf01U=
+		soyszZ+IY+pbXQDy0BBXbhtFcts=
+		</data>
+		<key>BrokerCollectionViewCell.nib</key>
+		<data>
+		+FNgmxJtTVgzcaMFaho0NC3ZD5o=
+		</data>
+		<key>BrokerSelectFooterView.nib</key>
+		<data>
+		aD5PEMr3ya4fYyUvkljiNdSNaFs=
+		</data>
+		<key>BrokerSelectHeaderView.nib</key>
+		<data>
+		m3ImAbFzqTXKIYrXX24A6EVrDlk=
+		</data>
+		<key>ConnectedConsentView.nib</key>
+		<data>
+		j7pcGZaZPX7lSptASBSDuOdKfT4=
+		</data>
+		<key>GatewayLoadingView.nib</key>
+		<data>
+		Tuv7USdKcKnjtoL6Gc5TJ7hWYZU=
 		</data>
 		<key>GraphikApp-Bold.ttf</key>
 		<data>
@@ -38,7 +58,7 @@
 		</data>
 		<key>Headers/SCGateway-Swift.h</key>
 		<data>
-		rSRopP1GHg5fJPFugPLCgmsTrUU=
+		2gDlsABuEkoG5UhuHVZmS7hJLao=
 		</data>
 		<key>Headers/SCGateway.h</key>
 		<data>
@@ -46,35 +66,39 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Bhg2Uj7rpGpGUoy+e8pZ0LKMSwg=
+		W9MRc7lHhgjDmiLE+GeJ3xvr7kc=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		QAKMx/EZoSJlMNDeBa7Vss4ELZk=
+		7/eBe6TP5eahPePBW26F4d6TBAw=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		QAKMx/EZoSJlMNDeBa7Vss4ELZk=
+		7/eBe6TP5eahPePBW26F4d6TBAw=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		uDqXETOmat4Gu7YrS268bluC3c8=
+		JueOaEBu+gmHBHLS2f+/R1VZw0U=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		+uCbYDLBrvq3WbMEgmEA5hA7nck=
+		cPUkxhNAa2f36fVFtIlrUs+jHUU=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		uDqXETOmat4Gu7YrS268bluC3c8=
+		JueOaEBu+gmHBHLS2f+/R1VZw0U=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		+uCbYDLBrvq3WbMEgmEA5hA7nck=
+		cPUkxhNAa2f36fVFtIlrUs+jHUU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		WflEpfbWR3NXUlDxTl6weKnonJs=
+		</data>
+		<key>TransactionCompletionStatusView.nib</key>
+		<data>
+		zBwC4JLJj75TrSBgUrsSgfNTsZg=
 		</data>
 		<key>connecting-loader.gif</key>
 		<data>
@@ -95,7 +119,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CC6MM0QPbdHpuaRY4incuMYZp7+sNWEotuSk8EIrcBQ=
+			Db8R5WuGF3pFFlmUPUIyLSNUgQpb0OQDGXIXEthDRxg=
+			</data>
+		</dict>
+		<key>BrokerCollectionViewCell.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			eydN0/QUHY6zqwe4sNCSTa3HOSJz3kjQNuldlMXxS80=
+			</data>
+		</dict>
+		<key>BrokerSelectFooterView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			osvzr5bVRkHeeivDCSQM1wMrslFQYMluks8BcYtGjt0=
+			</data>
+		</dict>
+		<key>BrokerSelectHeaderView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			J031p+djZwgB6D9gf2wm2llxUf5BeT39Q1oQK/it9S0=
+			</data>
+		</dict>
+		<key>ConnectedConsentView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			EVjgYTGmOMS3b/XtXWOoWlucC9AMLCWmYj04+dS/t34=
+			</data>
+		</dict>
+		<key>GatewayLoadingView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/itQSdih+cDR2LuRJv0alAm1GbbSSZ3IFIC89EWQVvU=
 			</data>
 		</dict>
 		<key>GraphikApp-Bold.ttf</key>
@@ -151,7 +210,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OyJKjyA20130ZqrC3Bf+3HqP2u0ZjQSmAagCmzqHCmc=
+			WA5jxjoOakKx1hKgaBLe4pvOfurEPXj+skTRB7GCkl8=
 			</data>
 		</dict>
 		<key>Headers/SCGateway.h</key>
@@ -165,42 +224,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IQvyen5Iyv0gdpzDhsfBSseRTb0ASjYsVyLeK3A6Y9A=
+			cPuv7W/Ad2K9vLEgUv5sR1uYy8UBxYUZkDnqOOQejKY=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IQvyen5Iyv0gdpzDhsfBSseRTb0ASjYsVyLeK3A6Y9A=
+			cPuv7W/Ad2K9vLEgUv5sR1uYy8UBxYUZkDnqOOQejKY=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			C8/T8WQu8HY2guedhA8Z9rNwKbAAQhbe6Sw93aCLVzo=
+			i6cYN7kTMejH46k4NMpFWMeBZaWUZeamX7UQGgUCR1E=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZCuaRV1U2Cwrz2L9gR9NzM3nNs2YPJDkdDmB2Nt/eME=
+			qMezqYZC4ANBia1GBDOl9CGS01OlA8Gq77dnhheSipQ=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			C8/T8WQu8HY2guedhA8Z9rNwKbAAQhbe6Sw93aCLVzo=
+			i6cYN7kTMejH46k4NMpFWMeBZaWUZeamX7UQGgUCR1E=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZCuaRV1U2Cwrz2L9gR9NzM3nNs2YPJDkdDmB2Nt/eME=
+			qMezqYZC4ANBia1GBDOl9CGS01OlA8Gq77dnhheSipQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -208,6 +267,13 @@
 			<key>hash2</key>
 			<data>
 			QXd/gDw2I8WYNmPyY4HqXa1hbcVjML0Mv+9399pV9L4=
+			</data>
+		</dict>
+		<key>TransactionCompletionStatusView.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			0RYzfgTGNoJH5lUvSCL3nT9WqmytW7EQI9maz7WiI0s=
 			</data>
 		</dict>
 		<key>connecting-loader.gif</key>
