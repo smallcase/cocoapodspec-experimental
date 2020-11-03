@@ -70,6 +70,9 @@
 		36F7D4B922B10397003B357A /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F7D4B722B10397003B357A /* SearchCell.xib */; };
 		36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */; };
 		7BA997C782895AD512849B43 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D3713FB2D6829EDBD4EF7C /* Pods_WebViewTesterTests.framework */; };
+		88CF2C90253EC5B6007D2D75 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CF2C8E253EC5A8007D2D75 /* SCGateway.framework */; };
+		88CF2C91253EC5B6007D2D75 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88CF2C8E253EC5A8007D2D75 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9B2ED8B2EBA12A6AC2B4E23F /* Pods_WebViewTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B46379D7336090F28581DDA /* Pods_WebViewTester.framework */; };
 		A56E1FE4C84CB9E051F897D1 /* Pods_WebViewTesterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4A82AD83AB5283351E7E5E /* Pods_WebViewTesterUITests.framework */; };
 /* End PBXBuildFile section */
 
