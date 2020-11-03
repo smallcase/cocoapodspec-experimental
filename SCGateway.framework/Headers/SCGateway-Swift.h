@@ -270,6 +270,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 ///   </li>
 /// </ul>
 - (void)initializeGatewayWithSdkToken:(NSString * _Nonnull)sdkToken completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
+- (void)triggerTransactionFlowWithTransactionId:(NSString * _Nonnull)transactionId presentingController:(UIViewController * _Nonnull)presentingController utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams completion:(void (^ _Nonnull)(id _Nullable, ObjcTransactionError * _Nullable))completion;
 - (void)triggerTransactionFlowWithTransactionId:(NSString * _Nonnull)transactionId presentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(id _Nullable, ObjcTransactionError * _Nullable))completion;
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;

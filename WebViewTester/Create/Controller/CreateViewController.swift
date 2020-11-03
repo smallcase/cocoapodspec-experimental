@@ -133,7 +133,15 @@ class CreateViewController: UIViewController {
     func placeTransaction(transactionId: String) {
         
         do {
-            try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self,  completion: { [weak self] (result) in
+            
+            let utmParams = [
+                "utm_source": "summer-mailer" ,
+                "utm_campaign":"summer-sale",
+                "utm_medium":"email",
+                "utm_term":"paid",
+                "utm_content":"toplink"
+            ]
+            try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self, utmParams: utmParams, completion: { [weak self] (result) in
                 switch result {
                 case .success(let response):
                     print("SST TRANSACTION: RESPONSE:  \(response)")

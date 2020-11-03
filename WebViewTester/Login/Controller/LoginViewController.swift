@@ -449,7 +449,7 @@ extension LoginViewController: SCGatewayTransactionDelegate {
                     return
                 }
                 
-                self?.smallcaseAuthToken = authToken
+                //self?.smallcaseAuthToken = authToken
 
         }
     }
