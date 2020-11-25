@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		188DB6FA255C279900D62214 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188DB6F8255C279300D62214 /* SCGateway.framework */; };
-		188DB6FB255C279900D62214 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 188DB6F8255C279300D62214 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1890EE18256E33CC00385B43 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1890EE17256E33CC00385B43 /* SCGateway.framework */; };
 		18AF708E252F6C690038FBD0 /* Pods_WebViewTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B46379D7336090F28581DDA /* Pods_WebViewTester.framework */; };
 		361995C7241665300054D5CF /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361995C6241665300054D5CF /* UIViewController+Ext.swift */; };
 		3658975923842F300083F299 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658975823842F300083F299 /* NewsViewController.swift */; };
@@ -97,7 +96,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				188DB6FB255C279900D62214 /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,7 +103,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		188DB6F8255C279300D62214 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
+		1890EE17256E33CC00385B43 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
 		24D3713FB2D6829EDBD4EF7C /* Pods_WebViewTesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C4A82AD83AB5283351E7E5E /* Pods_WebViewTesterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		361995C6241665300054D5CF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
@@ -191,7 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18AF708E252F6C690038FBD0 /* Pods_WebViewTester.framework in Frameworks */,
-				188DB6FA255C279900D62214 /* SCGateway.framework in Frameworks */,
+				1890EE18256E33CC00385B43 /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +370,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				188DB6F8255C279300D62214 /* SCGateway.framework */,
+				1890EE17256E33CC00385B43 /* SCGateway.framework */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
