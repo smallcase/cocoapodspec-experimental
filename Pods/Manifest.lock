@@ -2,15 +2,11 @@ PODS:
   - DynamicBlurView (4.0.0)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
-  - SCGateway (2.1.9)
 
 DEPENDENCIES:
   - PopupDialog (~> 1.1)
-  - SCGateway (~> 2.1.9)
 
 SPEC REPOS:
-  https://gitlab.com/scGatewayOS/cocoapodspecs.git:
-    - SCGateway
   trunk:
     - DynamicBlurView
     - PopupDialog
@@ -18,8 +14,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   DynamicBlurView: ccf9acd2b20c883cc2c72e3524a04d8d3ee20533
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
-  SCGateway: 08c522935f21001f4c063bfb2e48853fbb136643
 
-PODFILE CHECKSUM: db9ee8af572f2dd26608c374f4f18a129491e4e8
+PODFILE CHECKSUM: 96bad0550f38276d25f3e4b7423f8b97bfe95428
 
 COCOAPODS: 1.10.0
