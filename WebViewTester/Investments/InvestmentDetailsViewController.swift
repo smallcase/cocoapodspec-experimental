@@ -149,7 +149,7 @@ class InvestmentDetailsViewController: UIViewController {
                 guard let response = response else {
                     if let error = error {
                         print("INVESTMENT DETAILS: ERROR: \(error)")
-                        self?.showErrorAlert(err: error)
+//                        self?.showErrorAlert(err: error)
                     }
                     return 
                 }
