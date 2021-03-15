@@ -285,8 +285,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 - (void)getSmallcaseNewsWithScid:(NSString * _Nullable)scid iscid:(NSString * _Nullable)iscid optionalParams:(NSDictionary<NSString *, id> * _Nullable)optionalParams completion:(void (^ _Nonnull)(NSData * _Nullable, NSError * _Nullable))completion;
 - (void)getUserInvestmentsWithIscids:(NSArray<NSString *> * _Nullable)iscids completion:(void (^ _Nonnull)(NSData * _Nullable, NSError * _Nullable))completion;
 - (void)getExitedSmallcasesWithCompletion:(void (^ _Nonnull)(NSData * _Nullable, NSError * _Nullable))completion;
-- (void)getUserInvestmentDetailsWithIscid:(NSString * _Nonnull)iscid completion:(void (^ _Nonnull)(NSData * _Nullable, NSError * _Nullable))completion;
 - (void)markSmallcaseArchiveWithIscid:(NSString * _Nonnull)iscid completion:(void (^ _Nonnull)(NSData * _Nullable, NSError * _Nullable))completion;
+- (void)getUserInvestmentDetailsWithIscid:(NSString * _Nonnull)iscid completion:(void (^ _Nonnull)(NSData * _Nullable, NSError * _Nullable))completion;
 - (void)getHistoricalWithScid:(NSString * _Nonnull)scid benchmarkId:(NSString * _Nonnull)benchmarkId base:(NSInteger)base duration:(NSString * _Nullable)duration completion:(void (^ _Nonnull)(NSData * _Nullable, NSError * _Nullable))completion;
 @end
 

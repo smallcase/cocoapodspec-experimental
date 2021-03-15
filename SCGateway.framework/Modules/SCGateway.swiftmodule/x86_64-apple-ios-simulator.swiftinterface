@@ -255,8 +255,8 @@ extension SCGateway {
   @objc dynamic public func getSmallcaseNews(scid: Swift.String?, iscid: Swift.String?, optionalParams: [Swift.String : Any]?, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
   @objc dynamic public func getUserInvestments(iscids: [Swift.String]?, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
   @objc dynamic public func getExitedSmallcases(completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
-  @objc dynamic public func getUserInvestmentDetails(iscid: Swift.String, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
   @objc dynamic public func markSmallcaseArchive(iscid: Swift.String, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
+  @objc dynamic public func getUserInvestmentDetails(iscid: Swift.String, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
   @objc dynamic public func getHistorical(scid: Swift.String, benchmarkId: Swift.String, base: Swift.Int = 100, duration: Swift.String?, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
 }
 @objc public class TransactionErrorResponse : ObjectiveC.NSObject, Swift.Codable {
