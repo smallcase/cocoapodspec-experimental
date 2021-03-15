@@ -66,6 +66,8 @@
 		36F7D4B822B10397003B357A /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4B622B10397003B357A /* SearchCell.swift */; };
 		36F7D4B922B10397003B357A /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F7D4B722B10397003B357A /* SearchCell.xib */; };
 		36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */; };
+		8865A24325FF56A9000E1966 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8865A24125FF56A6000E1966 /* SCGateway.framework */; };
+		8865A24425FF56A9000E1966 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8865A24125FF56A6000E1966 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A4B74C601CCC9795B6E52229 /* Pods_WebViewTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3244A2ED664300967EB0B8F9 /* Pods_WebViewTester.framework */; };
 		E25571F07EF87353866F4DD5 /* Pods_WebViewTesterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B207BFA3E5EA934F003F552 /* Pods_WebViewTesterUITests.framework */; };
 		F464767DA524D5566584A101 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE7B823F3167EB3CB0EC8AC /* Pods_WebViewTesterTests.framework */; };
@@ -95,6 +97,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8865A24425FF56A9000E1966 /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +178,7 @@
 		36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateViewController+SearchDelegate.swift"; sourceTree = "<group>"; };
 		3E1468CBB59D7298C8EF01EB /* Pods-WebViewTesterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterTests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTesterTests/Pods-WebViewTesterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B207BFA3E5EA934F003F552 /* Pods_WebViewTesterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8865A24125FF56A6000E1966 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
 		8AA8FDF29AD07726D19A9FF6 /* Pods-WebViewTesterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTesterUITests/Pods-WebViewTesterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AACD1E369AF3150C94A39D24 /* Pods-WebViewTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTester.release.xcconfig"; path = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.release.xcconfig"; sourceTree = "<group>"; };
 		ABE7B823F3167EB3CB0EC8AC /* Pods_WebViewTesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B74C601CCC9795B6E52229 /* Pods_WebViewTester.framework in Frameworks */,
+				8865A24325FF56A9000E1966 /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +372,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
+				8865A24125FF56A6000E1966 /* SCGateway.framework */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
