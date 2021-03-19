@@ -66,8 +66,8 @@
 		36F7D4B822B10397003B357A /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4B622B10397003B357A /* SearchCell.swift */; };
 		36F7D4B922B10397003B357A /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F7D4B722B10397003B357A /* SearchCell.xib */; };
 		36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */; };
-		88CFED982604887E00B0B13D /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CFED962604887900B0B13D /* SCGateway.framework */; };
-		88CFED992604887E00B0B13D /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88CFED962604887900B0B13D /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88CFEDBA26048E2B00B0B13D /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88CFEDB826048E2000B0B13D /* SCGateway.framework */; };
+		88CFEDBB26048E2B00B0B13D /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88CFEDB826048E2000B0B13D /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A4B74C601CCC9795B6E52229 /* Pods_WebViewTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3244A2ED664300967EB0B8F9 /* Pods_WebViewTester.framework */; };
 		E25571F07EF87353866F4DD5 /* Pods_WebViewTesterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B207BFA3E5EA934F003F552 /* Pods_WebViewTesterUITests.framework */; };
 		F464767DA524D5566584A101 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE7B823F3167EB3CB0EC8AC /* Pods_WebViewTesterTests.framework */; };
@@ -97,7 +97,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				88CFED992604887E00B0B13D /* SCGateway.framework in Embed Frameworks */,
+				88CFEDBB26048E2B00B0B13D /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,7 +178,7 @@
 		36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateViewController+SearchDelegate.swift"; sourceTree = "<group>"; };
 		3E1468CBB59D7298C8EF01EB /* Pods-WebViewTesterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterTests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTesterTests/Pods-WebViewTesterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B207BFA3E5EA934F003F552 /* Pods_WebViewTesterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		88CFED962604887900B0B13D /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
+		88CFEDB826048E2000B0B13D /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
 		8AA8FDF29AD07726D19A9FF6 /* Pods-WebViewTesterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTesterUITests/Pods-WebViewTesterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AACD1E369AF3150C94A39D24 /* Pods-WebViewTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTester.release.xcconfig"; path = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.release.xcconfig"; sourceTree = "<group>"; };
 		ABE7B823F3167EB3CB0EC8AC /* Pods_WebViewTesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B74C601CCC9795B6E52229 /* Pods_WebViewTester.framework in Frameworks */,
-				88CFED982604887E00B0B13D /* SCGateway.framework in Frameworks */,
+				88CFEDBA26048E2B00B0B13D /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +372,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				88CFED962604887900B0B13D /* SCGateway.framework */,
+				88CFEDB826048E2000B0B13D /* SCGateway.framework */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -527,6 +527,7 @@
 				36F7D43F22A9485A003B357A /* Resources */,
 				18AF7094252F6C790038FBD0 /* Embed Frameworks */,
 				FF3D6F5D711F732395CAC3D8 /* [CP] Embed Pods Frameworks */,
+				88CFEDBE26048E4C00B0B13D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -698,6 +699,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		88CFEDBE26048E4C00B0B13D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# skip if we run in debug\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\necho \"Skip frameworks cleaning in debug version\"\nexit 0\nfi\n\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
 		};
 		A09D6DAAB368ED8CD82CC1F2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -967,7 +985,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 57;
+				CURRENT_PROJECT_VERSION = 58;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -981,7 +999,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 0.5.7;
+				MARKETING_VERSION = 0.5.8;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1011,7 +1029,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 57;
+				CURRENT_PROJECT_VERSION = 58;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1025,7 +1043,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 0.5.7;
+				MARKETING_VERSION = 0.5.8;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
