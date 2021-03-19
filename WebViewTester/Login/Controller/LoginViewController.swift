@@ -135,9 +135,16 @@ class LoginViewController: UIViewController {
                                               brokerConfig: brokerConfig ,
                                               apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
                                               isLeprechaunActive: self.leprechaunSwitch.isOn, isAmoEnabled: self.isAmoEnabled.isOn)
-            SCGateway.shared.setup(config: config)
-        }
+            SCGateway.shared.setup(config: config){ success, error in
+                if (success) {
+                    //init sdk successful
+                    print("Gateway Setup successful")
+                } else {
+                        //retry init
+                }
+            }
        
+        }
     }
     
     @IBAction func onClickSetup(_ sender: Any?) {

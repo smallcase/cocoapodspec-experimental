@@ -46,7 +46,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		SXjOY2DrNJoqAgDEbhPm2qwqBXI=
+		p2cb9PIWvlZ3ZNYP6D/XgwBMlco=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		VaSq/0wViDrc8uD7sZl4qg94umU=
+		5PEDNApKkxA+yGlRsKrqcShS/cM=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		VaSq/0wViDrc8uD7sZl4qg94umU=
+		5PEDNApKkxA+yGlRsKrqcShS/cM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -179,7 +179,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WuYI0vdrfZmVtClbGVNFclIcIq7EjW0FGwFdUddTO9I=
+			EaJf/VhfpCFjWU5Z6mdaMK4UcPZeLT6b/IPwsG9JQm4=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
@@ -200,7 +200,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WuYI0vdrfZmVtClbGVNFclIcIq7EjW0FGwFdUddTO9I=
+			EaJf/VhfpCFjWU5Z6mdaMK4UcPZeLT6b/IPwsG9JQm4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

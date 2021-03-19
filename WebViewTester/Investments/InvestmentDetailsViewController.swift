@@ -159,6 +159,7 @@ class InvestmentDetailsViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func onClickExit(_ sender: UIButton) {
+        
     }
     
     @IBAction func onClickInvestMore(_ sender: Any) {
