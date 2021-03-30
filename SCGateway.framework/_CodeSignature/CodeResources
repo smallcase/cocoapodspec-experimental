@@ -10,7 +10,7 @@
 		</data>
 		<key>FivePaisaPwaViewController.nib</key>
 		<data>
-		Op66UM1mFf5YW+J1kosEgjnEJOE=
+		XJARR3ZxzLW81J669DP8q5DHASQ=
 		</data>
 		<key>GraphikApp-Bold.ttf</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		oKG4+xQG4IVjvqq3dTNK3HS+Rqc=
+		wFvZS5VLJYvHXX0nohOyNtFsuYs=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		lVQZO+alYsB94ev0y1q/QSeLwg0=
+		QHu2HH9wQ7n17hDMewwn7NnR7K8=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		lVQZO+alYsB94ev0y1q/QSeLwg0=
+		QHu2HH9wQ7n17hDMewwn7NnR7K8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -106,7 +106,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			s6wySFy9eW0dkXuNbcfd+L7P4ytgLn40d6Fr5OIiSaA=
+			tYNEiIlHsz0hiOPB17QCRG+m8UJfh96bIf75UWC+1g8=
 			</data>
 		</dict>
 		<key>GraphikApp-Bold.ttf</key>
@@ -190,7 +190,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kEosaFVd4tLTcEh0J8hjSnVBx14dVAm72VCYEWNb5Ho=
+			zxyyfePVsUSsVil6S+w1PO3JkNt3yr+3EdfVG50Dpg0=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
@@ -211,7 +211,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kEosaFVd4tLTcEh0J8hjSnVBx14dVAm72VCYEWNb5Ho=
+			zxyyfePVsUSsVil6S+w1PO3JkNt3yr+3EdfVG50Dpg0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
