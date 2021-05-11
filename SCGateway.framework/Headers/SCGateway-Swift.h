@@ -334,6 +334,7 @@ SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 
 
 
+
 SWIFT_CLASS_NAMED("_ObjCTransactionIntentConnect")
 @interface ObjCTransactionIntentConnect : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
