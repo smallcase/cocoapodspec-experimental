@@ -7,7 +7,7 @@ target 'WebViewTester' do
 
   pod 'PopupDialog', '~> 1.1'
   
-#  pod 'SCGateway' , '~> 2.1.9'
+#  pod 'SCGateway' , '~> 2.2.0'
 
   target 'WebViewTesterTests' do
     inherit! :search_paths

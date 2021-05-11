@@ -53,9 +53,9 @@ class InvestmentDetailsViewController: UIViewController {
     @IBAction func archiveSmt(_ sender: UIButton) {
         
         do {
-            
+
             try SCGateway.shared.markSmallcaseArchive(iscid: iscid!) { [weak self] (response, error) in
-                
+
                 guard let response = response else {
                     if let error = error {
                         print("Archive: ERROR: \(error)")
@@ -63,14 +63,14 @@ class InvestmentDetailsViewController: UIViewController {
                     }
                     return
                 }
-             
-                
+
+
                 let str = String(decoding: response, as: UTF8.self)
-                
+
                 print("Archive Response: \(str)")
                 self?.showPopup(title: "Smallcase Archived", msg: "\(str)")
             }
-            
+
         }
         
     }

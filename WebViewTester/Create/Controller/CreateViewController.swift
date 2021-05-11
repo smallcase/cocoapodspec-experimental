@@ -128,7 +128,6 @@ class CreateViewController: UIViewController {
         selectedStock = nil
         searchBar.text = nil
     }
-    
   
     func placeTransaction(transactionId: String) {
         

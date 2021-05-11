@@ -22,6 +22,7 @@ class LeadGenViewController: UIViewController {
     
     @IBOutlet weak var pincodeTextField: UITextField!
     
+    @IBOutlet weak var logoutButton: UIButton!
     
     
     @IBAction func onClickTriggerLeadGen(_ sender: Any) {
@@ -30,8 +31,26 @@ class LeadGenViewController: UIViewController {
         params["email"] = emailTextField.text
         params["contact"] = contactTextField.text
         params["pinCode"] = pincodeTextField.text
+        
         SCGateway.shared.triggerLeadGen(presentingController: self,params: params)
     }
     
+    @IBAction func logoutButtonClicked(_ sender: UIButton) {
+        
+        SCGateway.shared.logoutUser(presentingController: self, completion: { (success, error) in
+            
+            if(success) {
+                
+                self.showPopup(title: "Success", msg: "Logout Successful")
+                
+            } else {
+                
+                self.showPopup(title: "Success", msg: "Logout Failed \(error.debugDescription)")
+                
+            }
+            
+        })
+        
+    }
     
 }

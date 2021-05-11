@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RxB-wz-Kt9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RxB-wz-Kt9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,7 +41,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SmallcaseListCellReuseId" id="8ic-Dc-9AB">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8ic-Dc-9AB" id="WJa-ep-YJv">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -457,11 +457,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" text="" placeholder="Search Stocks" translatesAutoresizingMaskIntoConstraints="NO" id="Rrb-k2-jBA">
-                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="czS-UA-yLi">
-                                <rect key="frame" x="0.0" y="144" width="414" height="239"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="244"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YW9-9f-2wK">
@@ -660,10 +660,26 @@
                                     <action selector="onClickTriggerLeadGen:" destination="ilD-Zf-vtw" eventType="touchUpInside" id="AXa-GN-uIc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WE7-Ox-UTf">
+                                <rect key="frame" x="73" y="470" width="269" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9r4-ZU-Wxu"/>
+                                    <constraint firstAttribute="width" constant="269" id="EZs-ny-97c"/>
+                                </constraints>
+                                <color key="tintColor" red="0.14901960780000001" green="0.65098039220000004" blue="0.82745098039999998" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButtonClicked:" destination="ilD-Zf-vtw" eventType="touchUpInside" id="CxZ-GW-7SM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UoL-Qt-Fy1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="WE7-Ox-UTf" firstAttribute="centerX" secondItem="r2H-Z0-DWz" secondAttribute="centerX" id="45g-gl-wmB"/>
                             <constraint firstItem="k8O-Qb-guA" firstAttribute="top" secondItem="wcJ-PW-WYw" secondAttribute="bottom" constant="20" id="Avk-Tv-k4f"/>
                             <constraint firstItem="rp5-Td-ZRe" firstAttribute="leading" secondItem="UoL-Qt-Fy1" secondAttribute="leading" constant="20" id="HoC-Zt-Yt5"/>
                             <constraint firstItem="wcJ-PW-WYw" firstAttribute="leading" secondItem="UoL-Qt-Fy1" secondAttribute="leading" constant="20" id="Lqh-KG-odE"/>
@@ -679,12 +695,14 @@
                             <constraint firstItem="UoL-Qt-Fy1" firstAttribute="trailing" secondItem="r2H-Z0-DWz" secondAttribute="trailing" constant="72" id="kgF-KM-DoZ"/>
                             <constraint firstItem="UoL-Qt-Fy1" firstAttribute="trailing" secondItem="k8O-Qb-guA" secondAttribute="trailing" constant="20" id="qYy-BD-F3R"/>
                             <constraint firstItem="UoL-Qt-Fy1" firstAttribute="trailing" secondItem="3Z8-Ay-Q4Q" secondAttribute="trailing" constant="20" id="rI4-X2-NwB"/>
+                            <constraint firstItem="WE7-Ox-UTf" firstAttribute="top" secondItem="r2H-Z0-DWz" secondAttribute="bottom" constant="42" id="yAY-0x-tXS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q8i-m5-dLR"/>
                     <connections>
                         <outlet property="contactTextField" destination="wcJ-PW-WYw" id="OkI-Oc-laL"/>
                         <outlet property="emailTextField" destination="rp5-Td-ZRe" id="SOq-KA-bMa"/>
+                        <outlet property="logoutButton" destination="WE7-Ox-UTf" id="Jsx-ri-oWH"/>
                         <outlet property="nameTextField" destination="3Z8-Ay-Q4Q" id="ZS0-Ux-xLK"/>
                         <outlet property="pincodeTextField" destination="k8O-Qb-guA" id="4Iy-Mf-PYV"/>
                     </connections>
@@ -1092,7 +1110,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsTVCell" id="3qb-TU-qvS">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3qb-TU-qvS" id="IFJ-nr-9N1">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>

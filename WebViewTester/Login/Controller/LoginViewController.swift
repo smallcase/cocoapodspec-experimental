@@ -17,7 +17,12 @@ let BrokerList = [
     "hdfc",
     "kotak",
     "kite",
-    
+    "trustline",
+    "upstox",
+    "iifl",
+    "edelweiss",
+    "angelbroking",
+    "motilal"
 ]
 
 //struct Config: GatewayConfig {
@@ -106,8 +111,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         gatewayNameTextField.text = "gatewaydemo"
         SCGateway.shared.delegate = self
-        
         // Do any additional setup after loading the view.
+        
     }
     
     
@@ -153,7 +158,6 @@ class LoginViewController: UIViewController {
         ENVIRONMENT = getApiEnv(index: smartInvestingEnvSegmentControl.selectedSegmentIndex)
         
         promptForInput()
-        
     }
     
     @IBAction func onChangeSmartInvestingEnv(_ sender: UISegmentedControl) {
@@ -292,7 +296,6 @@ class LoginViewController: UIViewController {
     
     
     func connectGateway(transactionId: String) {
-        
         do {
             try SCGateway.shared.triggerTransactionFlow(transactionId: transactionId , presentingController: self) { [weak self]  result in
                 switch result {
@@ -301,7 +304,8 @@ class LoginViewController: UIViewController {
                     switch response {
                     case let .connect(authToken, _):
                         self?.connect(authToken: authToken)
-                    self?.showPopup(title: "Connect Complete", msg: "authToken: \(authToken)")
+                        
+                        self?.showPopup(title: "Connect Complete", msg: "authToken: \(authToken)")
                         
                     case let .transaction(authToken, transactionData):
                         self?.showPopup(title: "Transaction Response", msg: " authTOken : \(authToken), \n data: \(transactionData)")
@@ -336,7 +340,7 @@ class LoginViewController: UIViewController {
             print(err)
         }
     }
-    
+
     
     //MARK:- Extras
     
