@@ -24,6 +24,37 @@ class LeadGenViewController: UIViewController {
     
     @IBOutlet weak var logoutButton: UIButton!
     
+    @IBOutlet weak var utmSourceTextField: UITextField!
+    
+    @IBOutlet weak var utmCampaignTextField: UITextField!
+    
+    @IBOutlet weak var utmMediumTextField: UITextField!
+    
+    @IBOutlet weak var utmContentTextField: UITextField!
+    
+    @IBOutlet weak var utmTermTextField: UITextField!
+    
+    @IBOutlet weak var isRetargeting: UISwitch!
+    
+    lazy var tapRecognizer: UITapGestureRecognizer = {
+        var recognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
+        return recognizer
+    }()
+    
+    override func viewDidLoad() {
+        
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        contactTextField.delegate = self
+        pincodeTextField.delegate = self
+        
+        utmSourceTextField.delegate = self
+        utmMediumTextField.delegate = self
+        utmCampaignTextField.delegate = self
+        utmContentTextField.delegate = self
+        utmTermTextField.delegate = self
+        
+    }
     
     @IBAction func onClickTriggerLeadGen(_ sender: Any) {
         var params:[String:String] = [:]
@@ -32,7 +63,16 @@ class LeadGenViewController: UIViewController {
         params["contact"] = contactTextField.text
         params["pinCode"] = pincodeTextField.text
         
-        SCGateway.shared.triggerLeadGen(presentingController: self,params: params)
+        var map:[String:String] = [:]
+        map["utm_source"] = utmSourceTextField.text
+        map["utm_medium"] = utmMediumTextField.text
+        map["utm_campaign"] = utmCampaignTextField.text
+        map["utm_content"] = utmContentTextField.text
+        map["utm_term"] = utmTermTextField.text
+        
+        let retargeting = isRetargeting.isOn
+        
+        SCGateway.shared.triggerLeadGen(presentingController: self,params: params, utmParams: map, retargeting: retargeting)
     }
     
     @IBAction func logoutButtonClicked(_ sender: UIButton) {
@@ -53,4 +93,36 @@ class LeadGenViewController: UIViewController {
         
     }
     
+}
+
+extension LeadGenViewController: UITextFieldDelegate {
+    
+    @objc func dismissKeyboard() {
+        nameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        contactTextField.resignFirstResponder()
+        pincodeTextField.resignFirstResponder()
+        
+        utmSourceTextField.resignFirstResponder()
+        utmMediumTextField.resignFirstResponder()
+        utmCampaignTextField.resignFirstResponder()
+        utmContentTextField.resignFirstResponder()
+        utmTermTextField.resignFirstResponder()
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        view.removeGestureRecognizer(tapRecognizer)
+        
+        
+    }
 }

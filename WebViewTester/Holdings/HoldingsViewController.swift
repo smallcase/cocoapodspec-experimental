@@ -15,7 +15,9 @@ class HoldingsViewController: UIViewController {
     
     var publicSmallcase: [SmallcaseHoldingDTO] = []
     var stockHoldings: [Holding] = []
-    var privateSmallcase: Stats? = nil
+    var privateSmallcaseStats: Stats? = nil
+    var privateSmallcase: [SmallcaseHoldingDTO] = []
+    var flag = 0
     @IBOutlet weak var holdingsTableView: UITableView!
     
     
@@ -157,18 +159,43 @@ class HoldingsViewController: UIViewController {
                 DispatchQueue.main.async { // Correct
                     self?.publicSmallcase.removeAll()
                     self?.publicSmallcase.append(contentsOf: response.data.data.smallcases.public)
-                        self?.privateSmallcase = response.data.data.smallcases.private.stats
+                    
+//                    if(response.data.data.smallcases.private is Stats) {
+//                        self?.privateSmallcaseStats = response.data.data.smallcases.private
+//                    }
+                    self?.privateSmallcase = response.data.data.smallcases.private
+                    self?.flag = 0
                     self?.stockHoldings.removeAll()
                     self?.stockHoldings.append(contentsOf: response.data.data.securities.holdings)
-            
-                        self?.holdingsTableView.reloadData()
-                     }
+                    self?.holdingsTableView.reloadData()
+                }
                
                 //self?.showPopup(msg: "\(response)")
                 
                 
-            case .failure(let error):
-               self?.showPopup(msg: "\(error)")
+                case .failure(_):
+//               self?.showPopup(msg: "\(error)")
+                
+                NetworkManager.shared.getHoldings2(username: username) { [weak self] (result) in
+                    
+                    switch result {
+                        
+                        case .success(let response):
+                            DispatchQueue.main.async {
+                                self?.publicSmallcase.removeAll()
+                                self?.publicSmallcase.append(contentsOf: response.data.data.smallcases.public)
+                                self?.privateSmallcaseStats = response.data.data.smallcases.private.stats
+                                self?.flag = 1
+                                self?.stockHoldings.removeAll()
+                                self?.stockHoldings.append(contentsOf: response.data.data.securities.holdings)
+                                
+                                self?.holdingsTableView.reloadData()
+                            }
+                        
+                        case .failure(let error):
+                            self?.showPopup(msg: "\(error)")
+                    }
+                }
                 
             }
         }
@@ -179,9 +206,6 @@ class HoldingsViewController: UIViewController {
         holdingsTableView.register(UINib(nibName: "PublicSmallcaseCell", bundle: nil) , forCellReuseIdentifier: "public_smallcase_cell")
         holdingsTableView.register(UINib(nibName: "PrivateSmallcaseCell", bundle: nil) , forCellReuseIdentifier: "private_smallcase_cell")
         holdingsTableView.register(UINib(nibName: "StocksCell", bundle: nil) , forCellReuseIdentifier: "stock_cell")
-        
-       
-       
     }
 }
 
@@ -192,7 +216,7 @@ extension HoldingsViewController :UITableViewDataSource,UITableViewDelegate{
         case 0:
             return "Public Smallcases"
         case 1:
-            return "Priivate Smallcases"
+            return "Private Smallcases"
         default:
             return "Stocks"
         }
@@ -207,7 +231,12 @@ extension HoldingsViewController :UITableViewDataSource,UITableViewDelegate{
         case 0:
             return publicSmallcase.count
         case 1:
-            return 1
+            if(self.flag == 0) {
+                return privateSmallcase.count
+            } else {
+                return 1
+            }
+            
         default:
             return stockHoldings.count
         }
@@ -232,8 +261,7 @@ extension HoldingsViewController :UITableViewDataSource,UITableViewDelegate{
             
             return cell
             
-        } else if (indexPath.section == 2)
-        {
+        } else if (indexPath.section == 2) {
            let simpleTableIdentifier:String = "stock_cell"
             let cell:StocksCell! = tableView.dequeueReusableCell(withIdentifier: simpleTableIdentifier) as? StocksCell
            /** if (cell == nil) {
@@ -246,11 +274,10 @@ extension HoldingsViewController :UITableViewDataSource,UITableViewDelegate{
             print(indexPath.row)
             cell.titleLabel.text = "Name: \(stockHoldings[indexPath.row].name)"
             cell.sharesLabel.text = "Shares: \(stockHoldings[indexPath.row].shares)"
-            cell.averagePriceLabel.text = "Price: \(stockHoldings[indexPath.row].averagePrice ?? 0.00)"
+            cell.averagePriceLabel.text = "Price: \(stockHoldings[indexPath.row].averagePrice)"
             
             return cell
-        }else
-        {
+        } else {
             let simpleTableIdentifier:String = "private_smallcase_cell"
             let cell:PrivateSmallcaseCell! = tableView.dequeueReusableCell(withIdentifier: simpleTableIdentifier) as? PrivateSmallcaseCell
              /**if (cell == nil) {
@@ -259,10 +286,29 @@ extension HoldingsViewController :UITableViewDataSource,UITableViewDelegate{
                  cell = nib[1]
              }*/
             
-            cell.currentValueLabel.text = "Current Value: \(privateSmallcase?.currentValue ?? 0.00)"
-            cell.totalReturnsLabel.text = "Total Returns: \(privateSmallcase?.totalReturns ?? 0.00)"
-             
-             
+            
+            if(self.flag == 0) {
+                
+                cell.nameLabel.text = "Name: \(privateSmallcase[indexPath.row].name ?? "")"
+                
+                if let scValue = privateSmallcase[indexPath.row].stats?.currentValue {
+                    cell.valueLabel.text = "Value: \(scValue)"
+                } else {
+                    cell.valueLabel.text = "Value: NA"
+                }
+                
+                
+                let imgUrl:String! = privateSmallcase[indexPath.row].imageUrl
+                if  imgUrl != nil {
+                    cell.privateScImage.load(url: URL(string: imgUrl)!)
+                }
+                
+            } else {
+                cell.nameLabel.text = "Total returns: \(privateSmallcaseStats?.totalReturns)"
+                cell.valueLabel.text = "Current Value: \(privateSmallcaseStats?.currentValue)"
+//                cell.privateScImage.image = UIImage(named: "gatewaydemoo")
+            }
+
              return cell
         }
     }

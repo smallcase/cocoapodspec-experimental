@@ -18,6 +18,27 @@ struct GetHoldingsResponse:Codable {
     
 }
 
+struct GetHoldingsResponseScObj: Codable {
+    var data:HoldingsDataWrapperDTOscObj
+    var statusCode:Int
+    
+    enum CodingKeys:String, CodingKey {
+        case data,statusCode
+    }
+}
+
+struct HoldingsDataWrapperDTOscObj:Codable{
+    var success:Bool
+    var errors:String?
+    var data:HoldingsDataScObj
+    var snapshotDate:String?
+    var updating:Bool?
+    
+    enum CodingKeys:String,CodingKey{
+        case success,errors,data,snapshotDate,updating
+    }
+}
+
 struct HoldingsDataWrapperDTO:Codable{
     var success:Bool
     var errors:String?
@@ -27,6 +48,17 @@ struct HoldingsDataWrapperDTO:Codable{
     
     enum CodingKeys:String,CodingKey{
         case success,errors,data,snapshotDate,updating
+    }
+}
+
+struct HoldingsDataScObj:Codable {
+    var lastUpdate: String
+    var securities: Securities
+    var smallcases:SmallcasesPriObj
+    var snapshotDate:String
+    var updating:Bool?
+    enum CodingKeys: String,CodingKey {
+        case lastUpdate,securities,smallcases,snapshotDate,updating
     }
 }
 
@@ -49,7 +81,7 @@ struct Securities: Codable{
     
 }
 struct Holding:Codable{
-    var averagePrice:Double?
+    var averagePrice:String?
     var name:String
     var shares:Int
     var ticker:String
@@ -57,8 +89,20 @@ struct Holding:Codable{
         case averagePrice,name,shares,ticker
     }
 }
-struct Smallcases :Codable{
+
+struct SmallcasesPriObj: Codable {
+ 
     var `private`:Private
+    var `public`:[SmallcaseHoldingDTO]
+    
+    enum CodingKeys:String,CodingKey {
+        case `private`,`public`
+    }
+    
+}
+struct Smallcases :Codable{
+//    var `private`:Private
+    var `private`:[SmallcaseHoldingDTO]
     var `public`:[SmallcaseHoldingDTO]
     
     enum CodingKeys:String,CodingKey {

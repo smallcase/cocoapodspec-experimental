@@ -153,9 +153,48 @@ class NetworkManager {
             catch let err {
                 print(err)
                 completion(.failure(NetworkError.parsingError))
+            
             }
         }
        
+        task.resume()
+    }
+    
+    func getHoldings2(username: String, completion: @escaping(Result<GetHoldingsResponseScObj, Error>) -> Void )  {
+        print(username)
+        let urlString = "\(getBaseUrl())/holdings/fetch?id=\(username)"
+        //let params: [String: Any] = ["id": username]
+        
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NetworkError.invalidUrl))
+            return
+        }
+        var urlRequest = URLRequest(url: url)
+        
+        urlRequest.httpMethod = HTTPRequest.get
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        //urlRequest.setValue(username, forHTTPHeaderField: "id")
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard let data = data else {
+                completion(.failure(NetworkError.noData))
+                return
+            }
+            
+            do {
+                print("JSON String: \(String(data: data, encoding: .utf8))")
+                let decodedData = try JSONDecoder().decode(GetHoldingsResponseScObj.self, from: data)
+                print("DECODED DATA")
+                print(decodedData)
+                completion(.success(decodedData))
+            }
+            catch let err {
+                print(err)
+                completion(.failure(NetworkError.parsingError))
+                
+            }
+        }
+        
         task.resume()
     }
     

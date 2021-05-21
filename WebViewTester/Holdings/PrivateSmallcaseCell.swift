@@ -10,9 +10,11 @@ import UIKit
 
 class PrivateSmallcaseCell: UITableViewCell {
 
-    @IBOutlet weak var currentValueLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var totalReturnsLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+    
+    @IBOutlet weak var privateScImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

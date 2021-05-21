@@ -97,7 +97,7 @@ class SmallcaseProfileViewController: UIViewController {
                     print(response)
                     
                 case .failure(let error):
-                    self.showPopup(title: "Failure", msg: "\(error)")
+                    self.showPopup(title: "SMT TRANSACTION: ERROR:", msg: "\(error.message) \(error.rawValue)")
                     print(error)
                 }
             }
