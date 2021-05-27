@@ -1,10 +1,10 @@
 PODS:
-  - DynamicBlurView (4.1.0)
-  - PopupDialog (1.1.1):
-    - DynamicBlurView (~> 4.0)
+  - DynamicBlurView (3.0.1)
+  - PopupDialog (1.1.0):
+    - DynamicBlurView (~> 3.0.1)
 
 DEPENDENCIES:
-  - PopupDialog (~> 1.1)
+  - PopupDialog (= 1.1)
 
 SPEC REPOS:
   trunk:
@@ -12,9 +12,9 @@ SPEC REPOS:
     - PopupDialog
 
 SPEC CHECKSUMS:
-  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
-  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
+  DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
+  PopupDialog: 42fb7a0bc4fafdf89fef8b5b2b127a6023f3e1cc
 
-PODFILE CHECKSUM: ff21dce2914dfa3cb2b97e3b6ca03e19db96c889
+PODFILE CHECKSUM: df08dd335ae8276306f6bac92cad92e3d3a59bbe
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
