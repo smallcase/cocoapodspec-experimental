@@ -3,7 +3,7 @@
 #source 'https://gitlab.com/scGatewayOS/cocoapodspecs.git'
 
 # default source for all other pods
-#source 'https://cdn.cocoapods.org'
+source 'https://cdn.cocoapods.org'
 
 target 'WebViewTester' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
