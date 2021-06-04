@@ -93,7 +93,7 @@ class InvestmentsListViewController: UIViewController {
         SCGateway.shared.getUserInvestments(iscids: nil) { [weak self] (data, error) in
             
             guard let response = data  else {
-                print("INVESTMENTS: ERROR: \(error)")
+                print("INVESTMENTS: ERROR: \(String(describing: error))")
                 return
             }
             
@@ -114,7 +114,7 @@ class InvestmentsListViewController: UIViewController {
             
             
             guard let response = data else {
-                print("EXITED SMALLCASE: ERROR: \(error)")
+                print("EXITED SMALLCASE: ERROR: \(String(describing: error))")
                 return
             }
             

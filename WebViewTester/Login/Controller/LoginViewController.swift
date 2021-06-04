@@ -279,7 +279,7 @@ class LoginViewController: UIViewController {
         SCGateway.shared.initializeGateway(sdkToken: smallcaseAuthToken!) { data, error in
             
             if !data {
-                print(error)
+                print(error ?? "")
                 
                 if let error = error as? TransactionError {
                     self.showPopup(title: "Error", msg: error.message)
@@ -315,6 +315,7 @@ class LoginViewController: UIViewController {
                         //TODO: - Handle Later
                     
                     case .holdingsImport(let smallcaseAuthToken, let status, let transactionId):
+                        self?.showPopup(title: "Transaction Response", msg: " authTOken : \(smallcaseAuthToken), \n status: \(status), \n transactionId: \(transactionId)")
                         return
                         
                     default:
@@ -448,7 +449,7 @@ extension LoginViewController: SCGatewayTransactionDelegate {
         
         NetworkManager.shared.connectBroker(
             userId: userNameString!,
-            authToken: authToken) { [weak self] (result) in
+            authToken: authToken) { (result) in
                  print("LOGINVC: -> CONNECT BROKER --------> \(result)")
                 switch result {
                 

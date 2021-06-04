@@ -274,7 +274,7 @@ extension HoldingsViewController :UITableViewDataSource,UITableViewDelegate{
             print(indexPath.row)
             cell.titleLabel.text = "Name: \(stockHoldings[indexPath.row].name)"
             cell.sharesLabel.text = "Shares: \(stockHoldings[indexPath.row].shares)"
-            cell.averagePriceLabel.text = "Price: \(stockHoldings[indexPath.row].averagePrice)"
+            cell.averagePriceLabel.text = "Price: \(String(describing: stockHoldings[indexPath.row].averagePrice))"
             
             return cell
         } else {
@@ -304,8 +304,8 @@ extension HoldingsViewController :UITableViewDataSource,UITableViewDelegate{
                 }
                 
             } else {
-                cell.nameLabel.text = "Total returns: \(privateSmallcaseStats?.totalReturns)"
-                cell.valueLabel.text = "Current Value: \(privateSmallcaseStats?.currentValue)"
+                cell.nameLabel.text = "Total returns: \(String(describing: privateSmallcaseStats?.totalReturns))"
+                cell.valueLabel.text = "Current Value: \(String(describing: privateSmallcaseStats?.currentValue))"
 //                cell.privateScImage.image = UIImage(named: "gatewaydemoo")
             }
 

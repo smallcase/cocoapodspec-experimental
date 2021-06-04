@@ -54,7 +54,7 @@ class InvestmentDetailsViewController: UIViewController {
         
         do {
 
-            try SCGateway.shared.markSmallcaseArchive(iscid: iscid!) { [weak self] (response, error) in
+             SCGateway.shared.markSmallcaseArchive(iscid: iscid!) { [weak self] (response, error) in
 
                 guard let response = response else {
                     if let error = error {

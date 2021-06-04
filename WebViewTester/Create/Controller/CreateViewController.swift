@@ -186,7 +186,7 @@ extension CreateViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == createTableView, let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? CreateTableViewCell {
             cell.tickerLabel.text = transactions[indexPath.item].ticker
-            cell.quantityLabel.text = "\(transactions[indexPath.item].quantity )"
+            cell.quantityLabel.text = "\(String(describing: transactions[indexPath.item].quantity) )"
             cell.transactionTypeLabel.text = transactions[indexPath.item].type
             cell.selectionStyle = .none
             return cell

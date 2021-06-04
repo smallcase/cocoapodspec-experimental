@@ -144,7 +144,7 @@ class NetworkManager {
             }
             
             do {
-                print("JSON String: \(String(data: data, encoding: .utf8))")
+                print("JSON String: \(String(describing: String(data: data, encoding: .utf8)))")
                 let decodedData = try JSONDecoder().decode(GetHoldingsResponse.self, from: data)
                 print("DECODED DATA")
                 print(decodedData)
@@ -182,7 +182,7 @@ class NetworkManager {
             }
             
             do {
-                print("JSON String: \(String(data: data, encoding: .utf8))")
+                print("JSON String: \(String(describing: String(data: data, encoding: .utf8)))")
                 let decodedData = try JSONDecoder().decode(GetHoldingsResponseScObj.self, from: data)
                 print("DECODED DATA")
                 print(decodedData)

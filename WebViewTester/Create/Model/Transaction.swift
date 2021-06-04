@@ -12,6 +12,7 @@ import Foundation
 enum TransactionType: Int {
     case buy
     case sell
+    case none
     
     var toString: String? {
         switch self {

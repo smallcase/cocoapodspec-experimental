@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '14.3'
+ platform :ios, '14.0'
 #source 'https://gitlab.com/scGatewayOS/cocoapodspecs.git'
 
 # default source for all other pods

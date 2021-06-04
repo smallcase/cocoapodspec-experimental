@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SmallcaseListHeaderDelegate: class {
+protocol SmallcaseListHeaderDelegate: AnyObject {
     func showInvestments()
 }
 
