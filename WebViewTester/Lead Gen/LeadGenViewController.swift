@@ -34,6 +34,8 @@ class LeadGenViewController: UIViewController {
     
     @IBOutlet weak var utmTermTextField: UITextField!
     
+    @IBOutlet weak var utmBTextField: UITextField!
+    
     @IBOutlet weak var isRetargeting: UISwitch!
     
     lazy var tapRecognizer: UITapGestureRecognizer = {
@@ -47,13 +49,13 @@ class LeadGenViewController: UIViewController {
         emailTextField.delegate = self
         contactTextField.delegate = self
         pincodeTextField.delegate = self
-        
+
         utmSourceTextField.delegate = self
         utmMediumTextField.delegate = self
         utmCampaignTextField.delegate = self
         utmContentTextField.delegate = self
         utmTermTextField.delegate = self
-        
+        utmBTextField.delegate = self
     }
     
     @IBAction func onClickTriggerLeadGen(_ sender: Any) {
@@ -69,6 +71,7 @@ class LeadGenViewController: UIViewController {
         map["utm_campaign"] = utmCampaignTextField.text
         map["utm_content"] = utmContentTextField.text
         map["utm_term"] = utmTermTextField.text
+        map["utm_b"] = utmBTextField.text
         
         let retargeting = isRetargeting.isOn
         
