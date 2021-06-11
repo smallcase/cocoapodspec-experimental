@@ -75,7 +75,7 @@ class LeadGenViewController: UIViewController {
         
         let retargeting = isRetargeting.isOn
         
-        SCGateway.shared.triggerLeadGen(presentingController: self,params: params, utmParams: map, retargeting: retargeting)
+//        SCGateway.shared.triggerLeadGen(presentingController: self,params: params, utmParams: map, retargeting: retargeting)
     }
     
     @IBAction func logoutButtonClicked(_ sender: UIButton) {

@@ -104,9 +104,9 @@ class InvestmentDetailsViewController: UIViewController {
             guard let investmentDetails = investmentDetails else { return }
             DispatchQueue.main.async { [weak self] in
                 
-                self?.titleLabel.text = investmentDetails.investment.name
-                self?.descriptionLabel.text = investmentDetails.investment.shortDescription
-                self?.networthValueLabel.text = "\(investmentDetails.investment.returns?.networth ?? 0)"
+//                self?.titleLabel.text = investmentDetails.investment.name
+//                self?.descriptionLabel.text = investmentDetails.investment.shortDescription
+//                self?.networthValueLabel.text = "\(investmentDetails.investment.returns?.networth ?? 0)"
             }
            
             constituents = investmentDetails.investment.currentConfig.constituents
@@ -122,7 +122,7 @@ class InvestmentDetailsViewController: UIViewController {
     var constituents: [Constituent]? {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                   self?.constituentsTableView.reloadData()
+//                   self?.constituentsTableView.reloadData()
             }
          
         }
@@ -263,7 +263,7 @@ class InvestmentDetailsViewController: UIViewController {
         do {
             let data = try Data(contentsOf: url)
             DispatchQueue.main.async { [weak self] in
-                self?.smallcaseImageView.image = UIImage(data: data)
+//                self?.smallcaseImageView.image = UIImage(data: data)
             }
         }
         catch let err {
