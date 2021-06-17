@@ -254,6 +254,7 @@ class LoginViewController: UIViewController {
         
         //HTTPCookieStorage.shared.removeCookies(since: Date(timeIntervalSince1970: 0))
     }
+    
     func getAuthToken() {
         NetworkManager.shared.getAuthToken(username: userNameString!) {[weak self] (result) in
             switch result {

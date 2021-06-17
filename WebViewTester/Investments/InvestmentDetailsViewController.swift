@@ -50,6 +50,104 @@ class InvestmentDetailsViewController: UIViewController {
         }
     }
     
+    @IBAction func manageSmallcase(_ sender: Any) {
+        
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let orderConfig = OrderConfig(type: OrderType.manage.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
+        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+                case .success(let response):
+                    print(response)
+                    guard let transactionId = response.transactionId else { return }
+                    
+                    self?.triggerTransaction(transactionId: transactionId)
+                    
+                case .failure(let error):
+                    print(error)
+                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                //TODO: - Show Failiure popup
+                
+            }
+        }
+        
+    }
+    
+    
+    @IBAction func sipOrder(_ sender: Any) {
+        
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let orderConfig = OrderConfig(type: OrderType.sip.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
+        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+                case .success(let response):
+                    print(response)
+                    guard let transactionId = response.transactionId else { return }
+                    
+                    self?.triggerTransaction(transactionId: transactionId)
+                    
+                case .failure(let error):
+                    print(error)
+                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                //TODO: - Show Failiure popup
+                
+            }
+        }
+        
+    }
+    
+    
+    @IBAction func repairSmallcase(_ sender: Any) {
+        
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let orderConfig = OrderConfig(type: OrderType.repair.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
+        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+                case .success(let response):
+                    print(response)
+                    guard let transactionId = response.transactionId else { return }
+                    
+                    self?.triggerTransaction(transactionId: transactionId)
+                    
+                case .failure(let error):
+                    print(error)
+                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                //TODO: - Show Failiure popup
+                
+            }
+        }
+        
+    }
+    
+    @IBAction func rebalanceSmallcase(_ sender: Any) {
+        
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let orderConfig = OrderConfig(type: OrderType.rebalance.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
+        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+                case .success(let response):
+                    print(response)
+                    guard let transactionId = response.transactionId else { return }
+                    
+                    self?.triggerTransaction(transactionId: transactionId)
+                    
+                case .failure(let error):
+                    print(error)
+                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                //TODO: - Show Failiure popup
+                
+            }
+        }
+    }
+    
+    
     @IBAction func archiveSmt(_ sender: UIButton) {
         
         do {
@@ -104,9 +202,9 @@ class InvestmentDetailsViewController: UIViewController {
             guard let investmentDetails = investmentDetails else { return }
             DispatchQueue.main.async { [weak self] in
                 
-//                self?.titleLabel.text = investmentDetails.investment.name
-//                self?.descriptionLabel.text = investmentDetails.investment.shortDescription
-//                self?.networthValueLabel.text = "\(investmentDetails.investment.returns?.networth ?? 0)"
+                self?.titleLabel.text = investmentDetails.investment.name
+                self?.descriptionLabel.text = investmentDetails.investment.shortDescription
+                self?.networthValueLabel.text = "\(investmentDetails.investment.returns?.networth ?? 0)"
             }
            
             constituents = investmentDetails.investment.currentConfig.constituents
@@ -122,7 +220,7 @@ class InvestmentDetailsViewController: UIViewController {
     var constituents: [Constituent]? {
         didSet {
             DispatchQueue.main.async { [weak self] in
-//                   self?.constituentsTableView.reloadData()
+                   self?.constituentsTableView.reloadData()
             }
          
         }
@@ -263,7 +361,7 @@ class InvestmentDetailsViewController: UIViewController {
         do {
             let data = try Data(contentsOf: url)
             DispatchQueue.main.async { [weak self] in
-//                self?.smallcaseImageView.image = UIImage(data: data)
+                self?.smallcaseImageView.image = UIImage(data: data)
             }
         }
         catch let err {

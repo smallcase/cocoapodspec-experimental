@@ -27,6 +27,7 @@ enum OrderType: String {
     case sip = "SIP"
     case exit = "EXIT"
     case securities = "SECURITIES"
+    case repair = "REPAIR"
 }
 struct OrderConfig: Codable {
     var type: String?
