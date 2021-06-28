@@ -723,11 +723,11 @@
             <objects>
                 <viewController id="ilD-Zf-vtw" customClass="LeadGenViewController" customModule="Smart_Investing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NLN-2F-7Vc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyc-OW-r9d">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="1007"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDK-ew-A4J">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
@@ -821,12 +821,24 @@
                                                     <action selector="logoutButtonClicked:" destination="ilD-Zf-vtw" eventType="touchUpInside" id="wp4-1s-xee"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TyU-g9-6ra">
+                                                <rect key="frame" x="58" y="801" width="258" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Wealth Module">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="initWealthModule:" destination="ilD-Zf-vtw" eventType="touchUpInside" id="C8G-ZC-0Az"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="XCS-0C-TJt" secondAttribute="trailing" constant="8" id="0iD-LV-Dec"/>
                                             <constraint firstAttribute="trailing" secondItem="YDZ-5h-e10" secondAttribute="trailing" constant="8" id="0lj-xN-M2c"/>
                                             <constraint firstAttribute="trailing" secondItem="vhN-KM-mOr" secondAttribute="trailing" constant="8" id="1lX-bI-h2x"/>
+                                            <constraint firstItem="TyU-g9-6ra" firstAttribute="top" secondItem="NaC-1H-vYE" secondAttribute="bottom" constant="27" id="3Y1-B3-h5e"/>
                                             <constraint firstItem="YuG-vr-ZNj" firstAttribute="top" secondItem="HmS-kw-WzX" secondAttribute="bottom" constant="25" id="4fs-AT-mV5"/>
                                             <constraint firstItem="XCS-0C-TJt" firstAttribute="top" secondItem="YDZ-5h-e10" secondAttribute="bottom" constant="25" id="6Ux-lJ-1Lw"/>
                                             <constraint firstAttribute="height" constant="1000" id="71r-ls-qwc"/>
@@ -886,6 +898,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q8i-m5-dLR"/>
+                    <size key="freeformSize" width="375" height="1100"/>
                     <connections>
                         <outlet property="contactTextField" destination="r1B-fZ-WE0" id="Pn3-Iu-JIn"/>
                         <outlet property="emailTextField" destination="CK9-E7-xch" id="yfZ-30-p1q"/>
@@ -1081,8 +1094,8 @@
                                     <action selector="onClickSetup:" destination="dEj-3t-DsY" eventType="touchUpInside" id="iHX-48-RI8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is Amo Disabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-kE-eey">
-                                <rect key="frame" x="20" y="344" width="123" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is Amo Enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-kE-eey">
+                                <rect key="frame" x="20" y="344" width="118" height="20.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

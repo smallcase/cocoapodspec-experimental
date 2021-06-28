@@ -73,9 +73,11 @@ class LeadGenViewController: UIViewController {
         map["utm_term"] = utmTermTextField.text
         map["utm_b"] = utmBTextField.text
         
-        let retargeting = isRetargeting.isOn
+//        let retargeting = isRetargeting.isOn
         
 //        SCGateway.shared.triggerLeadGen(presentingController: self,params: params, utmParams: map, retargeting: retargeting)
+        
+        SCGateway.shared.triggerLeadGen(presentingController: self, params: params)
     }
     
     @IBAction func logoutButtonClicked(_ sender: UIButton) {
@@ -96,6 +98,23 @@ class LeadGenViewController: UIViewController {
         
     }
     
+    @IBAction func initWealthModule(_ sender: UIButton) {
+        
+//        SCGateway.shared.launchWealthModule(presentingController: self) {
+//            (success, error) in
+//
+//            if(success) {
+//
+//                self.showPopup(title: "Success", msg: "Wealth Module Successful")
+//
+//            } else {
+//
+//                self.showPopup(title: "Success", msg: "Wealth Module Error")
+//
+//            }
+//        }
+        
+    }
 }
 
 extension LeadGenViewController: UITextFieldDelegate {

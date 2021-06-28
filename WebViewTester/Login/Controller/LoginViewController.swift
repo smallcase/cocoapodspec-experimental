@@ -276,7 +276,6 @@ class LoginViewController: UIViewController {
     func gatewayInitialize() {
         
         print("Initialize gateway")
-        //  gatewayName: "gatewaydemo"
         SCGateway.shared.initializeGateway(sdkToken: smallcaseAuthToken!) { data, error in
             
             if !data {
