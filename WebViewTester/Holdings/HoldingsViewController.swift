@@ -99,7 +99,7 @@ class HoldingsViewController: UIViewController {
                        
                    case .failure(let error):
                        print(error)
-                       self?.showPopup(msg: "\(error.message)  \(error.rawValue)" )
+                    self?.showPopup(title: "Holdings Error", msg: "\(error.message)  \(error.rawValue)" )
                    }
                }
 
@@ -128,7 +128,7 @@ class HoldingsViewController: UIViewController {
                          
                      case .failure(let error):
                          print(error)
-                         self?.showPopup(msg: "\(error.message)  \(error.rawValue)" )
+                        self?.showPopup(title: "Error", msg: "\(error.message)  \(error.rawValue)" )
                      }
                  }
 
@@ -139,12 +139,12 @@ class HoldingsViewController: UIViewController {
              }
          }
     
-    func showPopup(title: String = "Error" , msg: String) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-               let popup = PopupDialog(title: title, message: msg)
-               self?.present(popup, animated: true, completion: nil)
-           }
-       }
+//    func showPopup(title: String = "Error" , msg: String) {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+//               let popup = PopupDialog(title: title, message: msg)
+//               self?.present(popup, animated: true, completion: nil)
+//           }
+//       }
     
     @IBAction func showUpdatedHoldings(_ sender: Any) {
         fetchHoldings()
@@ -193,7 +193,7 @@ class HoldingsViewController: UIViewController {
                             }
                         
                         case .failure(let error):
-                            self?.showPopup(msg: "\(error)")
+                            self?.showPopup(title: "Error", msg: "\(error)")
                     }
                 }
                 

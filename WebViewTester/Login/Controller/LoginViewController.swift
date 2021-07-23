@@ -297,7 +297,7 @@ class LoginViewController: UIViewController {
     
     func connectGateway(transactionId: String) {
         do {
-            try SCGateway.shared.triggerTransactionFlow(transactionId: transactionId , presentingController: self) { [weak self]  result in
+            try SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self) { [weak self]  result in
                 switch result {
                 case .success(let response):
                     print("CONNECT: RESPONSE: \(response)")

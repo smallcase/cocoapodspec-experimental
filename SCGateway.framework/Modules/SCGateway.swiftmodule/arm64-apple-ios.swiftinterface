@@ -10,8 +10,10 @@ import QuickLook
 @_exported import SCGateway
 import SafariServices
 import Swift
+import SwiftUI
 import UIKit
 import WebKit
+import _AuthenticationServices_SwiftUI
 extension UIImage {
   public class func gif(data: Foundation.Data) -> UIKit.UIImage?
   public class func gif(url: Swift.String) -> UIKit.UIImage?
@@ -121,6 +123,9 @@ extension UIView {
   @objc override dynamic public init()
   @objc deinit
 }
+extension UIColor {
+  public convenience init?(hex: Swift.String, alpha: Swift.String)
+}
 @objc @_inheritsConvenienceInitializers final public class ContentSizedCollectionView : UIKit.UICollectionView {
   @objc override final public var contentSize: CoreGraphics.CGSize {
     @objc get
@@ -138,10 +143,22 @@ public struct Transaction : Swift.Codable {
     public func encode(to encoder: Swift.Encoder) throws
     public init(from decoder: Swift.Decoder) throws
   }
-  public struct OrderConfig : Swift.Codable {
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
-  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct OrderConfig : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct MetaOrderConfig : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SstOrder : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SidInfo : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -218,7 +235,15 @@ public enum AllowedBrokerType : Swift.String {
 }
 @_hasMissingDesignatedInitializers @objc(ObjcTransactionIntentSipSetup) final public class _ObjcTransactionIntentSipSetup : ObjectiveC.NSObject {
   @objc final public let authToken: Swift.String
+  @objc final public let sipActive: Swift.Bool
+  @objc final public let sipAction: Swift.String
   @objc final public let transactionId: Swift.String
+  @objc final public let sipAmount: Swift.Double
+  @objc final public let frequency: Swift.String
+  @objc final public let iscid: Swift.String
+  @objc final public let scheduledDate: Swift.String
+  @objc final public let scid: Swift.String
+  @objc final public let sipType: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
@@ -307,6 +332,9 @@ extension UIStackView {
   @objc public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, completion: @escaping (Any?, SCGateway.ObjcTransactionError?) -> Swift.Void)
   @objc public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, completion: @escaping (Any?, SCGateway.ObjcTransactionError?) -> Swift.Void)
   @objc public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?)
+  @objc public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?)
+  @objc public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool)
+  public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool?)
   @objc public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
   @objc deinit
 }
