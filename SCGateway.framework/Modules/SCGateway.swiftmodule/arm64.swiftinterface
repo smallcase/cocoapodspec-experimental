@@ -336,6 +336,7 @@ extension UIStackView {
   @objc public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool)
   public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool?)
   @objc public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
+  @objc public func launchSmallPlug(presentingController: UIKit.UIViewController, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
   @objc deinit
 }
 public enum TransactionOrderStatus : Swift.String {

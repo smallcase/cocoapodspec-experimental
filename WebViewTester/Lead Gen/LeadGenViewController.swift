@@ -100,19 +100,19 @@ class LeadGenViewController: UIViewController {
     
     @IBAction func initWealthModule(_ sender: UIButton) {
         
-//        SCGateway.shared.launchWealthModule(presentingController: self) {
-//            (success, error) in
-//
-//            if(success) {
-//
-//                self.showPopup(title: "Success", msg: "Wealth Module Successful")
-//
-//            } else {
-//
-//                self.showPopup(title: "Success", msg: "Wealth Module Error")
-//
-//            }
-//        }
+        SCGateway.shared.launchSmallPlug(presentingController: self) {
+            (response, error) in
+
+            if(response != nil) {
+
+                self.showPopup(title: "Success", msg: response.debugDescription)
+
+            } else {
+
+                self.showPopup(title: "Error", msg: error?.localizedDescription)
+
+            }
+        }
         
     }
 }

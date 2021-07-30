@@ -302,10 +302,10 @@ class LoginViewController: UIViewController {
                 case .success(let response):
                     print("CONNECT: RESPONSE: \(response)")
                     switch response {
-                    case let .connect(authToken, _):
+                    case let .connect(authToken, transactionData):
                         self?.connect(authToken: authToken)
                         
-                        self?.showPopup(title: "Connect Complete", msg: "authToken: \(authToken)")
+                        self?.showPopup(title: "Connect Complete", msg: "authToken: \(authToken) \n transactionData: \(transactionData)")
                         
                     case let .transaction(authToken, transactionData):
                         self?.showPopup(title: "Transaction Response", msg: " authTOken : \(authToken), \n data: \(transactionData)")
