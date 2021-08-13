@@ -340,8 +340,7 @@ SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 
 SWIFT_CLASS_NAMED("_ObjCTransactionIntentConnect")
 @interface ObjCTransactionIntentConnect : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
-@property (nonatomic, readonly, copy) NSString * _Nullable transaction;
+@property (nonatomic, readonly, copy) NSString * _Nonnull response;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -370,6 +369,7 @@ SWIFT_CLASS_NAMED("_ObjcTransactionIntentFetchFunds")
 SWIFT_CLASS_NAMED("_ObjcTransactionIntentHoldingsImport")
 @interface ObjcTransactionIntentHoldingsImport : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
+@property (nonatomic, readonly, copy) NSString * _Nonnull broker;
 @property (nonatomic, readonly) BOOL status;
 @property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;

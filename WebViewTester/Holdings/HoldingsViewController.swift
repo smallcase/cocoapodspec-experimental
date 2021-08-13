@@ -119,7 +119,7 @@ class HoldingsViewController: UIViewController {
                          self?.showPopup(title: "Holdings Response", msg: "\(response)")
                         
                          switch response {
-                         case .fetchFunds( _,let fund, _):
+                         case .fetchFunds( _, let fund, _):
                             self?.fundsLabel.text = String(fund)
                          default:
                             return

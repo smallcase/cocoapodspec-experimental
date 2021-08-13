@@ -137,7 +137,8 @@ class LoginViewController: UIViewController {
             let brokerConfig = self.brokerConfigSwitch.isOn ?  self.getSelectedBrokers() : []
                    
             let config = GatewayConfig(gatewayName: self.gatewayNameTextField.text ?? "",
-                                              brokerConfig: brokerConfig ,
+                                              brokerConfig: brokerConfig,
+//                                            brokerConfig: ["Alice Blue"],
                                               apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
                                               isLeprechaunActive: self.leprechaunSwitch.isOn, isAmoEnabled: self.isAmoEnabled.isOn)
             SCGateway.shared.setup(config: config){ success, error in
@@ -273,14 +274,18 @@ class LoginViewController: UIViewController {
         }
     }
     
+    
+    //MARK:- Initialize Gateway SDK
     func gatewayInitialize() {
+        
+//        let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzbWFsbGNhc2VBdXRoSWQiOiI2MGUzZTg5MDk5YTVkZTI0ZWJhZThiZWQiLCJpYXQiOjE2MjgwNjY3MTMsImV4cCI6MTYyODU1MzExM30.KtMpIy3EjZV6AY8Qo1Q7l-f3FuL4HVdlrlsRB-ZcPR0"
         
         print("Initialize gateway")
         SCGateway.shared.initializeGateway(sdkToken: smallcaseAuthToken!) { data, error in
-            
+
             if !data {
                 print(error ?? "")
-                
+
                 if let error = error as? TransactionError {
                     self.showPopup(title: "Error", msg: error.message)
                 }
@@ -292,6 +297,22 @@ class LoginViewController: UIViewController {
             print(data)
         }
         
+//        SCGateway.shared.initializeGateway(sdkToken: tempToken) { data, error in
+//
+//            if !data {
+//                print(error ?? "")
+//
+//                if let error = error as? TransactionError {
+//                    self.showPopup(title: "Error", msg: error.message)
+//                }
+//                else {
+//                    self.showPopup(title: "Error", msg: error.debugDescription)
+//                }
+//                return
+//            }
+//            print(data)
+//        }
+        
     }
     
     
@@ -302,20 +323,24 @@ class LoginViewController: UIViewController {
                 case .success(let response):
                     print("CONNECT: RESPONSE: \(response)")
                     switch response {
-                    case let .connect(authToken, transactionData):
-                        self?.connect(authToken: authToken)
-                        
-                        self?.showPopup(title: "Connect Complete", msg: "authToken: \(authToken) \n transactionData: \(transactionData)")
+//                    case let .connect(authToken, broker, signup):
+//
+//                        self?.connect(authToken: authToken)
+//
+//                        self?.showPopup(title: "Connect Complete", msg: "authToken: \(authToken) \n broker: \(broker) \n signup: \(signup)")
+                      
+                    case let .connect(response):
+                            
+//                        self?.connect(authToken: authToken)
+                            
+                        self?.showPopup(title: "response:", msg: "\(response)")
                         
                     case let .transaction(authToken, transactionData):
                         self?.showPopup(title: "Transaction Response", msg: " authTOken : \(authToken), \n data: \(transactionData)")
                         return
-                    
                 
-                        //TODO: - Handle Later
-                    
-                    case .holdingsImport(let smallcaseAuthToken, let status, let transactionId):
-                        self?.showPopup(title: "Transaction Response", msg: " authTOken : \(smallcaseAuthToken), \n status: \(status), \n transactionId: \(transactionId)")
+                    case .holdingsImport(let smallcaseAuthToken, let status, let broker, let transactionId):
+                        self?.showPopup(title: "Transaction Response", msg: " authTOken : \(smallcaseAuthToken), \n status: \(status), \n broker: \(broker), \n transactionId: \(transactionId)")
                         return
                         
                     default:

@@ -179,9 +179,9 @@ public struct SipDetail : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
 }
 public enum TransactionIntent {
-  case connect(smallcaseAuthToken: Swift.String, transactionData: SCGateway.Transaction)
+  case connect(response: Swift.String)
   case transaction(smallcaseAuthToken: Swift.String, transactionData: SCGateway.Transaction.SuccessData)
-  case holdingsImport(smallcaseAuthToken: Swift.String, status: Swift.Bool, transactionId: Swift.String)
+  case holdingsImport(smallcaseAuthToken: Swift.String, broker: Swift.String, status: Swift.Bool, transactionId: Swift.String)
   case fetchFunds(smallcaseAuthToken: Swift.String, fund: Swift.Double, transactionId: Swift.String)
   case authoriseHoldings(smallcaseAuthToken: Swift.String, status: Swift.Bool, transactionId: Swift.String)
   case sipSetup(smallcaseAuthToken: Swift.String, sipAction: SCGateway.SipDetail, transactionId: Swift.String)
@@ -201,8 +201,7 @@ public enum AllowedBrokerType : Swift.String {
   }
 }
 @_hasMissingDesignatedInitializers @objc(ObjCTransactionIntentConnect) final public class _ObjCTransactionIntentConnect : ObjectiveC.NSObject {
-  @objc final public let authToken: Swift.String
-  @objc final public let transaction: Swift.String?
+  @objc final public let response: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
@@ -214,6 +213,7 @@ public enum AllowedBrokerType : Swift.String {
 }
 @_hasMissingDesignatedInitializers @objc(ObjcTransactionIntentHoldingsImport) final public class _ObjcTransactionIntentHoldingsImport : ObjectiveC.NSObject {
   @objc final public let authToken: Swift.String
+  @objc final public let broker: Swift.String
   @objc final public let status: Swift.Bool
   @objc final public let transactionId: Swift.String
   @objc override dynamic public init()
