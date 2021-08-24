@@ -138,7 +138,7 @@ class LoginViewController: UIViewController {
                    
             let config = GatewayConfig(gatewayName: self.gatewayNameTextField.text ?? "",
                                               brokerConfig: brokerConfig,
-//                                            brokerConfig: ["Alice Blue"],
+//                                            brokerConfig: ["Alice Blue","kite","upstox"],
                                               apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
                                               isLeprechaunActive: self.leprechaunSwitch.isOn, isAmoEnabled: self.isAmoEnabled.isOn)
             SCGateway.shared.setup(config: config){ success, error in

@@ -77,7 +77,10 @@ class LeadGenViewController: UIViewController {
         
 //        SCGateway.shared.triggerLeadGen(presentingController: self,params: params, utmParams: map, retargeting: retargeting)
         
-        SCGateway.shared.triggerLeadGen(presentingController: self, params: params)
+        SCGateway.shared.triggerLeadGen(presentingController: self, params: params, completion: { (response) in
+            
+            self.showPopup(title: "LeadGenResponse", msg: response)
+        })
     }
     
     @IBAction func logoutButtonClicked(_ sender: UIButton) {
