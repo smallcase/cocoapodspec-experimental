@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()
         print("USER DEFAULTS: \(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)")
-
+        
         return true
     }
 

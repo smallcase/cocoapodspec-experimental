@@ -22,7 +22,8 @@ let BrokerList = [
     "iifl",
     "edelweiss",
     "angelbroking",
-    "motilal"
+    "motilal",
+    "groww"
 ]
 
 //struct Config: GatewayConfig {
@@ -86,8 +87,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var gatewayNameTextField: UITextField! {
         didSet{
             gatewayNameTextField.delegate = self
-            gatewayNameTextField.text = UserDefaults.standard.string(forKey: Constant.gatewayKey)
-            
+//            gatewayNameTextField.text = UserDefaults.standard.string(forKey: Constant.gatewayKey)
+            gatewayNameTextField.text = "tickertape"
         }
     }
     
@@ -278,7 +279,7 @@ class LoginViewController: UIViewController {
     //MARK:- Initialize Gateway SDK
     func gatewayInitialize() {
         
-//        let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzbWFsbGNhc2VBdXRoSWQiOiI2MGUzZTg5MDk5YTVkZTI0ZWJhZThiZWQiLCJpYXQiOjE2MjgwNjY3MTMsImV4cCI6MTYyODU1MzExM30.KtMpIy3EjZV6AY8Qo1Q7l-f3FuL4HVdlrlsRB-ZcPR0"
+//        let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJndWVzdCI6dHJ1ZSwiaWF0IjoxNjMwMDU2NjI5LCJleHAiOjE3MzAwNjAyMjl9.hE0LSTZCaKV8tiAQ5byCCetYq46ULGKBUWC37Bff8lY"
         
         print("Initialize gateway")
         SCGateway.shared.initializeGateway(sdkToken: smallcaseAuthToken!) { data, error in
@@ -315,7 +316,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    
+    //MARK:- Trigger Transaction
     func connectGateway(transactionId: String) {
         do {
             try SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self) { [weak self]  result in
@@ -332,7 +333,8 @@ class LoginViewController: UIViewController {
                     case let .connect(response):
                             
 //                        self?.connect(authToken: authToken)
-                            
+                        self?.connectUserToSmartinvesting(response)
+                        
                         self?.showPopup(title: "response:", msg: "\(response)")
                         
                     case let .transaction(authToken, transactionData):
@@ -364,6 +366,25 @@ class LoginViewController: UIViewController {
         }
         catch let err {
             print(err)
+        }
+    }
+    
+    // Decodes json response containing authToken and Connects to smartinvesting
+    func connectUserToSmartinvesting(_ fromResponse: String) {
+        
+        let data = Data(fromResponse.utf8)
+        
+        do {
+
+            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                
+                if let userAuthToken = json["smallcaseAuthToken"] as? String {
+                    print("Connecting user to Smartinvesting with jwt: \(userAuthToken)")
+                    self.connect(authToken: userAuthToken)
+                }
+            }
+        } catch let error as NSError {
+            print("Failed to load: \(error.localizedDescription)")
         }
     }
 

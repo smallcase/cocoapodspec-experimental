@@ -3,6 +3,7 @@
 #source 'https://gitlab.com/scGatewayOS/cocoapodspecs.git'
 
 #source 'https://github.com/smallcase/cocoapodspecs.git'
+
 # default source for all other pods
 source 'https://cdn.cocoapods.org'
 
@@ -11,8 +12,9 @@ target 'WebViewTester' do
   use_frameworks!
 
   pod 'PopupDialog', '~> 1.1'
-  
+
 #  pod 'SCGateway' , '3.0.2'
+
 
   target 'WebViewTesterTests' do
     inherit! :search_paths
