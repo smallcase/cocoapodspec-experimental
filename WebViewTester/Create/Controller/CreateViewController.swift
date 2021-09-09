@@ -144,6 +144,14 @@ class CreateViewController: UIViewController {
                 switch result {
                 case .success(let response):
                     print("SST TRANSACTION: RESPONSE:  \(response)")
+                    
+//                    switch response {
+//                        case .transaction(let smallcaseAuthToken, let transactionData):
+//                            
+//                            
+//                        default:
+//                            print("")
+//                    }
                     self?.showPopup(title: "SST TRANSACTION: RESPONSE: ", msg: "\(response)")
                     
                     
