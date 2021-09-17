@@ -19,9 +19,6 @@ class LeadGenViewController: UIViewController {
     
     @IBOutlet weak var contactTextField: UITextField!
     
-    
-    @IBOutlet weak var pincodeTextField: UITextField!
-    
     @IBOutlet weak var logoutButton: UIButton!
     
     @IBOutlet weak var utmSourceTextField: UITextField!
@@ -48,7 +45,6 @@ class LeadGenViewController: UIViewController {
         nameTextField.delegate = self
         emailTextField.delegate = self
         contactTextField.delegate = self
-        pincodeTextField.delegate = self
 
         utmSourceTextField.delegate = self
         utmMediumTextField.delegate = self
@@ -63,7 +59,6 @@ class LeadGenViewController: UIViewController {
         params["name"] = nameTextField.text
         params["email"] = emailTextField.text
         params["contact"] = contactTextField.text
-        params["pinCode"] = pincodeTextField.text
         
         var map:[String:String] = [:]
         map["utm_source"] = utmSourceTextField.text
@@ -103,7 +98,7 @@ class LeadGenViewController: UIViewController {
     
     @IBAction func initWealthModule(_ sender: UIButton) {
         
-        SCGateway.shared.launchSmallPlug(presentingController: self) {
+        SCGateway.shared.launchSmallPlug(presentingController: self, smallplugHeaderText: nil) {
             (response, error) in
 
             if(response != nil) {
@@ -126,7 +121,7 @@ extension LeadGenViewController: UITextFieldDelegate {
         nameTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()
         contactTextField.resignFirstResponder()
-        pincodeTextField.resignFirstResponder()
+//        pincodeTextField.resignFirstResponder()
         
         utmSourceTextField.resignFirstResponder()
         utmMediumTextField.resignFirstResponder()

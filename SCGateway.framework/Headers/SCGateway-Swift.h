@@ -279,7 +279,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams;
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams retargeting:(BOOL)retargeting;
 - (void)logoutUserWithPresentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
-- (void)launchSmallPlugWithPresentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
+- (void)launchSmallPlugWithPresentingController:(UIViewController * _Nonnull)presentingController smallplugHeaderText:(NSString * _Nullable)smallplugHeaderText completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
+- (void)launchSmallPlugWithPresentingController:(UIViewController * _Nonnull)presentingController smallplugHeaderText:(NSString * _Nullable)smallplugHeaderText targetEndpoint:(NSString * _Nullable)targetEndpoint smallplugUrlParams:(NSDictionary<NSString *, NSString *> * _Nullable)smallplugUrlParams completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

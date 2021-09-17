@@ -747,43 +747,33 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pincode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JtC-UC-IlC">
-                                                <rect key="frame" x="8" y="202" width="359" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-Source" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HmS-kw-WzX">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-Medium" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YuG-vr-ZNj">
                                                 <rect key="frame" x="8" y="261" width="359" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-Medium" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YuG-vr-ZNj">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-Campaign" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-5h-e10">
                                                 <rect key="frame" x="8" y="320" width="359" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-Campaign" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-5h-e10">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-Content" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XCS-0C-TJt">
                                                 <rect key="frame" x="8" y="379" width="359" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-Content" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XCS-0C-TJt">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-Term" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5wr-J7-NZD">
                                                 <rect key="frame" x="8" y="438" width="359" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-Term" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5wr-J7-NZD">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-B" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vhN-KM-mOr">
                                                 <rect key="frame" x="8" y="497" width="359" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-B" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vhN-KM-mOr">
-                                                <rect key="frame" x="8" y="556" width="359" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="qNr-W3-83g">
-                                                <rect key="frame" x="8" y="615" width="194" height="31"/>
+                                                <rect key="frame" x="8" y="556" width="194" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is Retargeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdc-vb-jHc">
                                                         <rect key="frame" x="0.0" y="0.0" width="105" height="31"/>
@@ -797,7 +787,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkF-e2-2mW">
-                                                <rect key="frame" x="58.5" y="689" width="258" height="30"/>
+                                                <rect key="frame" x="58.5" y="630" width="258" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="258" id="kyJ-Xt-vdf"/>
@@ -811,7 +801,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaC-1H-vYE">
-                                                <rect key="frame" x="58.5" y="744" width="258" height="30"/>
+                                                <rect key="frame" x="58.5" y="685" width="258" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Logout">
@@ -822,7 +812,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TyU-g9-6ra">
-                                                <rect key="frame" x="58" y="801" width="258" height="30"/>
+                                                <rect key="frame" x="58" y="742" width="258" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Wealth Module">
@@ -832,6 +822,11 @@
                                                     <action selector="initWealthModule:" destination="ilD-Zf-vtw" eventType="touchUpInside" id="C8G-ZC-0Az"/>
                                                 </connections>
                                             </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UTM-Source" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HmS-kw-WzX">
+                                                <rect key="frame" x="8" y="202" width="359" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -845,7 +840,6 @@
                                             <constraint firstItem="qNr-W3-83g" firstAttribute="leading" secondItem="jDK-ew-A4J" secondAttribute="leading" constant="8" id="C2v-af-VUK"/>
                                             <constraint firstAttribute="trailing" secondItem="HmS-kw-WzX" secondAttribute="trailing" constant="8" id="F4i-Sy-ksn"/>
                                             <constraint firstItem="YDZ-5h-e10" firstAttribute="leading" secondItem="jDK-ew-A4J" secondAttribute="leading" constant="8" id="Gbd-bg-D3A"/>
-                                            <constraint firstAttribute="trailing" secondItem="JtC-UC-IlC" secondAttribute="trailing" constant="8" id="Hae-9e-fGS"/>
                                             <constraint firstItem="CK9-E7-xch" firstAttribute="leading" secondItem="jDK-ew-A4J" secondAttribute="leading" constant="8" id="IEd-WE-Bl5"/>
                                             <constraint firstItem="RBc-jA-B1q" firstAttribute="leading" secondItem="jDK-ew-A4J" secondAttribute="leading" constant="8" id="Khy-ld-az2"/>
                                             <constraint firstItem="vhN-KM-mOr" firstAttribute="top" secondItem="5wr-J7-NZD" secondAttribute="bottom" constant="25" id="KkH-ln-zGS"/>
@@ -855,17 +849,15 @@
                                             <constraint firstItem="NaC-1H-vYE" firstAttribute="top" secondItem="wkF-e2-2mW" secondAttribute="bottom" constant="25" id="QWg-Xr-Rla"/>
                                             <constraint firstItem="HmS-kw-WzX" firstAttribute="leading" secondItem="jDK-ew-A4J" secondAttribute="leading" constant="8" id="Qgj-HN-A9Z"/>
                                             <constraint firstItem="YuG-vr-ZNj" firstAttribute="leading" secondItem="jDK-ew-A4J" secondAttribute="leading" constant="8" id="RX7-MP-VuL"/>
+                                            <constraint firstItem="HmS-kw-WzX" firstAttribute="top" secondItem="r1B-fZ-WE0" secondAttribute="bottom" constant="25" id="UPP-UD-V0b"/>
                                             <constraint firstAttribute="trailing" secondItem="5wr-J7-NZD" secondAttribute="trailing" constant="8" id="V8n-Vz-G1q"/>
                                             <constraint firstItem="r1B-fZ-WE0" firstAttribute="leading" secondItem="jDK-ew-A4J" secondAttribute="leading" constant="8" id="VAS-ip-ggc"/>
                                             <constraint firstItem="CK9-E7-xch" firstAttribute="top" secondItem="RBc-jA-B1q" secondAttribute="bottom" constant="25" id="WUx-67-73U"/>
                                             <constraint firstItem="YDZ-5h-e10" firstAttribute="top" secondItem="YuG-vr-ZNj" secondAttribute="bottom" constant="25" id="ZPZ-8b-7YA"/>
                                             <constraint firstItem="RBc-jA-B1q" firstAttribute="top" secondItem="jDK-ew-A4J" secondAttribute="top" constant="25" id="aZI-HN-UmJ"/>
                                             <constraint firstItem="r1B-fZ-WE0" firstAttribute="top" secondItem="CK9-E7-xch" secondAttribute="bottom" constant="25" id="bKd-Ja-tvf"/>
-                                            <constraint firstItem="JtC-UC-IlC" firstAttribute="top" secondItem="r1B-fZ-WE0" secondAttribute="bottom" constant="25" id="cpg-ej-0KI"/>
                                             <constraint firstAttribute="trailing" secondItem="CK9-E7-xch" secondAttribute="trailing" constant="8" id="cqQ-F2-KVP"/>
                                             <constraint firstAttribute="trailing" secondItem="r1B-fZ-WE0" secondAttribute="trailing" constant="8" id="h3S-PE-wQ7"/>
-                                            <constraint firstItem="JtC-UC-IlC" firstAttribute="leading" secondItem="jDK-ew-A4J" secondAttribute="leading" constant="8" id="hHZ-91-4Ss"/>
-                                            <constraint firstItem="HmS-kw-WzX" firstAttribute="top" secondItem="JtC-UC-IlC" secondAttribute="bottom" constant="25" id="hUC-R8-ot1"/>
                                             <constraint firstItem="5wr-J7-NZD" firstAttribute="top" secondItem="XCS-0C-TJt" secondAttribute="bottom" constant="25" id="iqM-2h-WsF"/>
                                             <constraint firstItem="qNr-W3-83g" firstAttribute="top" secondItem="vhN-KM-mOr" secondAttribute="bottom" constant="25" id="mQz-K8-ydg"/>
                                             <constraint firstItem="5wr-J7-NZD" firstAttribute="leading" secondItem="jDK-ew-A4J" secondAttribute="leading" constant="8" id="qt0-eZ-mY5"/>
@@ -905,7 +897,6 @@
                         <outlet property="isRetargeting" destination="OTd-O0-knK" id="lgH-RC-07E"/>
                         <outlet property="logoutButton" destination="NaC-1H-vYE" id="p1X-xo-cK2"/>
                         <outlet property="nameTextField" destination="RBc-jA-B1q" id="ZqV-Ut-uBz"/>
-                        <outlet property="pincodeTextField" destination="JtC-UC-IlC" id="SRQ-qw-tBu"/>
                         <outlet property="utmBTextField" destination="vhN-KM-mOr" id="SFM-6I-lcY"/>
                         <outlet property="utmCampaignTextField" destination="YDZ-5h-e10" id="dhN-C8-PcD"/>
                         <outlet property="utmContentTextField" destination="XCS-0C-TJt" id="Ub8-pB-idS"/>
