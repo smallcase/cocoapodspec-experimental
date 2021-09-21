@@ -21,6 +21,14 @@ extension UIImage {
   @available(iOS 9.0, *)
   public class func gif(asset: Swift.String) -> UIKit.UIImage?
 }
+@objc @objcMembers public class SmallplugData : ObjectiveC.NSObject {
+  @objc public var smallplugHeaderText: Swift.String?
+  @objc public var targetEndpoint: Swift.String?
+  @objc public var params: Swift.String?
+  @objc public init(_ smallplugHeaderText: Swift.String?, _ targetEndpoint: Swift.String?, _ params: Swift.String?)
+  @objc override dynamic public init()
+  @objc deinit
+}
 public enum SCGatewayError : Swift.Int, Swift.Error {
   case uninitialized
   case configNotSet
@@ -340,8 +348,7 @@ extension UIStackView {
   @objc public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool)
   public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool?)
   @objc public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
-  @objc public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugHeaderText: Swift.String?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
-  @objc public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugHeaderText: Swift.String?, targetEndpoint: Swift.String?, smallplugUrlParams: Swift.Dictionary<Swift.String, Swift.String>?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
+  @objc public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
   @objc deinit
 }
 public enum TransactionOrderStatus : Swift.String {

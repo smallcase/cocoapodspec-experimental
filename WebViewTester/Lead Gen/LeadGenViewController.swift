@@ -98,7 +98,7 @@ class LeadGenViewController: UIViewController {
     
     @IBAction func initWealthModule(_ sender: UIButton) {
         
-        SCGateway.shared.launchSmallPlug(presentingController: self, smallplugHeaderText: nil) {
+        SCGateway.shared.launchSmallPlug(presentingController: self, smallplugData: SmallplugData("test", "investments", "test=abc")) {
             (response, error) in
 
             if(response != nil) {

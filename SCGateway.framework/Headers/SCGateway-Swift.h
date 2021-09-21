@@ -250,6 +250,7 @@ SWIFT_CLASS("_TtC9SCGateway20ObjcTransactionError")
 
 @protocol SCGatewayTransactionDelegate;
 @class UIViewController;
+@class SmallplugData;
 
 SWIFT_CLASS("_TtC9SCGateway9SCGateway")
 @interface SCGateway : NSObject
@@ -279,8 +280,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams;
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams retargeting:(BOOL)retargeting;
 - (void)logoutUserWithPresentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
-- (void)launchSmallPlugWithPresentingController:(UIViewController * _Nonnull)presentingController smallplugHeaderText:(NSString * _Nullable)smallplugHeaderText completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
-- (void)launchSmallPlugWithPresentingController:(UIViewController * _Nonnull)presentingController smallplugHeaderText:(NSString * _Nullable)smallplugHeaderText targetEndpoint:(NSString * _Nullable)targetEndpoint smallplugUrlParams:(NSDictionary<NSString *, NSString *> * _Nullable)smallplugUrlParams completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
+- (void)launchSmallPlugWithPresentingController:(UIViewController * _Nonnull)presentingController smallplugData:(SmallplugData * _Nullable)smallplugData completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -316,6 +316,17 @@ SWIFT_CLASS("_TtC9SCGateway33SeparatorCollectionViewFlowLayout")
 - (void)prepareLayout;
 - (UICollectionViewLayoutAttributes * _Nullable)layoutAttributesForDecorationViewOfKind:(NSString * _Nonnull)elementKind atIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<UICollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC9SCGateway13SmallplugData")
+@interface SmallplugData : NSObject
+@property (nonatomic, copy) NSString * _Nullable smallplugHeaderText;
+@property (nonatomic, copy) NSString * _Nullable targetEndpoint;
+@property (nonatomic, copy) NSString * _Nullable params;
+- (nonnull instancetype)init:(NSString * _Nullable)smallplugHeaderText :(NSString * _Nullable)targetEndpoint :(NSString * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
