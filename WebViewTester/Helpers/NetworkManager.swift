@@ -122,6 +122,48 @@ class NetworkManager {
         }
     }
     
+    func getSubscriptionTransactionId(params: CreateSubscriptionBody, completion: @escaping (Result<CreateTransactionResponse, Error>) -> Void) {
+        
+        let urlString = "\(getBaseUrl())/transaction/new"
+        
+        guard let url = URL(string: urlString) else { return }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        do {
+            let body =  try JSONEncoder().encode(params)
+            print( "TRANSACTION BODY: \(body)")
+            urlRequest.httpBody = body
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            print(String(data: body, encoding: .utf8) ?? "Trx body nil")
+            
+            let task = session.dataTask(with: urlRequest) { (data, response, error) in
+                guard let data = data else {
+                    completion(.failure(NetworkError.noData))
+                    return
+                }
+                do {
+                    let decodedData = try JSONDecoder().decode(CreateTransactionResponse.self, from: data)
+                    print(decodedData)
+                    completion(.success(decodedData))
+                    
+                }
+                catch let err {
+                    
+                    print(err)
+                    completion(.failure(NetworkError.parsingError))
+                }
+            }
+            
+            task.resume()
+            
+        }
+        catch let err {
+            print("JSON DECODE ERROR: \(err)")
+        }
+    }
+    
    func getHoldings(username: String, completion: @escaping(Result<GetHoldingsResponse, Error>) -> Void )  {
         print(username)
         let urlString = "\(getBaseUrl())/holdings/fetch?id=\(username)"

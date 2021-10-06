@@ -57,6 +57,30 @@ class SmallcaseProfileViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func onClickSubscribe(_ sender: Any) {
+        
+        guard let scid = scid, let userId = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        
+        let subscriptionConfig = SubscriptionConfig(scid: scid, iscid: nil)
+        
+        let subcriptionBody = CreateSubscriptionBody(id: userId, intent: IntentType.subscription.rawValue, config: subscriptionConfig)
+        
+        NetworkManager.shared.getSubscriptionTransactionId(params: subcriptionBody) { [weak self] (result) in
+            
+            switch result {
+                case .success(let response):
+                    print(response)
+                    guard let transactionId = response.transactionId else { return }
+                    self?.triggerTransaction(trxId: transactionId)
+                    
+                case .failure(let error):
+                    print(error)
+            }
+            
+        }
+    }
+    
     @IBAction func onClickBuy(_ sender: UIButton) {
         guard let scid = scid, let userId = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
         let orderConfig = OrderConfig(type: OrderType.buy.rawValue, scid: scid, iscid: nil, did: nil, orders: nil)

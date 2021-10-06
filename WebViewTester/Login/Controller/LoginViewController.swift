@@ -136,8 +136,16 @@ class LoginViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             let brokerConfig = self.brokerConfigSwitch.isOn ?  self.getSelectedBrokers() : []
+            
+            var gatewayName = self.gatewayNameTextField.text
+            
+            switch self.envSegmentControl.selectedSegmentIndex {
+                case 1 : gatewayName?.append("-dev")
+                case 2 : gatewayName?.append("-stag")
+                default : gatewayName?.append("")
+            }
                    
-            let config = GatewayConfig(gatewayName: self.gatewayNameTextField.text ?? "",
+            let config = GatewayConfig(gatewayName: gatewayName ?? "",
                                               brokerConfig: brokerConfig,
 //                                            brokerConfig: ["Alice Blue","kite","upstox"],
                                               apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
@@ -153,6 +161,20 @@ class LoginViewController: UIViewController {
                 }
             }
        
+        }
+    }
+    
+    func getApiEnv(index: Int) -> Environment {
+        
+        switch index {
+            case 0:
+                return .production
+            case 1:
+                return .development
+            case 2:
+                return .staging
+            default:
+                return .production
         }
     }
     
@@ -229,20 +251,6 @@ class LoginViewController: UIViewController {
         return customBrokerList
     }
     
-    func getApiEnv(index: Int) -> Environment {
-        
-        switch index {
-        case 0:
-            return .production
-        case 1:
-            return .development
-        case 2:
-            return .staging
-        default:
-            return .production
-        }
-    }
-    
     @IBAction func logoutUser(_ sender: Any) {
         
         print("Logout: Triggered")
@@ -282,25 +290,8 @@ class LoginViewController: UIViewController {
     func gatewayInitialize() {
         
 //        let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJndWVzdCI6dHJ1ZSwiaWF0IjoxNjMwMDU2NjI5LCJleHAiOjE3MzAwNjAyMjl9.hE0LSTZCaKV8tiAQ5byCCetYq46ULGKBUWC37Bff8lY"
-        
-        print("Initialize gateway")
-        SCGateway.shared.initializeGateway(sdkToken: smallcaseAuthToken!) { data, error in
 
-            if !data {
-                print(error ?? "")
-
-                if let error = error as? TransactionError {
-                    self.showPopup(title: "Error", msg: error.message)
-                }
-                else {
-                    self.showPopup(title: "Error", msg: error.debugDescription)
-                }
-                return
-            }
-            print(data)
-        }
-        
-//        SCGateway.shared.initializeGateway(sdkToken: tempToken) { data, error in
+//        SCGateway.shared.initializeGateway(sdkToken: smallcaseAuthToken!) { data, error in
 //
 //            if !data {
 //                print(error ?? "")
@@ -316,6 +307,63 @@ class LoginViewController: UIViewController {
 //            print(data)
 //        }
         
+        
+        print("Initializing gateway")
+        SCGateway.shared.initializeGateway(smallcaseAuthToken!) { response, error in
+            
+            if error != nil {
+                print(error ?? "")
+                
+                if let error = error as? TransactionError {
+                    self.showPopup(title: "Error", msg: error.message)
+                }
+                else {
+                    self.showPopup(title: "Error", msg: error.debugDescription)
+                }
+                return
+            } else {
+                
+                print(response)
+                
+                self.showPopup(title: "Success", msg: response)
+            }
+            
+        }
+        
+    }
+    
+    func createTransaction() {
+        
+        guard let userName = userNameString else { return }
+        let transactionParams = CreateTransactionBody(id: userName, intent: IntentType.connect.rawValue, orderConfig: nil)
+        
+        if SCGateway.shared.isUserConnected() {
+            let popupDialog = PopupDialog(title: "Error", message: "User already Connected, authToken: \(SCGateway.shared.getUserAuthToken() ?? "nil")")
+            self.present(popupDialog, animated: true, completion: nil)
+        } else {
+         
+            NetworkManager.shared.getTransactionId(params: transactionParams) { [weak self] (result) in
+                switch result {
+                    case .success(let response):
+                        print("response: \(response)")
+                        guard let transactionId = response.transactionId else {
+                            self?.showErrorPopup(msg: response.err)
+                            return }
+                        self?.connectGateway(transactionId: transactionId)
+                        
+                    case .failure(let error):
+                        DispatchQueue.main.async { [weak self] in
+                            
+                            let popupDialog = PopupDialog(title: "Error", message: error.localizedDescription)
+                            
+                            self?.present(popupDialog, animated: true, completion: nil)
+                        }
+                        print("error: \(error)")
+                        
+                }
+            }
+            
+        }
     }
     
     //MARK:- Trigger Transaction
@@ -392,33 +440,6 @@ class LoginViewController: UIViewController {
 
     
     //MARK:- Extras
-    
-    func createTransaction() {
-        
-        guard let userName = userNameString else { return }
-        let transactionParams = CreateTransactionBody(id: userName, intent: IntentType.connect.rawValue, orderConfig: nil)
-        
-        //     let transactionParams = CreateTransactionBody(id: userName, intent: IntentType.transaction.rawValue, orderConfig: OrderConfig(type: "BUY", scid: "SCET_0010", iscid: nil, did: nil, orders: nil))
-        //
-        NetworkManager.shared.getTransactionId(params: transactionParams) { [weak self] (result) in
-            switch result {
-            case .success(let response):
-                print("response: \(response)")
-                guard let transactionId = response.transactionId else {
-                    self?.showErrorPopup(msg: response.err)
-                    return }
-                self?.connectGateway(transactionId: transactionId)
-                
-            case .failure(let error):
-                DispatchQueue.main.async { [weak self] in
-                    let popupDialog = PopupDialog(title: "Error", message: error.localizedDescription)
-                    self?.present(popupDialog, animated: true, completion: nil)
-                }
-                print("error: \(error)")
-                
-            }
-        }
-    }
     
     
     

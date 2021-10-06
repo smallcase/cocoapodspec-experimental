@@ -263,6 +263,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 @property (nonatomic, weak) id <SCGatewayTransactionDelegate> _Nullable delegate;
 - (void)setupWithConfig:(GatewayConfig * _Nonnull)config SWIFT_DEPRECATED;
 - (void)setupWithConfig:(GatewayConfig * _Nonnull)config completion:(void (^ _Nullable)(BOOL, NSError * _Nullable))completion;
+- (void)initializeGateway:(NSString * _Nonnull)authToken completion:(void (^ _Nullable)(NSString * _Nonnull, NSError * _Nullable))completion;
 /// <ul>
 ///   <li>
 ///     Parameter: gatewayName -> This is a unique name given to every gateway consumer
@@ -281,6 +282,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams retargeting:(BOOL)retargeting;
 - (void)logoutUserWithPresentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 - (void)launchSmallPlugWithPresentingController:(UIViewController * _Nonnull)presentingController smallplugData:(SmallplugData * _Nullable)smallplugData completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
+- (BOOL)isUserConnected SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)getUserAuthToken SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -353,6 +356,14 @@ SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 
 SWIFT_CLASS_NAMED("_ObjCTransactionIntentConnect")
 @interface ObjCTransactionIntentConnect : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull response;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("_ObjCTransactionIntentSubscription")
+@interface ObjCTransactionIntentSubscription : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull response;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");

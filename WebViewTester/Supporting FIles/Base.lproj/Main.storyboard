@@ -811,8 +811,8 @@
                                                     <action selector="logoutButtonClicked:" destination="ilD-Zf-vtw" eventType="touchUpInside" id="wp4-1s-xee"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TyU-g9-6ra">
-                                                <rect key="frame" x="58" y="742" width="258" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TyU-g9-6ra">
+                                                <rect key="frame" x="59" y="742" width="259" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Wealth Module">
@@ -853,10 +853,12 @@
                                             <constraint firstAttribute="trailing" secondItem="5wr-J7-NZD" secondAttribute="trailing" constant="8" id="V8n-Vz-G1q"/>
                                             <constraint firstItem="r1B-fZ-WE0" firstAttribute="leading" secondItem="jDK-ew-A4J" secondAttribute="leading" constant="8" id="VAS-ip-ggc"/>
                                             <constraint firstItem="CK9-E7-xch" firstAttribute="top" secondItem="RBc-jA-B1q" secondAttribute="bottom" constant="25" id="WUx-67-73U"/>
+                                            <constraint firstItem="TyU-g9-6ra" firstAttribute="centerX" secondItem="jDK-ew-A4J" secondAttribute="centerX" id="XUw-fV-UuF"/>
                                             <constraint firstItem="YDZ-5h-e10" firstAttribute="top" secondItem="YuG-vr-ZNj" secondAttribute="bottom" constant="25" id="ZPZ-8b-7YA"/>
                                             <constraint firstItem="RBc-jA-B1q" firstAttribute="top" secondItem="jDK-ew-A4J" secondAttribute="top" constant="25" id="aZI-HN-UmJ"/>
                                             <constraint firstItem="r1B-fZ-WE0" firstAttribute="top" secondItem="CK9-E7-xch" secondAttribute="bottom" constant="25" id="bKd-Ja-tvf"/>
                                             <constraint firstAttribute="trailing" secondItem="CK9-E7-xch" secondAttribute="trailing" constant="8" id="cqQ-F2-KVP"/>
+                                            <constraint firstItem="TyU-g9-6ra" firstAttribute="width" secondItem="NaC-1H-vYE" secondAttribute="width" id="fpi-Du-sBW"/>
                                             <constraint firstAttribute="trailing" secondItem="r1B-fZ-WE0" secondAttribute="trailing" constant="8" id="h3S-PE-wQ7"/>
                                             <constraint firstItem="5wr-J7-NZD" firstAttribute="top" secondItem="XCS-0C-TJt" secondAttribute="bottom" constant="25" id="iqM-2h-WsF"/>
                                             <constraint firstItem="qNr-W3-83g" firstAttribute="top" secondItem="vhN-KM-mOr" secondAttribute="bottom" constant="25" id="mQz-K8-ydg"/>
@@ -907,7 +909,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QT-J2-b5e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1355.072463768116" y="741.96428571428567"/>
+            <point key="canvasLocation" x="1354.4000000000001" y="741.22938530734643"/>
         </scene>
         <!--Connect-->
         <scene sceneID="xUQ-pA-io2">
@@ -1209,7 +1211,7 @@
                                 <rect key="frame" x="24" y="560" width="327" height="43"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dXj-1D-Ofq">
-                                        <rect key="frame" x="0.0" y="0.0" width="171" height="43"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="135" height="43"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min. Invest Amt." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJ0-W9-zcV">
                                                 <rect key="frame" x="0.0" y="0.0" width="113.5" height="18"/>
@@ -1226,19 +1228,36 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44c-Se-pei">
-                                        <rect key="frame" x="187" y="0.0" width="140" height="43"/>
+                                        <rect key="frame" x="151" y="0.0" width="80" height="43"/>
                                         <color key="backgroundColor" red="0.077664442360401154" green="0.77461189031600952" blue="0.78374892473220825" alpha="0.9995117188" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="s5r-gS-Uvf"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="s5r-gS-Uvf"/>
+                                        </constraints>
+                                        <state key="normal" title="Subscribe">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onClickSubscribe:" destination="lIM-wt-HK4" eventType="touchUpInside" id="4cY-Xg-2zS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R36-Xi-wSV">
+                                        <rect key="frame" x="247" y="0.0" width="80" height="43"/>
+                                        <color key="backgroundColor" red="0.077664442360000002" green="0.77461189029999999" blue="0.78374892470000002" alpha="0.9995117188" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="uY9-xb-YQo"/>
                                         </constraints>
                                         <state key="normal" title="Buy">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="onClickBuy:" destination="lIM-wt-HK4" eventType="touchUpInside" id="Vh5-ab-g1J"/>
+                                            <action selector="onClickBuy:" destination="lIM-wt-HK4" eventType="touchUpInside" id="vac-VE-Ihi"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="44c-Se-pei" firstAttribute="leading" secondItem="dXj-1D-Ofq" secondAttribute="trailing" constant="16" id="dZ5-8N-NlA"/>
+                                    <constraint firstItem="R36-Xi-wSV" firstAttribute="leading" secondItem="44c-Se-pei" secondAttribute="trailing" constant="16" id="xVr-Qn-Hpa"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Eof-3S-weR">
                                 <rect key="frame" x="24" y="504" width="327" height="40"/>

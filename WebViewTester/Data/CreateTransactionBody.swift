@@ -16,6 +16,7 @@ enum IntentType: String {
     case fetchFunds = "FETCH_FUNDS"
     case sipSetup = "SIP_SETUP"
     case authoriseHoldings = "AUTHORISE_HOLDINGS"
+    case subscription = "SUBSCRIPTION"
 }
 
 enum OrderType: String {
@@ -40,6 +41,16 @@ struct OrderConfig: Codable {
         case type, scid, iscid, did, orders = "securities"
     }
 }
+
+struct SubscriptionConfig: Codable {
+    var scid: String?
+    var iscid: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case scid, iscid
+    }
+}
+
 struct CreateTransactionBody: Codable {
     var id: String
     var intent: String
@@ -48,10 +59,18 @@ struct CreateTransactionBody: Codable {
     enum CodingKeys: String, CodingKey {
         case id, intent, orderConfig
     }
-
     
 }
 
+struct CreateSubscriptionBody: Codable {
+    var id: String
+    var intent: String
+    var config: SubscriptionConfig?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, intent, config
+    }
+}
 
 struct Order: Codable {
     var ticker: String
