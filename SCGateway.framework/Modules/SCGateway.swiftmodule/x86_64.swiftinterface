@@ -22,10 +22,9 @@ extension UIImage {
   public class func gif(asset: Swift.String) -> UIKit.UIImage?
 }
 @objc @objcMembers public class SmallplugData : ObjectiveC.NSObject {
-  @objc public var smallplugHeaderText: Swift.String?
   @objc public var targetEndpoint: Swift.String?
   @objc public var params: Swift.String?
-  @objc public init(_ smallplugHeaderText: Swift.String?, _ targetEndpoint: Swift.String?, _ params: Swift.String?)
+  @objc public init(_ targetEndpoint: Swift.String?, _ params: Swift.String?)
   @objc override dynamic public init()
   @objc deinit
 }

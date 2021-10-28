@@ -326,10 +326,9 @@ SWIFT_CLASS("_TtC9SCGateway33SeparatorCollectionViewFlowLayout")
 
 SWIFT_CLASS("_TtC9SCGateway13SmallplugData")
 @interface SmallplugData : NSObject
-@property (nonatomic, copy) NSString * _Nullable smallplugHeaderText;
 @property (nonatomic, copy) NSString * _Nullable targetEndpoint;
 @property (nonatomic, copy) NSString * _Nullable params;
-- (nonnull instancetype)init:(NSString * _Nullable)smallplugHeaderText :(NSString * _Nullable)targetEndpoint :(NSString * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init:(NSString * _Nullable)targetEndpoint :(NSString * _Nullable)params OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

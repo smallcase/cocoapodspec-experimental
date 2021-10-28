@@ -10,6 +10,12 @@ import UIKit
 import SCGateway
 import PopupDialog
 
+extension UIApplication {
+    static var appVersion: String? {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
+}
+
 let BrokerList = [
     "fivepaisa",
     "aliceblue",
@@ -72,7 +78,6 @@ class LoginViewController: UIViewController {
     
     
     @IBOutlet weak var envSegmentControl: UISegmentedControl!
-    @IBOutlet weak var smartInvestingEnvSegmentControl: UISegmentedControl!
     
     
     @IBOutlet weak var brokerListTableView: UITableView! {
@@ -181,7 +186,7 @@ class LoginViewController: UIViewController {
     @IBAction func onClickSetup(_ sender: Any?) {
         
         setupUser()
-        ENVIRONMENT = getApiEnv(index: smartInvestingEnvSegmentControl.selectedSegmentIndex)
+        ENVIRONMENT = getApiEnv(index: envSegmentControl.selectedSegmentIndex)
         
         promptForInput()
     }

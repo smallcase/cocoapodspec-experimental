@@ -937,30 +937,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="XtF-rt-8pt">
-                                <rect key="frame" x="16" y="76" width="343" height="254"/>
+                                <rect key="frame" x="16" y="76" width="343" height="199"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="iPC-GL-9xs">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="31"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S.I Env" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwo-Ji-jfT">
-                                                <rect key="frame" x="0.0" y="0.0" width="49" height="31"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <color key="textColor" systemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PDf-44-6PR">
-                                                <rect key="frame" x="81" y="0.0" width="262" height="32"/>
-                                                <segments>
-                                                    <segment title="Prod"/>
-                                                    <segment title="Dev"/>
-                                                    <segment title="Staging"/>
-                                                </segments>
-                                                <color key="tintColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </segmentedControl>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="RgY-cu-Gyn">
-                                        <rect key="frame" x="0.0" y="55" width="343" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Environment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qp3-XH-zfK">
                                                 <rect key="frame" x="0.0" y="0.0" width="91" height="31"/>
@@ -983,7 +963,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="QdQ-Ca-f9N">
-                                        <rect key="frame" x="0.0" y="110" width="343" height="34"/>
+                                        <rect key="frame" x="0.0" y="55" width="343" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gateway" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vs-Dl-Egm">
                                                 <rect key="frame" x="0.0" y="0.0" width="63" height="34"/>
@@ -1003,7 +983,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="emq-7l-8m3">
-                                        <rect key="frame" x="0.0" y="168" width="343" height="31"/>
+                                        <rect key="frame" x="0.0" y="113" width="343" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leprechaun Active" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAA-t8-69l">
                                                 <rect key="frame" x="0.0" y="0.0" width="262" height="31"/>
@@ -1020,7 +1000,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="kez-aA-qn3">
-                                        <rect key="frame" x="0.0" y="223" width="343" height="31"/>
+                                        <rect key="frame" x="0.0" y="168" width="343" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Broker Cofig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lQ-Yl-1SL">
                                                 <rect key="frame" x="0.0" y="0.0" width="262" height="31"/>
@@ -1042,7 +1022,7 @@
                                 <rect key="frame" x="16" y="667" width="343" height="30"/>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rgp-H9-hNW">
-                                <rect key="frame" x="16" y="400" width="343" height="7"/>
+                                <rect key="frame" x="16" y="345" width="343" height="62"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
                             </tableView>
@@ -1088,14 +1068,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is Amo Enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-kE-eey">
-                                <rect key="frame" x="20" y="344" width="118" height="20.5"/>
+                                <rect key="frame" x="20" y="289" width="118" height="20.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-eR-IdQ">
-                                <rect key="frame" x="304" y="344" width="51" height="31"/>
+                                <rect key="frame" x="304" y="289" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4p5-LY-Mpp"/>
@@ -1159,12 +1139,11 @@
                         <outlet property="gatewayNameTextField" destination="lRG-5q-npd" id="5TB-PC-H8W"/>
                         <outlet property="isAmoEnabled" destination="Mhp-eR-IdQ" id="fmm-j6-8JB"/>
                         <outlet property="leprechaunSwitch" destination="OUJ-TC-Yee" id="hdu-7v-DRO"/>
-                        <outlet property="smartInvestingEnvSegmentControl" destination="PDf-44-6PR" id="hVZ-Iy-Kd6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BqO-BK-2tw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1030.4347826086957" y="756.69642857142856"/>
+            <point key="canvasLocation" x="-1031.2" y="756.07196401799104"/>
         </scene>
         <!--Smallcase Profile View Controller-->
         <scene sceneID="Vpy-Qh-O0i">
