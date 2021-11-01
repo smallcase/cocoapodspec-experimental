@@ -10,7 +10,7 @@
 		</data>
 		<key>FivePaisaPwaViewController.nib</key>
 		<data>
-		3GsNlEVvupZP3+MxCiY+McG3EPk=
+		qPzvjGg/M8w1ozBBFXVJzvWeDVs=
 		</data>
 		<key>GraphikApp-Bold.ttf</key>
 		<data>
@@ -50,15 +50,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		4UubEwfp7sjCTDNCv1eQlvfI8D8=
+		n/GXdv+cEvJ5iQGyj4KAnSR+Nss=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		CFfImPVZYbWkmfwfaNv9ACgXG74=
+		MWc06cyXtzBBLLDLbhNVCLHCBsE=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		CFfImPVZYbWkmfwfaNv9ACgXG74=
+		MWc06cyXtzBBLLDLbhNVCLHCBsE=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		BB90xRgwTfut4RI61R1a0Tq8fK8=
+		722HP0rDW5RWuo/hiIdJ9L5rOIk=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -82,7 +82,7 @@
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		BB90xRgwTfut4RI61R1a0Tq8fK8=
+		722HP0rDW5RWuo/hiIdJ9L5rOIk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -114,7 +114,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			29WfclZKYwgYL3YLyHB+544T8gdqlxY/tIgKQH98PKo=
+			ML0n7NuM6zgJYaWujfSl+hwRIizoXz7dKlL5qyFXZAs=
 			</data>
 		</dict>
 		<key>GraphikApp-Bold.ttf</key>
@@ -184,14 +184,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0669w2wzOOLl7LnRF1IY6hFlAlImDrke4D+Bs2ZDHck=
+			JB90Pq57GrZa22yspMsAdz7FYS163wtey91+fo1h0Oc=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0669w2wzOOLl7LnRF1IY6hFlAlImDrke4D+Bs2ZDHck=
+			JB90Pq57GrZa22yspMsAdz7FYS163wtey91+fo1h0Oc=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -212,7 +212,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gokLehqBY1Dm5sx0Tn5IgbZMat9JC4uDMGpfW5dYeh8=
+			y5lFNls3f6lsyjb3M+wNPJf96716eyfgGtyTMAhxRMA=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
@@ -233,7 +233,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gokLehqBY1Dm5sx0Tn5IgbZMat9JC4uDMGpfW5dYeh8=
+			y5lFNls3f6lsyjb3M+wNPJf96716eyfgGtyTMAhxRMA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -150,8 +150,9 @@ class LoginViewController: UIViewController {
                 default : gatewayName?.append("")
             }
                    
+            
             let config = GatewayConfig(gatewayName: gatewayName ?? "",
-                                              brokerConfig: brokerConfig,
+                                       brokerConfig: brokerConfig,
 //                                            brokerConfig: ["Alice Blue","kite","upstox"],
                                               apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
                                               isLeprechaunActive: self.leprechaunSwitch.isOn,
