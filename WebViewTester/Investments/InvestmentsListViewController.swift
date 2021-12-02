@@ -148,6 +148,7 @@ class InvestmentsListViewController: UIViewController {
             return
         }
         
+        destinationVC.investmentsIndex = index
         destinationVC.iscid = investedSmallcases[index].investment.iscid
         
     }

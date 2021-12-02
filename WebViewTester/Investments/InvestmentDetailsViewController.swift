@@ -19,6 +19,8 @@ class InvestmentDetailsViewController: UIViewController {
         static let headerNibName = "ConstiuentsHeaderView"
     }
     
+    var investmentsIndex: Int?
+    
     var iscid: String? {
         didSet {
             guard iscid != nil else { return }
@@ -345,7 +347,7 @@ class InvestmentDetailsViewController: UIViewController {
              
                     do {
                         let decodedInvestments = try JSONDecoder().decode(AllInvestmentsResponse.self, from: response)
-                        self?.investmentDetails = decodedInvestments.data?[0]
+                        self?.investmentDetails = decodedInvestments.data?[self?.investmentsIndex ?? 0]
                     }
                     catch let err {
                         print("INVESTMENT DETAILS: PARSE ERROR: \(err)")
