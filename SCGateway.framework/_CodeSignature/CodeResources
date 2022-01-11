@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		0fFrXbbRYbmmJo9RT1JJZgKeftQ=
+		GBsliKf42aqE8qmZVEgw6biBX8g=
 		</data>
 		<key>FivePaisaPwaViewController.nib</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/SCGateway-Swift.h</key>
 		<data>
-		Z0NJNldH54uTdeClcDgZlauI36Q=
+		3geLMJN0P96aIjTfYlf7jhRT/sU=
 		</data>
 		<key>Headers/SCGateway.h</key>
 		<data>
@@ -50,39 +50,39 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		vZmpBfuu/mR6M9RdrZf4/EKxLo8=
+		rycismxCO9bZNBvWpgk1p8M8Y3w=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		xUiuiRVdrdpYEFkH92RO5jFj/qs=
+		BGUcYhfAj9AZgWU5Q6K6mtc42Dc=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		xUiuiRVdrdpYEFkH92RO5jFj/qs=
+		BGUcYhfAj9AZgWU5Q6K6mtc42Dc=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		hLiWuBqZWTudCKwKuS3L9Tb+9r0=
+		ObH9p39ntSc4Oilz0P8ylzOa8/0=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		2HdkoD3FgaJ+D5xlxLWo/y8F8uo=
+		fZtrs4ddKpHiBM7Jrr5d9S37prM=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		rrC24d482/LqEoio3zzYs9/FzW0=
+		Ujk8RqOcPH9j2e/TN5hOAEOBWjM=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		hLiWuBqZWTudCKwKuS3L9Tb+9r0=
+		ObH9p39ntSc4Oilz0P8ylzOa8/0=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		2HdkoD3FgaJ+D5xlxLWo/y8F8uo=
+		fZtrs4ddKpHiBM7Jrr5d9S37prM=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		rrC24d482/LqEoio3zzYs9/FzW0=
+		Ujk8RqOcPH9j2e/TN5hOAEOBWjM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -107,7 +107,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FyQQm5mst0VrtbU34QTaMVJrbNx1/+7uLyeTJCrtjLA=
+			NaKRDEehLskFsG6gg89b6+SIVd4VNtddYYMIoQc/NGg=
 			</data>
 		</dict>
 		<key>FivePaisaPwaViewController.nib</key>
@@ -170,7 +170,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5RWHC5d1mukVp7zBqJHxlBRWR58+3hFX6iTS37qoA8s=
+			niXKgtbnkZ95uOpUrQAdA+7Zl18RPxuHqefeoJ0Aups=
 			</data>
 		</dict>
 		<key>Headers/SCGateway.h</key>
@@ -184,56 +184,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			97mAemDRdb/F3Nkhb3T663v+Kp6QAuzvyKVbw7j8NWk=
+			3dfQ3AGSiwS+B69irw2HNbCISPFWFzyvJ9XtxghB6ak=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			97mAemDRdb/F3Nkhb3T663v+Kp6QAuzvyKVbw7j8NWk=
+			3dfQ3AGSiwS+B69irw2HNbCISPFWFzyvJ9XtxghB6ak=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zIUs9lmxe28hkohHOWCDPmt/6Mb+rfWJ6GrSlodXA48=
+			4AmR0eb9nG19/MH1xPY19y/KfXiHC72KPjWu6XB+mUA=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			U88fwS/OwmorUkxC0F1ocSAr+vQWEN1u2SkIdMq0LZI=
+			7PN8gIP4p1Bt2Cx/hUdBMHWY2kfS6TgbvR2SAZ9fkQA=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AAsVYCILMTj9rvY1P6eEX5bqj77e/EUJihO6AhK13/o=
+			tjTkjFPQuApZ8aNuEZ0RzLEKI6v2VHuWRLrfxG81m2A=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zIUs9lmxe28hkohHOWCDPmt/6Mb+rfWJ6GrSlodXA48=
+			4AmR0eb9nG19/MH1xPY19y/KfXiHC72KPjWu6XB+mUA=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			U88fwS/OwmorUkxC0F1ocSAr+vQWEN1u2SkIdMq0LZI=
+			7PN8gIP4p1Bt2Cx/hUdBMHWY2kfS6TgbvR2SAZ9fkQA=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AAsVYCILMTj9rvY1P6eEX5bqj77e/EUJihO6AhK13/o=
+			tjTkjFPQuApZ8aNuEZ0RzLEKI6v2VHuWRLrfxG81m2A=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
