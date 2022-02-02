@@ -20,7 +20,7 @@ struct Investment: Codable {
     var shortDescription: String?
     var status: String
     var returns: InvestedReturns?
-    var currentConfig: CurrentConfig
+//    var currentConfig: CurrentConfig
     
     
     struct CurrentConfig: Codable {
@@ -33,8 +33,13 @@ struct Investment: Codable {
     }
     
     
+//    enum CodingKeys: String, CodingKey {
+//        case date, iscid, name, recommendedAction, scid, shortDescription, status, returns, currentConfig
+//    }
+    
+    //Removed current config
     enum CodingKeys: String, CodingKey {
-        case date, iscid, name, recommendedAction, scid, shortDescription, status, returns, currentConfig
+        case date, iscid, name, recommendedAction, scid, shortDescription, status, returns
     }
 }
 

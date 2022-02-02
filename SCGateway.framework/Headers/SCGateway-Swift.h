@@ -352,6 +352,14 @@ SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 
 
 
+SWIFT_CLASS_NAMED("_ObjCTransactionIntentCancelAmo")
+@interface ObjCTransactionIntentCancelAmo : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull response;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS_NAMED("_ObjCTransactionIntentConnect")
 @interface ObjCTransactionIntentConnect : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull response;

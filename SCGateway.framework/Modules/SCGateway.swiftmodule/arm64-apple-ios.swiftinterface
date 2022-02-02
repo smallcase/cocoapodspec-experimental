@@ -196,6 +196,7 @@ public enum TransactionIntent {
   case fetchFunds(smallcaseAuthToken: Swift.String, fund: Swift.Double, transactionId: Swift.String)
   case authoriseHoldings(smallcaseAuthToken: Swift.String, status: Swift.Bool, transactionId: Swift.String)
   case sipSetup(smallcaseAuthToken: Swift.String, sipAction: SCGateway.SipDetail, transactionId: Swift.String)
+  case cancelAMO(_: Swift.String)
 }
 public enum AllowedBrokerType : Swift.String {
   case SST
@@ -216,6 +217,10 @@ public enum AllowedBrokerType : Swift.String {
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(ObjCTransactionIntentSubscription) final public class _ObjCTransactionIntentSubscription : ObjectiveC.NSObject {
+  @objc final public let response: Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ObjCTransactionIntentCancelAmo) final public class _ObjCTransactionIntentCancelAmo : ObjectiveC.NSObject {
   @objc final public let response: Swift.String
   @objc deinit
 }

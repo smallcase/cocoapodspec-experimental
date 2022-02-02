@@ -19,6 +19,7 @@ class InvestmentDetailsViewController: UIViewController {
         static let headerNibName = "ConstiuentsHeaderView"
     }
     
+    //MARK: Variables
     var investmentsIndex: Int?
     
     var iscid: String? {
@@ -28,175 +29,6 @@ class InvestmentDetailsViewController: UIViewController {
             
         }
     }
-    
-    @IBAction func sipSetup(_ sender: Any) {
-        
-        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
-        let orderConfig = OrderConfig(type: nil, scid: nil, iscid: iscid, did: nil, orders: nil)
-        let params = CreateTransactionBody(id: username, intent: IntentType.sipSetup.rawValue, orderConfig: orderConfig)
-        
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
-            switch result {
-            case .success(let response):
-                print(response)
-                guard let transactionId = response.transactionId else { return }
-                self?.startSipSetupTrx(transactionId: transactionId)
-                
-                
-            case .failure(let error):
-                print(error)
-                self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
-                //TODO: - Show Failiure popup
-                
-            }
-        }
-    }
-    
-    @IBAction func manageSmallcase(_ sender: Any) {
-        
-        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
-        let orderConfig = OrderConfig(type: OrderType.manage.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
-        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
-        
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
-            switch result {
-                case .success(let response):
-                    print(response)
-                    guard let transactionId = response.transactionId else { return }
-                    
-                    self?.triggerTransaction(transactionId: transactionId)
-                    
-                case .failure(let error):
-                    print(error)
-                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
-                //TODO: - Show Failiure popup
-                
-            }
-        }
-        
-    }
-    
-    
-    @IBAction func sipOrder(_ sender: Any) {
-        
-        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
-        let orderConfig = OrderConfig(type: OrderType.sip.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
-        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
-        
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
-            switch result {
-                case .success(let response):
-                    print(response)
-                    guard let transactionId = response.transactionId else { return }
-                    
-                    self?.triggerTransaction(transactionId: transactionId)
-                    
-                case .failure(let error):
-                    print(error)
-                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
-                //TODO: - Show Failiure popup
-                
-            }
-        }
-        
-    }
-    
-    
-    @IBAction func repairSmallcase(_ sender: Any) {
-        
-        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
-        let orderConfig = OrderConfig(type: OrderType.repair.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
-        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
-        
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
-            switch result {
-                case .success(let response):
-                    print(response)
-                    guard let transactionId = response.transactionId else { return }
-                    
-                    self?.triggerTransaction(transactionId: transactionId)
-                    
-                case .failure(let error):
-                    print(error)
-                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
-                //TODO: - Show Failiure popup
-                
-            }
-        }
-        
-    }
-    
-    @IBAction func rebalanceSmallcase(_ sender: Any) {
-        
-        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
-        let orderConfig = OrderConfig(type: OrderType.rebalance.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
-        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
-        
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
-            switch result {
-                case .success(let response):
-                    print(response)
-                    guard let transactionId = response.transactionId else { return }
-                    
-                    self?.triggerTransaction(transactionId: transactionId)
-                    
-                case .failure(let error):
-                    print(error)
-                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
-                //TODO: - Show Failiure popup
-                
-            }
-        }
-    }
-    
-    
-    @IBAction func archiveSmt(_ sender: UIButton) {
-        
-        do {
-
-             SCGateway.shared.markSmallcaseArchive(iscid: iscid!) { [weak self] (response, error) in
-
-                guard let response = response else {
-                    if let error = error {
-                        print("Archive: ERROR: \(error)")
-//                        self?.showErrorAlert(err: error)
-                    }
-                    return
-                }
-
-
-                let str = String(decoding: response, as: UTF8.self)
-
-                print("Archive Response: \(str)")
-                self?.showPopup(title: "Smallcase Archived", msg: "\(str)")
-            }
-
-        }
-        
-    }
-    
-    func startSipSetupTrx(transactionId: String) {
-        do {
-            try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self) { [weak self] (result) in
-                switch result {
-                case .success(let response):
-                    print("HOLDING RESPONSE: \(response)")
-                    self?.showPopup(title: "Sip setup Success", msg: "\(response)")
-                    
-                    
-                case .failure(let error):
-                    print(error)
-                    self?.showPopup(title: "Sip setup failure", msg: "\(error.message)  \(error.rawValue)" )
-                }
-            }
-
-        }
-        catch let err {
-            print(err)
-            self.showPopup(title: "Gateway Error", msg: err.localizedDescription)
-        }
-    }
-    
     
     
     var investmentDetails: InvestmentData? {
@@ -209,7 +41,7 @@ class InvestmentDetailsViewController: UIViewController {
                 self?.networthValueLabel.text = "\(investmentDetails.investment.returns?.networth ?? 0)"
             }
            
-            constituents = investmentDetails.investment.currentConfig.constituents
+//            constituents = investmentDetails.investment.currentConfig.constituents
             
             if let scid = investmentDetails.investment.scid {
                 getSmallcaseImage(scid: scid)
@@ -307,11 +139,177 @@ class InvestmentDetailsViewController: UIViewController {
         
     }
     
-    // MARK: - Utility
+    @IBAction func sipSetup(_ sender: Any) {
+        
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let orderConfig = OrderConfig(type: nil, scid: nil, iscid: iscid, did: nil, orders: nil)
+        let params = CreateTransactionBody(id: username, intent: IntentType.sipSetup.rawValue, orderConfig: orderConfig)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+                case .success(let response):
+                    print(response)
+                    guard let transactionId = response.transactionId else { return }
+                    self?.startSipSetupTrx(transactionId: transactionId)
+                    
+                    
+                case .failure(let error):
+                    print(error)
+                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                    //TODO: - Show Failure popup
+                    
+            }
+        }
+    }
     
+    @IBAction func manageSmallcase(_ sender: Any) {
+        
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let orderConfig = OrderConfig(type: OrderType.manage.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
+        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+                case .success(let response):
+                    print(response)
+                    guard let transactionId = response.transactionId else { return }
+                    
+                    self?.triggerTransaction(transactionId: transactionId)
+                    
+                case .failure(let error):
+                    print(error)
+                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                    //TODO: - Show Failiure popup
+                    
+            }
+        }
+        
+    }
+    
+    
+    @IBAction func sipOrder(_ sender: Any) {
+        
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let orderConfig = OrderConfig(type: OrderType.sip.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
+        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+                case .success(let response):
+                    print(response)
+                    guard let transactionId = response.transactionId else { return }
+                    
+                    self?.triggerTransaction(transactionId: transactionId)
+                    
+                case .failure(let error):
+                    print(error)
+                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                    //TODO: - Show Failiure popup
+                    
+            }
+        }
+        
+    }
+    
+    
+    @IBAction func repairSmallcase(_ sender: Any) {
+        
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let orderConfig = OrderConfig(type: OrderType.repair.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
+        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+                case .success(let response):
+                    print(response)
+                    guard let transactionId = response.transactionId else { return }
+                    
+                    self?.triggerTransaction(transactionId: transactionId)
+                    
+                case .failure(let error):
+                    print(error)
+                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                    //TODO: - Show Failiure popup
+                    
+            }
+        }
+        
+    }
+    
+    @IBAction func rebalanceSmallcase(_ sender: Any) {
+        
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let orderConfig = OrderConfig(type: OrderType.rebalance.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
+        let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+                case .success(let response):
+                    print(response)
+                    guard let transactionId = response.transactionId else { return }
+                    
+                    self?.triggerTransaction(transactionId: transactionId)
+                    
+                case .failure(let error):
+                    print(error)
+                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+                    //TODO: - Show Failiure popup
+                    
+            }
+        }
+    }
+    
+    
+    @IBAction func archiveSmt(_ sender: UIButton) {
+        
+        do {
+            
+            SCGateway.shared.markSmallcaseArchive(iscid: iscid!) { [weak self] (response, error) in
+                
+                guard let response = response else {
+                    if let error = error {
+                        print("Archive: ERROR: \(error)")
+                        //                        self?.showErrorAlert(err: error)
+                    }
+                    return
+                }
+                
+                
+                let str = String(decoding: response, as: UTF8.self)
+                
+                print("Archive Response: \(str)")
+                self?.showPopup(title: "Smallcase Archived", msg: "\(str)")
+            }
+            
+        }
+        
+    }
+    
+    // MARK: Cancel AMO
+    @IBAction func cancelAmo(_ sender: Any) {
+        
+        guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
+        let orderConfig = OrderConfig(type: nil, scid: nil, iscid: iscid, did: nil, orders: nil)
+        let params = CreateTransactionBody(id: username, intent: IntentType.cancelAmo.rawValue, orderConfig: orderConfig)
+        
+        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+            switch result {
+                case .success(let response):
+                    print(response)
+                    guard let transactionId = response.transactionId else { return }
+                    
+                    self?.triggerTransaction(transactionId: transactionId)
+                    
+                case .failure(let error):
+                    print(error)
+                    self?.showPopup(title: "Trx id error", msg: error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    // MARK: Utility
     func triggerTransaction(transactionId: String) {
-        
-        
         do {
             try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self) { [weak self] (result) in
                 switch result {
@@ -333,6 +331,29 @@ class InvestmentDetailsViewController: UIViewController {
         }
         
     }
+    
+    func startSipSetupTrx(transactionId: String) {
+        do {
+            try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self) { [weak self] (result) in
+                switch result {
+                    case .success(let response):
+                        print("HOLDING RESPONSE: \(response)")
+                        self?.showPopup(title: "Sip setup Success", msg: "\(response)")
+                        
+                        
+                    case .failure(let error):
+                        print(error)
+                        self?.showPopup(title: "Sip setup failure", msg: "\(error.message)  \(error.rawValue)" )
+                }
+            }
+            
+        }
+        catch let err {
+            print(err)
+            self.showPopup(title: "Gateway Error", msg: err.localizedDescription)
+        }
+    }
+    
     func fetchInvestmentDetails() {
      
             SCGateway.shared.getUserInvestmentDetails(iscid: iscid!) { [weak self] (response, error) in

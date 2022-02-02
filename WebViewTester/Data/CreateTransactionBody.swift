@@ -17,6 +17,7 @@ enum IntentType: String {
     case sipSetup = "SIP_SETUP"
     case authoriseHoldings = "AUTHORISE_HOLDINGS"
     case subscription = "SUBSCRIPTION"
+    case cancelAmo = "CANCEL_AMO"
 }
 
 enum OrderType: String {
