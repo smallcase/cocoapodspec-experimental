@@ -8,6 +8,7 @@
 
 import UIKit
 import SCGateway
+import Accelerate
 
 class CreateViewController: UIViewController {
     
@@ -133,14 +134,14 @@ class CreateViewController: UIViewController {
         
         do {
             
-            let utmParams = [
-                "utm_source": "summer-mailer" ,
-                "utm_campaign":"summer-sale",
-                "utm_medium":"email",
-                "utm_term":"paid",
-                "utm_content":"toplink"
-            ]
-            try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self, utmParams: utmParams, completion: { [weak self] (result) in
+//            let utmParams = [
+//                "utm_source": "summer-mailer" ,
+//                "utm_campaign":"summer-sale",
+//                "utm_medium":"email",
+//                "utm_term":"paid",
+//                "utm_content":"toplink"
+//            ]
+            try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self, completion: { [weak self] (result) in
                 switch result {
                 case .success(let response):
                     print("SST TRANSACTION: RESPONSE:  \(response)")
@@ -177,6 +178,19 @@ class CreateViewController: UIViewController {
             
         }
     }
+    
+    @IBAction func onClickShowOrders(_ sender: Any) {
+        
+        SCGateway.shared.showOrders(presentingController: self) { success, error in
+            
+            if success{
+                print("show orders success")
+            } else {
+                print(error)
+            }
+        }
+    }
+    
 }
 
 extension CreateViewController: UITableViewDelegate, UITableViewDataSource {

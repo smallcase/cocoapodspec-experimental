@@ -69,8 +69,8 @@
 		36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */; };
 		4022BCAF0EC40239C690DA1B /* Pods_WebViewTesterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37E7F324005BDD6D950FC4E /* Pods_WebViewTesterUITests.framework */; };
 		8817B54826E7C55A00DCFD33 /* Encodable+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */; };
-		88727F8027AA9B5800F41FB3 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88727F7E27AA9B5200F41FB3 /* SCGateway.framework */; };
-		88727F8127AA9B5800F41FB3 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88727F7E27AA9B5200F41FB3 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8871635327B291E500E5AC2E /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8871635127B291E100E5AC2E /* SCGateway.framework */; };
+		8871635427B291E500E5AC2E /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8871635127B291E100E5AC2E /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B913F2E891FEC8538CA42C63 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBBD09801E4B2F2CD2B42165 /* Pods_WebViewTesterTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,7 +98,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				88727F8127AA9B5800F41FB3 /* SCGateway.framework in Embed Frameworks */,
+				8871635427B291E500E5AC2E /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,7 +181,7 @@
 		58796B1B39C8C37880550A04 /* Pods-WebViewTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTester.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.debug.xcconfig"; sourceTree = "<group>"; };
 		6CEEA5361ECFF807D24F2B30 /* Pods-WebViewTesterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterTests.release.xcconfig"; path = "Target Support Files/Pods-WebViewTesterTests/Pods-WebViewTesterTests.release.xcconfig"; sourceTree = "<group>"; };
 		8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+ext.swift"; sourceTree = "<group>"; };
-		88727F7E27AA9B5200F41FB3 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
+		8871635127B291E100E5AC2E /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
 		CBBD09801E4B2F2CD2B42165 /* Pods_WebViewTesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C8778D6B2CC6D3F8C88CA4 /* Pods-WebViewTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTester.release.xcconfig"; path = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.release.xcconfig"; sourceTree = "<group>"; };
 		E37E7F324005BDD6D950FC4E /* Pods_WebViewTesterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,7 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C4EBC1A68B2FE2158546F54 /* Pods_WebViewTester.framework in Frameworks */,
-				88727F8027AA9B5800F41FB3 /* SCGateway.framework in Frameworks */,
+				8871635327B291E500E5AC2E /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +374,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				88727F7E27AA9B5200F41FB3 /* SCGateway.framework */,
+				8871635127B291E100E5AC2E /* SCGateway.framework */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,

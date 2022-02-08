@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/SCGateway-Swift.h</key>
 		<data>
-		MC0b0CaF/JGo5o8FMiI3EiDsKAk=
+		uU/0jMkL1mJwaXXEFQZDV2piK98=
 		</data>
 		<key>Headers/SCGateway.h</key>
 		<data>
@@ -50,39 +50,39 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		VEO6TG4Z1XXDYODJBf6YaHK0JdU=
+		9KhBMPbrRhtarjpTxjK8hPxGbU4=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		8nEdb3xm/YXNbZ/kPJ/92jzGu7E=
+		rlGU6y7C84cdBab4XS7r0mrlbzc=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		8nEdb3xm/YXNbZ/kPJ/92jzGu7E=
+		rlGU6y7C84cdBab4XS7r0mrlbzc=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		ObH9p39ntSc4Oilz0P8ylzOa8/0=
+		KhK41QZtmdlfHcCbvgNmr4Om3O4=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		MAyKRkrqqY0eamQ3NXld4/Db5Xk=
+		Fr4rXJhV8Y//2xnWGwNKG86VNzk=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		KIctVMY8Xn3AKdgkOcvG/PX77eY=
+		eIiJsAu3Z5mbF+rKpzC2zeQmXdI=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		ObH9p39ntSc4Oilz0P8ylzOa8/0=
+		KhK41QZtmdlfHcCbvgNmr4Om3O4=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		MAyKRkrqqY0eamQ3NXld4/Db5Xk=
+		Fr4rXJhV8Y//2xnWGwNKG86VNzk=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		KIctVMY8Xn3AKdgkOcvG/PX77eY=
+		eIiJsAu3Z5mbF+rKpzC2zeQmXdI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -170,7 +170,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UmgK+OOsbYTTNMtBuaG4q5ncEociKfvLxjUX6jULtEI=
+			tkM369NRr3AV7yZzyjVdLwopVmr55gtRJSRZ7BGWw28=
 			</data>
 		</dict>
 		<key>Headers/SCGateway.h</key>
@@ -184,56 +184,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sv808GSTLRcqdmNxwrmGVMI93njzjs9/TfwY3m96XDs=
+			yXX8cDSUd4qle5rVmNNaVaa3IyMOE81KCpgsLJ216Ug=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			sv808GSTLRcqdmNxwrmGVMI93njzjs9/TfwY3m96XDs=
+			yXX8cDSUd4qle5rVmNNaVaa3IyMOE81KCpgsLJ216Ug=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4AmR0eb9nG19/MH1xPY19y/KfXiHC72KPjWu6XB+mUA=
+			cDL9QKkzHQBHnkocR3QoH6mFh78teWl7+i8wtrFv4Eg=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XboUZWXeakmM1jF0pxJrVZwK0AzcgI0Rc3MZwpA+GxI=
+			MHMJ12CzCoVmOET4RSz9MTvtBb9aumxsuyK/iYm1PQE=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			k8GCSDJf9rBqld2CrocOaI6OXWePoq0qRNeib28HqwA=
+			oNsfmZgFdyrmXuTGdh4yq8qXPQBymyazPyd3FLRGaoM=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4AmR0eb9nG19/MH1xPY19y/KfXiHC72KPjWu6XB+mUA=
+			cDL9QKkzHQBHnkocR3QoH6mFh78teWl7+i8wtrFv4Eg=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XboUZWXeakmM1jF0pxJrVZwK0AzcgI0Rc3MZwpA+GxI=
+			MHMJ12CzCoVmOET4RSz9MTvtBb9aumxsuyK/iYm1PQE=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			k8GCSDJf9rBqld2CrocOaI6OXWePoq0qRNeib28HqwA=
+			oNsfmZgFdyrmXuTGdh4yq8qXPQBymyazPyd3FLRGaoM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

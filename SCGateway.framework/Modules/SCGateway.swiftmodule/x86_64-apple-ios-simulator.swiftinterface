@@ -13,7 +13,6 @@ import Swift
 import SwiftUI
 import UIKit
 import WebKit
-import _AuthenticationServices_SwiftUI
 import _Concurrency
 extension UIKit.UIImage {
   public class func gif(data: Foundation.Data) -> UIKit.UIImage?
@@ -206,6 +205,7 @@ public enum AllowedBrokerType : Swift.String {
   case SIP_SETUP
   case FETCH_FUNDS
   case AUTHORISE_HOLDINGS
+  case SHOW_ORDERS
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -353,8 +353,9 @@ extension UIKit.UIStackView {
   @objc public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?)
   @objc public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool)
   public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool?)
-  @objc public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
   @objc public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
+  @objc public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
+  @objc public func showOrders(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
   @objc public func isUserConnected() -> Swift.Bool
   @objc public func getUserAuthToken() -> Swift.String?
   @objc deinit

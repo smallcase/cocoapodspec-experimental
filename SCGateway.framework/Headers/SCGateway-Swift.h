@@ -279,8 +279,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params completion:(void (^ _Nonnull)(NSString * _Nullable))completion;
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams;
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams retargeting:(BOOL)retargeting;
-- (void)logoutUserWithPresentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 - (void)launchSmallPlugWithPresentingController:(UIViewController * _Nonnull)presentingController smallplugData:(SmallplugData * _Nullable)smallplugData completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
+- (void)logoutUserWithPresentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+- (void)showOrdersWithPresentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 - (BOOL)isUserConnected SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nullable)getUserAuthToken SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -336,7 +337,6 @@ SWIFT_CLASS("_TtC9SCGateway13SmallplugData")
 SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 @interface TransactionErrorResponse : NSObject
 @end
-
 
 
 
