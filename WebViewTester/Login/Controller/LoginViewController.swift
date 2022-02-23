@@ -410,7 +410,12 @@ class LoginViewController: UIViewController {
                 case .failure(let error):
                     
                     print("CONNECT: ERROR :\(error)")
-                    self?.showPopup(title: "Error", msg: "\(error.message)  \(error.rawValue)")
+                        
+                        if error.rawValue == 1007 {
+                            self?.showPopup(title: "Error", msg: "\(error.message)")
+                        } else {
+                            self?.showPopup(title: "Error", msg: "\(error.message)  \(error.rawValue)")
+                        }
                     
                 }
                 print(result)
