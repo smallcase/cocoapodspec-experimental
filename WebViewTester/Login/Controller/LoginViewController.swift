@@ -158,6 +158,7 @@ class LoginViewController: UIViewController {
                                               isLeprechaunActive: self.leprechaunSwitch.isOn,
                                               isAmoEnabled: self.isAmoEnabled.isOn
             )
+            
             SCGateway.shared.setup(config: config){ success, error in
                 if (success) {
                     //init sdk successful
@@ -246,7 +247,7 @@ class LoginViewController: UIViewController {
         present(ac, animated: true)
     }
     
-    //MARK:- Gateway
+    //MARK: Gateway
     
     func getSelectedBrokers() -> [String] {
         var customBrokerList: [String] = []
@@ -292,27 +293,8 @@ class LoginViewController: UIViewController {
     }
     
     
-    //MARK:- Initialize Gateway SDK
+    //MARK: Initialize Gateway SDK
     func gatewayInitialize() {
-        
-//        let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJndWVzdCI6dHJ1ZSwiaWF0IjoxNjMwMDU2NjI5LCJleHAiOjE3MzAwNjAyMjl9.hE0LSTZCaKV8tiAQ5byCCetYq46ULGKBUWC37Bff8lY"
-
-//        SCGateway.shared.initializeGateway(sdkToken: smallcaseAuthToken!) { data, error in
-//
-//            if !data {
-//                print(error ?? "")
-//
-//                if let error = error as? TransactionError {
-//                    self.showPopup(title: "Error", msg: error.message)
-//                }
-//                else {
-//                    self.showPopup(title: "Error", msg: error.debugDescription)
-//                }
-//                return
-//            }
-//            print(data)
-//        }
-        
         
         print("Initializing gateway")
         SCGateway.shared.initializeGateway(smallcaseAuthToken!) { response, error in
