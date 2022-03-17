@@ -186,7 +186,10 @@ class CreateViewController: UIViewController {
             if success{
                 print("show orders success")
             } else {
-                print(error)
+                
+                if let errorPopupString = error as? ObjcTransactionError {
+                    self.showPopup(title: "Error", msg: "\(errorPopupString.domain) \(errorPopupString.code)")
+                }
             }
         }
     }

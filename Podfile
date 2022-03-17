@@ -1,6 +1,5 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '11.0'
-#source 'https://gitlab.com/scGatewayOS/cocoapodspecs.git'
 
 #source 'https://github.com/smallcase/cocoapodspecs.git'
 
@@ -13,7 +12,7 @@ target 'WebViewTester' do
 
   pod 'PopupDialog', '~> 1.1'
 
-#  pod 'SCGateway' , '3.1.11'
+  pod 'SCGateway' , '3.1.11'
 
 
   target 'WebViewTesterTests' do
