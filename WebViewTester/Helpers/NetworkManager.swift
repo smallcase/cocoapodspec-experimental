@@ -164,6 +164,43 @@ class NetworkManager {
         }
     }
     
+    func fetchUserHoldings(username: String, mutualFunds: Bool, completion: @escaping(Result<FetchHoldingsResponse, Error>) -> Void) {
+        
+        print("Fetching holdings of: \(username)")
+        let urlString = "\(getBaseUrl())/holdings/fetch?id=\(username)&mfHoldings=\(mutualFunds)&version=v2"
+        
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NetworkError.invalidUrl))
+            return
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = HTTPRequest.get
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            
+            guard let data = data else {
+                completion(.failure(NetworkError.noData))
+                return
+            }
+            
+            do {
+                let decodedData = try JSONDecoder().decode(FetchHoldingsResponse.self, from: data)
+//                print("DECODED DATA: \(decodedData)")
+                print("Fetch Holdings response: \(decodedData.toJSONString())")
+                completion(.success(decodedData))
+            }
+            catch let err {
+                print(err)
+                completion(.failure(NetworkError.parsingError))
+                
+            }
+        }
+        
+        task.resume()
+    }
+    
    func getHoldings(username: String, completion: @escaping(Result<GetHoldingsResponse, Error>) -> Void )  {
         print(username)
         let urlString = "\(getBaseUrl())/holdings/fetch?id=\(username)"

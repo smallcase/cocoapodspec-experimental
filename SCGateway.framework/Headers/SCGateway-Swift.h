@@ -227,7 +227,7 @@ SWIFT_CLASS("_TtC9SCGateway26ContentSizedCollectionView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-typedef SWIFT_ENUM(NSInteger, Environment, closed) {
+typedef SWIFT_ENUM(NSInteger, Environment, open) {
   EnvironmentDevelopment = 0,
   EnvironmentProduction = 1,
   EnvironmentStaging = 2,

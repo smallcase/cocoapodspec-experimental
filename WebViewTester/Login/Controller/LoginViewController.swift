@@ -376,7 +376,7 @@ class LoginViewController: UIViewController {
                         self?.showPopup(title: "response:", msg: "\(response)")
                         
                     case let .transaction(authToken, transactionData):
-                        self?.showPopup(title: "Transaction Response", msg: " authTOken : \(authToken), \n data: \(transactionData)")
+                            self?.showPopup(title: "Transaction Response", msg: " authTOken : \(authToken), \n data: \(transactionData.toJSONString())")
                         return
                 
                     case .holdingsImport(let smallcaseAuthToken, let status, let broker, let transactionId):

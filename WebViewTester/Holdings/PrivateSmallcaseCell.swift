@@ -16,6 +16,8 @@ class PrivateSmallcaseCell: UITableViewCell {
     
     @IBOutlet weak var privateScImage: UIImageView!
     
+    @IBOutlet weak var totalReturns: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
