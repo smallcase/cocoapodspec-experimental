@@ -361,6 +361,7 @@ extension UIKit.UIStackView {
   @objc public func getUserAuthToken() -> Swift.String?
   @objc public func setSDKType(type: Swift.String)
   @objc public func setHybridSDKVersion(version: Swift.String)
+  @objc public func getSdkVersion() -> Swift.String
   @objc deinit
 }
 public enum TransactionOrderStatus : Swift.String {

@@ -19,7 +19,12 @@ class HoldingsViewController: UIViewController {
     var privateSmallcaseStats: Stats? = nil
     var privateSmallcase: [SmallcaseHoldingDTO] = []
     var mutualFunds: [MutualFundsHoldings] = []
+    
+    //Flag = 0 => First Party Gateway
+    //Flag = 1 => Third Party Gateway
     var flag = 0
+    
+    var isThirdPartyGateway = true
     
     @IBOutlet weak var holdingsTableView: UITableView!
     
@@ -143,7 +148,7 @@ class HoldingsViewController: UIViewController {
                             //                    if(response.data.data.smallcases.private is Stats) {
                             //                        self?.privateSmallcaseStats = response.data.data.smallcases.private
                             //                    }
-                            self?.privateSmallcase = response.data.data.smallcases.private
+//                            self?.privateSmallcase = response.data.data.smallcases.private
                             self?.flag = 0
                             self?.stockHoldings.removeAll()
                             self?.stockHoldings.append(contentsOf: response.data.data.securities.holdings)
@@ -192,8 +197,13 @@ class HoldingsViewController: UIViewController {
             self.publicSmallcase.removeAll()
             self.publicSmallcase.append(contentsOf: response.data.data.smallcases.public)
             
-            self.privateSmallcase = response.data.data.smallcases.private
-            self.flag = 0
+            if let privateSmallcaseHoldings = response.data.data.smallcases.private.investments {
+                self.privateSmallcase = privateSmallcaseHoldings
+                self.flag = 0
+            } else {
+                self.flag = 1
+                self.privateSmallcaseStats = response.data.data.smallcases.private.stats
+            }
             
             self.userStockHoldings.removeAll()
             self.userStockHoldings.append(contentsOf: response.data.data.securities)
@@ -284,6 +294,7 @@ extension HoldingsViewController :UITableViewDataSource,UITableViewDelegate{
                 
                 if(self.flag == 0) {
                     
+                    cell.nameLabel.isHidden = false
                     cell.nameLabel.text = "Name: \(privateSmallcase[indexPath.row].name ?? "")"
                     
                     if let scValue = privateSmallcase[indexPath.row].stats?.currentValue {
@@ -304,9 +315,13 @@ extension HoldingsViewController :UITableViewDataSource,UITableViewDelegate{
                     }
                     
                 } else {
-                    cell.nameLabel.text = "Total returns: \(String(describing: privateSmallcaseStats?.totalReturns))"
-                    cell.valueLabel.text = "Current Value: \(String(describing: privateSmallcaseStats?.currentValue))"
-                    //                cell.privateScImage.image = UIImage(named: "gatewaydemoo")
+                    
+                    cell.nameLabel.isHidden = true
+                    if let totalReturns = privateSmallcaseStats?.totalReturns, let currentValue = privateSmallcaseStats?.currentValue {
+                        cell.totalReturns.text = "Total returns: \(String(describing: totalReturns))"
+                        cell.valueLabel.text = "Current Value: \(String(describing: currentValue))"
+                    }
+                    
                 }
                 
                 return cell

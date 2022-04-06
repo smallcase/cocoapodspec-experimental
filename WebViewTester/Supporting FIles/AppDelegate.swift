@@ -50,6 +50,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(url)
         return true
     }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+              let url = userActivity.webpageURL,
+              let _ = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            return false
+        }
+        
+        if let webpageUrl = URL(string: "http://www.smallcase.com") {
+            application.open(webpageUrl)
+            return false
+        }
+        
+        return false
+    }
 
 }
 

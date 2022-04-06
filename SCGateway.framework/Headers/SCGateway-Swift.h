@@ -292,6 +292,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 - (NSString * _Nullable)getUserAuthToken SWIFT_WARN_UNUSED_RESULT;
 - (void)setSDKTypeWithType:(NSString * _Nonnull)type;
 - (void)setHybridSDKVersionWithVersion:(NSString * _Nonnull)version;
+- (NSString * _Nonnull)getSdkVersion SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
