@@ -12,7 +12,7 @@ target 'WebViewTester' do
 
   pod 'PopupDialog', '~> 1.1'
 
-#  pod 'SCGateway' , '3.1.11'
+#  pod 'SCGateway' , '3.1.18'
 
 
   target 'WebViewTesterTests' do

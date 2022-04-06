@@ -73,8 +73,8 @@
 		88516D5327ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88516D5127ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib */; };
 		886B856B27F188FB004C6CDF /* MutualFundHoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886B856927F188FB004C6CDF /* MutualFundHoldingCell.swift */; };
 		886B856C27F188FB004C6CDF /* MutualFundHoldingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886B856A27F188FB004C6CDF /* MutualFundHoldingCell.xib */; };
-		8879A86B27F5848500B07BD6 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8879A86927F5847700B07BD6 /* SCGateway.framework */; };
-		8879A86C27F5848500B07BD6 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8879A86927F5847700B07BD6 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88700C1F27FD8C1600E1247E /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88700C1D27FD8C0F00E1247E /* SCGateway.framework */; };
+		88700C2027FD8C1600E1247E /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88700C1D27FD8C0F00E1247E /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B913F2E891FEC8538CA42C63 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBBD09801E4B2F2CD2B42165 /* Pods_WebViewTesterTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,7 +102,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8879A86C27F5848500B07BD6 /* SCGateway.framework in Embed Frameworks */,
+				88700C2027FD8C1600E1247E /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,7 +189,8 @@
 		88516D5127ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserStockHoldingCellTableViewCell.xib; sourceTree = "<group>"; };
 		886B856927F188FB004C6CDF /* MutualFundHoldingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutualFundHoldingCell.swift; sourceTree = "<group>"; };
 		886B856A27F188FB004C6CDF /* MutualFundHoldingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MutualFundHoldingCell.xib; sourceTree = "<group>"; };
-		8879A86927F5847700B07BD6 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
+		88700C1D27FD8C0F00E1247E /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
+		8879A87527F5854C00B07BD6 /* WebViewTester.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WebViewTester.entitlements; sourceTree = "<group>"; };
 		CBBD09801E4B2F2CD2B42165 /* Pods_WebViewTesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C8778D6B2CC6D3F8C88CA4 /* Pods-WebViewTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTester.release.xcconfig"; path = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.release.xcconfig"; sourceTree = "<group>"; };
 		E37E7F324005BDD6D950FC4E /* Pods_WebViewTesterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,7 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C4EBC1A68B2FE2158546F54 /* Pods_WebViewTester.framework in Frameworks */,
-				8879A86B27F5848500B07BD6 /* SCGateway.framework in Frameworks */,
+				88700C1F27FD8C1600E1247E /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +387,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				8879A86927F5847700B07BD6 /* SCGateway.framework */,
+				88700C1D27FD8C0F00E1247E /* SCGateway.framework */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -410,6 +411,7 @@
 		36F7D44322A9485A003B357A /* WebViewTester */ = {
 			isa = PBXGroup;
 			children = (
+				8879A87527F5854C00B07BD6 /* WebViewTester.entitlements */,
 				8817B54626E7C54500DCFD33 /* Extensions */,
 				36BBD4D024E19F9F0020C9EA /* Lead Gen */,
 				366C2623246488D000C638B1 /* Holdings */,
@@ -1018,6 +1020,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CODE_SIGN_ENTITLEMENTS = WebViewTester/WebViewTester.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 141;
@@ -1064,6 +1067,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CODE_SIGN_ENTITLEMENTS = WebViewTester/WebViewTester.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 141;

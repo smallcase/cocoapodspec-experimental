@@ -32,7 +32,7 @@ struct FetchHoldingsResponse: Codable {
         //Fetch Holdings Response child 2
         struct FetchHoldingsDataData: Codable {
             
-            var smallcases: FirstPartySmallcases
+            var smallcases: Smallcases
             var securities: [FetchHoldingsSecurities]
             var mutualFunds: FetchHoldingsMutualFunds?
             var updating: Bool?
@@ -113,13 +113,24 @@ struct MutualFundsHoldings: Codable {
     }
 }
 
-struct FirstPartySmallcases: Codable {
+//MARK: Holdings - Smallcases
+struct Smallcases: Codable {
     
-    var `private`: [SmallcaseHoldingDTO]
+    var `private`: PrivateSmallcases
     var `public`: [SmallcaseHoldingDTO]
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case `private`, `public`
+    }
+}
+
+struct PrivateSmallcases: Codable {
+    
+    var investments: [SmallcaseHoldingDTO]?
+    var stats: Stats?
+    
+    private enum CodingKeys: String, CodingKey {
+        case investments, stats
     }
 }
 
@@ -214,7 +225,7 @@ struct HoldingsDataScObj:Codable {
 struct HoldingsData:Codable {
     var lastUpdate: String
     var securities: Securities
-    var smallcases:FirstPartySmallcases
+    var smallcases:Smallcases
     var snapshotDate:String
     var updating:Bool?
     enum CodingKeys: String,CodingKey {

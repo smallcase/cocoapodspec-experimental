@@ -71,6 +71,8 @@ class LoginViewController: UIViewController {
     
     //MARK:- Components
     
+    @IBOutlet weak var smartinvestingVersionLabel: UILabel!
+    
     lazy var tapRecognizer: UITapGestureRecognizer = {
         var recognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
         return recognizer
@@ -116,7 +118,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gatewayNameTextField.text = "gatewaydemo"
+        
         SCGateway.shared.delegate = self
+        
+        let smartinvestingVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "1.0"
+        let sdkVersion = SCGateway.shared.getSdkVersion()
+        
+        smartinvestingVersionLabel.text = "Smartinvesting: \(smartinvestingVersion) SDK: \(sdkVersion)"
         // Do any additional setup after loading the view.
         
     }
