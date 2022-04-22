@@ -212,8 +212,10 @@ class LoginViewController: UIViewController {
     }
     
    
+    //MARK: POC Universal Links
     @IBAction func copyToClipBoard(_ sender: Any){
         UIPasteboard.general.string = SCGateway.currentTransactionId
+//        SCGateway.shared.resolveTransactionCompletion(presentingController: self)
     }
     
     func promptForTransactionId() {
