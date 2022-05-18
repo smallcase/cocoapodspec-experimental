@@ -9,6 +9,8 @@
 import UIKit
 import SCGateway
 import PopupDialog
+import SafariServices
+import AuthenticationServices
 
 extension UIApplication {
     static var appVersion: String? {
@@ -113,7 +115,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var isAmoEnabled:UISwitch!
     
     var shouldConnect: Bool = false
-    //MARK:- Lifecycle
+    
+    //MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,6 +128,7 @@ class LoginViewController: UIViewController {
         let sdkVersion = SCGateway.shared.getSdkVersion()
         
         smartinvestingVersionLabel.text = "Smartinvesting: \(smartinvestingVersion) SDK: \(sdkVersion)"
+//        smartinvestingVersionLabel.text = "Smartinvesting: \(smartinvestingVersion) SDK: 3.1.12"
         // Do any additional setup after loading the view.
         
     }
@@ -214,8 +218,19 @@ class LoginViewController: UIViewController {
    
     //MARK: POC Universal Links
     @IBAction func copyToClipBoard(_ sender: Any){
-        UIPasteboard.general.string = SCGateway.currentTransactionId
-//        SCGateway.shared.resolveTransactionCompletion(presentingController: self)
+//        UIPasteboard.general.string = SCGateway.currentTransactionId
+//        UIApplication.shared.open(URL(string: "testapp:mandirVahiBanega")!) { (result) in
+//            if result {
+//                print("successfully launched test app!")
+//            }
+//        }
+        
+//        SCGateway.shared.processTransaction(presentingController: self)
+        
+        let session = SFAuthenticationSession(url: URL(string: "https://www.smallcase.com")!, callbackURLScheme: "scgateway") { [weak self] (url: URL?, error: Swift.Error?) in
+            print("vdsv")
+        }
+        session.start()
     }
     
     func promptForTransactionId() {

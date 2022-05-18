@@ -356,7 +356,7 @@ extension UIKit.UIStackView {
   public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool?)
   @objc public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
   @objc public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
-  @objc public func showOrders(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
+  @objc public func showOrders(presentingController: UIKit.UIViewController, brokerConfig: [Swift.String]?, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
   @objc public func isUserConnected() -> Swift.Bool
   @objc public func getUserAuthToken() -> Swift.String?
   @objc public func setSDKType(type: Swift.String)

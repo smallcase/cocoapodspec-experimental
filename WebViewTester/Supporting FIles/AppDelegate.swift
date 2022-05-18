@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCGateway
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -48,6 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         print(url)
+        
+//        SCGateway.shared.processTransaction(redirectUrl: url)
+        
         return true
     }
     
@@ -61,10 +65,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
         
-//        if let webpageUrl = URL(string: "http://www.smallcase.com") {
-//            application.open(webpageUrl)
-//            return false
-//        }
+        if let queryParams = url.query, queryParams.contains("test_app_redirection") {
+            
+            print("received universal link from test app!")
+            return false
+        }
+        
+        
+//        SCGateway.shared.closeAsWebAuthenticationSession()
         
         return false
     }
