@@ -1,10 +1,10 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DynamicBlurView" "${PODS_CONFIGURATION_BUILD_DIR}/PopupDialog"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DynamicBlurView" "${PODS_CONFIGURATION_BUILD_DIR}/Mixpanel-swift" "${PODS_CONFIGURATION_BUILD_DIR}/PopupDialog"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DynamicBlurView/DynamicBlurView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/PopupDialog/PopupDialog.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/DynamicBlurView/DynamicBlurView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Mixpanel-swift/Mixpanel.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/PopupDialog/PopupDialog.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "Accelerate" -framework "DynamicBlurView" -framework "PopupDialog" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -framework "Accelerate" -framework "CoreTelephony" -framework "DynamicBlurView" -framework "Foundation" -framework "Mixpanel" -framework "PopupDialog" -framework "UIKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

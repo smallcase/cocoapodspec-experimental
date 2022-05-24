@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let domain = Bundle.main.bundleIdentifier!
 //        UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()
-        print("USER DEFAULTS: \(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)")
+//        print("USER DEFAULTS: \(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)")
         
         return true
     }
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         print(url)
         
-//        SCGateway.shared.processTransaction(redirectUrl: url)
+        SCGateway.shared.processTransaction(redirectUrl: url)
         
         return true
     }

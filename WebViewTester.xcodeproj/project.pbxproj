@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -73,8 +73,8 @@
 		88516D5327ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88516D5127ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib */; };
 		886B856B27F188FB004C6CDF /* MutualFundHoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886B856927F188FB004C6CDF /* MutualFundHoldingCell.swift */; };
 		886B856C27F188FB004C6CDF /* MutualFundHoldingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886B856A27F188FB004C6CDF /* MutualFundHoldingCell.xib */; };
-		88C644AB2834C5DE00323060 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C644A92834C5D200323060 /* SCGateway.framework */; };
-		88C644AC2834C5DE00323060 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88C644A92834C5D200323060 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88C644B52834C6C600323060 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C644B42834C6B000323060 /* SCGateway.framework */; platformFilter = ios; };
+		88C644B62834C6C600323060 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88C644B42834C6B000323060 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B913F2E891FEC8538CA42C63 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBBD09801E4B2F2CD2B42165 /* Pods_WebViewTesterTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +93,13 @@
 			remoteGlobalIDString = 36F7D44022A9485A003B357A;
 			remoteInfo = WebViewTester;
 		};
+		88C644B32834C6B000323060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88C644AD2834C6B000323060 /* SCGateway.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 36F1DE5F2372A08900E36C39;
+			remoteInfo = SCGateway;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -102,7 +109,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				88C644AC2834C5DE00323060 /* SCGateway.framework in Embed Frameworks */,
+				88C644B62834C6C600323060 /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,7 +196,7 @@
 		88516D5127ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserStockHoldingCellTableViewCell.xib; sourceTree = "<group>"; };
 		886B856927F188FB004C6CDF /* MutualFundHoldingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutualFundHoldingCell.swift; sourceTree = "<group>"; };
 		886B856A27F188FB004C6CDF /* MutualFundHoldingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MutualFundHoldingCell.xib; sourceTree = "<group>"; };
-		88C644A92834C5D200323060 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
+		88C644AD2834C6B000323060 /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = "../scgateway-ios/SCGateway.xcodeproj"; sourceTree = "<group>"; };
 		CBBD09801E4B2F2CD2B42165 /* Pods_WebViewTesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C8778D6B2CC6D3F8C88CA4 /* Pods-WebViewTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTester.release.xcconfig"; path = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.release.xcconfig"; sourceTree = "<group>"; };
 		E37E7F324005BDD6D950FC4E /* Pods_WebViewTesterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C4EBC1A68B2FE2158546F54 /* Pods_WebViewTester.framework in Frameworks */,
-				88C644AB2834C5DE00323060 /* SCGateway.framework in Frameworks */,
+				88C644B52834C6C600323060 /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +393,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				88C644A92834C5D200323060 /* SCGateway.framework */,
+				88C644AD2834C6B000323060 /* SCGateway.xcodeproj */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -537,6 +544,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		88C644AE2834C6B000323060 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88C644B42834C6B000323060 /* SCGateway.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -636,6 +651,12 @@
 			);
 			productRefGroup = 36F7D44222A9485A003B357A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 88C644AE2834C6B000323060 /* Products */;
+					ProjectRef = 88C644AD2834C6B000323060 /* SCGateway.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				36F7D44022A9485A003B357A /* WebViewTester */,
@@ -644,6 +665,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		88C644B42834C6B000323060 /* SCGateway.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SCGateway.framework;
+			remoteRef = 88C644B32834C6B000323060 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		36F7D43F22A9485A003B357A /* Resources */ = {

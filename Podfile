@@ -11,6 +11,8 @@ target 'WebViewTester' do
   use_frameworks!
 
   pod 'PopupDialog', '~> 1.1'
+  
+  pod 'Mixpanel-swift'
 
 #  pod 'SCGateway' , '3.1.18'
 

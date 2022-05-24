@@ -11,6 +11,7 @@ import SCGateway
 import PopupDialog
 import SafariServices
 import AuthenticationServices
+import Mixpanel
 
 extension UIApplication {
     static var appVersion: String? {
@@ -122,7 +123,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         gatewayNameTextField.text = "gatewaydemo"
         
-        SCGateway.shared.delegate = self
+//        SCGateway.shared.delegate = self
         
         let smartinvestingVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") ?? "1.0"
         let sdkVersion = SCGateway.shared.getSdkVersion()
@@ -213,6 +214,7 @@ class LoginViewController: UIViewController {
     @IBAction func OnClickTransactionId(_ sender: Any) {
         promptForTransactionId()
     
+        
     }
     
    
@@ -468,6 +470,31 @@ class LoginViewController: UIViewController {
         }
     }
 
+    func connectCompleted(authToken: String?) {
+        guard let authToken = authToken else { return }
+        connect(authToken: authToken)
+    }
+    
+    func connect(authToken: String) {
+        
+        NetworkManager.shared.connectBroker(
+            userId: userNameString!,
+            authToken: authToken) { (result) in
+                print("LOGINVC: -> CONNECT BROKER --------> \(result)")
+                switch result {
+                        
+                    case .success(let isConnected):
+                        UserDefaults.standard.set(authToken, forKey: UserDefaultConstants.authToken)
+                        UserDefaults.standard.set(isConnected, forKey: UserDefaultConstants.isConnected)
+                        
+                    default:
+                        return
+                }
+                
+                //self?.smallcaseAuthToken = authToken
+                
+            }
+    }
     
 }
 
@@ -517,40 +544,40 @@ extension LoginViewController: UITableViewDataSource {
     
 }
 
-extension LoginViewController: SCGatewayTransactionDelegate {
-    func connectCompleted(authToken: String?) {
-        guard let authToken = authToken else { return }
-        connect(authToken: authToken)
-    }
-    
-    
-    func transactionDidFinish() {
-        // getAuthToken()
-    }
-    
-    func shouldDisplayConnectCompletion() -> Bool {
-        return true
-    }
-    
-    func connect(authToken: String) {
-        
-        NetworkManager.shared.connectBroker(
-            userId: userNameString!,
-            authToken: authToken) { (result) in
-                 print("LOGINVC: -> CONNECT BROKER --------> \(result)")
-                switch result {
-                
-                case .success(let isConnected):
-                    UserDefaults.standard.set(authToken, forKey: UserDefaultConstants.authToken)
-                    UserDefaults.standard.set(isConnected, forKey: UserDefaultConstants.isConnected)
-                    
-                default:
-                    return
-                }
-                
-                //self?.smallcaseAuthToken = authToken
-
-        }
-    }
-    
-}
+//extension LoginViewController: SCGatewayTransactionDelegate {
+//    func connectCompleted(authToken: String?) {
+//        guard let authToken = authToken else { return }
+//        connect(authToken: authToken)
+//    }
+//    
+//    
+////    func transactionDidFinish() {
+////        // getAuthToken()
+////    }
+////
+////    func shouldDisplayConnectCompletion() -> Bool {
+////        return true
+////    }
+//    
+//    func connect(authToken: String) {
+//        
+//        NetworkManager.shared.connectBroker(
+//            userId: userNameString!,
+//            authToken: authToken) { (result) in
+//                 print("LOGINVC: -> CONNECT BROKER --------> \(result)")
+//                switch result {
+//                
+//                case .success(let isConnected):
+//                    UserDefaults.standard.set(authToken, forKey: UserDefaultConstants.authToken)
+//                    UserDefaults.standard.set(isConnected, forKey: UserDefaultConstants.isConnected)
+//                    
+//                default:
+//                    return
+//                }
+//                
+//                //self?.smallcaseAuthToken = authToken
+//
+//        }
+//    }
+//    
+//}
