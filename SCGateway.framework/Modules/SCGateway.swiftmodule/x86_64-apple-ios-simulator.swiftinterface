@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name SCGateway
 import AVFoundation
 import AVKit
@@ -356,7 +356,7 @@ extension UIKit.UIStackView {
   public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool?)
   @objc public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
   @objc public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
-  @objc public func showOrders(presentingController: UIKit.UIViewController, brokerConfig: [Swift.String]?, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
+  @objc public func showOrders(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
   @objc public func isUserConnected() -> Swift.Bool
   @objc public func getUserAuthToken() -> Swift.String?
   @objc public func setSDKType(type: Swift.String)
