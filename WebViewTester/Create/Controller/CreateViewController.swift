@@ -181,7 +181,7 @@ class CreateViewController: UIViewController {
     
     @IBAction func onClickShowOrders(_ sender: Any) {
         
-        SCGateway.shared.showOrders(presentingController: self) { success, error in
+        SCGateway.shared.showOrders(presentingController: self, brokerConfig: nil) { success, error in
             
             if success{
                 print("show orders success")

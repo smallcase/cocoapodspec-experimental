@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -69,10 +69,10 @@
 		36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */; };
 		4022BCAF0EC40239C690DA1B /* Pods_WebViewTesterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37E7F324005BDD6D950FC4E /* Pods_WebViewTesterUITests.framework */; };
 		8817B54826E7C55A00DCFD33 /* Encodable+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */; };
-		8823F016283D1E1E00BE1892 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8823F014283D1E1600BE1892 /* SCGateway.framework */; };
-		8823F017283D1E1E00BE1892 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8823F014283D1E1600BE1892 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88516D5227ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88516D5027ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.swift */; };
 		88516D5327ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88516D5127ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib */; };
+		885206E8283F61AF00BBE4F0 /* SCGateway.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885206E6283F61AA00BBE4F0 /* SCGateway.xcframework */; };
+		885206E9283F61AF00BBE4F0 /* SCGateway.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 885206E6283F61AA00BBE4F0 /* SCGateway.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		886B856B27F188FB004C6CDF /* MutualFundHoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886B856927F188FB004C6CDF /* MutualFundHoldingCell.swift */; };
 		886B856C27F188FB004C6CDF /* MutualFundHoldingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886B856A27F188FB004C6CDF /* MutualFundHoldingCell.xib */; };
 		B913F2E891FEC8538CA42C63 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBBD09801E4B2F2CD2B42165 /* Pods_WebViewTesterTests.framework */; };
@@ -102,7 +102,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8823F017283D1E1E00BE1892 /* SCGateway.framework in Embed Frameworks */,
+				885206E9283F61AF00BBE4F0 /* SCGateway.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,9 +185,9 @@
 		58796B1B39C8C37880550A04 /* Pods-WebViewTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTester.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.debug.xcconfig"; sourceTree = "<group>"; };
 		6CEEA5361ECFF807D24F2B30 /* Pods-WebViewTesterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterTests.release.xcconfig"; path = "Target Support Files/Pods-WebViewTesterTests/Pods-WebViewTesterTests.release.xcconfig"; sourceTree = "<group>"; };
 		8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+ext.swift"; sourceTree = "<group>"; };
-		8823F014283D1E1600BE1892 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
 		88516D5027ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStockHoldingCellTableViewCell.swift; sourceTree = "<group>"; };
 		88516D5127ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserStockHoldingCellTableViewCell.xib; sourceTree = "<group>"; };
+		885206E6283F61AA00BBE4F0 /* SCGateway.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SCGateway.xcframework; sourceTree = "<group>"; };
 		886B856927F188FB004C6CDF /* MutualFundHoldingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutualFundHoldingCell.swift; sourceTree = "<group>"; };
 		886B856A27F188FB004C6CDF /* MutualFundHoldingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MutualFundHoldingCell.xib; sourceTree = "<group>"; };
 		CBBD09801E4B2F2CD2B42165 /* Pods_WebViewTesterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,8 +200,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885206E8283F61AF00BBE4F0 /* SCGateway.xcframework in Frameworks */,
 				1C4EBC1A68B2FE2158546F54 /* Pods_WebViewTester.framework in Frameworks */,
-				8823F016283D1E1E00BE1892 /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +386,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				8823F014283D1E1600BE1892 /* SCGateway.framework */,
+				885206E6283F61AA00BBE4F0 /* SCGateway.xcframework */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -1003,7 +1003,7 @@
 				CODE_SIGN_ENTITLEMENTS = WebViewTester/WebViewTesterDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 145;
+				CURRENT_PROJECT_VERSION = 146;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1017,7 +1017,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 1.4.5;
+				MARKETING_VERSION = 1.4.6;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1050,7 +1050,7 @@
 				CODE_SIGN_ENTITLEMENTS = WebViewTester/WebViewTester.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 145;
+				CURRENT_PROJECT_VERSION = 146;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1064,7 +1064,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 1.4.5;
+				MARKETING_VERSION = 1.4.6;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
