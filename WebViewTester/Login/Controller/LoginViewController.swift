@@ -220,19 +220,20 @@ class LoginViewController: UIViewController {
    
     //MARK: POC Universal Links
     @IBAction func copyToClipBoard(_ sender: Any){
-//        UIPasteboard.general.string = SCGateway.currentTransactionId
-//        UIApplication.shared.open(URL(string: "testapp:mandirVahiBanega")!) { (result) in
-//            if result {
-//                print("successfully launched test app!")
-//            }
-//        }
+        
+        UIPasteboard.general.string = SCGateway.currentTransactionId
+        UIApplication.shared.open(URL(string: "testapp:mandirVahiBanega")!) { (result) in
+            if result {
+                print("successfully launched test app!")
+            }
+        }
         
 //        SCGateway.shared.processTransaction(presentingController: self)
         
-        let session = SFAuthenticationSession(url: URL(string: "https://www.smallcase.com")!, callbackURLScheme: "scgateway") { [weak self] (url: URL?, error: Swift.Error?) in
-            print("vdsv")
-        }
-        session.start()
+//        let session = SFAuthenticationSession(url: URL(string: "https://www.smallcase.com")!, callbackURLScheme: "scgateway") { [weak self] (url: URL?, error: Swift.Error?) in
+//            print("vdsv")
+//        }
+//        session.start()
     }
     
     func promptForTransactionId() {
