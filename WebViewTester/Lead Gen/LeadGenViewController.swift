@@ -83,13 +83,9 @@ class LeadGenViewController: UIViewController {
         SCGateway.shared.logoutUser(presentingController: self, completion: { (success, error) in
             
             if(success) {
-                
                 self.showPopup(title: "Success", msg: "Logout Successful")
-                
             } else {
-                
                 self.showPopup(title: "Success", msg: "Logout Failed \(error.debugDescription)")
-                
             }
             
         })

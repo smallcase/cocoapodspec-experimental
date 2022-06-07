@@ -222,11 +222,11 @@ class LoginViewController: UIViewController {
     @IBAction func copyToClipBoard(_ sender: Any){
         
         UIPasteboard.general.string = SCGateway.currentTransactionId
-        UIApplication.shared.open(URL(string: "testapp:mandirVahiBanega")!) { (result) in
-            if result {
-                print("successfully launched test app!")
-            }
-        }
+//        UIApplication.shared.open(URL(string: "testapp:mandirVahiBanega")!) { (result) in
+//            if result {
+//                print("successfully launched test app!")
+//            }
+//        }
         
 //        SCGateway.shared.processTransaction(presentingController: self)
         
@@ -432,8 +432,7 @@ class LoginViewController: UIViewController {
             }
         }
         catch SCGatewayError.uninitialized {
-            print(SCGatewayError.uninitialized.message)
-            ///initialize gateway
+            print(SCGatewayError.uninitialized.errorMessage)
         }
         catch let err {
             print(err)
