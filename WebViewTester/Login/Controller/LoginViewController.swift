@@ -432,7 +432,7 @@ class LoginViewController: UIViewController {
             }
         }
         catch SCGatewayError.uninitialized {
-            print(SCGatewayError.uninitialized.errorMessage)
+//            print(SCGatewayError.uninitialized.)
         }
         catch let err {
             print(err)
