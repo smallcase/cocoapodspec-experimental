@@ -11,7 +11,7 @@ import SCGateway
 import PopupDialog
 import SafariServices
 import AuthenticationServices
-import Mixpanel
+//import Mixpanel
 
 extension UIApplication {
     static var appVersion: String? {
