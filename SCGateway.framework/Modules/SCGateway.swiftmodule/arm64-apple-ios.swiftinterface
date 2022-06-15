@@ -113,6 +113,7 @@ extension UIKit.UIEdgeInsets {
 extension SCGateway.SCGateway {
   public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool?)
   @objc dynamic public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
+  @objc dynamic public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, smallplugUiConfig: SCGateway.SmallplugUiConfig?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
   @objc dynamic public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
   @objc dynamic public func showOrders(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
 }
@@ -140,7 +141,7 @@ extension UIKit.UIView {
   @objc deinit
 }
 extension UIKit.UIColor {
-  convenience public init?(hex: Swift.String, alpha: Swift.String)
+  convenience public init?(hex: Swift.String, alpha: CoreGraphics.CGFloat)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class ContentSizedCollectionView : UIKit.UICollectionView {
   @_Concurrency.MainActor(unsafe) @objc override final public var contentSize: CoreGraphics.CGSize {
@@ -288,6 +289,15 @@ public enum AllowedBrokerType : Swift.String {
   public var rawValue: Swift.Int {
     get
   }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class SmallplugUiConfig : ObjectiveC.NSObject {
+  @objc public var headerColor: Swift.String?
+  @objc public var backIconColor: Swift.String?
+  public var opacity: CoreGraphics.CGFloat?
+  public var backIconColorOpacity: CoreGraphics.CGFloat?
+  @objc public init(smallplugHeaderColor: Swift.String?, headerColorOpacity: Foundation.NSNumber?, backIconColor: Swift.String?, backIconColorOpacity: Foundation.NSNumber?)
+  @objc override dynamic public init()
+  @objc deinit
 }
 public enum NetworkError : Swift.Error {
   case unknown

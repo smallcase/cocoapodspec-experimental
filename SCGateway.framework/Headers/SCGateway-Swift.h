@@ -286,9 +286,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 @end
 
 @class SmallplugData;
+@class SmallplugUiConfig;
 
 @interface SCGateway (SWIFT_EXTENSION(SCGateway))
 - (void)launchSmallPlugWithPresentingController:(UIViewController * _Nonnull)presentingController smallplugData:(SmallplugData * _Nullable)smallplugData completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
+- (void)launchSmallPlugWithPresentingController:(UIViewController * _Nonnull)presentingController smallplugData:(SmallplugData * _Nullable)smallplugData smallplugUiConfig:(SmallplugUiConfig * _Nullable)smallplugUiConfig completion:(void (^ _Nonnull)(id _Nullable, NSError * _Nullable))completion;
 - (void)logoutUserWithPresentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 - (void)showOrdersWithPresentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 @end
@@ -344,10 +346,22 @@ SWIFT_CLASS("_TtC9SCGateway13SmallplugData")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class NSNumber;
+
+SWIFT_CLASS("_TtC9SCGateway17SmallplugUiConfig")
+@interface SmallplugUiConfig : NSObject
+@property (nonatomic, copy) NSString * _Nullable headerColor;
+@property (nonatomic, copy) NSString * _Nullable backIconColor;
+- (nonnull instancetype)initWithSmallplugHeaderColor:(NSString * _Nullable)smallplugHeaderColor headerColorOpacity:(NSNumber * _Nullable)headerColorOpacity backIconColor:(NSString * _Nullable)backIconColor backIconColorOpacity:(NSNumber * _Nullable)backIconColorOpacity OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 @interface TransactionErrorResponse : NSObject
 @end
+
+
 
 
 

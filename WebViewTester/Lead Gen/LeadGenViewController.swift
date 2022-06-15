@@ -93,8 +93,13 @@ class LeadGenViewController: UIViewController {
     }
     
     @IBAction func initWealthModule(_ sender: UIButton) {
-        
-        SCGateway.shared.launchSmallPlug(presentingController: self, smallplugData: SmallplugData(nil,nil)) {
+
+        SCGateway.shared.launchSmallPlug(presentingController: self, smallplugData: SmallplugData(nil,nil), smallplugUiConfig: SmallplugUiConfig(
+            smallplugHeaderColor: "2F363F",
+            headerColorOpacity: 1,
+            backIconColor: "FFFFFF",
+            backIconColorOpacity: 1
+        )) {
             (response, error) in
 
             if(response != nil) {
@@ -107,6 +112,20 @@ class LeadGenViewController: UIViewController {
 
             }
         }
+        
+//        SCGateway.shared.launchSmallPlug(presentingController: self, smallplugData: SmallplugData(nil,nil)) {
+//            (response, error) in
+//
+//            if(response != nil) {
+//
+//                self.showPopup(title: "Success", msg: response.debugDescription)
+//
+//            } else {
+//
+//                self.showPopup(title: "Error", msg: error?.localizedDescription)
+//
+//            }
+//        }
     }
 }
 

@@ -6,11 +6,23 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		8Kr4bXOdWHI+/qOKsunQL6vuPOc=
+		vrb628uoqoQs1ehhJMlAswthMzc=
 		</data>
 		<key>FivePaisaPwaViewController.nib</key>
 		<data>
 		RzF2kNffgsA6t4EbfyS9JojlFyw=
+		</data>
+		<key>Frameworks/Mixpanel.framework/Info.plist</key>
+		<data>
+		a5C6Vi9GBQ8Fweh0j7rQeyl5xt0=
+		</data>
+		<key>Frameworks/Mixpanel.framework/Mixpanel</key>
+		<data>
+		oLJk5ue8GabDJ4aJiyMp16Le9Ac=
+		</data>
+		<key>Frameworks/Mixpanel.framework/_CodeSignature/CodeResources</key>
+		<data>
+		nLLFOJlFbvOeMaUf78YoZt+R/nU=
 		</data>
 		<key>GraphikApp-Bold.ttf</key>
 		<data>
@@ -42,7 +54,7 @@
 		</data>
 		<key>Headers/SCGateway-Swift.h</key>
 		<data>
-		1OsKdpWssflo5xkREDxoT78fRYo=
+		3AHA73VVGqv5N9BMkQfzlo+xwkQ=
 		</data>
 		<key>Headers/SCGateway.h</key>
 		<data>
@@ -50,27 +62,35 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		g5s4hGguh+JJsb4phcxwgeltPh8=
+		rD7EyXLdHpiJ7Eiux52ZPWhgPc8=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		GalTOTtjwF0WBWFBQHCdmm0W5ko=
+		Ic9cFkajFUu3p+8S5rQ1yaZafII=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		h6Xa/8Udbl8gsYdg+dP/t7SPBGA=
+		ShelLltf6pEFTXT2708tB5pjPbw=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		sIELi7Rnyt8tgFl0vVXb+Aku5uU=
+		3T3hiwh7pExkqoiLhJ4zoJE/Jio=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		x1ZHtZLT4j9MrGr/x7WCY3bVM54=
+		8Wdd8XdkDWqhdjWNIO6RaPfmpiE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		WflEpfbWR3NXUlDxTl6weKnonJs=
+		</data>
+		<key>SmallplugHeader.nib</key>
+		<data>
+		Ci+D8FDrDxOluypIYdOoe+jb3UE=
+		</data>
+		<key>SmallplugLoader.nib</key>
+		<data>
+		urtwxH4GM1tTMV8JP03Cy18JURk=
 		</data>
 		<key>connecting-loader.gif</key>
 		<data>
@@ -91,7 +111,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z7l0dLy/TPdiBAyX0ES+R6pAxOHaiU3Cokh6h5c9TSg=
+			hjw28s45JFiF04V07qVX89S3c2LYXCfvqLrCX8uydf0=
 			</data>
 		</dict>
 		<key>FivePaisaPwaViewController.nib</key>
@@ -99,6 +119,27 @@
 			<key>hash2</key>
 			<data>
 			mL+TFQT2hl2rEzuYSLLX245kBKLxyE37MaoeKegexzQ=
+			</data>
+		</dict>
+		<key>Frameworks/Mixpanel.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			pVUNpBleZD4vyeWFG+tjW/GsTofM65qV2RcosSCORAg=
+			</data>
+		</dict>
+		<key>Frameworks/Mixpanel.framework/Mixpanel</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			eMVSysmzMaazhvGCiKQmYWgUunDzOXO0YpdWGVMyY6k=
+			</data>
+		</dict>
+		<key>Frameworks/Mixpanel.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			1R6xFVahycBRHpsQtn6lIsNx4jlt+W+3o2GjkLYr8GA=
 			</data>
 		</dict>
 		<key>GraphikApp-Bold.ttf</key>
@@ -154,7 +195,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FGtvBoDiXzZaz+XkmC/LtBmytrtyYEnJTQBrHMkyeCo=
+			jPYPF7aDM2ozmdRd40YVmrhntjdtRlwmRfrck5426a8=
 			</data>
 		</dict>
 		<key>Headers/SCGateway.h</key>
@@ -168,28 +209,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KKYD7P6shaxFHG9dlAncUarQ5dqiNRQFe4JA68foFmw=
+			EeLET+gWPE0P+YYkqxNBOYr8/bQ1xbgYtV/SUrfPwrA=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PpkWG2rB5mGwDxZjUP8CWIZspbz5XoSK1tqtz9RbFaA=
+			/Lpqdxz1WXBnVvjHQ8PCm5nY0/1JjYC/eYOu7osX6HU=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hyBX7eLsNztTrI8Cx1NVsSgpReC5TY58kMdUKJKPAYY=
+			E6YvjaHqp0zaUFoqw5st/wBsK3arS60BP3A/EdPbcQY=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			d48P1tcHcTWNCrBVAk7nyzqVq4+RqkzpRwBDPywig1U=
+			p+62b7VZ+12hEjU3XTS3lkaYqsUqhcAgtFDzg/sB324=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -197,6 +238,20 @@
 			<key>hash2</key>
 			<data>
 			QXd/gDw2I8WYNmPyY4HqXa1hbcVjML0Mv+9399pV9L4=
+			</data>
+		</dict>
+		<key>SmallplugHeader.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ESwsTbw37eOeDm5Ou+cqdn21CjeQUKMU1nVTBzZTv6I=
+			</data>
+		</dict>
+		<key>SmallplugLoader.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oHnGydQ+6QtSy5eJCHtEaagfjwi6QJa5le101z6wt+w=
 			</data>
 		</dict>
 		<key>connecting-loader.gif</key>
