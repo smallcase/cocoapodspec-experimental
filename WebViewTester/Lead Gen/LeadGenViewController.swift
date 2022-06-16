@@ -63,10 +63,10 @@ class LeadGenViewController: UIViewController {
         var map:[String:String] = [:]
         map["utm_source"] = utmSourceTextField.text
         map["utm_medium"] = utmMediumTextField.text
-        map["utm_campaign"] = utmCampaignTextField.text
-        map["utm_content"] = utmContentTextField.text
-        map["utm_term"] = utmTermTextField.text
-        map["utm_b"] = utmBTextField.text
+//        map["utm_campaign"] = utmCampaignTextField.text
+//        map["utm_content"] = utmContentTextField.text
+//        map["utm_term"] = utmTermTextField.text
+//        map["utm_b"] = utmBTextField.text
         
 //        let retargeting = isRetargeting.isOn
         
@@ -94,11 +94,35 @@ class LeadGenViewController: UIViewController {
     
     @IBAction func initWealthModule(_ sender: UIButton) {
 
+        var headerColor = utmCampaignTextField.text ?? "2F363F"
+        
+        if headerColor.isEmpty {
+            headerColor = "2F363F"
+        }
+        
+        var headColorOpacity = utmContentTextField.text ?? "1.0"
+        
+        if headColorOpacity.isEmpty {
+            headColorOpacity = "1.0"
+        }
+        
+        var backIconColor = utmTermTextField.text ?? "FFFFFF"
+        
+        if backIconColor.isEmpty {
+            backIconColor = "FFFFFF"
+        }
+        
+        var backIconColorOpacity = utmBTextField.text ?? "1.0"
+        
+        if backIconColorOpacity.isEmpty {
+            backIconColorOpacity = "1.0"
+        }
+        
         SCGateway.shared.launchSmallPlug(presentingController: self, smallplugData: SmallplugData(nil,nil), smallplugUiConfig: SmallplugUiConfig(
-            smallplugHeaderColor: "2F363F",
-            headerColorOpacity: 1,
-            backIconColor: "FFFFFF",
-            backIconColorOpacity: 1
+            smallplugHeaderColor: headerColor,
+            headerColorOpacity: Double(headColorOpacity) as NSNumber?,
+            backIconColor: backIconColor,
+            backIconColorOpacity: Double(backIconColorOpacity) as NSNumber?
         )) {
             (response, error) in
 
