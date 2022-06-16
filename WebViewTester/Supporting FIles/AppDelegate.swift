@@ -47,35 +47,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        print(url)
-        
-//        SCGateway.shared.processTransaction(redirectUrl: url)
-        
-        return true
-    }
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        print(url)
+//        
+////        SCGateway.shared.processTransaction(redirectUrl: url)
+//        
+//        return true
+//    }
     
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        
-        print("Got Universal link redirect!")
-        
-        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-              let url = userActivity.webpageURL,
-              let _ = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            return false
-        }
-        
-        if let queryParams = url.query, queryParams.contains("test_app_redirection") {
-            
-            print("received universal link from test app!")
-            return false
-        }
-        
-        
-//        SCGateway.shared.closeAsWebAuthenticationSession()
-        
-        return false
-    }
+//    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+//
+//        print("Got Universal link redirect!")
+//
+//        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+//              let url = userActivity.webpageURL,
+//              let _ = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+//            return false
+//        }
+//
+//        if let queryParams = url.query, queryParams.contains("test_app_redirection") {
+//
+//            print("received universal link from test app!")
+//            return false
+//        }
+//
+//
+////        SCGateway.shared.closeAsWebAuthenticationSession()
+//
+//        return false
+//    }
 
 }
 
