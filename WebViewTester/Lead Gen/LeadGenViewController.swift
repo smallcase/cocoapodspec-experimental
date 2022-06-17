@@ -118,26 +118,12 @@ class LeadGenViewController: UIViewController {
             backIconColorOpacity = "1.0"
         }
         
-//        SCGateway.shared.launchSmallPlug(presentingController: self, smallplugData: SmallplugData(nil,nil), smallplugUiConfig: SmallplugUiConfig(
-//            smallplugHeaderColor: headerColor,
-//            headerColorOpacity: Double(headColorOpacity) as NSNumber?,
-//            backIconColor: backIconColor,
-//            backIconColorOpacity: Double(backIconColorOpacity) as NSNumber?
-//        )) {
-//            (response, error) in
-//
-//            if(response != nil) {
-//
-//                self.showPopup(title: "Success", msg: response.debugDescription)
-//
-//            } else {
-//
-//                self.showPopup(title: "Error", msg: error?.localizedDescription)
-//
-//            }
-//        }
-        
-        SCGateway.shared.launchSmallPlug(presentingController: self, smallplugData: SmallplugData(nil,nil)) {
+        SCGateway.shared.launchSmallPlug(presentingController: self, smallplugData: SmallplugData(nil,nil), smallplugUiConfig: SmallplugUiConfig(
+            smallplugHeaderColor: headerColor,
+            headerColorOpacity: Double(headColorOpacity) as NSNumber?,
+            backIconColor: backIconColor,
+            backIconColorOpacity: Double(backIconColorOpacity) as NSNumber?
+        )) {
             (response, error) in
 
             if(response != nil) {
@@ -150,6 +136,20 @@ class LeadGenViewController: UIViewController {
 
             }
         }
+        
+//        SCGateway.shared.launchSmallPlug(presentingController: self, smallplugData: SmallplugData(nil,nil)) {
+//            (response, error) in
+//
+//            if(response != nil) {
+//
+//                self.showPopup(title: "Success", msg: response.debugDescription)
+//
+//            } else {
+//
+//                self.showPopup(title: "Error", msg: error?.localizedDescription)
+//
+//            }
+//        }
     }
 }
 
