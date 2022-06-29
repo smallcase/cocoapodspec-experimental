@@ -14,7 +14,7 @@ target 'WebViewTester' do
   
   pod 'Mixpanel-swift'
 
-#  pod 'SCGateway' , '1.0.1'
+  #pod 'SCGateway' , '3.4.3'
 
 
   target 'WebViewTesterTests' do

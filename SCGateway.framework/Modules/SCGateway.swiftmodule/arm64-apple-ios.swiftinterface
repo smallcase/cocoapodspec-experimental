@@ -290,13 +290,12 @@ public enum AllowedBrokerType : Swift.String {
     get
   }
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class SmallplugUiConfig : ObjectiveC.NSObject {
+@objc @objcMembers public class SmallplugUiConfig : ObjectiveC.NSObject {
   @objc public var headerColor: Swift.String?
   @objc public var backIconColor: Swift.String?
   public var opacity: CoreGraphics.CGFloat?
   public var backIconColorOpacity: CoreGraphics.CGFloat?
   @objc public init(smallplugHeaderColor: Swift.String?, headerColorOpacity: Foundation.NSNumber?, backIconColor: Swift.String?, backIconColorOpacity: Foundation.NSNumber?)
-  @objc override dynamic public init()
   @objc deinit
 }
 public enum NetworkError : Swift.Error {

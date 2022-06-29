@@ -353,7 +353,8 @@ SWIFT_CLASS("_TtC9SCGateway17SmallplugUiConfig")
 @property (nonatomic, copy) NSString * _Nullable headerColor;
 @property (nonatomic, copy) NSString * _Nullable backIconColor;
 - (nonnull instancetype)initWithSmallplugHeaderColor:(NSString * _Nullable)smallplugHeaderColor headerColorOpacity:(NSNumber * _Nullable)headerColorOpacity backIconColor:(NSString * _Nullable)backIconColor backIconColorOpacity:(NSNumber * _Nullable)backIconColorOpacity OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

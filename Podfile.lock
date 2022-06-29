@@ -1,8 +1,8 @@
 PODS:
   - DynamicBlurView (4.1.0)
-  - Mixpanel-swift (3.2.6):
-    - Mixpanel-swift/Complete (= 3.2.6)
-  - Mixpanel-swift/Complete (3.2.6)
+  - Mixpanel-swift (3.3.0):
+    - Mixpanel-swift/Complete (= 3.3.0)
+  - Mixpanel-swift/Complete (3.3.0)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
 
@@ -18,9 +18,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
-  Mixpanel-swift: ce120e0d51dcb0d0bf5a25e1ee232fe89ad1136b
+  Mixpanel-swift: 6ffe368bcfc3b538f540f31372bc798afd90c1ad
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
 
-PODFILE CHECKSUM: ad5756cb39a575ce7ea466aa3801ba6fbc3387ce
+PODFILE CHECKSUM: 6fbbb641999587ca1caf498bc45617794556e4b0
 
 COCOAPODS: 1.10.1
