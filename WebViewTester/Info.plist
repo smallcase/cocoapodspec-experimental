@@ -20,11 +20,33 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
+			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string></string>
+			<string>com.smallcase.smartInvesting</string>
 			<key>CFBundleURLSchemes</key>
-			<array/>
+			<array>
+				<string>scgatewayyyyyyy</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLName</key>
+			<string>com.smallcase.smartInvesting</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>scgatewayiosaax</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLName</key>
+			<string>com.smallcase.smartInvesting</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>gatewaydemoawe</string>
+			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>

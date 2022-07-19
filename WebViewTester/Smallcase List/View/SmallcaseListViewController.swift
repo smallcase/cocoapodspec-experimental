@@ -68,7 +68,9 @@ class SmallcaseListViewController: UITableViewController {
                     
                 case .failure(let error):
                     print(error)
-                    self?.showPopup(msg: error.message )
+                        self?.showPopup(title: "Holdings ERROR:", msg: self?.convertErrorToJsonString(error: error) ?? "error converting transaction error to JSON")
+//                    self?.showPopup(msg: error.message )
+                        
                 }
             }
 

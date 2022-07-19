@@ -158,7 +158,8 @@ class CreateViewController: UIViewController {
                     
                 case .failure(let error):
                     print("SST TRANSACTION: ERROR: \(error)")
-                    self?.showPopup(title: "SST TRANSACTION: ERROR:", msg: "\(error.message) \(error.rawValue)")
+                        self?.showPopup(title: "SMT TRANSACTION: ERROR:", msg: self?.convertErrorToJsonString(error: error) ?? "error converting transaction error to JSON")
+//                        self?.showPopup(title: "SST TRANSACTION: ERROR:", msg: "\(error.message) \(error.rawValue)")
                     
                 }
             })
@@ -188,7 +189,18 @@ class CreateViewController: UIViewController {
             } else {
                 
                 if let errorPopupString = error as? ObjcTransactionError {
-                    self.showPopup(title: "Error", msg: "\(errorPopupString.domain) \(errorPopupString.code)")
+                    
+                    var errorDict : [String : Any] = [
+                        "errorCode": errorPopupString.code,
+                        "errorMessage": errorPopupString.domain,
+                    ]
+                    
+                    if let errorData = errorPopupString.userInfo["data"] as? String, let errorDataDict = errorData.toDictionary {
+                        errorDict["data"] = errorDataDict
+                    }
+                    
+//                    self.showPopup(title: "Error", msg: "\(errorPopupString.domain) \(errorPopupString.code)")
+                    self.showPopup(title: "Error", msg: errorDict.toJsonString)
                 }
             }
         }

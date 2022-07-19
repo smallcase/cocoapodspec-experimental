@@ -166,12 +166,17 @@ class LoginViewController: UIViewController {
             
             let config = GatewayConfig(gatewayName: gatewayName ?? "",
                                        brokerConfig: brokerConfig,
-//                                            brokerConfig: ["Alice Blue","kite","upstox"],
                                               apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
                                               isLeprechaunActive: self.leprechaunSwitch.isOn,
                                               isAmoEnabled: self.isAmoEnabled.isOn
             )
             
+//            let config = GatewayConfig(gatewayName: gatewayName ?? "",
+//                                       brokerConfig: brokerConfig,
+//                                       apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
+//                                       isLeprechaunActive: self.leprechaunSwitch.isOn,
+//                                       isAmoEnabled: self.isAmoEnabled.isOn
+//            )
             SCGateway.shared.setup(config: config){ success, error in
                 if (success) {
                     //init sdk successful
@@ -403,13 +408,13 @@ class LoginViewController: UIViewController {
                         
                         self?.showPopup(title: "response:", msg: "\(response)")
                         
-                    case let .transaction(authToken, transactionData):
-                            self?.showPopup(title: "Transaction Response", msg: " authTOken : \(authToken), \n data: \(transactionData.toJSONString())")
-                        return
+//                    case let .transaction(authToken, transactionData):
+//                            self?.showPopup(title: "Transaction Response", msg: " authTOken : \(authToken), \n data: \(transactionData.toJSONString())")
+//                        return
                 
-                    case .holdingsImport(let smallcaseAuthToken, let status, let broker, let transactionId):
-                        self?.showPopup(title: "Transaction Response", msg: " authTOken : \(smallcaseAuthToken), \n status: \(status), \n broker: \(broker), \n transactionId: \(transactionId)")
-                        return
+//                    case .holdingsImport(let smallcaseAuthToken, let status, let broker, let transactionId):
+//                        self?.showPopup(title: "Transaction Response", msg: " authTOken : \(smallcaseAuthToken), \n status: \(status), \n broker: \(broker), \n transactionId: \(transactionId)")
+//                        return
                         
                     default:
                         return

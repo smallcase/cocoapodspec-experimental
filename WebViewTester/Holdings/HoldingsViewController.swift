@@ -94,15 +94,14 @@ class HoldingsViewController: UIViewController {
     func triggerHoldingsTransaction(transactionId: String) {
            do {
                try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self) { [weak self] (result) in
-                   switch result {
-                   case .success(let response):
-                       print("HOLDING RESPONSE: \(response)")
-                       self?.showPopup(title: "Holdings Response", msg: "\(response)")
+                    switch result {
+                       case .success(let response):
+                           print("HOLDING RESPONSE: \(response)")
+                           self?.showPopup(title: "Holdings Response", msg: "\(response)")
                        
-                       
-                   case .failure(let error):
-                       print(error)
-                    self?.showPopup(title: "Holdings Error", msg: "\(error.message)  \(error.rawValue)" )
+                       case .failure(let error):
+                           print(error)
+                            self?.showPopup(title: "Holdings Error", msg: self?.convertErrorToJsonString(error: error) ?? "error converting transaction error to JSON")
                    }
                }
 

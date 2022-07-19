@@ -285,6 +285,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
 @class SmallplugData;
 @class SmallplugUiConfig;
 
@@ -294,7 +295,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 - (void)logoutUserWithPresentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 - (void)showOrdersWithPresentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
 @end
-
 
 @class NSData;
 
@@ -407,6 +407,7 @@ SWIFT_CLASS_NAMED("_ObjcTransactionIntentAuthoriseHoldings")
 @property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
 @property (nonatomic, readonly) BOOL status;
 @property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
+@property (nonatomic, readonly, strong) id _Nullable signup;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -417,6 +418,7 @@ SWIFT_CLASS_NAMED("_ObjcTransactionIntentFetchFunds")
 @property (nonatomic, readonly, copy) NSString * _Nonnull authToken;
 @property (nonatomic, readonly) double fund;
 @property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
+@property (nonatomic, readonly, strong) id _Nullable signup;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -428,6 +430,7 @@ SWIFT_CLASS_NAMED("_ObjcTransactionIntentHoldingsImport")
 @property (nonatomic, readonly, copy) NSString * _Nonnull broker;
 @property (nonatomic, readonly) BOOL status;
 @property (nonatomic, readonly, copy) NSString * _Nonnull transactionId;
+@property (nonatomic, readonly, strong) id _Nullable signup;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -445,6 +448,7 @@ SWIFT_CLASS_NAMED("_ObjcTransactionIntentSipSetup")
 @property (nonatomic, readonly, copy) NSString * _Nonnull scheduledDate;
 @property (nonatomic, readonly, copy) NSString * _Nonnull scid;
 @property (nonatomic, readonly, copy) NSString * _Nonnull sipType;
+@property (nonatomic, readonly, strong) id _Nullable signup;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

@@ -8,6 +8,7 @@
 
 import UIKit
 import PopupDialog
+import SCGateway
 
 extension UIViewController {
     
@@ -28,6 +29,20 @@ extension UIViewController {
             
             self?.present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    func convertErrorToJsonString(error: TransactionError) -> String? {
+        
+        var errorDict : [String: Any?] = [
+            "errorCode": error.rawValue,
+            "errorMessage": error.message,
+        ]
+        
+        if let errorData = error.data {
+            errorDict["data"] = errorData.toDictionary
+        }
+        
+        return errorDict.toJsonString
     }
 }
 

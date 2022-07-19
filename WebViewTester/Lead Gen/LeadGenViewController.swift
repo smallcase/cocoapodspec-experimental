@@ -35,6 +35,10 @@ class LeadGenViewController: UIViewController {
     
     @IBOutlet weak var isRetargeting: UISwitch!
     
+    @IBOutlet weak var smallplugPath: UITextField!
+    
+    @IBOutlet weak var smallplugParam: UITextField!
+    
     lazy var tapRecognizer: UITapGestureRecognizer = {
         var recognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
         return recognizer
@@ -52,6 +56,9 @@ class LeadGenViewController: UIViewController {
         utmContentTextField.delegate = self
         utmTermTextField.delegate = self
         utmBTextField.delegate = self
+        
+        smallplugPath.delegate = self
+        smallplugParam.delegate = self
     }
     
     @IBAction func onClickTriggerLeadGen(_ sender: Any) {
@@ -118,7 +125,10 @@ class LeadGenViewController: UIViewController {
             backIconColorOpacity = "1.0"
         }
         
-        SCGateway.shared.launchSmallPlug(presentingController: self, smallplugData: SmallplugData(nil,nil), smallplugUiConfig: SmallplugUiConfig(
+        SCGateway.shared.launchSmallPlug(
+            presentingController: self,
+            smallplugData: SmallplugData(smallplugPath.text, smallplugParam.text),
+            smallplugUiConfig: SmallplugUiConfig(
             smallplugHeaderColor: headerColor,
             headerColorOpacity: Double(headColorOpacity) as NSNumber?,
             backIconColor: backIconColor,
@@ -167,6 +177,8 @@ extension LeadGenViewController: UITextFieldDelegate {
         utmContentTextField.resignFirstResponder()
         utmTermTextField.resignFirstResponder()
         
+        smallplugPath.resignFirstResponder()
+        smallplugParam.resignFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -174,13 +186,10 @@ extension LeadGenViewController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
         view.addGestureRecognizer(tapRecognizer)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         view.removeGestureRecognizer(tapRecognizer)
-        
-        
     }
 }

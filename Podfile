@@ -12,9 +12,9 @@ target 'WebViewTester' do
 
   pod 'PopupDialog', '~> 1.1'
   
-  pod 'Mixpanel-swift'
+#  pod 'Mixpanel-swift'
 
-  #pod 'SCGateway' , '3.4.3'
+#  pod 'SCGateway' , '3.4.4'
 
 
   target 'WebViewTesterTests' do

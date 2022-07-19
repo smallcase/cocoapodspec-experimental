@@ -5,7 +5,6 @@ import AVFoundation
 import AVKit
 import AuthenticationServices
 import Foundation
-import Mixpanel
 import MobileCoreServices
 import QuickLook
 @_exported import SCGateway
@@ -46,12 +45,16 @@ public enum SCGatewayError : Swift.Int, Swift.Error {
 public enum TransactionError : Swift.Error {
   case userMismatch
   case apiError
-  case userAbandoned
+  case apiErrorWithData(data: SCGateway.Transaction.SuccessData?)
+  case smtMarketClosed
+  case smtMarketClosedWithData(data: SCGateway.Transaction.SuccessData?)
   case timedOutError
   case invalidGateway
   case invalidJWT
   case transactionExpired
+  case transactionExpiredWithData(data: SCGateway.Transaction.SuccessData?)
   case marketClosed
+  case marketClosedWithData(data: SCGateway.Transaction.SuccessData?)
   case invalidUrl
   case invalidTransactionId
   case invalidResponse
@@ -63,10 +66,16 @@ public enum TransactionError : Swift.Error {
   case signupOtherBroker
   case transactionExpiredBefore
   case safariTabClosedInitialised
+  case safariTabClosedInitialisedWithData(data: SCGateway.Transaction.SuccessData?)
   case safariTabClosedUsed
+  case userLoggedInAndDropped(data: SCGateway.Transaction.SuccessData?)
   case alreadySubscribed
+  case alreadySubscribedWithData(data: SCGateway.Transaction.SuccessData?)
   case intentNotEnabledForBroker
   public var message: Swift.String {
+    get
+  }
+  public var data: Swift.String? {
     get
   }
   public var debugMessage: Swift.String? {
@@ -80,6 +89,7 @@ extension SCGateway.TransactionError : Swift.RawRepresentable {
   public typealias RawValue = Swift.Int
   public init?(rawValue: SCGateway.TransactionError.RawValue)
   public init?(rawValue: SCGateway.TransactionError.RawValue, message: Swift.String)
+  public init?(rawValue: SCGateway.TransactionError.RawValue, transactionData: SCGateway.Transaction.SuccessData?)
 }
 @_hasMissingDesignatedInitializers @objc public class ObjcTransactionError : Foundation.NSError {
   @objc override dynamic public var domain: Swift.String {
@@ -203,10 +213,10 @@ public enum TransactionIntent {
   case connect(response: Swift.String)
   case subscription(_: Swift.String)
   case transaction(smallcaseAuthToken: Swift.String, transactionData: SCGateway.Transaction.SuccessData)
-  case holdingsImport(smallcaseAuthToken: Swift.String, broker: Swift.String, status: Swift.Bool, transactionId: Swift.String)
-  case fetchFunds(smallcaseAuthToken: Swift.String, fund: Swift.Double, transactionId: Swift.String)
-  case authoriseHoldings(smallcaseAuthToken: Swift.String, status: Swift.Bool, transactionId: Swift.String)
-  case sipSetup(smallcaseAuthToken: Swift.String, sipAction: SCGateway.SipDetail, transactionId: Swift.String)
+  case holdingsImport(smallcaseAuthToken: Swift.String, broker: Swift.String, status: Swift.Bool, transactionId: Swift.String, signup: Swift.Bool?)
+  case fetchFunds(smallcaseAuthToken: Swift.String, fund: Swift.Double, transactionId: Swift.String, signup: Swift.Bool?)
+  case authoriseHoldings(smallcaseAuthToken: Swift.String, status: Swift.Bool, transactionId: Swift.String, signup: Swift.Bool?)
+  case sipSetup(smallcaseAuthToken: Swift.String, sipAction: SCGateway.SipDetail, transactionId: Swift.String, signup: Swift.Bool?)
   case cancelAMO(_: Swift.String)
 }
 public enum AllowedBrokerType : Swift.String {
@@ -246,18 +256,21 @@ public enum AllowedBrokerType : Swift.String {
   @objc final public let broker: Swift.String
   @objc final public let status: Swift.Bool
   @objc final public let transactionId: Swift.String
+  @objc final public let signup: Swift.AnyObject?
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(ObjcTransactionIntentFetchFunds) final public class _ObjcTransactionIntentFetchFunds : ObjectiveC.NSObject {
   @objc final public let authToken: Swift.String
   @objc final public let fund: Swift.Double
   @objc final public let transactionId: Swift.String
+  @objc final public let signup: Swift.AnyObject?
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(ObjcTransactionIntentAuthoriseHoldings) final public class _ObjcTransactionIntentAuthoriseHoldings : ObjectiveC.NSObject {
   @objc final public let authToken: Swift.String
   @objc final public let status: Swift.Bool
   @objc final public let transactionId: Swift.String
+  @objc final public let signup: Swift.AnyObject?
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(ObjcTransactionIntentSipSetup) final public class _ObjcTransactionIntentSipSetup : ObjectiveC.NSObject {
@@ -271,6 +284,7 @@ public enum AllowedBrokerType : Swift.String {
   @objc final public let scheduledDate: Swift.String
   @objc final public let scid: Swift.String
   @objc final public let sipType: Swift.String
+  @objc final public let signup: Swift.AnyObject?
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SeparatorCollectionViewFlowLayout : UIKit.UICollectionViewFlowLayout {

@@ -320,7 +320,8 @@ class InvestmentDetailsViewController: UIViewController {
                     
                 case .failure(let error):
                     print(error)
-                    self?.showPopup(title: "failure", msg: "\(error.message)  \(error.rawValue)" )
+//                    self?.showPopup(title: "failure", msg: "\(error.message)  \(error.rawValue)" )
+                        self?.showPopup(title: "Error", msg: self?.convertErrorToJsonString(error: error) ?? "error converting transaction error to JSON")
                 }
             }
 
@@ -337,13 +338,14 @@ class InvestmentDetailsViewController: UIViewController {
             try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self) { [weak self] (result) in
                 switch result {
                     case .success(let response):
-                        print("HOLDING RESPONSE: \(response)")
+                        print("Success RESPONSE: \(response)")
                         self?.showPopup(title: "Sip setup Success", msg: "\(response)")
                         
                         
                     case .failure(let error):
                         print(error)
-                        self?.showPopup(title: "Sip setup failure", msg: "\(error.message)  \(error.rawValue)" )
+//                        self?.showPopup(title: "Sip setup failure", msg: "\(error.message)  \(error.rawValue)" )
+                        self?.showPopup(title: "Sip Setup Error", msg: self?.convertErrorToJsonString(error: error) ?? "error converting transaction error to JSON")
                 }
             }
             

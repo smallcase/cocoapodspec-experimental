@@ -121,7 +121,8 @@ class SmallcaseProfileViewController: UIViewController {
                     print(response)
                     
                 case .failure(let error):
-                    self.showPopup(title: "SMT TRANSACTION: ERROR:", msg: "\(error.message) \(error.rawValue)")
+//                    self.showPopup(title: "SMT TRANSACTION: ERROR:", msg: "\(error.message) \(error.rawValue)")
+                        self.showPopup(title: "SMT TRANSACTION: ERROR:", msg: self.convertErrorToJsonString(error: error) ?? "error converting transaction error to JSON")
                     print(error)
                 }
             }
