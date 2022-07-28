@@ -59,7 +59,7 @@ public enum TransactionError : Swift.Error {
   case invalidTransactionId
   case invalidResponse
   case custom(message: Swift.String)
-  case dynamicError(msg: Swift.String, code: Swift.Int)
+  case dynamicError(msg: Swift.String, code: Swift.Int, data: SCGateway.Transaction.SuccessData?)
   case closedBrokerChooser
   case pressedTweet
   case noBrokerError
@@ -72,6 +72,8 @@ public enum TransactionError : Swift.Error {
   case alreadySubscribed
   case alreadySubscribedWithData(data: SCGateway.Transaction.SuccessData?)
   case intentNotEnabledForBroker
+  case consentDenied
+  case consentDeniedWithData(data: SCGateway.Transaction.SuccessData?)
   public var message: Swift.String {
     get
   }

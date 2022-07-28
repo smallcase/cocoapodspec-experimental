@@ -34,7 +34,8 @@ class NetworkManager {
     func getBaseUrl() -> String {
         switch ENVIRONMENT {
         case .staging:
-            return "https://api.stag.smartinvesting.io"
+//                return "https://smartinvesting-ddd.stag.smallcase.com"
+                return "https://api.stag.smartinvesting.io"
         case .development:
             return "https://api.dev.smartinvesting.io"
         default:

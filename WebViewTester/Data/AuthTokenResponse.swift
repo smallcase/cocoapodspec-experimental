@@ -10,7 +10,7 @@ import Foundation
 
 
 struct GetAuthTokenResponse: Codable {
-    var connected: Bool
+    var connected: Bool?
     var smallcaseAuthToken: String?
     
     enum CodingKeys: String, CodingKey {

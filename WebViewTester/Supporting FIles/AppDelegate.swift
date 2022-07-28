@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         print(url)
         
-        SCGateway.shared.processTransaction(redirectUrl: url)
+//        SCGateway.shared.processRedirection(redirectUrl: url as NSURL)
         
         return true
     }

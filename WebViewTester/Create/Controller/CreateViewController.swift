@@ -143,24 +143,12 @@ class CreateViewController: UIViewController {
 //            ]
             try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self, completion: { [weak self] (result) in
                 switch result {
-                case .success(let response):
-                    print("SST TRANSACTION: RESPONSE:  \(response)")
                     
-//                    switch response {
-//                        case .transaction(let smallcaseAuthToken, let transactionData):
-//                            
-//                            
-//                        default:
-//                            print("")
-//                    }
-                    self?.showPopup(title: "SST TRANSACTION: RESPONSE: ", msg: "\(response)")
-                    
-                    
-                case .failure(let error):
-                    print("SST TRANSACTION: ERROR: \(error)")
-                        self?.showPopup(title: "SMT TRANSACTION: ERROR:", msg: self?.convertErrorToJsonString(error: error) ?? "error converting transaction error to JSON")
-//                        self?.showPopup(title: "SST TRANSACTION: ERROR:", msg: "\(error.message) \(error.rawValue)")
-                    
+                    case .success(let response):
+                        self?.showPopup(title: "SST TRANSACTION: RESPONSE: ", msg: "\(response)")
+                        
+                    case .failure(let error):
+                        self?.showPopup(title: "SST TRANSACTION ERROR:", msg: self?.convertErrorToJsonString(error: error) ?? "error converting transaction error to JSON")
                 }
             })
         }

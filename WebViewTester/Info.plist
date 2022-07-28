@@ -25,7 +25,7 @@
 			<string>com.smallcase.smartInvesting</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>scgatewayyyyyyy</string>
+				<string>gatewaydemo-stag</string>
 			</array>
 		</dict>
 		<dict>
@@ -35,7 +35,7 @@
 			<string>com.smallcase.smartInvesting</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>scgatewayiosaax</string>
+				<string>scgateway-gatewaydemo-stag</string>
 			</array>
 		</dict>
 		<dict>
@@ -45,7 +45,17 @@
 			<string>com.smallcase.smartInvesting</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>gatewaydemoawe</string>
+				<string>scgateway-gatewaydemo-dev</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLName</key>
+			<string>com.smallcase.smartInvesting</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>scgateway-gatewaydemo</string>
 			</array>
 		</dict>
 	</array>
@@ -65,6 +75,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -67,7 +67,6 @@ class LoginViewController: UIViewController {
             if let inputStr = userNameString {
                 print(inputStr)
                 getAuthToken()
-                //TODO: GET SDKAuthCall
             }
         }
     }
@@ -171,12 +170,13 @@ class LoginViewController: UIViewController {
                                               isAmoEnabled: self.isAmoEnabled.isOn
             )
             
-//            let config = GatewayConfig(gatewayName: gatewayName ?? "",
+//            let config = GatewayConfig(gatewayName: "smallcase-website",
 //                                       brokerConfig: brokerConfig,
 //                                       apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
 //                                       isLeprechaunActive: self.leprechaunSwitch.isOn,
 //                                       isAmoEnabled: self.isAmoEnabled.isOn
 //            )
+            
             SCGateway.shared.setup(config: config){ success, error in
                 if (success) {
                     //init sdk successful
@@ -218,8 +218,6 @@ class LoginViewController: UIViewController {
    
     @IBAction func OnClickTransactionId(_ sender: Any) {
         promptForTransactionId()
-    
-        
     }
     
    
