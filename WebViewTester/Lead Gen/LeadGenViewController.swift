@@ -39,6 +39,8 @@ class LeadGenViewController: UIViewController {
     
     @IBOutlet weak var smallplugParam: UITextField!
     
+    @IBOutlet weak var showLoginCtaSwitch: UISwitch!
+    
     lazy var tapRecognizer: UITapGestureRecognizer = {
         var recognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
         return recognizer
@@ -79,10 +81,22 @@ class LeadGenViewController: UIViewController {
         
 //        SCGateway.shared.triggerLeadGen(presentingController: self,params: params, utmParams: map, retargeting: retargeting)
         
-        SCGateway.shared.triggerLeadGen(presentingController: self, params: params, completion: { (response) in
-            
+//        SCGateway.shared.triggerLeadGen(presentingController: self, params: params, completion: { (response) in
+//
+//            self.showPopup(title: "LeadGenResponse", msg: response)
+//        })
+        
+        SCGateway.shared.triggerLeadGen(
+            presentingController: self,
+            params: params,
+            utmParams: nil,
+            retargeting: false,
+            showLoginCta: showLoginCtaSwitch.isOn,
+            completion: { (response) in
+
             self.showPopup(title: "LeadGenResponse", msg: response)
         })
+        
     }
     
     @IBAction func logoutButtonClicked(_ sender: UIButton) {

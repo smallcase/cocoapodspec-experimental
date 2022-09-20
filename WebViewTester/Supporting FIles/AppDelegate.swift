@@ -50,15 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         print(url)
         
-//        SCGateway.shared.processRedirection(redirectUrl: url as NSURL)
+//        SCGateway.shared.processRedirection(redirectUrl: url)
         
         return true
     }
     
-//    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-//
-//        print("Got Universal link redirect!")
-//
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+
+        print("Got Universal link redirect!")
+
 //        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
 //              let url = userActivity.webpageURL,
 //              let _ = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
@@ -70,12 +70,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            print("received universal link from test app!")
 //            return false
 //        }
-//
-//
-////        SCGateway.shared.closeAsWebAuthenticationSession()
-//
-//        return false
-//    }
+
+
+//        SCGateway.shared.closeAsWebAuthenticationSession()
+
+        SCGateway.shared.handleBrokerRedirection(redirectUrl: userActivity.webpageURL!)
+       
+        return false //TODO: check
+    }
 
 }
 

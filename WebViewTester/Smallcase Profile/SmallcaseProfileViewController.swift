@@ -117,8 +117,16 @@ class SmallcaseProfileViewController: UIViewController {
             try? SCGateway.shared.triggerTransactionFlow(transactionId: trxId, presentingController: self) { (result) in
                 switch result {
                 case.success(let response):
-                    self.showPopup(title: "Success", msg: "\(response)")
-                    print(response)
+                        
+                        print(response)
+                        
+                        switch response {
+                            case .subscription(let subscriptionResponse):
+                                self.showPopup(title: "Subscribed", msg: "\(subscriptionResponse)")
+                                
+                            default:
+                                self.showPopup(title: "Success", msg: "\(response)")
+                        }
                     
                 case .failure(let error):
 //                    self.showPopup(title: "SMT TRANSACTION: ERROR:", msg: "\(error.message) \(error.rawValue)")

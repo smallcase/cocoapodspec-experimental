@@ -254,7 +254,6 @@ SWIFT_CLASS("_TtC9SCGateway20ObjcTransactionError")
 @end
 
 @class NSURL;
-@class UIViewController;
 
 SWIFT_CLASS("_TtC9SCGateway9SCGateway")
 @interface SCGateway : NSObject
@@ -279,13 +278,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 - (void)setSDKTypeWithType:(NSString * _Nonnull)type;
 - (void)setHybridSDKVersionWithVersion:(NSString * _Nonnull)version;
 - (NSString * _Nonnull)getSdkVersion SWIFT_WARN_UNUSED_RESULT;
-- (void)processTransactionWithRedirectUrl:(NSURL * _Nonnull)redirectUrl;
-- (void)processTransactionWithPresentingController:(UIViewController * _Nonnull)presentingController;
-- (void)closeAsWebAuthenticationSession;
+- (void)handleBrokerRedirectionWithRedirectUrl:(NSURL * _Nonnull)redirectUrl;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
+@class UIViewController;
 @class SmallplugData;
 @class SmallplugUiConfig;
 
@@ -319,6 +317,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params completion:(void (^ _Nonnull)(NSString * _Nullable))completion;
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams;
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams retargeting:(BOOL)retargeting;
+- (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams retargeting:(BOOL)retargeting showLoginCta:(BOOL)showLoginCta completion:(void (^ _Nonnull)(NSString * _Nullable))completion;
 @end
 
 
@@ -361,6 +360,7 @@ SWIFT_CLASS("_TtC9SCGateway17SmallplugUiConfig")
 SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 @interface TransactionErrorResponse : NSObject
 @end
+
 
 
 

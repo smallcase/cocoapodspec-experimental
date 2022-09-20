@@ -12,6 +12,7 @@ import PopupDialog
 import SafariServices
 import AuthenticationServices
 //import Mixpanel
+//import SCGateway_Mixpanel
 
 extension UIApplication {
     static var appVersion: String? {
@@ -131,6 +132,10 @@ class LoginViewController: UIViewController {
 //        smartinvestingVersionLabel.text = "Smartinvesting: \(smartinvestingVersion) SDK: 3.1.12"
         // Do any additional setup after loading the view.
         
+//        SCGatewayMixpanel.shared.hello()
+        
+//        let smx = SCGateway_Mixpanel
+//        smx.hello()
     }
     
     
