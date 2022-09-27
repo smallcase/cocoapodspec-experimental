@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name SCGateway
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import AVKit
 import AuthenticationServices
@@ -14,6 +15,7 @@ import SwiftUI
 import UIKit
 import WebKit
 import _Concurrency
+import _StringProcessing
 extension UIKit.UIImage {
   public class func gif(data: Foundation.Data) -> UIKit.UIImage?
   public class func gif(url: Swift.String) -> UIKit.UIImage?
@@ -111,18 +113,18 @@ extension UIKit.UIImageView {
 }
 extension UIKit.UIView {
   @discardableResult
-  @_Concurrency.MainActor(unsafe) open func stack(_ views: UIKit.UIView..., spacing: CoreGraphics.CGFloat = 0, alignment: UIKit.UIStackView.Alignment = .fill, distribution: UIKit.UIStackView.Distribution = .fill) -> UIKit.UIStackView
+  @_Concurrency.MainActor(unsafe) open func stack(_ views: UIKit.UIView..., spacing: CoreFoundation.CGFloat = 0, alignment: UIKit.UIStackView.Alignment = .fill, distribution: UIKit.UIStackView.Distribution = .fill) -> UIKit.UIStackView
   @discardableResult
-  @_Concurrency.MainActor(unsafe) open func hstack(_ views: UIKit.UIView..., spacing: CoreGraphics.CGFloat = 0, alignment: UIKit.UIStackView.Alignment = .fill, distribution: UIKit.UIStackView.Distribution = .fill) -> UIKit.UIStackView
+  @_Concurrency.MainActor(unsafe) open func hstack(_ views: UIKit.UIView..., spacing: CoreFoundation.CGFloat = 0, alignment: UIKit.UIStackView.Alignment = .fill, distribution: UIKit.UIStackView.Distribution = .fill) -> UIKit.UIStackView
   @discardableResult
-  @_Concurrency.MainActor(unsafe) open func withSize<T>(_ size: CoreGraphics.CGSize) -> T where T : UIKit.UIView
+  @_Concurrency.MainActor(unsafe) open func withSize<T>(_ size: CoreFoundation.CGSize) -> T where T : UIKit.UIView
   @discardableResult
-  @_Concurrency.MainActor(unsafe) open func withHeight(_ height: CoreGraphics.CGFloat) -> UIKit.UIView
+  @_Concurrency.MainActor(unsafe) open func withHeight(_ height: CoreFoundation.CGFloat) -> UIKit.UIView
   @discardableResult
-  @_Concurrency.MainActor(unsafe) open func withWidth(_ width: CoreGraphics.CGFloat) -> UIKit.UIView
+  @_Concurrency.MainActor(unsafe) open func withWidth(_ width: CoreFoundation.CGFloat) -> UIKit.UIView
 }
 extension UIKit.UIEdgeInsets {
-  public static func allSides(_ side: CoreGraphics.CGFloat) -> UIKit.UIEdgeInsets
+  public static func allSides(_ side: CoreFoundation.CGFloat) -> UIKit.UIEdgeInsets
 }
 extension SCGateway.SCGateway {
   public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool?)
@@ -132,8 +134,8 @@ extension SCGateway.SCGateway {
   @objc dynamic public func showOrders(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
 }
 extension UIKit.UIView {
-  @_Concurrency.MainActor(unsafe) public func anchor(_ top: UIKit.NSLayoutYAxisAnchor? = nil, left: UIKit.NSLayoutXAxisAnchor? = nil, bottom: UIKit.NSLayoutYAxisAnchor? = nil, right: UIKit.NSLayoutXAxisAnchor? = nil, topConstant: CoreGraphics.CGFloat = 0, leftConstant: CoreGraphics.CGFloat = 0, bottomConstant: CoreGraphics.CGFloat = 0, rightConstant: CoreGraphics.CGFloat = 0, widthConstant: CoreGraphics.CGFloat = 0, heightConstant: CoreGraphics.CGFloat = 0)
-  @_Concurrency.MainActor(unsafe) public func anchorWithReturnAnchors(_ top: UIKit.NSLayoutYAxisAnchor? = nil, left: UIKit.NSLayoutXAxisAnchor? = nil, bottom: UIKit.NSLayoutYAxisAnchor? = nil, right: UIKit.NSLayoutXAxisAnchor? = nil, topConstant: CoreGraphics.CGFloat = 0, leftConstant: CoreGraphics.CGFloat = 0, bottomConstant: CoreGraphics.CGFloat = 0, rightConstant: CoreGraphics.CGFloat = 0, widthConstant: CoreGraphics.CGFloat = 0, heightConstant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func anchor(_ top: UIKit.NSLayoutYAxisAnchor? = nil, left: UIKit.NSLayoutXAxisAnchor? = nil, bottom: UIKit.NSLayoutYAxisAnchor? = nil, right: UIKit.NSLayoutXAxisAnchor? = nil, topConstant: CoreFoundation.CGFloat = 0, leftConstant: CoreFoundation.CGFloat = 0, bottomConstant: CoreFoundation.CGFloat = 0, rightConstant: CoreFoundation.CGFloat = 0, widthConstant: CoreFoundation.CGFloat = 0, heightConstant: CoreFoundation.CGFloat = 0)
+  @_Concurrency.MainActor(unsafe) public func anchorWithReturnAnchors(_ top: UIKit.NSLayoutYAxisAnchor? = nil, left: UIKit.NSLayoutXAxisAnchor? = nil, bottom: UIKit.NSLayoutYAxisAnchor? = nil, right: UIKit.NSLayoutXAxisAnchor? = nil, topConstant: CoreFoundation.CGFloat = 0, leftConstant: CoreFoundation.CGFloat = 0, bottomConstant: CoreFoundation.CGFloat = 0, rightConstant: CoreFoundation.CGFloat = 0, widthConstant: CoreFoundation.CGFloat = 0, heightConstant: CoreFoundation.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
 }
 extension UIKit.UIView {
   @_Concurrency.MainActor(unsafe) public var heightConstaint: UIKit.NSLayoutConstraint? {
@@ -155,17 +157,17 @@ extension UIKit.UIView {
   @objc deinit
 }
 extension UIKit.UIColor {
-  convenience public init?(hex: Swift.String, alpha: CoreGraphics.CGFloat)
+  convenience public init?(hex: Swift.String, alpha: CoreFoundation.CGFloat)
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class ContentSizedCollectionView : UIKit.UICollectionView {
-  @_Concurrency.MainActor(unsafe) @objc override final public var contentSize: CoreGraphics.CGSize {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+  @_Concurrency.MainActor(unsafe) @objc override final public var contentSize: CoreFoundation.CGSize {
+    @objc get
+    @objc set
   }
-  @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: CoreGraphics.CGSize {
-    @_Concurrency.MainActor(unsafe) @objc get
+  @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect, collectionViewLayout layout: UIKit.UICollectionViewLayout)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect, collectionViewLayout layout: UIKit.UICollectionViewLayout)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
@@ -304,7 +306,7 @@ public enum AllowedBrokerType : Swift.String {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func prepare()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutAttributesForDecorationView(ofKind elementKind: Swift.String, at indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewLayoutAttributes?
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutAttributesForElements(in rect: CoreGraphics.CGRect) -> [UIKit.UICollectionViewLayoutAttributes]?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutAttributesForElements(in rect: CoreFoundation.CGRect) -> [UIKit.UICollectionViewLayoutAttributes]?
   @objc deinit
 }
 @objc public enum Environment : Swift.Int {
@@ -320,8 +322,8 @@ public enum AllowedBrokerType : Swift.String {
 @objc @objcMembers public class SmallplugUiConfig : ObjectiveC.NSObject {
   @objc public var headerColor: Swift.String?
   @objc public var backIconColor: Swift.String?
-  public var opacity: CoreGraphics.CGFloat?
-  public var backIconColorOpacity: CoreGraphics.CGFloat?
+  public var opacity: CoreFoundation.CGFloat?
+  public var backIconColorOpacity: CoreFoundation.CGFloat?
   @objc public init(smallplugHeaderColor: Swift.String?, headerColorOpacity: Foundation.NSNumber?, backIconColor: Swift.String?, backIconColorOpacity: Foundation.NSNumber?)
   @objc deinit
 }
@@ -379,13 +381,13 @@ extension UIKit.UIStackView {
   @discardableResult
   @_Concurrency.MainActor(unsafe) open func withMargins(_ margins: UIKit.UIEdgeInsets) -> UIKit.UIStackView
   @discardableResult
-  @_Concurrency.MainActor(unsafe) open func padLeft(_ left: CoreGraphics.CGFloat) -> UIKit.UIStackView
+  @_Concurrency.MainActor(unsafe) open func padLeft(_ left: CoreFoundation.CGFloat) -> UIKit.UIStackView
   @discardableResult
-  @_Concurrency.MainActor(unsafe) open func padTop(_ top: CoreGraphics.CGFloat) -> UIKit.UIStackView
+  @_Concurrency.MainActor(unsafe) open func padTop(_ top: CoreFoundation.CGFloat) -> UIKit.UIStackView
   @discardableResult
-  @_Concurrency.MainActor(unsafe) open func padBottom(_ bottom: CoreGraphics.CGFloat) -> UIKit.UIStackView
+  @_Concurrency.MainActor(unsafe) open func padBottom(_ bottom: CoreFoundation.CGFloat) -> UIKit.UIStackView
   @discardableResult
-  @_Concurrency.MainActor(unsafe) open func padRight(_ right: CoreGraphics.CGFloat) -> UIKit.UIStackView
+  @_Concurrency.MainActor(unsafe) open func padRight(_ right: CoreFoundation.CGFloat) -> UIKit.UIStackView
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class SCGateway : ObjectiveC.NSObject {
   @objc public static let shared: SCGateway.SCGateway

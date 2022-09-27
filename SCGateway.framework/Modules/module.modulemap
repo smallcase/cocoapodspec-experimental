@@ -6,6 +6,6 @@ framework module SCGateway {
 }
 
 module SCGateway.Swift {
-    header "SCGateway-Swift.h"
-    requires objc
+  header "SCGateway-Swift.h"
+  requires objc
 }
