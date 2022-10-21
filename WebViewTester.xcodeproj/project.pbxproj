@@ -67,13 +67,12 @@
 		36F7D4B922B10397003B357A /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F7D4B722B10397003B357A /* SearchCell.xib */; };
 		36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */; };
 		8817B54826E7C55A00DCFD33 /* Encodable+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */; };
+		883B92902902A27700AA1EBB /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 883B928F2902A27700AA1EBB /* SCGateway.framework */; };
 		88516D5227ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88516D5027ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.swift */; };
 		88516D5327ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88516D5127ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib */; };
 		886B856B27F188FB004C6CDF /* MutualFundHoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886B856927F188FB004C6CDF /* MutualFundHoldingCell.swift */; };
 		886B856C27F188FB004C6CDF /* MutualFundHoldingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886B856A27F188FB004C6CDF /* MutualFundHoldingCell.xib */; };
 		8872E8092878568B0002B389 /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872E8082878568B0002B389 /* Dictionary+Ext.swift */; };
-		887BE22728E1D60100AEA536 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887BE22528E1D5F300AEA536 /* SCGateway.framework */; };
-		887BE22828E1D60100AEA536 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 887BE22528E1D5F300AEA536 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88E393D028785F1700E38705 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E393CF28785F1700E38705 /* String+Ext.swift */; };
 		9E3DF61C66F870D0271978F0 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C037023624AF2EB0A5651E4B /* Pods_WebViewTesterTests.framework */; };
 		D93C0E5F6852FCE9406B6762 /* Pods_WebViewTesterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BFE4F6D42FA67FAD3008C37 /* Pods_WebViewTesterUITests.framework */; };
@@ -104,7 +103,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				887BE22828E1D60100AEA536 /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,12 +184,12 @@
 		75BF3A55FD6650DC667732CF /* Pods-WebViewTesterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterTests.release.xcconfig"; path = "Target Support Files/Pods-WebViewTesterTests/Pods-WebViewTesterTests.release.xcconfig"; sourceTree = "<group>"; };
 		7BFE4F6D42FA67FAD3008C37 /* Pods_WebViewTesterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+ext.swift"; sourceTree = "<group>"; };
+		883B928F2902A27700AA1EBB /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
 		88516D5027ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStockHoldingCellTableViewCell.swift; sourceTree = "<group>"; };
 		88516D5127ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserStockHoldingCellTableViewCell.xib; sourceTree = "<group>"; };
 		886B856927F188FB004C6CDF /* MutualFundHoldingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutualFundHoldingCell.swift; sourceTree = "<group>"; };
 		886B856A27F188FB004C6CDF /* MutualFundHoldingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MutualFundHoldingCell.xib; sourceTree = "<group>"; };
 		8872E8082878568B0002B389 /* Dictionary+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
-		887BE22528E1D5F300AEA536 /* SCGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCGateway.framework; sourceTree = "<group>"; };
 		888AF34C28B7800700B13FB6 /* Mixpanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88AEF3A828B4E93300367968 /* SCGateway_Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCGateway_Mixpanel.framework; path = "../SCGateway-Mixpanel/SCGateway_Mixpanel.framework"; sourceTree = "<group>"; };
 		88E393CF28785F1700E38705 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -210,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF374DC3C406F07E70BCACDC /* Pods_WebViewTester.framework in Frameworks */,
-				887BE22728E1D60100AEA536 /* SCGateway.framework in Frameworks */,
+				883B92902902A27700AA1EBB /* SCGateway.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +396,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				887BE22528E1D5F300AEA536 /* SCGateway.framework */,
+				883B928F2902A27700AA1EBB /* SCGateway.framework */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -564,9 +562,8 @@
 				36F7D43D22A9485A003B357A /* Sources */,
 				36F7D43E22A9485A003B357A /* Frameworks */,
 				36F7D43F22A9485A003B357A /* Resources */,
-				73D7BCCC83EFD23D6F03BBC3 /* [CP] Embed Pods Frameworks */,
 				88F7B56428A380AD000F03AD /* Embed Frameworks */,
-				88F1B06428DC8B8D00A0ED9D /* ShellScript */,
+				C6D05BD3E7361DE54B7BA8A1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -767,7 +764,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		73D7BCCC83EFD23D6F03BBC3 /* [CP] Embed Pods Frameworks */ = {
+		C6D05BD3E7361DE54B7BA8A1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -783,23 +780,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WebViewTester/Pods-WebViewTester-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		88F1B06428DC8B8D00A0ED9D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "echo \"Target architectures: $ARCHS\"\n\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\necho $(lipo -info \"$FRAMEWORK_EXECUTABLE_PATH\")\n\nFRAMEWORK_TMP_PATH=\"$FRAMEWORK_EXECUTABLE_PATH-tmp\"\n\n# remove simulator's archs if location is not simulator's directory\ncase \"${TARGET_BUILD_DIR}\" in\n*\"iphonesimulator\")\n    echo \"No need to remove archs\"\n    ;;\n*)\n    if $(lipo \"$FRAMEWORK_EXECUTABLE_PATH\" -verify_arch \"i386\") ; then\n    lipo -output \"$FRAMEWORK_TMP_PATH\" -remove \"i386\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n    echo \"i386 architecture removed\"\n    rm \"$FRAMEWORK_EXECUTABLE_PATH\"\n    mv \"$FRAMEWORK_TMP_PATH\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n    fi\n    if $(lipo \"$FRAMEWORK_EXECUTABLE_PATH\" -verify_arch \"x86_64\") ; then\n    lipo -output \"$FRAMEWORK_TMP_PATH\" -remove \"x86_64\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n    echo \"x86_64 architecture removed\"\n    rm \"$FRAMEWORK_EXECUTABLE_PATH\"\n    mv \"$FRAMEWORK_TMP_PATH\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n    fi\n    ;;\nesac\n\necho \"Completed for executable $FRAMEWORK_EXECUTABLE_PATH\"\necho $(lipo -info \"$FRAMEWORK_EXECUTABLE_PATH\")\n\ndone\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1035,16 +1015,18 @@
 			baseConfigurationReference = 918AEA02D65A9DAEADC68424 /* Pods-WebViewTester.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = WebViewTester/WebViewTesterDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 184;
+				CURRENT_PROJECT_VERSION = 187;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods/SCGateway/Archive",
 				);
 				INFOPLIST_FILE = WebViewTester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1053,7 +1035,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 1.8.4;
+				MARKETING_VERSION = 1.8.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1082,16 +1064,17 @@
 			baseConfigurationReference = 6BD4F6293A086ED620C6B795 /* Pods-WebViewTester.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = WebViewTester/WebViewTester.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 184;
+				CURRENT_PROJECT_VERSION = 187;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods/SCGateway/Archive",
 				);
 				INFOPLIST_FILE = WebViewTester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1100,7 +1083,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 1.8.4;
+				MARKETING_VERSION = 1.8.7;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",

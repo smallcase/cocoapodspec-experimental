@@ -133,7 +133,7 @@ class CreateViewController: UIViewController {
     func placeTransaction(transactionId: String) {
         
         do {
-            
+
 //            let utmParams = [
 //                "utm_source": "summer-mailer" ,
 //                "utm_campaign":"summer-sale",
@@ -141,13 +141,21 @@ class CreateViewController: UIViewController {
 //                "utm_term":"paid",
 //                "utm_content":"toplink"
 //            ]
-            try  SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self, completion: { [weak self] (result) in
+            try SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self, completion: { [weak self] result in
                 switch result {
-                    
+
                     case .success(let response):
-                        
+
                         self?.showPopup(title: "SST TRANSACTION: RESPONSE: ", msg: "\(response)")
+//                        self?.updateTransactionStatusToServer(success: true, failureMsg: nil, responseJson: response)
                         
+                        switch response {
+                            case let .connect(connectTxn):
+                                break
+                                
+                            default: break
+                        }
+
                     case .failure(let error):
                         self?.showPopup(title: "SST TRANSACTION ERROR:", msg: self?.convertErrorToJsonString(error: error) ?? "error converting transaction error to JSON")
                 }

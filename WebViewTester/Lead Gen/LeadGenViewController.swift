@@ -41,6 +41,7 @@ class LeadGenViewController: UIViewController {
     
     @IBOutlet weak var showLoginCtaSwitch: UISwitch!
     
+
     lazy var tapRecognizer: UITapGestureRecognizer = {
         var recognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
         return recognizer
@@ -175,6 +176,12 @@ class LeadGenViewController: UIViewController {
 //            }
 //        }
     }
+
+    @IBAction func launchUSEAccountOpening(_ sender: UIButton) {
+        
+//        SCGateway.shared.openUsEquitiesAccount(presentingController: self)
+    }
+    
 }
 
 extension LeadGenViewController: UITextFieldDelegate {

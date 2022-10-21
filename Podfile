@@ -9,14 +9,12 @@ source 'https://cdn.cocoapods.org'
 target 'WebViewTester' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-
-  pod 'PopupDialog', '~> 1.1'
-#  pod 'Auth0', '~> 2.0'
   
-#  pod 'Mixpanel-swift', '3.2.3'
+  pod 'PopupDialog', '~> 1.1'
+  
+#  pod 'Mixpanel-swift','~> 3.3.0'
 
-#  pod 'SCGateway' , '3.5.5'
-
+#  pod 'SCGateway' , '1.0.2'
 
   target 'WebViewTesterTests' do
     inherit! :search_paths

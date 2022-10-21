@@ -321,6 +321,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 @end
 
 
+
 @class UIViewController;
 @class SmallplugData;
 @class SmallplugUiConfig;
@@ -351,6 +352,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 - (void)triggerTransactionFlowWithTransactionId:(NSString * _Nonnull)transactionId presentingController:(UIViewController * _Nonnull)presentingController completion:(void (^ _Nonnull)(id _Nullable, ObjcTransactionError * _Nullable))completion;
 - (void)triggerTransactionFlowWithTransactionId:(NSString * _Nonnull)transactionId presentingController:(UIViewController * _Nonnull)presentingController utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams brokerConfig:(NSArray<NSString *> * _Nullable)brokerConfig completion:(void (^ _Nonnull)(id _Nullable, ObjcTransactionError * _Nullable))completion;
 - (void)triggerTransactionFlowWithTransactionId:(NSString * _Nonnull)transactionId presentingController:(UIViewController * _Nonnull)presentingController utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams completion:(void (^ _Nonnull)(id _Nullable, ObjcTransactionError * _Nullable))completion;
+- (void)triggerMfTransactionWithPresentingController:(UIViewController * _Nonnull)presentingController transactionId:(NSString * _Nonnull)transactionId completion:(void (^ _Nonnull)(id _Nullable, ObjcTransactionError * _Nullable))completion;
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params;
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params completion:(void (^ _Nonnull)(NSString * _Nullable))completion;
 - (void)triggerLeadGenWithPresentingController:(UIViewController * _Nonnull)presentingController params:(NSDictionary<NSString *, NSString *> * _Nullable)params utmParams:(NSDictionary<NSString *, NSString *> * _Nullable)utmParams;
@@ -427,6 +429,14 @@ SWIFT_CLASS_NAMED("_ObjCTransactionIntentCancelAmo")
 SWIFT_CLASS_NAMED("_ObjCTransactionIntentConnect")
 @interface ObjCTransactionIntentConnect : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull response;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("_ObjCTransactionIntentMfHoldingsImport")
+@interface ObjCTransactionIntentMfHoldingsImport : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable data;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

@@ -133,6 +133,9 @@ extension SCGateway.SCGateway {
   @objc dynamic public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
   @objc dynamic public func showOrders(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
 }
+extension SCGateway.SCGateway {
+  public func triggerMfTransaction(presentingController: UIKit.UIViewController, transactionId: Swift.String, completion: @escaping (Swift.Result<SCGateway.TransactionIntent, SCGateway.TransactionError>) -> Swift.Void) throws
+}
 extension UIKit.UIView {
   @_Concurrency.MainActor(unsafe) public func anchor(_ top: UIKit.NSLayoutYAxisAnchor? = nil, left: UIKit.NSLayoutXAxisAnchor? = nil, bottom: UIKit.NSLayoutYAxisAnchor? = nil, right: UIKit.NSLayoutXAxisAnchor? = nil, topConstant: CoreFoundation.CGFloat = 0, leftConstant: CoreFoundation.CGFloat = 0, bottomConstant: CoreFoundation.CGFloat = 0, rightConstant: CoreFoundation.CGFloat = 0, widthConstant: CoreFoundation.CGFloat = 0, heightConstant: CoreFoundation.CGFloat = 0)
   @_Concurrency.MainActor(unsafe) public func anchorWithReturnAnchors(_ top: UIKit.NSLayoutYAxisAnchor? = nil, left: UIKit.NSLayoutXAxisAnchor? = nil, bottom: UIKit.NSLayoutYAxisAnchor? = nil, right: UIKit.NSLayoutXAxisAnchor? = nil, topConstant: CoreFoundation.CGFloat = 0, leftConstant: CoreFoundation.CGFloat = 0, bottomConstant: CoreFoundation.CGFloat = 0, rightConstant: CoreFoundation.CGFloat = 0, widthConstant: CoreFoundation.CGFloat = 0, heightConstant: CoreFoundation.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
@@ -232,6 +235,7 @@ public enum TransactionIntent {
   case authoriseHoldings(smallcaseAuthToken: Swift.String, status: Swift.Bool, transactionId: Swift.String, signup: Swift.Bool?)
   case sipSetup(smallcaseAuthToken: Swift.String, sipAction: SCGateway.SipDetail, transactionId: Swift.String, signup: Swift.Bool?)
   case cancelAMO(_: Swift.String)
+  case mfHoldingsImport(data: Swift.String?)
 }
 public enum AllowedBrokerType : Swift.String {
   case SST
@@ -251,6 +255,10 @@ public enum AllowedBrokerType : Swift.String {
 }
 @_hasMissingDesignatedInitializers @objc(ObjCTransactionIntentConnect) final public class _ObjCTransactionIntentConnect : ObjectiveC.NSObject {
   @objc final public let response: Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ObjCTransactionIntentMfHoldingsImport) final public class _ObjCTransactionIntentMfHoldingsImport : ObjectiveC.NSObject {
+  @objc final public let data: Swift.String?
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(ObjCTransactionIntentSubscription) final public class _ObjCTransactionIntentSubscription : ObjectiveC.NSObject {
@@ -369,6 +377,7 @@ extension SCGateway.SCGateway {
   @objc dynamic public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, completion: @escaping (Any?, SCGateway.ObjcTransactionError?) -> Swift.Void)
   @objc dynamic public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, brokerConfig: [Swift.String]?, completion: @escaping (Any?, SCGateway.ObjcTransactionError?) -> Swift.Void)
   @objc dynamic public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, completion: @escaping (Any?, SCGateway.ObjcTransactionError?) -> Swift.Void)
+  @objc dynamic public func triggerMfTransaction(presentingController: UIKit.UIViewController, transactionId: Swift.String, completion: @escaping (Any?, SCGateway.ObjcTransactionError?) -> Swift.Void)
   @objc dynamic public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?)
   @objc dynamic public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, completion: @escaping (Swift.String?) -> Swift.Void)
   @objc dynamic public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?)
