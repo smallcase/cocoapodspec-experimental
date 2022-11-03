@@ -6,6 +6,7 @@
 	<array>
 		<string>applinks:gatewaydemo-dev.verify.dev.smallcase.com</string>
 		<string>applinks:gatewaydemo-dev.redirect.dev.smallcase.com</string>
+		<string>applinks:connectpro.repl.co/</string>
 	</array>
 </dict>
 </plist>

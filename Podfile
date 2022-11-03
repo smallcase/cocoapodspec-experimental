@@ -12,9 +12,9 @@ target 'WebViewTester' do
   
   pod 'PopupDialog', '~> 1.1'
   
-#  pod 'Mixpanel-swift','~> 3.3.0'
+  pod 'Mixpanel-swift','~> 3.3.0'
 
-#  pod 'SCGateway' , '1.0.2'
+#  pod 'SCGateway' , '3.4.9'
 
   target 'WebViewTesterTests' do
     inherit! :search_paths

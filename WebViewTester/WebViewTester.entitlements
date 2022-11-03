@@ -5,6 +5,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:gatewaydemo-dev.redirect.dev.smallcase.com</string>
+		<string>applinks:connectpro.repl.co/</string>
 	</array>
 </dict>
 </plist>

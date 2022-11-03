@@ -1,0 +1,453 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SCGateway
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import AVKit
+import AuthenticationServices
+import Foundation
+import Mixpanel
+import MobileCoreServices
+import QuickLook
+@_exported import SCGateway
+import SafariServices
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+extension UIKit.UIImage {
+  public class func gif(data: Foundation.Data) -> UIKit.UIImage?
+  public class func gif(url: Swift.String) -> UIKit.UIImage?
+  public class func gif(name: Swift.String) -> UIKit.UIImage?
+  @available(iOS 9.0, *)
+  public class func gif(asset: Swift.String) -> UIKit.UIImage?
+}
+@objc @objcMembers public class SmallplugData : ObjectiveC.NSObject {
+  @objc public var targetEndpoint: Swift.String?
+  @objc public var params: Swift.String?
+  @objc public init(_ targetEndpoint: Swift.String?, _ params: Swift.String?)
+  @objc deinit
+}
+public enum SCGatewayError : Swift.Int, Swift.Error {
+  case uninitialized
+  case configNotSet
+  public var errorMessage: Swift.String {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum TransactionError : Swift.Error {
+  case userMismatch
+  case userMismatchWithData(data: SCGateway.Transaction.SuccessData?)
+  case apiError
+  case apiErrorWithData(data: SCGateway.Transaction.SuccessData?)
+  case smtMarketClosed
+  case smtMarketClosedWithData(data: SCGateway.Transaction.SuccessData?)
+  case timedOutError
+  case invalidGateway
+  case invalidJWT
+  case transactionExpired
+  case transactionExpiredWithData(data: SCGateway.Transaction.SuccessData?)
+  case marketClosed
+  case marketClosedWithData(data: SCGateway.Transaction.SuccessData?)
+  case invalidUrl
+  case invalidTransactionId
+  case invalidResponse
+  case custom(message: Swift.String)
+  case dynamicError(msg: Swift.String, code: Swift.Int, data: SCGateway.Transaction.SuccessData?)
+  case closedBrokerChooser
+  case pressedTweet
+  case noBrokerError
+  case signupOtherBroker
+  case transactionExpiredBefore
+  case safariTabClosedInitialised
+  case safariTabClosedInitialisedWithData(data: SCGateway.Transaction.SuccessData?)
+  case safariTabClosedUsed
+  case userLoggedInAndDropped(data: SCGateway.Transaction.SuccessData?)
+  case alreadySubscribed
+  case alreadySubscribedWithData(data: SCGateway.Transaction.SuccessData?)
+  case intentNotEnabledForBroker
+  case consentDenied
+  case consentDeniedWithData(data: SCGateway.Transaction.SuccessData?)
+  public var message: Swift.String {
+    get
+  }
+  public var data: Swift.String? {
+    get
+  }
+  public var debugMessage: Swift.String? {
+    get
+  }
+}
+extension SCGateway.TransactionError : Swift.RawRepresentable {
+  public var rawValue: Swift.Int {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: SCGateway.TransactionError.RawValue)
+  public init?(rawValue: SCGateway.TransactionError.RawValue, message: Swift.String)
+  public init?(rawValue: SCGateway.TransactionError.RawValue, message: Swift.String, transactionSuccess: SCGateway.Transaction.SuccessData?)
+  public init?(rawValue: SCGateway.TransactionError.RawValue, transactionData: SCGateway.Transaction.SuccessData?)
+}
+@_hasMissingDesignatedInitializers @objc public class ObjcTransactionError : Foundation.NSError {
+  @objc override dynamic public var domain: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public var code: Swift.Int {
+    @objc get
+  }
+  @objc deinit
+}
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public func loadGif(name: Swift.String)
+  @available(iOS 9.0, *)
+  @_Concurrency.MainActor(unsafe) public func loadGif(asset: Swift.String)
+}
+extension UIKit.UIView {
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) open func stack(_ views: UIKit.UIView..., spacing: CoreFoundation.CGFloat = 0, alignment: UIKit.UIStackView.Alignment = .fill, distribution: UIKit.UIStackView.Distribution = .fill) -> UIKit.UIStackView
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) open func hstack(_ views: UIKit.UIView..., spacing: CoreFoundation.CGFloat = 0, alignment: UIKit.UIStackView.Alignment = .fill, distribution: UIKit.UIStackView.Distribution = .fill) -> UIKit.UIStackView
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) open func withSize<T>(_ size: CoreFoundation.CGSize) -> T where T : UIKit.UIView
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) open func withHeight(_ height: CoreFoundation.CGFloat) -> UIKit.UIView
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) open func withWidth(_ width: CoreFoundation.CGFloat) -> UIKit.UIView
+}
+extension UIKit.UIEdgeInsets {
+  public static func allSides(_ side: CoreFoundation.CGFloat) -> UIKit.UIEdgeInsets
+}
+extension SCGateway.SCGateway {
+  public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool?)
+  @objc dynamic public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
+  @objc dynamic public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, smallplugUiConfig: SCGateway.SmallplugUiConfig?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
+  @objc dynamic public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
+  @objc dynamic public func showOrders(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
+}
+extension SCGateway.SCGateway {
+  public func triggerMfTransaction(presentingController: UIKit.UIViewController, transactionId: Swift.String, completion: @escaping (Swift.Result<SCGateway.TransactionIntent, SCGateway.TransactionError>) -> Swift.Void) throws
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func anchor(_ top: UIKit.NSLayoutYAxisAnchor? = nil, left: UIKit.NSLayoutXAxisAnchor? = nil, bottom: UIKit.NSLayoutYAxisAnchor? = nil, right: UIKit.NSLayoutXAxisAnchor? = nil, topConstant: CoreFoundation.CGFloat = 0, leftConstant: CoreFoundation.CGFloat = 0, bottomConstant: CoreFoundation.CGFloat = 0, rightConstant: CoreFoundation.CGFloat = 0, widthConstant: CoreFoundation.CGFloat = 0, heightConstant: CoreFoundation.CGFloat = 0)
+  @_Concurrency.MainActor(unsafe) public func anchorWithReturnAnchors(_ top: UIKit.NSLayoutYAxisAnchor? = nil, left: UIKit.NSLayoutXAxisAnchor? = nil, bottom: UIKit.NSLayoutYAxisAnchor? = nil, right: UIKit.NSLayoutXAxisAnchor? = nil, topConstant: CoreFoundation.CGFloat = 0, leftConstant: CoreFoundation.CGFloat = 0, bottomConstant: CoreFoundation.CGFloat = 0, rightConstant: CoreFoundation.CGFloat = 0, widthConstant: CoreFoundation.CGFloat = 0, heightConstant: CoreFoundation.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var heightConstaint: UIKit.NSLayoutConstraint? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var widthConstaint: UIKit.NSLayoutConstraint? {
+    get
+    set
+  }
+}
+@objc @objcMembers public class GatewayConfig : ObjectiveC.NSObject {
+  @objc public var gatewayName: Swift.String!
+  public var brokerConfig: SCGateway.BrokerConfigType!
+  public var apiEnvironment: SCGateway.Environment!
+  public var isLeprechaunActive: Swift.Bool!
+  @objc public var isAmoEnabled: Swift.Bool
+  @objc public init(gatewayName: Swift.String, brokerConfig: [Swift.String]?, apiEnvironment: SCGateway.Environment, isLeprechaunActive: Swift.Bool, isAmoEnabled: Swift.Bool)
+  @objc deinit
+}
+extension UIKit.UIColor {
+  convenience public init?(hex: Swift.String, alpha: CoreFoundation.CGFloat)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class ContentSizedCollectionView : UIKit.UICollectionView {
+  @_Concurrency.MainActor(unsafe) @objc override final public var contentSize: CoreFoundation.CGSize {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect, collectionViewLayout layout: UIKit.UICollectionViewLayout)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public struct Transaction : Swift.Codable {
+  public struct SuccessData : Swift.Codable {
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SubscriptionConfig : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct OrderConfig : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct MetaOrderConfig : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SstOrder : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SidInfo : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Order : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct OrderBatch : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct OrderData : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SipDetail : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum GatewayAuthenticationError : Swift.Error {
+  case canceledLogin
+  public static func == (a: SCGateway.GatewayAuthenticationError, b: SCGateway.GatewayAuthenticationError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum TransactionIntent {
+  case connect(response: Swift.String)
+  case subscription(_: Swift.String)
+  case transaction(smallcaseAuthToken: Swift.String, transactionData: SCGateway.Transaction.SuccessData)
+  case holdingsImport(smallcaseAuthToken: Swift.String, broker: Swift.String, status: Swift.Bool, transactionId: Swift.String, signup: Swift.Bool?)
+  case fetchFunds(smallcaseAuthToken: Swift.String, fund: Swift.Double, transactionId: Swift.String, signup: Swift.Bool?)
+  case authoriseHoldings(smallcaseAuthToken: Swift.String, status: Swift.Bool, transactionId: Swift.String, signup: Swift.Bool?)
+  case sipSetup(smallcaseAuthToken: Swift.String, sipAction: SCGateway.SipDetail, transactionId: Swift.String, signup: Swift.Bool?)
+  case cancelAMO(_: Swift.String)
+  case mfHoldingsImport(data: Swift.String?)
+}
+public enum AllowedBrokerType : Swift.String {
+  case SST
+  case SMT
+  case HOLDINGS_IMPORT
+  case CONNECT
+  case SIP_SETUP
+  case FETCH_FUNDS
+  case AUTHORISE_HOLDINGS
+  case SHOW_ORDERS
+  case NATIVE_IOS_LOGIN
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(ObjCTransactionIntentConnect) final public class _ObjCTransactionIntentConnect : ObjectiveC.NSObject {
+  @objc final public let response: Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ObjCTransactionIntentMfHoldingsImport) final public class _ObjCTransactionIntentMfHoldingsImport : ObjectiveC.NSObject {
+  @objc final public let data: Swift.String?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ObjCTransactionIntentSubscription) final public class _ObjCTransactionIntentSubscription : ObjectiveC.NSObject {
+  @objc final public let response: Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ObjCTransactionIntentCancelAmo) final public class _ObjCTransactionIntentCancelAmo : ObjectiveC.NSObject {
+  @objc final public let response: Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ObjcTransactionIntentTransaction) final public class _ObjcTransactionIntentTransaction : ObjectiveC.NSObject {
+  @objc final public let authToken: Swift.String
+  @objc final public let transaction: Swift.String?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ObjcTransactionIntentHoldingsImport) final public class _ObjcTransactionIntentHoldingsImport : ObjectiveC.NSObject {
+  @objc final public let authToken: Swift.String
+  @objc final public let broker: Swift.String
+  @objc final public let status: Swift.Bool
+  @objc final public let transactionId: Swift.String
+  @objc final public let signup: Swift.AnyObject?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ObjcTransactionIntentFetchFunds) final public class _ObjcTransactionIntentFetchFunds : ObjectiveC.NSObject {
+  @objc final public let authToken: Swift.String
+  @objc final public let fund: Swift.Double
+  @objc final public let transactionId: Swift.String
+  @objc final public let signup: Swift.AnyObject?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ObjcTransactionIntentAuthoriseHoldings) final public class _ObjcTransactionIntentAuthoriseHoldings : ObjectiveC.NSObject {
+  @objc final public let authToken: Swift.String
+  @objc final public let status: Swift.Bool
+  @objc final public let transactionId: Swift.String
+  @objc final public let signup: Swift.AnyObject?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ObjcTransactionIntentSipSetup) final public class _ObjcTransactionIntentSipSetup : ObjectiveC.NSObject {
+  @objc final public let authToken: Swift.String
+  @objc final public let sipActive: Swift.Bool
+  @objc final public let sipAction: Swift.String
+  @objc final public let transactionId: Swift.String
+  @objc final public let sipAmount: Swift.Double
+  @objc final public let frequency: Swift.String
+  @objc final public let iscid: Swift.String
+  @objc final public let scheduledDate: Swift.String
+  @objc final public let scid: Swift.String
+  @objc final public let sipType: Swift.String
+  @objc final public let signup: Swift.AnyObject?
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SeparatorCollectionViewFlowLayout : UIKit.UICollectionViewFlowLayout {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func prepare()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutAttributesForDecorationView(ofKind elementKind: Swift.String, at indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewLayoutAttributes?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutAttributesForElements(in rect: CoreFoundation.CGRect) -> [UIKit.UICollectionViewLayoutAttributes]?
+  @objc deinit
+}
+@objc public enum Environment : Swift.Int {
+  case development
+  case production
+  case staging
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @objcMembers public class SmallplugUiConfig : ObjectiveC.NSObject {
+  @objc public var headerColor: Swift.String?
+  @objc public var backIconColor: Swift.String?
+  public var opacity: CoreFoundation.CGFloat?
+  public var backIconColorOpacity: CoreFoundation.CGFloat?
+  @objc public init(smallplugHeaderColor: Swift.String?, headerColorOpacity: Foundation.NSNumber?, backIconColor: Swift.String?, backIconColorOpacity: Foundation.NSNumber?)
+  @objc deinit
+}
+public enum NetworkError : Swift.Error {
+  case unknown
+  case noJSONData
+  case custom(message: Swift.String)
+  case invalidStatusCode
+  case nullData
+  case serverError
+  case invalidParams
+  case accessDenied
+}
+extension UIKit.UIFont {
+  public static func jbs_registerFont(withFilenameString filenameString: Swift.String, bundle: Foundation.Bundle)
+}
+extension SCGateway.SCGateway {
+  @objc dynamic public func getSmallcases(params: [Swift.String : Any]?, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
+  @objc dynamic public func getSmallcaseProfile(scid: Swift.String, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
+  @objc dynamic public func getSmallcaseNews(scid: Swift.String?, iscid: Swift.String?, optionalParams: [Swift.String : Any]?, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
+  @objc dynamic public func getUserInvestments(iscids: [Swift.String]?, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
+  @objc dynamic public func getExitedSmallcases(completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
+  @objc dynamic public func markSmallcaseArchive(iscid: Swift.String, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
+  @objc dynamic public func getUserInvestmentDetails(iscid: Swift.String, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
+  @objc dynamic public func getHistorical(scid: Swift.String, benchmarkId: Swift.String, base: Swift.Int = 100, duration: Swift.String?, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
+}
+@objc public class TransactionErrorResponse : ObjectiveC.NSObject, Swift.Codable {
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+public struct AnchoredConstraints {
+  public var top: UIKit.NSLayoutConstraint?, leading: UIKit.NSLayoutConstraint?, bottom: UIKit.NSLayoutConstraint?, trailing: UIKit.NSLayoutConstraint?, width: UIKit.NSLayoutConstraint?, height: UIKit.NSLayoutConstraint?
+}
+public enum BrokerConfigType {
+  case defaultConfig
+  case custom([Swift.String])
+}
+extension SCGateway.BrokerConfigType : Swift.Equatable {
+  public static func == (lhs: SCGateway.BrokerConfigType, rhs: SCGateway.BrokerConfigType) -> Swift.Bool
+}
+extension SCGateway.SCGateway {
+  @objc dynamic public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, completion: @escaping (Any?, SCGateway.ObjcTransactionError?) -> Swift.Void)
+  @objc dynamic public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, brokerConfig: [Swift.String]?, completion: @escaping (Any?, SCGateway.ObjcTransactionError?) -> Swift.Void)
+  @objc dynamic public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, completion: @escaping (Any?, SCGateway.ObjcTransactionError?) -> Swift.Void)
+  @objc dynamic public func triggerMfTransaction(presentingController: UIKit.UIViewController, transactionId: Swift.String, completion: @escaping (Any?, SCGateway.ObjcTransactionError?) -> Swift.Void)
+  @objc dynamic public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?)
+  @objc dynamic public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, completion: @escaping (Swift.String?) -> Swift.Void)
+  @objc dynamic public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?)
+  @objc dynamic public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool)
+  @objc dynamic public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool, showLoginCta: Swift.Bool, completion: @escaping (Swift.String?) -> Swift.Void)
+}
+public protocol SCGatewayProtocol {
+}
+extension UIKit.UIStackView {
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) open func withMargins(_ margins: UIKit.UIEdgeInsets) -> UIKit.UIStackView
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) open func padLeft(_ left: CoreFoundation.CGFloat) -> UIKit.UIStackView
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) open func padTop(_ top: CoreFoundation.CGFloat) -> UIKit.UIStackView
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) open func padBottom(_ bottom: CoreFoundation.CGFloat) -> UIKit.UIStackView
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) open func padRight(_ right: CoreFoundation.CGFloat) -> UIKit.UIStackView
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class SCGateway : ObjectiveC.NSObject {
+  @objc public static let shared: SCGateway.SCGateway
+  @objc public static var currentTransactionId: Swift.String
+  @available(*, deprecated)
+  @objc public func setup(config: SCGateway.GatewayConfig)
+  @objc public func setup(config: SCGateway.GatewayConfig, completion: ((Swift.Bool, Swift.Error?) -> Swift.Void)?)
+  @objc public func initializeGateway(_ authToken: Swift.String, completion: ((Swift.String, Swift.Error?) -> Swift.Void)?)
+  @objc public func initializeGateway(sdkToken: Swift.String, completion: ((Swift.Bool, Swift.Error?) -> Swift.Void)?)
+  public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, brokerConfig: SCGateway.BrokerConfigType?, completion: @escaping (Swift.Result<SCGateway.TransactionIntent, SCGateway.TransactionError>) -> Swift.Void) throws
+  public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, completion: @escaping (Swift.Result<SCGateway.TransactionIntent, SCGateway.TransactionError>) -> Swift.Void) throws
+  public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, completion: @escaping (Swift.Result<SCGateway.TransactionIntent, SCGateway.TransactionError>) -> Swift.Void) throws
+  @objc public func isUserConnected() -> Swift.Bool
+  @objc public func getUserAuthToken() -> Swift.String?
+  @objc public func setSDKType(type: Swift.String)
+  @objc public func setHybridSDKVersion(version: Swift.String)
+  @objc public func getSdkVersion() -> Swift.String
+  @objc public func handleBrokerRedirection(redirectUrl: Foundation.URL)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum TransactionOrderStatus : Swift.String {
+  case completed
+  case initialized
+  case used
+  case processing
+  case errored
+  case cancelled
+  case expired
+  case actionRequired
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension UIKit.UIDevice {
+  @_Concurrency.MainActor(unsafe) public static let modelName: Swift.String
+}
+extension SCGateway.SCGatewayError : Swift.Equatable {}
+extension SCGateway.SCGatewayError : Swift.Hashable {}
+extension SCGateway.SCGatewayError : Swift.RawRepresentable {}
+extension SCGateway.GatewayAuthenticationError : Swift.Equatable {}
+extension SCGateway.GatewayAuthenticationError : Swift.Hashable {}
+extension SCGateway.AllowedBrokerType : Swift.Equatable {}
+extension SCGateway.AllowedBrokerType : Swift.Hashable {}
+extension SCGateway.AllowedBrokerType : Swift.RawRepresentable {}
+extension SCGateway.Environment : Swift.Equatable {}
+extension SCGateway.Environment : Swift.Hashable {}
+extension SCGateway.Environment : Swift.RawRepresentable {}
+extension SCGateway.TransactionOrderStatus : Swift.Equatable {}
+extension SCGateway.TransactionOrderStatus : Swift.Hashable {}
+extension SCGateway.TransactionOrderStatus : Swift.RawRepresentable {}

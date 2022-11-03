@@ -130,12 +130,6 @@ class LoginViewController: UIViewController {
         
         smartinvestingVersionLabel.text = "Smartinvesting: \(smartinvestingVersion) SDK: \(sdkVersion)"
 //        smartinvestingVersionLabel.text = "Smartinvesting: \(smartinvestingVersion) SDK: 3.1.12"
-        // Do any additional setup after loading the view.
-        
-//        SCGatewayMixpanel.shared.hello()
-        
-//        let smx = SCGateway_Mixpanel
-//        smx.hello()
     }
     
     
@@ -175,7 +169,7 @@ class LoginViewController: UIViewController {
                                               isAmoEnabled: self.isAmoEnabled.isOn
             )
             
-//            let config = GatewayConfig(gatewayName: "smallcase-website",
+//            let config = GatewayConfig(gatewayName: "sahisavings",
 //                                       brokerConfig: brokerConfig,
 //                                       apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
 //                                       isLeprechaunActive: self.leprechaunSwitch.isOn,

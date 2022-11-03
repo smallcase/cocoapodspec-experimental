@@ -17,12 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        let domain = Bundle.main.bundleIdentifier!
 //        UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()
         
-//        print("USER DEFAULTS: \(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)")
-        setStatusBarBackgroundColor(color: UIColor.init(hex: "1F7AE0", alpha: 1.0)!)
+//        setStatusBarBackgroundColor(color: UIColor.init(hex: "1F7AE0", alpha: 1.0)!)
         return true
     }
 
@@ -82,7 +80,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 //        SCGateway.shared.closeAsWebAuthenticationSession()
 
-        SCGateway.shared.handleBrokerRedirection(redirectUrl: userActivity.webpageURL!)
+        print(userActivity.webpageURL!)
+        
+//        SCGateway.shared.handleBrokerRedirection(redirectUrl: userActivity.webpageURL!)
+        
+//        SCGateway.shared.handleConnectProRedirection(redirectUrl: userActivity.webpageURL!)
        
         return false //TODO: check
     }
