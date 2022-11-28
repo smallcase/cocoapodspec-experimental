@@ -132,7 +132,6 @@ class LoginViewController: UIViewController {
 //        smartinvestingVersionLabel.text = "Smartinvesting: \(smartinvestingVersion) SDK: 3.1.12"
     }
     
-    
     //MARK:- Actions
     
     @IBAction func onClickInfo(_ sender: Any) {
@@ -403,7 +402,8 @@ class LoginViewController: UIViewController {
 //                        self?.connect(authToken: authToken)
                         self?.connectUserToSmartinvesting(response)
                         
-                        self?.showPopup(title: "response:", msg: "\(response)")
+                            self?.showPopup(title: "response:", msg: "\(response)")
+                        
                         
 //                    case let .transaction(authToken, transactionData):
 //                            self?.showPopup(title: "Transaction Response", msg: " authTOken : \(authToken), \n data: \(transactionData.toJSONString())")
@@ -423,11 +423,14 @@ class LoginViewController: UIViewController {
                     
                     print("CONNECT: ERROR :\(error)")
                         
+                        self?.presentedViewController?.dismiss(animated: false)
+                        
                         if error.rawValue == 1007 {
-                            self?.showPopup(title: "Error", msg: "\(error.message)")
+                            self?.showPopup(title: "Error", msg: "\(error.message) \(error.rawValue)")
                         } else {
                             self?.showPopup(title: "Error", msg: "\(error.message)  \(error.rawValue)")
                         }
+                        
                     
                 }
                 print(result)

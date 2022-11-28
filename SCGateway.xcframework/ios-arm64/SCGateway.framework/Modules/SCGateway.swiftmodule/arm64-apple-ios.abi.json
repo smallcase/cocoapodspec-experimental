@@ -18175,55 +18175,55 @@
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Enums\/Constants.swift",
       "kind": "StringLiteral",
       "offset": 1785,
-      "length": 31,
-      "value": "\"SDK - Broker Platform Opened \""
+      "length": 30,
+      "value": "\"SDK - Broker Platform Opened\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Enums\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1860,
+      "offset": 1859,
       "length": 23,
       "value": "\"SDK - Intent Returned\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Enums\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 1930,
+      "offset": 1929,
       "length": 27,
       "value": "\"SDK - Response to partner\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Enums\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2019,
+      "offset": 2018,
       "length": 44,
       "value": "\"SDK - Launched LeadGen from broker chooser\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Enums\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2099,
+      "offset": 2098,
       "length": 19,
       "value": "\"SDK - User closed\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Enums\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2162,
+      "offset": 2161,
       "length": 27,
       "value": "\"SDK - Native App Launched\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Enums\/Constants.swift",
       "kind": "StringLiteral",
-      "offset": 2235,
+      "offset": 2234,
       "length": 39,
       "value": "\"SDK - Triggered native login fallback\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Enums\/Constants.swift",
       "kind": "Array",
-      "offset": 2360,
+      "offset": 2359,
       "length": 86,
       "value": "[\"www.smallcase.com\", \"www.tickertape.in\", \"gatewaydemo-dev.redirect.dev.smallcase.com\"]"
     },
@@ -18597,13 +18597,6 @@
       "offset": 2614,
       "length": 4,
       "value": "true"
-    },
-    {
-      "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/BrokerChooserViewController.swift",
-      "kind": "StringLiteral",
-      "offset": 6818,
-      "length": 24,
-      "value": "\"https:\/\/www.google.com\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/BrokerChooserViewController.swift",
@@ -19460,6 +19453,20 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Enums\/SessionManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2487,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Enums\/SessionManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2532,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Networking\/Enums\/HTTPMethod.swift",
       "kind": "StringLiteral",
       "offset": 177,
@@ -19609,14 +19616,14 @@
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/ViewStates\/LoginFallbackView.swift",
       "kind": "StringLiteral",
-      "offset": 2158,
+      "offset": 2682,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/ViewStates\/LoginFallbackView.swift",
       "kind": "StringLiteral",
-      "offset": 2281,
+      "offset": 2805,
       "length": 2,
       "value": "\"\""
     },
@@ -22872,76 +22879,90 @@
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
       "kind": "StringLiteral",
       "offset": 2985,
+      "length": 15,
+      "value": "\"transactionId\""
+    },
+    {
+      "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 3041,
+      "length": 4,
+      "value": "\"NA\""
+    },
+    {
+      "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 3071,
       "length": 19,
       "value": "\"transactionStatus\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 3059,
+      "offset": 3145,
       "length": 4,
       "value": "\"NA\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 3089,
+      "offset": 3175,
       "length": 8,
       "value": "\"intent\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 3137,
+      "offset": 3223,
       "length": 4,
       "value": "\"NA\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 3167,
+      "offset": 3253,
       "length": 12,
       "value": "\"error_code\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 3246,
+      "offset": 3332,
       "length": 15,
       "value": "\"error_message\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 5944,
+      "offset": 6108,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 5985,
+      "offset": 6149,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
       "kind": "FloatLiteral",
-      "offset": 6100,
+      "offset": 6264,
       "length": 3,
       "value": "2.0"
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 6152,
+      "offset": 6316,
       "length": 13,
       "value": "\"-leprechaun\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/ViewModel\/BrokerSelectViewModel.swift",
       "kind": "StringLiteral",
-      "offset": 6205,
+      "offset": 6369,
       "length": 11,
       "value": "\"scgateway\""
     },

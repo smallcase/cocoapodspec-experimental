@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		/YTkG78zij2uN73SkTSeJ1JifJ4=
+		kCwEjkfaaxGJaYb/PqTLHQerD6s=
 		</data>
 		<key>FivePaisaPwaViewController.nib</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/SCGateway-Swift.h</key>
 		<data>
-		cp5mCWRrJ2YdinK5rihMTikdweg=
+		ff7LHbSE2Wkn4zfIEpUDayxjnBI=
 		</data>
 		<key>Headers/SCGateway.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		RdPf+MDLVqaSFTpVGgpbCQtXfSM=
+		uNdcrfiur8NMHTDcXiZ67HoZa8o=
 		</data>
 		<key>LoginFallbackView.nib</key>
 		<data>
@@ -58,43 +58,43 @@
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		qSlF+zygSpNmn8zkRiQ0mKZKL2U=
+		p2WFVlZBmxJNFuo4Gq11YHfa7Ec=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		HDT0Vs28AVXZSkMrBxa4ahE7U2M=
+		TN6iXG8//6Y2/uEV4mfgwE2Fh0Y=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		PIOmzQKFVjVio0EVGfydxehlbZ0=
+		tGS+vEmpGgPz17ufhCTWmDM8yMI=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		HDT0Vs28AVXZSkMrBxa4ahE7U2M=
+		TN6iXG8//6Y2/uEV4mfgwE2Fh0Y=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		SRUx4eDL5j7NwATd1LhU2+J/NCE=
+		QeUbWNaK2q9Qp2LGru8MCKnSDU0=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		qSlF+zygSpNmn8zkRiQ0mKZKL2U=
+		p2WFVlZBmxJNFuo4Gq11YHfa7Ec=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		WgcA973r04HlyHBJg4wRLGd8m6c=
+		vKYEEjPZcBc62A8S4DsVOCjHtPA=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		eD5zlOOj3HTy4vpbviX0y6OXn+E=
+		+MzRuQ87HnL5E7JQAokDlJPWV8A=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		WgcA973r04HlyHBJg4wRLGd8m6c=
+		vKYEEjPZcBc62A8S4DsVOCjHtPA=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		z/MfIMX01B0eHiq4M7RQUVzhinI=
+		0PUNmuah8WY/7s+NkJyG9lpCDCw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -131,7 +131,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iTs/WTazPBCY6rPc8LfMaZTr+CtahsP0N2qsfQt08Pw=
+			l3QAYTXDQUBnUpiphz9UxAKpMyxl6WUe8TEJmT7K8i0=
 			</data>
 		</dict>
 		<key>FivePaisaPwaViewController.nib</key>
@@ -194,7 +194,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			470IoNF+BszqltZpFcFIzvnjbKZ0O4pDYria/pgBYKA=
+			7ii492grmGyet9u5mgXWE7aALR/SbqfuvqGbQkpH9zg=
 			</data>
 		</dict>
 		<key>Headers/SCGateway.h</key>
@@ -215,70 +215,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RF2HPHxi0ByJotiY4cKqVyNIK0oj2ZgmoS8vKWf1y10=
+			BBr+f3i9QrepbQh2yVhOaXa2CIsKJqRSifBTxPfaL5Y=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kFdpGxube8oa9bOhmF8TM/N4w7DqGDlihNtyg1cqt+I=
+			nMwDqpxwf0CF9yZRr05IITU++6MNqhOjyXe4UIbV4aE=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			appvP05lQHnNS1OJY6EYsJjXXohu+R/2DcknkYDyI4M=
+			GFh8ndp0+05O1AHaW1D0U3SOMHjEwMtSyHb9/Zy4AtA=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kFdpGxube8oa9bOhmF8TM/N4w7DqGDlihNtyg1cqt+I=
+			nMwDqpxwf0CF9yZRr05IITU++6MNqhOjyXe4UIbV4aE=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HGswczH8mK5hz05QplfFJO/pZUYyjzVtSEysy4Hmemk=
+			62X8T1hSqYhwHLR6Yf2vQoU8oeiZPMCM4ZHBXghMxCg=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RF2HPHxi0ByJotiY4cKqVyNIK0oj2ZgmoS8vKWf1y10=
+			BBr+f3i9QrepbQh2yVhOaXa2CIsKJqRSifBTxPfaL5Y=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MYv2ENf19HaFcZjXDxc7Y59ZIBm6zkwlJsxe8lc2s8k=
+			c4xMbGVxtmuZvi11Kf3BEqhoZR3G836n0XsLLO4rJ2w=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			k3+rTY1J+bcCGmU+Ykqo5sDT9wgba44qMBA6+7N3g+8=
+			A1c7u/4DkN9s/Dz3g8YRUmp4TcM6+PAzGOMCmussiiQ=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MYv2ENf19HaFcZjXDxc7Y59ZIBm6zkwlJsxe8lc2s8k=
+			c4xMbGVxtmuZvi11Kf3BEqhoZR3G836n0XsLLO4rJ2w=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7b7IpG8Ei+5NqXA/dHnB6ZdXRrYhN1+hZPvCfXEdRYU=
+			0vHKwrO5/Rn9EXe+4x1DD1Y1MYAAeviEAYqFcelfMBE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

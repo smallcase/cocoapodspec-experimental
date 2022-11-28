@@ -119,7 +119,7 @@ class LeadGenViewController: UIViewController {
         var headerColor = utmCampaignTextField.text ?? "2F363F"
         
         if headerColor.isEmpty {
-            headerColor = "2F363F"
+            headerColor = "2F363F" //B01E68
         }
         
         var headColorOpacity = utmContentTextField.text ?? "1.0"

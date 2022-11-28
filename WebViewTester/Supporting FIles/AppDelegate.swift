@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         print(userActivity.webpageURL!)
         
-//        SCGateway.shared.handleBrokerRedirection(redirectUrl: userActivity.webpageURL!)
+        SCGateway.shared.handleBrokerRedirection(redirectUrl: userActivity.webpageURL!)
         
 //        SCGateway.shared.handleConnectProRedirection(redirectUrl: userActivity.webpageURL!)
        
