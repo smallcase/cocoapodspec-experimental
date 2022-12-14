@@ -90,6 +90,827 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "UtmParams",
+        "printedName": "UtmParams",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "utmSource",
+            "printedName": "utmSource",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SCGateway@objc(cs)UtmParams(py)utmSource",
+            "mangledName": "$s9SCGateway9UtmParamsC9utmSourceSSSgvp",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)utmSource",
+                "mangledName": "$s9SCGateway9UtmParamsC9utmSourceSSSgvg",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)setUtmSource:",
+                "mangledName": "$s9SCGateway9UtmParamsC9utmSourceSSSgvs",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway9UtmParamsC9utmSourceSSSgvM",
+                "mangledName": "$s9SCGateway9UtmParamsC9utmSourceSSSgvM",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "utmMedium",
+            "printedName": "utmMedium",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SCGateway@objc(cs)UtmParams(py)utmMedium",
+            "mangledName": "$s9SCGateway9UtmParamsC9utmMediumSSSgvp",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)utmMedium",
+                "mangledName": "$s9SCGateway9UtmParamsC9utmMediumSSSgvg",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)setUtmMedium:",
+                "mangledName": "$s9SCGateway9UtmParamsC9utmMediumSSSgvs",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway9UtmParamsC9utmMediumSSSgvM",
+                "mangledName": "$s9SCGateway9UtmParamsC9utmMediumSSSgvM",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "utmCampaign",
+            "printedName": "utmCampaign",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SCGateway@objc(cs)UtmParams(py)utmCampaign",
+            "mangledName": "$s9SCGateway9UtmParamsC11utmCampaignSSSgvp",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)utmCampaign",
+                "mangledName": "$s9SCGateway9UtmParamsC11utmCampaignSSSgvg",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)setUtmCampaign:",
+                "mangledName": "$s9SCGateway9UtmParamsC11utmCampaignSSSgvs",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway9UtmParamsC11utmCampaignSSSgvM",
+                "mangledName": "$s9SCGateway9UtmParamsC11utmCampaignSSSgvM",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "utmContent",
+            "printedName": "utmContent",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SCGateway@objc(cs)UtmParams(py)utmContent",
+            "mangledName": "$s9SCGateway9UtmParamsC10utmContentSSSgvp",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)utmContent",
+                "mangledName": "$s9SCGateway9UtmParamsC10utmContentSSSgvg",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)setUtmContent:",
+                "mangledName": "$s9SCGateway9UtmParamsC10utmContentSSSgvs",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway9UtmParamsC10utmContentSSSgvM",
+                "mangledName": "$s9SCGateway9UtmParamsC10utmContentSSSgvM",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "utmTerm",
+            "printedName": "utmTerm",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SCGateway@objc(cs)UtmParams(py)utmTerm",
+            "mangledName": "$s9SCGateway9UtmParamsC7utmTermSSSgvp",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)utmTerm",
+                "mangledName": "$s9SCGateway9UtmParamsC7utmTermSSSgvg",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)setUtmTerm:",
+                "mangledName": "$s9SCGateway9UtmParamsC7utmTermSSSgvs",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway9UtmParamsC7utmTermSSSgvM",
+                "mangledName": "$s9SCGateway9UtmParamsC7utmTermSSSgvM",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(utmSource:utmMedium:utmCampaign:utmContent:utmTerm:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UtmParams",
+                "printedName": "SCGateway.UtmParams",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)initWithUtmSource:utmMedium:utmCampaign:utmContent:utmTerm:",
+            "mangledName": "$s9SCGateway9UtmParamsC9utmSource0D6Medium0D8Campaign0D7Content0D4TermACSSSg_A4Itcfc",
+            "moduleName": "SCGateway",
+            "objc_name": "initWithUtmSource:utmMedium:utmCampaign:utmContent:utmTerm:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UtmParams",
+                "printedName": "SCGateway.UtmParams",
+                "usr": "c:@M@SCGateway@objc(cs)UtmParams"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SCGateway@objc(cs)UtmParams(im)init",
+            "mangledName": "$s9SCGateway9UtmParamsCACycfc",
+            "moduleName": "SCGateway",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SCGateway@objc(cs)UtmParams",
+        "mangledName": "$s9SCGateway9UtmParamsC",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "AccessControl",
+          "Final",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
@@ -509,6 +1330,16 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -3146,6 +3977,1139 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SignUpConfig",
+        "printedName": "SignUpConfig",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "phoneNumber",
+            "printedName": "phoneNumber",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(py)phoneNumber",
+            "mangledName": "$s9SCGateway12SignUpConfigC11phoneNumberSSSgvp",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)phoneNumber",
+                "mangledName": "$s9SCGateway12SignUpConfigC11phoneNumberSSSgvg",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)setPhoneNumber:",
+                "mangledName": "$s9SCGateway12SignUpConfigC11phoneNumberSSSgvs",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway12SignUpConfigC11phoneNumberSSSgvM",
+                "mangledName": "$s9SCGateway12SignUpConfigC11phoneNumberSSSgvM",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "opaqueId",
+            "printedName": "opaqueId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(py)opaqueId",
+            "mangledName": "$s9SCGateway12SignUpConfigC8opaqueIdSSvp",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)opaqueId",
+                "mangledName": "$s9SCGateway12SignUpConfigC8opaqueIdSSvg",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)setOpaqueId:",
+                "mangledName": "$s9SCGateway12SignUpConfigC8opaqueIdSSvs",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway12SignUpConfigC8opaqueIdSSvM",
+                "mangledName": "$s9SCGateway12SignUpConfigC8opaqueIdSSvM",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "notes",
+            "printedName": "notes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(py)notes",
+            "mangledName": "$s9SCGateway12SignUpConfigC5notesSSSgvp",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)notes",
+                "mangledName": "$s9SCGateway12SignUpConfigC5notesSSSgvg",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)setNotes:",
+                "mangledName": "$s9SCGateway12SignUpConfigC5notesSSSgvs",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway12SignUpConfigC5notesSSSgvM",
+                "mangledName": "$s9SCGateway12SignUpConfigC5notesSSSgvM",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "utmParams",
+            "printedName": "utmParams",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "SCGateway.UtmParams?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UtmParams",
+                    "printedName": "SCGateway.UtmParams",
+                    "usr": "c:@M@SCGateway@objc(cs)UtmParams"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(py)utmParams",
+            "mangledName": "$s9SCGateway12SignUpConfigC9utmParamsAA03UtmF0CSgvp",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "SCGateway.UtmParams?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UtmParams",
+                        "printedName": "SCGateway.UtmParams",
+                        "usr": "c:@M@SCGateway@objc(cs)UtmParams"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)utmParams",
+                "mangledName": "$s9SCGateway12SignUpConfigC9utmParamsAA03UtmF0CSgvg",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "SCGateway.UtmParams?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UtmParams",
+                        "printedName": "SCGateway.UtmParams",
+                        "usr": "c:@M@SCGateway@objc(cs)UtmParams"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)setUtmParams:",
+                "mangledName": "$s9SCGateway12SignUpConfigC9utmParamsAA03UtmF0CSgvs",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway12SignUpConfigC9utmParamsAA03UtmF0CSgvM",
+                "mangledName": "$s9SCGateway12SignUpConfigC9utmParamsAA03UtmF0CSgvM",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "retargeting",
+            "printedName": "retargeting",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9SCGateway12SignUpConfigC11retargetingSbSgvp",
+            "mangledName": "$s9SCGateway12SignUpConfigC11retargetingSbSgvp",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway12SignUpConfigC11retargetingSbSgvg",
+                "mangledName": "$s9SCGateway12SignUpConfigC11retargetingSbSgvg",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway12SignUpConfigC11retargetingSbSgvs",
+                "mangledName": "$s9SCGateway12SignUpConfigC11retargetingSbSgvs",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9SCGateway12SignUpConfigC11retargetingSbSgvM",
+                "mangledName": "$s9SCGateway12SignUpConfigC11retargetingSbSgvM",
+                "moduleName": "SCGateway",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(opaqueId:phoneNumber:notes:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SignUpConfig",
+                "printedName": "SCGateway.SignUpConfig",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)initWithOpaqueId:phoneNumber:notes:",
+            "mangledName": "$s9SCGateway12SignUpConfigC8opaqueId11phoneNumber5notesACSS_SSSgAGtcfc",
+            "moduleName": "SCGateway",
+            "objc_name": "initWithOpaqueId:phoneNumber:notes:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(opaqueId:phoneNumber:notes:utmParams:retargeting:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SignUpConfig",
+                "printedName": "SCGateway.SignUpConfig",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "SCGateway.UtmParams?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UtmParams",
+                    "printedName": "SCGateway.UtmParams",
+                    "usr": "c:@M@SCGateway@objc(cs)UtmParams"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AnyObject?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "AnyObject"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)initWithOpaqueId:phoneNumber:notes:utmParams:retargeting:",
+            "mangledName": "$s9SCGateway12SignUpConfigC8opaqueId11phoneNumber5notes9utmParams11retargetingACSS_SSSgAiA03UtmK0CSgyXlSgtcfc",
+            "moduleName": "SCGateway",
+            "objc_name": "initWithOpaqueId:phoneNumber:notes:utmParams:retargeting:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(opaqueId:phoneNumber:notes:utmParams:retargeting:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SignUpConfig",
+                "printedName": "SCGateway.SignUpConfig",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "SCGateway.UtmParams?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UtmParams",
+                    "printedName": "SCGateway.UtmParams",
+                    "usr": "c:@M@SCGateway@objc(cs)UtmParams"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9SCGateway12SignUpConfigC8opaqueId11phoneNumber5notes9utmParams11retargetingACSS_SSSgAiA03UtmK0CSgSbSgtcfc",
+            "mangledName": "$s9SCGateway12SignUpConfigC8opaqueId11phoneNumber5notes9utmParams11retargetingACSS_SSSgAiA03UtmK0CSgSbSgtcfc",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(opaqueId:phoneNumber:notes:retargeting:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SignUpConfig",
+                "printedName": "SCGateway.SignUpConfig",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AnyObject?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "AnyObject"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)initWithOpaqueId:phoneNumber:notes:retargeting:",
+            "mangledName": "$s9SCGateway12SignUpConfigC8opaqueId11phoneNumber5notes11retargetingACSS_SSSgAHyXlSgtcfc",
+            "moduleName": "SCGateway",
+            "objc_name": "initWithOpaqueId:phoneNumber:notes:retargeting:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(opaqueId:phoneNumber:notes:retargeting:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SignUpConfig",
+                "printedName": "SCGateway.SignUpConfig",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9SCGateway12SignUpConfigC8opaqueId11phoneNumber5notes11retargetingACSS_SSSgAHSbSgtcfc",
+            "mangledName": "$s9SCGateway12SignUpConfigC8opaqueId11phoneNumber5notes11retargetingACSS_SSSgAHSbSgtcfc",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(opaqueId:phoneNumber:notes:utmParams:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SignUpConfig",
+                "printedName": "SCGateway.SignUpConfig",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "SCGateway.UtmParams?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UtmParams",
+                    "printedName": "SCGateway.UtmParams",
+                    "usr": "c:@M@SCGateway@objc(cs)UtmParams"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)initWithOpaqueId:phoneNumber:notes:utmParams:",
+            "mangledName": "$s9SCGateway12SignUpConfigC8opaqueId11phoneNumber5notes9utmParamsACSS_SSSgAhA03UtmK0CSgtcfc",
+            "moduleName": "SCGateway",
+            "objc_name": "initWithOpaqueId:phoneNumber:notes:utmParams:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SignUpConfig",
+                "printedName": "SCGateway.SignUpConfig",
+                "usr": "c:@M@SCGateway@objc(cs)SignUpConfig"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@SCGateway@objc(cs)SignUpConfig(im)init",
+            "mangledName": "$s9SCGateway12SignUpConfigCACycfc",
+            "moduleName": "SCGateway",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@SCGateway@objc(cs)SignUpConfig",
+        "mangledName": "$s9SCGateway12SignUpConfigC",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "WebKit",
         "printedName": "WebKit",
         "declKind": "Import",
@@ -3214,6 +5178,23 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AuthenticationServices",
+        "printedName": "AuthenticationServices",
+        "declKind": "Import",
+        "moduleName": "SCGateway"
       },
       {
         "kind": "Import",
@@ -10503,6 +12484,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "AuthenticationServices",
         "printedName": "AuthenticationServices",
         "declKind": "Import",
@@ -10928,8 +12919,35 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AuthenticationServices",
+        "printedName": "AuthenticationServices",
+        "declKind": "Import",
+        "moduleName": "SCGateway"
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "SCGateway",
         "declAttributes": [
@@ -11144,6 +13162,16 @@
         "printedName": "SafariServices",
         "declKind": "Import",
         "moduleName": "SCGateway"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       },
       {
         "kind": "Import",
@@ -15050,6 +17078,168 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "openUsEquitiesAccount",
+            "printedName": "openUsEquitiesAccount(presentingController:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@SCGateway@objc(cs)SCGateway(im)openUsEquitiesAccountWithPresentingController:",
+            "mangledName": "$s9SCGatewayAAC21openUsEquitiesAccount20presentingControllerySo06UIViewG0C_tF",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "openUsEquitiesAccount",
+            "printedName": "openUsEquitiesAccount(presentingController:signUpConfig:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "SCGateway.SignUpConfig?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SignUpConfig",
+                    "printedName": "SCGateway.SignUpConfig",
+                    "usr": "c:@M@SCGateway@objc(cs)SignUpConfig"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String?, Swift.Error?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.String?, Swift.Error?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.String?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@SCGateway@objc(cs)SCGateway(im)openUsEquitiesAccountWithPresentingController:signUpConfig:completion:",
+            "mangledName": "$s9SCGatewayAAC21openUsEquitiesAccount20presentingController12signUpConfig10completionySo06UIViewG0C_AA04SigniJ0CSgySSSg_s5Error_pSgtctF",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "openUsEquitiesAccount",
+            "printedName": "openUsEquitiesAccount(presentingController:signUpConfig:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "SCGateway.SignUpConfig?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SignUpConfig",
+                    "printedName": "SCGateway.SignUpConfig",
+                    "usr": "c:@M@SCGateway@objc(cs)SignUpConfig"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@SCGateway@objc(cs)SCGateway(im)openUsEquitiesAccountWithPresentingController:signUpConfig:",
+            "mangledName": "$s9SCGatewayAAC21openUsEquitiesAccount20presentingController12signUpConfigySo06UIViewG0C_AA04SigniJ0CSgtF",
+            "moduleName": "SCGateway",
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -15059,7 +17249,6 @@
         "declAttributes": [
           "AccessControl",
           "ObjCMembers",
-          "RawDocComment",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
@@ -15680,8 +17869,28 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "SCGateway",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "SCGateway",
         "declAttributes": [
@@ -17964,135 +20173,142 @@
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 20618,
+      "offset": 20846,
       "length": 13,
       "value": "\"TRANSACTION\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 20672,
+      "offset": 20900,
       "length": 9,
       "value": "\"CONNECT\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 20723,
+      "offset": 20951,
       "length": 17,
       "value": "\"HOLDINGS_IMPORT\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 20785,
+      "offset": 21013,
       "length": 20,
       "value": "\"AUTHORISE_HOLDINGS\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 20843,
+      "offset": 21071,
       "length": 13,
       "value": "\"FETCH_FUNDS\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 20892,
+      "offset": 21120,
       "length": 11,
       "value": "\"SIP_SETUP\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 20942,
+      "offset": 21170,
       "length": 14,
       "value": "\"SUBSCRIPTION\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 20993,
+      "offset": 21221,
       "length": 12,
       "value": "\"CANCEL_AMO\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 21050,
+      "offset": 21278,
       "length": 20,
       "value": "\"MF_HOLDINGS_IMPORT\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 21187,
+      "offset": 21415,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 21277,
+      "offset": 21505,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 21393,
+      "offset": 21621,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 21468,
+      "offset": 21696,
       "length": 20,
       "value": "\"smallcaseAuthToken\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 21513,
+      "offset": 21741,
       "length": 8,
       "value": "\"broker\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 21543,
+      "offset": 21771,
       "length": 15,
       "value": "\"transactionId\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "StringLiteral",
-      "offset": 21658,
+      "offset": 21886,
       "length": 8,
       "value": "\"signup\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "BooleanLiteral",
-      "offset": 22210,
+      "offset": 22438,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "BooleanLiteral",
-      "offset": 22421,
+      "offset": 22649,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway+Utilty.swift",
       "kind": "FloatLiteral",
-      "offset": 23350,
+      "offset": 23578,
       "length": 3,
       "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Account Opening\/US Equities\/Protocols\/UtmParams.swift",
+      "kind": "StringLiteral",
+      "offset": 192,
+      "length": 9,
+      "value": "\"SCGateway.UtmParams\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Enums\/Constants.swift",
@@ -18692,70 +20908,70 @@
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/LeadGen\/LeadGenController.swift",
       "kind": "StringLiteral",
-      "offset": 612,
+      "offset": 611,
       "length": 14,
       "value": "\"closeWebView\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/LeadGen\/LeadGenController.swift",
       "kind": "StringLiteral",
-      "offset": 666,
+      "offset": 665,
       "length": 19,
       "value": "\"openThirdPartyUrl\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/LeadGen\/LeadGenController.swift",
       "kind": "StringLiteral",
-      "offset": 733,
+      "offset": 732,
       "length": 27,
       "value": "\"openThirdPartyUrlWithData\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/LeadGen\/LeadGenController.swift",
       "kind": "StringLiteral",
-      "offset": 798,
+      "offset": 797,
       "length": 17,
       "value": "\"openPwaWithData\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/LeadGen\/LeadGenController.swift",
       "kind": "StringLiteral",
-      "offset": 845,
+      "offset": 844,
       "length": 9,
       "value": "\"openPwa\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/LeadGen\/LeadGenController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1728,
+      "offset": 1727,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/LeadGen\/LeadGenController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1887,
+      "offset": 1886,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/LeadGen\/LeadGenController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2132,
+      "offset": 2131,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/LeadGen\/LeadGenController.swift",
       "kind": "StringLiteral",
-      "offset": 2170,
+      "offset": 2169,
       "length": 18,
       "value": "\"smallcase-loader\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/LeadGen\/LeadGenController.swift",
       "kind": "StringLiteral",
-      "offset": 311,
+      "offset": 310,
       "length": 17,
       "value": "\"SCGateway.LeadGenController\""
     },
@@ -19467,6 +21683,13 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Account Opening\/US Equities\/Protocols\/SignUpConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 189,
+      "length": 12,
+      "value": "\"SCGateway.SignUpConfig\""
+    },
+    {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Networking\/Enums\/HTTPMethod.swift",
       "kind": "StringLiteral",
       "offset": 177,
@@ -19584,6 +21807,13 @@
       "offset": 166,
       "length": 11,
       "value": "\"SCGateway.MFViewModel\""
+    },
+    {
+      "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Account Opening\/US Equities\/USEAccOpeningViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 209,
+      "length": 27,
+      "value": "\"SCGateway.USEAccOpeningViewController\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Helpers\/PaddingLabel.swift",
@@ -21455,6 +23685,13 @@
       "value": "100"
     },
     {
+      "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Account Opening\/US Equities\/Enums\/USEAccountOpeningConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 255,
+      "length": 15,
+      "value": "\"scgateway-use\""
+    },
+    {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/BrokerSelect\/New Group1\/Other Broker Popup\/OtherBrokerHeader.swift",
       "kind": "BooleanLiteral",
       "offset": 743,
@@ -21534,28 +23771,28 @@
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway.swift",
       "kind": "StringLiteral",
-      "offset": 369,
+      "offset": 351,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway.swift",
       "kind": "BooleanLiteral",
-      "offset": 918,
+      "offset": 974,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway.swift",
       "kind": "BooleanLiteral",
-      "offset": 1224,
+      "offset": 1280,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Core Logic\/SCGateway.swift",
       "kind": "BooleanLiteral",
-      "offset": 1271,
+      "offset": 1327,
       "length": 5,
       "value": "false"
     },
@@ -22972,6 +25209,13 @@
       "offset": 196,
       "length": 21,
       "value": "\"SCGateway.BrokerSelectViewModel\""
+    },
+    {
+      "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Account Opening\/US Equities\/Coordinator\/USEAccOpeningCoordinator.swift",
+      "kind": "StringLiteral",
+      "offset": 181,
+      "length": 24,
+      "value": "\"SCGateway.USEAccOpeningCoordinator\""
     },
     {
       "filePath": "\/Users\/ankitdeshmukh\/Desktop\/iOS\/gw-mob-sdk-ios\/SCGateway\/Smallplug\/Views\/SmallplugHeader.swift",

@@ -321,8 +321,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 @end
 
 
-
 @class UIViewController;
+@class SignUpConfig;
+
+@interface SCGateway (SWIFT_EXTENSION(SCGateway))
+- (void)openUsEquitiesAccountWithPresentingController:(UIViewController * _Nonnull)presentingController;
+- (void)openUsEquitiesAccountWithPresentingController:(UIViewController * _Nonnull)presentingController signUpConfig:(SignUpConfig * _Nullable)signUpConfig completion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
+- (void)openUsEquitiesAccountWithPresentingController:(UIViewController * _Nonnull)presentingController signUpConfig:(SignUpConfig * _Nullable)signUpConfig;
+@end
+
+
 @class SmallplugData;
 @class SmallplugUiConfig;
 
@@ -375,6 +383,22 @@ SWIFT_CLASS("_TtC9SCGateway33SeparatorCollectionViewFlowLayout")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class UtmParams;
+
+SWIFT_CLASS("_TtC9SCGateway12SignUpConfig")
+@interface SignUpConfig : NSObject
+@property (nonatomic, copy) NSString * _Nullable phoneNumber;
+@property (nonatomic, copy) NSString * _Nonnull opaqueId;
+@property (nonatomic, copy) NSString * _Nullable notes;
+@property (nonatomic, strong) UtmParams * _Nullable utmParams;
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId phoneNumber:(NSString * _Nullable)phoneNumber notes:(NSString * _Nullable)notes OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId phoneNumber:(NSString * _Nullable)phoneNumber notes:(NSString * _Nullable)notes utmParams:(UtmParams * _Nullable)utmParams retargeting:(id _Nullable)retargeting OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId phoneNumber:(NSString * _Nullable)phoneNumber notes:(NSString * _Nullable)notes retargeting:(id _Nullable)retargeting OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId phoneNumber:(NSString * _Nullable)phoneNumber notes:(NSString * _Nullable)notes utmParams:(UtmParams * _Nullable)utmParams OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 
 SWIFT_CLASS("_TtC9SCGateway13SmallplugData")
 @interface SmallplugData : NSObject
@@ -415,6 +439,19 @@ SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 
 
 
+
+
+SWIFT_CLASS("_TtC9SCGateway9UtmParams")
+@interface UtmParams : NSObject
+@property (nonatomic, copy) NSString * _Nullable utmSource;
+@property (nonatomic, copy) NSString * _Nullable utmMedium;
+@property (nonatomic, copy) NSString * _Nullable utmCampaign;
+@property (nonatomic, copy) NSString * _Nullable utmContent;
+@property (nonatomic, copy) NSString * _Nullable utmTerm;
+- (nonnull instancetype)initWithUtmSource:(NSString * _Nullable)utmSource utmMedium:(NSString * _Nullable)utmMedium utmCampaign:(NSString * _Nullable)utmCampaign utmContent:(NSString * _Nullable)utmContent utmTerm:(NSString * _Nullable)utmTerm OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 
@@ -841,8 +878,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull curr
 @end
 
 
-
 @class UIViewController;
+@class SignUpConfig;
+
+@interface SCGateway (SWIFT_EXTENSION(SCGateway))
+- (void)openUsEquitiesAccountWithPresentingController:(UIViewController * _Nonnull)presentingController;
+- (void)openUsEquitiesAccountWithPresentingController:(UIViewController * _Nonnull)presentingController signUpConfig:(SignUpConfig * _Nullable)signUpConfig completion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
+- (void)openUsEquitiesAccountWithPresentingController:(UIViewController * _Nonnull)presentingController signUpConfig:(SignUpConfig * _Nullable)signUpConfig;
+@end
+
+
 @class SmallplugData;
 @class SmallplugUiConfig;
 
@@ -895,6 +940,22 @@ SWIFT_CLASS("_TtC9SCGateway33SeparatorCollectionViewFlowLayout")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class UtmParams;
+
+SWIFT_CLASS("_TtC9SCGateway12SignUpConfig")
+@interface SignUpConfig : NSObject
+@property (nonatomic, copy) NSString * _Nullable phoneNumber;
+@property (nonatomic, copy) NSString * _Nonnull opaqueId;
+@property (nonatomic, copy) NSString * _Nullable notes;
+@property (nonatomic, strong) UtmParams * _Nullable utmParams;
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId phoneNumber:(NSString * _Nullable)phoneNumber notes:(NSString * _Nullable)notes OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId phoneNumber:(NSString * _Nullable)phoneNumber notes:(NSString * _Nullable)notes utmParams:(UtmParams * _Nullable)utmParams retargeting:(id _Nullable)retargeting OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId phoneNumber:(NSString * _Nullable)phoneNumber notes:(NSString * _Nullable)notes retargeting:(id _Nullable)retargeting OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId phoneNumber:(NSString * _Nullable)phoneNumber notes:(NSString * _Nullable)notes utmParams:(UtmParams * _Nullable)utmParams OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 
 SWIFT_CLASS("_TtC9SCGateway13SmallplugData")
 @interface SmallplugData : NSObject
@@ -935,6 +996,19 @@ SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 
 
 
+
+
+SWIFT_CLASS("_TtC9SCGateway9UtmParams")
+@interface UtmParams : NSObject
+@property (nonatomic, copy) NSString * _Nullable utmSource;
+@property (nonatomic, copy) NSString * _Nullable utmMedium;
+@property (nonatomic, copy) NSString * _Nullable utmCampaign;
+@property (nonatomic, copy) NSString * _Nullable utmContent;
+@property (nonatomic, copy) NSString * _Nullable utmTerm;
+- (nonnull instancetype)initWithUtmSource:(NSString * _Nullable)utmSource utmMedium:(NSString * _Nullable)utmMedium utmCampaign:(NSString * _Nullable)utmCampaign utmContent:(NSString * _Nullable)utmContent utmTerm:(NSString * _Nullable)utmTerm OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 

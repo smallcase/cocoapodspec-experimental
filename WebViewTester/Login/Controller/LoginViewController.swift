@@ -11,8 +11,6 @@ import SCGateway
 import PopupDialog
 import SafariServices
 import AuthenticationServices
-//import Mixpanel
-//import SCGateway_Mixpanel
 
 extension UIApplication {
     static var appVersion: String? {
@@ -161,7 +159,7 @@ class LoginViewController: UIViewController {
             }
                    
             
-            let config = GatewayConfig(gatewayName: gatewayName ?? "",
+            let config = GatewayConfig(gatewayName: "tickertape",
                                        brokerConfig: brokerConfig,
                                               apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
                                               isLeprechaunActive: self.leprechaunSwitch.isOn,
@@ -223,18 +221,6 @@ class LoginViewController: UIViewController {
     @IBAction func copyToClipBoard(_ sender: Any){
         
         UIPasteboard.general.string = SCGateway.currentTransactionId
-//        UIApplication.shared.open(URL(string: "testapp:mandirVahiBanega")!) { (result) in
-//            if result {
-//                print("successfully launched test app!")
-//            }
-//        }
-        
-//        SCGateway.shared.processTransaction(presentingController: self)
-        
-//        let session = SFAuthenticationSession(url: URL(string: "https://www.smallcase.com")!, callbackURLScheme: "scgateway") { [weak self] (url: URL?, error: Swift.Error?) in
-//            print("vdsv")
-//        }
-//        session.start()
     }
     
     func promptForTransactionId() {
@@ -326,7 +312,7 @@ class LoginViewController: UIViewController {
     func gatewayInitialize() {
         
         print("Initializing gateway")
-        SCGateway.shared.initializeGateway(smallcaseAuthToken!) { response, error in
+        SCGateway.shared.initializeGateway("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJndWVzdCI6dHJ1ZSwiaWF0IjoxNjcwOTk4Mzc4fQ.7RNq9BSmbfk64fGD4GuznegcGPP1OnQdVMeAZaJVB5E") { response, error in
             
             if error != nil {
                 print(error ?? "")

@@ -24,6 +24,15 @@ extension UIKit.UIImage {
   @available(iOS 9.0, *)
   public class func gif(asset: Swift.String) -> UIKit.UIImage?
 }
+@objc @objcMembers final public class UtmParams : ObjectiveC.NSObject {
+  @objc final public var utmSource: Swift.String?
+  @objc final public var utmMedium: Swift.String?
+  @objc final public var utmCampaign: Swift.String?
+  @objc final public var utmContent: Swift.String?
+  @objc final public var utmTerm: Swift.String?
+  @objc public init(utmSource: Swift.String? = nil, utmMedium: Swift.String? = nil, utmCampaign: Swift.String? = nil, utmContent: Swift.String? = nil, utmTerm: Swift.String? = nil)
+  @objc deinit
+}
 @objc @objcMembers public class SmallplugData : ObjectiveC.NSObject {
   @objc public var targetEndpoint: Swift.String?
   @objc public var params: Swift.String?
@@ -105,6 +114,20 @@ extension SCGateway.TransactionError : Swift.RawRepresentable {
   @objc override dynamic public var code: Swift.Int {
     @objc get
   }
+  @objc deinit
+}
+@objc @objcMembers public class SignUpConfig : ObjectiveC.NSObject {
+  @objc public var phoneNumber: Swift.String?
+  @objc public var opaqueId: Swift.String
+  @objc public var notes: Swift.String?
+  @objc public var utmParams: SCGateway.UtmParams?
+  public var retargeting: Swift.Bool?
+  @objc public init(opaqueId: Swift.String, phoneNumber: Swift.String? = nil, notes: Swift.String? = nil)
+  @objc public init(opaqueId: Swift.String, phoneNumber: Swift.String? = nil, notes: Swift.String? = nil, utmParams: SCGateway.UtmParams? = nil, retargeting: Swift.AnyObject? = nil)
+  public init(opaqueId: Swift.String, phoneNumber: Swift.String? = nil, notes: Swift.String? = nil, utmParams: SCGateway.UtmParams? = nil, retargeting: Swift.Bool? = nil)
+  @objc public init(opaqueId: Swift.String, phoneNumber: Swift.String? = nil, notes: Swift.String? = nil, retargeting: Swift.AnyObject? = nil)
+  public init(opaqueId: Swift.String, phoneNumber: Swift.String? = nil, notes: Swift.String? = nil, retargeting: Swift.Bool? = nil)
+  @objc public init(opaqueId: Swift.String, phoneNumber: Swift.String? = nil, notes: Swift.String? = nil, utmParams: SCGateway.UtmParams? = nil)
   @objc deinit
 }
 extension UIKit.UIImageView {
@@ -436,6 +459,11 @@ public enum TransactionOrderStatus : Swift.String {
 }
 extension UIKit.UIDevice {
   @_Concurrency.MainActor(unsafe) public static let modelName: Swift.String
+}
+extension SCGateway.SCGateway {
+  @objc dynamic public func openUsEquitiesAccount(presentingController: UIKit.UIViewController)
+  @objc dynamic public func openUsEquitiesAccount(presentingController: UIKit.UIViewController, signUpConfig: SCGateway.SignUpConfig?, completion: @escaping ((Swift.String?, Swift.Error?) -> Swift.Void))
+  @objc dynamic public func openUsEquitiesAccount(presentingController: UIKit.UIViewController, signUpConfig: SCGateway.SignUpConfig?)
 }
 extension SCGateway.SCGatewayError : Swift.Equatable {}
 extension SCGateway.SCGatewayError : Swift.Hashable {}

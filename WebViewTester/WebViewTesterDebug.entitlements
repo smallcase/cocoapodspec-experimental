@@ -7,6 +7,8 @@
 		<string>applinks:gatewaydemo-dev.verify.dev.smallcase.com</string>
 		<string>applinks:gatewaydemo-dev.redirect.dev.smallcase.com</string>
 		<string>applinks:connectpro.repl.co/</string>
+		<string>applinks:onboarding-dev.use.smallcase.com</string>
+		<string>applinks:useaccountopeningtwa.ankitdeshmukh2.repl.co/redirect</string>
 	</array>
 </dict>
 </plist>

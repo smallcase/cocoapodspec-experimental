@@ -77,9 +77,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            return false
 //        }
 
-
-//        SCGateway.shared.closeAsWebAuthenticationSession()
-
         print(userActivity.webpageURL!)
         
         SCGateway.shared.handleBrokerRedirection(redirectUrl: userActivity.webpageURL!)

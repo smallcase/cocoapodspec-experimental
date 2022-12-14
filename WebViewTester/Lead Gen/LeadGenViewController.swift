@@ -178,8 +178,49 @@ class LeadGenViewController: UIViewController {
     }
 
     @IBAction func launchUSEAccountOpening(_ sender: UIButton) {
+  
+        //objc
+//        SCGateway.shared.openUsEquitiesAccount(
+//            presentingController: self,
+//            signUpConfig: SignUpConfig(
+//                phoneNumber: "1234567890",
+//                opaqueId: "abc123",
+//                notes: "dummyNotes",
+//                utmParams: UtmParams(
+//                    utmSource: "utmSource",
+//                    utmMedium: "utmMedium",
+//                    utmCampaign: "utmCampaign",
+//                    utmContent: "utmContent",
+//                    utmTerm: "utmTerm"
+//                ),
+//                retargeting: false as? CFBoolean
+//            )
+//        )
         
-//        SCGateway.shared.openUsEquitiesAccount(presentingController: self)
+        SCGateway.shared.openUsEquitiesAccount(
+            presentingController: self,
+            signUpConfig: SignUpConfig(
+                opaqueId: "abcd1234",
+                notes: "dummyNotes",
+                utmParams: UtmParams(
+                    utmSource: "utmSource",
+                    utmMedium: "utmMedium",
+                    utmCampaign: "utmCampaign",
+                    utmContent: "utmContent",
+                    utmTerm: "utmTerm"
+                ),
+                retargeting: false
+            )) { result, error in
+
+                if let useAoResult = result as? String {
+                    self.showPopup(title: "USE Acc Opening Status", msg: useAoResult)
+                }
+
+                if let useAoError = error {
+                    self.showPopup(title: "USE Acc Opening Status", msg: "\(useAoError.localizedDescription)")
+                }
+            }
+        
     }
     
 }
