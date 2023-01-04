@@ -159,7 +159,7 @@ class LoginViewController: UIViewController {
             }
                    
             
-            let config = GatewayConfig(gatewayName: "tickertape",
+            let config = GatewayConfig(gatewayName: gatewayName ?? "",
                                        brokerConfig: brokerConfig,
                                               apiEnvironment: self.getApiEnv(index: self.envSegmentControl.selectedSegmentIndex),
                                               isLeprechaunActive: self.leprechaunSwitch.isOn,
@@ -312,7 +312,7 @@ class LoginViewController: UIViewController {
     func gatewayInitialize() {
         
         print("Initializing gateway")
-        SCGateway.shared.initializeGateway("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJndWVzdCI6dHJ1ZSwiaWF0IjoxNjcwOTk4Mzc4fQ.7RNq9BSmbfk64fGD4GuznegcGPP1OnQdVMeAZaJVB5E") { response, error in
+        SCGateway.shared.initializeGateway(smallcaseAuthToken!) { response, error in
             
             if error != nil {
                 print(error ?? "")
@@ -370,6 +370,7 @@ class LoginViewController: UIViewController {
     }
     
     //MARK:- Trigger Transaction
+    
     func connectGateway(transactionId: String) {
         do {
             try SCGateway.shared.triggerTransactionFlow(transactionId: transactionId, presentingController: self) { [weak self]  result in
@@ -382,42 +383,42 @@ class LoginViewController: UIViewController {
 //                        self?.connect(authToken: authToken)
 //
 //                        self?.showPopup(title: "Connect Complete", msg: "authToken: \(authToken) \n broker: \(broker) \n signup: \(signup)")
-                      
+
                     case let .connect(response):
-                            
+
 //                        self?.connect(authToken: authToken)
                         self?.connectUserToSmartinvesting(response)
-                        
+
                             self?.showPopup(title: "response:", msg: "\(response)")
-                        
-                        
+
+
 //                    case let .transaction(authToken, transactionData):
 //                            self?.showPopup(title: "Transaction Response", msg: " authTOken : \(authToken), \n data: \(transactionData.toJSONString())")
 //                        return
-                
+
 //                    case .holdingsImport(let smallcaseAuthToken, let status, let broker, let transactionId):
 //                        self?.showPopup(title: "Transaction Response", msg: " authTOken : \(smallcaseAuthToken), \n status: \(status), \n broker: \(broker), \n transactionId: \(transactionId)")
 //                        return
-                        
+
                     default:
                         return
                     }
-                
-                    
-                    
+
+
+
                 case .failure(let error):
-                    
+
                     print("CONNECT: ERROR :\(error)")
-                        
+
                         self?.presentedViewController?.dismiss(animated: false)
-                        
+
                         if error.rawValue == 1007 {
                             self?.showPopup(title: "Error", msg: "\(error.message) \(error.rawValue)")
                         } else {
                             self?.showPopup(title: "Error", msg: "\(error.message)  \(error.rawValue)")
                         }
-                        
-                    
+
+
                 }
                 print(result)
             }
@@ -450,7 +451,7 @@ class LoginViewController: UIViewController {
     }
 
     
-    //MARK:- Extras
+    //MARK: Extras
     
     
     

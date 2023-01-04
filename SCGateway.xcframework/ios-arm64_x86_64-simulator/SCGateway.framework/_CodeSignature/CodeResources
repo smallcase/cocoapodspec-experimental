@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/SCGateway-Swift.h</key>
 		<data>
-		UazQGmNPuySct3/k1EL2uu/7u5k=
+		kT7n+qmHNRcnR++p0px0Ak4XGlk=
 		</data>
 		<key>Headers/SCGateway.h</key>
 		<data>
@@ -58,11 +58,11 @@
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		mlEESyud27xOGFJPaCdwxp01ixE=
+		TBne2QtOfydq1MZEAN7VRV5icAg=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		IMYIwUf6oIIz628KicvRSlESdG0=
+		NHrs6wVrd6odXkgHtnoRNWzj9tk=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -70,19 +70,19 @@
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		IMYIwUf6oIIz628KicvRSlESdG0=
+		NHrs6wVrd6odXkgHtnoRNWzj9tk=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		qMEOKwiBvi0oBN4rv6l5syaD+p4=
+		JcVgDCNif1JIBqfdmo6Ne0PTQfU=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		mlEESyud27xOGFJPaCdwxp01ixE=
+		TBne2QtOfydq1MZEAN7VRV5icAg=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		ivZJxYiH4KOObuLee/OHz3ZOxqE=
+		DqV82fxel9hd1haUX6P/y9acRpo=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -90,11 +90,11 @@
 		</data>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		ivZJxYiH4KOObuLee/OHz3ZOxqE=
+		DqV82fxel9hd1haUX6P/y9acRpo=
 		</data>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		N3myN2xZyxOIvwJaf3qv84nSNuQ=
+		zJ0YK6aOYlTrTv5/jM9OH3MRMk8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -198,7 +198,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			G7KbMSum10NljbuXhLKiC7j15pdJwB/8jbiC1C0znKw=
+			nshj0jCeuKjGge7uKFe1r7DAJCbPtc7fTTRv6AkE2X0=
 			</data>
 		</dict>
 		<key>Headers/SCGateway.h</key>
@@ -219,14 +219,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JfOfTlhOKPrOoMKDhE9b+FxdfbdIYs1xQA7ClKMYbRM=
+			2SHjIRhxSoFuV2qte+xuMPYx10lLxHGO7nHjqEthwLc=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uGVeQ0wZztBgCRytKLq6mm9aXv6l3a97fIQR/PgRZe4=
+			IJLQmJGM1u+dmM7xBYZPtdT/PrpuBQJB1CZ01BAiUsE=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -240,28 +240,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uGVeQ0wZztBgCRytKLq6mm9aXv6l3a97fIQR/PgRZe4=
+			IJLQmJGM1u+dmM7xBYZPtdT/PrpuBQJB1CZ01BAiUsE=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WMjFL96uc20nxDSt4SjGUwesYzBKh86sh10+N3nXS2k=
+			o9YtjHUFo0ZoecMqacKNJSgHmR5VZ58IbB97/G8Uv8E=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JfOfTlhOKPrOoMKDhE9b+FxdfbdIYs1xQA7ClKMYbRM=
+			2SHjIRhxSoFuV2qte+xuMPYx10lLxHGO7nHjqEthwLc=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9iSr0ICG2DUkuH8WBrWPNElCs1ph6RIEqbAOgA3ypsw=
+			cdJxVMO6J5XZfgM+miUYVuKbwDbEmU2O+Ue5Moe5fEQ=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -275,14 +275,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9iSr0ICG2DUkuH8WBrWPNElCs1ph6RIEqbAOgA3ypsw=
+			cdJxVMO6J5XZfgM+miUYVuKbwDbEmU2O+Ue5Moe5fEQ=
 			</data>
 		</dict>
 		<key>Modules/SCGateway.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KDQLsrfDH5gzxXRG0YBcvlJTz6fD8dAVWMb1ORUGdyE=
+			Tp0nTbxgt6PNFKcVh/UKJVfiE4ZVgtPIzQSK/ki8JhE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
