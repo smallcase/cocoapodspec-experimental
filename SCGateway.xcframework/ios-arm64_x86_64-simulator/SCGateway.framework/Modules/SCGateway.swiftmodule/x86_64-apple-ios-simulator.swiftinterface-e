@@ -39,6 +39,12 @@ extension UIKit.UIImage {
   @objc public init(_ targetEndpoint: Swift.String?, _ params: Swift.String?)
   @objc deinit
 }
+@objc @objcMembers public class UserInfo : ObjectiveC.NSObject {
+  @objc public var userId: Swift.String
+  @objc public var idType: Swift.String
+  @objc public init(userId: Swift.String, idType: Swift.String)
+  @objc deinit
+}
 public enum SCGatewayError : Swift.Int, Swift.Error {
   case uninitialized
   case configNotSet
@@ -118,15 +124,15 @@ extension SCGateway.TransactionError : Swift.RawRepresentable {
 }
 @objc @objcMembers public class SignUpConfig : ObjectiveC.NSObject {
   @objc public var opaqueId: Swift.String
-  @objc public var notes: Swift.String?
+  @objc public var userInfo: SCGateway.UserInfo
   @objc public var utmParams: SCGateway.UtmParams?
   public var retargeting: Swift.Bool?
-  @objc public init(opaqueId: Swift.String, notes: Swift.String? = nil)
-  @objc public init(opaqueId: Swift.String, notes: Swift.String? = nil, utmParams: SCGateway.UtmParams? = nil, retargeting: Swift.AnyObject? = nil)
-  public init(opaqueId: Swift.String, notes: Swift.String? = nil, utmParams: SCGateway.UtmParams? = nil, retargeting: Swift.Bool? = nil)
-  @objc public init(opaqueId: Swift.String, notes: Swift.String? = nil, retargeting: Swift.AnyObject? = nil)
-  public init(opaqueId: Swift.String, notes: Swift.String? = nil, retargeting: Swift.Bool? = nil)
-  @objc public init(opaqueId: Swift.String, notes: Swift.String? = nil, utmParams: SCGateway.UtmParams? = nil)
+  @objc public init(opaqueId: Swift.String, userInfo: SCGateway.UserInfo)
+  @objc public init(opaqueId: Swift.String, userInfo: SCGateway.UserInfo, utmParams: SCGateway.UtmParams? = nil, retargeting: Swift.AnyObject? = nil)
+  public init(opaqueId: Swift.String, userInfo: SCGateway.UserInfo, utmParams: SCGateway.UtmParams? = nil, retargeting: Swift.Bool? = nil)
+  @objc public init(opaqueId: Swift.String, userInfo: SCGateway.UserInfo, retargeting: Swift.AnyObject? = nil)
+  public init(opaqueId: Swift.String, userInfo: SCGateway.UserInfo, retargeting: Swift.Bool? = nil)
+  @objc public init(opaqueId: Swift.String, userInfo: SCGateway.UserInfo, utmParams: SCGateway.UtmParams? = nil)
   @objc deinit
 }
 extension UIKit.UIImageView {

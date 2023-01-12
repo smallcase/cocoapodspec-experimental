@@ -15,7 +15,9 @@ class USEAOViewController: UIViewController {
     //MARK: Variables
     
     @IBOutlet weak var opaqueId: UITextField!
-    @IBOutlet weak var notes: UITextField!
+    
+    @IBOutlet weak var userId: UITextField!
+    @IBOutlet weak var idType: UITextField!
     
     @IBOutlet weak var utm_campaign: UITextField!
     @IBOutlet weak var utm_content: UITextField!
@@ -44,7 +46,9 @@ class USEAOViewController: UIViewController {
         super.viewDidLoad()
 
         opaqueId.delegate = self
-        notes.delegate = self
+        
+        userId.delegate = self
+        idType.delegate = self
         
         utm_term.delegate = self
         utm_source.delegate = self
@@ -65,7 +69,9 @@ class USEAOViewController: UIViewController {
     //MARK: Trigger USEAO Flow
     @IBAction func onUSEAOButtonClick(_ sender: Any) {
         
-        if let opaqueId = opaqueId.text, !opaqueId.isEmpty {
+        if let opaqueId = opaqueId.text, !opaqueId.isEmpty,
+           let userId = userId.text, !userId.isEmpty,
+           let idType = idType.text, !idType.isEmpty {
             
             var configDict : [String: Any] = [:]
             
@@ -85,7 +91,9 @@ class USEAOViewController: UIViewController {
                 presentingController: self,
                 signUpConfig: SignUpConfig(
                     opaqueId: opaqueId,
-                    notes: notes.text,
+                    userInfo: UserInfo(
+                        userId: userId, idType: idType
+                    ),
                     utmParams: UtmParams(
                         utmSource: utm_source.text,
                         utmMedium: utm_medium.text,
@@ -120,7 +128,9 @@ extension USEAOViewController: UITextFieldDelegate {
     
     @objc func dismissKeyboard() {
         opaqueId.resignFirstResponder()
-        notes.resignFirstResponder()
+        
+        userId.resignFirstResponder()
+        idType.resignFirstResponder()
         
         utm_term.resignFirstResponder()
         utm_medium.resignFirstResponder()

@@ -385,17 +385,22 @@ SWIFT_CLASS("_TtC9SCGateway33SeparatorCollectionViewFlowLayout")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class UserInfo;
 @class UtmParams;
 
 SWIFT_CLASS("_TtC9SCGateway12SignUpConfig")
 @interface SignUpConfig : NSObject
 @property (nonatomic, copy) NSString * _Nonnull opaqueId;
-@property (nonatomic, copy) NSString * _Nullable notes;
+@property (nonatomic, strong) UserInfo * _Nonnull userInfo;
 @property (nonatomic, strong) UtmParams * _Nullable utmParams;
-- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId notes:(NSString * _Nullable)notes OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId notes:(NSString * _Nullable)notes utmParams:(UtmParams * _Nullable)utmParams retargeting:(id _Nullable)retargeting OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId notes:(NSString * _Nullable)notes retargeting:(id _Nullable)retargeting OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId notes:(NSString * _Nullable)notes utmParams:(UtmParams * _Nullable)utmParams OBJC_DESIGNATED_INITIALIZER;
+/// Only for Objective-C
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId userInfo:(UserInfo * _Nonnull)userInfo OBJC_DESIGNATED_INITIALIZER;
+/// Only for Objective-C
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId userInfo:(UserInfo * _Nonnull)userInfo utmParams:(UtmParams * _Nullable)utmParams retargeting:(id _Nullable)retargeting OBJC_DESIGNATED_INITIALIZER;
+/// Only for Objective-C
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId userInfo:(UserInfo * _Nonnull)userInfo retargeting:(id _Nullable)retargeting OBJC_DESIGNATED_INITIALIZER;
+/// Only for Objective-C
+- (nonnull instancetype)initWithOpaqueId:(NSString * _Nonnull)opaqueId userInfo:(UserInfo * _Nonnull)userInfo utmParams:(UtmParams * _Nullable)utmParams OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -440,6 +445,16 @@ SWIFT_CLASS("_TtC9SCGateway24TransactionErrorResponse")
 
 
 
+
+
+SWIFT_CLASS("_TtC9SCGateway8UserInfo")
+@interface UserInfo : NSObject
+@property (nonatomic, copy) NSString * _Nonnull userId;
+@property (nonatomic, copy) NSString * _Nonnull idType;
+- (nonnull instancetype)initWithUserId:(NSString * _Nonnull)userId idType:(NSString * _Nonnull)idType OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 SWIFT_CLASS("_TtC9SCGateway9UtmParams")
