@@ -107,6 +107,7 @@ class USEAOViewController: UIViewController {
             ) { result, error in
                     
                     if let useAoResult = result {
+                        print(useAoResult)
                         self.showPopup(title: "USE Acc Opening Status", msg: useAoResult)
                     }
                     
