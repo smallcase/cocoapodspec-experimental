@@ -68,6 +68,7 @@
 		36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */; };
 		88017AAC29657C0A00A6A83E /* USEAOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88017AAB29657C0A00A6A83E /* USEAOViewController.swift */; };
 		8817B54826E7C55A00DCFD33 /* Encodable+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */; };
+		8832CA992A0D05C0000508A7 /* LASScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8832CA982A0D05C0000508A7 /* LASScreen.swift */; };
 		88516D5227ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88516D5027ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.swift */; };
 		88516D5327ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88516D5127ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib */; };
 		886B856B27F188FB004C6CDF /* MutualFundHoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886B856927F188FB004C6CDF /* MutualFundHoldingCell.swift */; };
@@ -188,6 +189,7 @@
 		7BFE4F6D42FA67FAD3008C37 /* Pods_WebViewTesterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTesterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88017AAB29657C0A00A6A83E /* USEAOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USEAOViewController.swift; sourceTree = "<group>"; };
 		8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+ext.swift"; sourceTree = "<group>"; };
+		8832CA982A0D05C0000508A7 /* LASScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LASScreen.swift; sourceTree = "<group>"; };
 		88516D5027ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStockHoldingCellTableViewCell.swift; sourceTree = "<group>"; };
 		88516D5127ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserStockHoldingCellTableViewCell.xib; sourceTree = "<group>"; };
 		886B856927F188FB004C6CDF /* MutualFundHoldingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutualFundHoldingCell.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 		36F7D44322A9485A003B357A /* WebViewTester */ = {
 			isa = PBXGroup;
 			children = (
+				8832CA972A0D058A000508A7 /* LAS */,
 				8817B54626E7C54500DCFD33 /* Extensions */,
 				36BBD4D024E19F9F0020C9EA /* Lead Gen */,
 				366C2623246488D000C638B1 /* Holdings */,
@@ -554,6 +557,14 @@
 				88E393CF28785F1700E38705 /* String+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8832CA972A0D058A000508A7 /* LAS */ = {
+			isa = PBXGroup;
+			children = (
+				8832CA982A0D05C0000508A7 /* LASScreen.swift */,
+			);
+			path = LAS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -823,6 +834,7 @@
 				8817B54826E7C55A00DCFD33 /* Encodable+ext.swift in Sources */,
 				36F7D4B322B0EA25003B357A /* QueryService.swift in Sources */,
 				36BBD4D424E19FC30020C9EA /* LeadGenViewController.swift in Sources */,
+				8832CA992A0D05C0000508A7 /* LASScreen.swift in Sources */,
 				36F7D44522A9485A003B357A /* AppDelegate.swift in Sources */,
 				3692146E237FEC5F0087DF04 /* Transaction.swift in Sources */,
 				366C26302464892300C638B1 /* HoldingsViewController.swift in Sources */,
