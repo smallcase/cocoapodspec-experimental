@@ -22,22 +22,11 @@ class SmartInvestingLaunchScreen: UIViewController {
         if #available(iOS 13.0, *) {
             let lasView = LASScreen()
             let hostingController = UIHostingController(rootView: lasView)
-//            present(hostingController, animated: true, completion: nil)
-            UIApplication.shared.windows.first?.rootViewController = hostingController
+            navigationController?.pushViewController(hostingController, animated: true)
         } else {
-            self.showPopup(title: "Error", msg: "This module is currently only supported on iOS 13+")
+            self.showPopup(title: "Error", msg: "This module is currently supported only on iOS 13+")
         }
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
