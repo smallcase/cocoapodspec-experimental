@@ -9,25 +9,12 @@
 import Foundation
 import SCGateway
 
-
-enum HTTPRequest {
-    static let get = "GET"
-    static let post = "POST"
-}
-
-enum NetworkError: Error {
-    case invalidUrl
-    case noData
-    case parsingError
-    case invalidParams
-}
-
 //let BASE_URL = "https://api.dev.smartinvesting.io"
 var ENVIRONMENT: Environment!
 
-class NetworkManager {
+class SmartinvestingApi {
     
-    static let shared = NetworkManager()
+    static let shared = SmartinvestingApi()
     
     let session = URLSession.shared
 
@@ -40,6 +27,17 @@ class NetworkManager {
             return "https://api.dev.smartinvesting.io"
         default:
             return "https://api.smartinvesting.io"
+        }
+    }
+    
+    func getLASBaseUrl() -> String {
+        switch LASSessionManager.lasEnvironment {
+            case .staging:
+                return "https://api.stag.smartinvesting.io"
+            case .development:
+                return "https://api.dev.smartinvesting.io"
+            default:
+                return "https://api.smartinvesting.io"
         }
     }
     

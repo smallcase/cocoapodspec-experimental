@@ -8,7 +8,7 @@
 
 import UIKit
 import SCGateway
-import PopupDialog
+//import PopupDialog
 
 
 class SmallcaseListViewController: UITableViewController {
@@ -36,7 +36,7 @@ class SmallcaseListViewController: UITableViewController {
         guard let username = UserDefaults.standard.string(forKey: UserDefaultConstants.userId) else { return }
         let params = CreateTransactionBody(id: username, intent: IntentType.holding.rawValue, orderConfig: nil)
         
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+        SmartinvestingApi.shared.getTransactionId(params: params) { [weak self] (result) in
             switch result {
             case .success(let response):
                 print(response)
@@ -83,8 +83,9 @@ class SmallcaseListViewController: UITableViewController {
     
     func showPopup(title: String = "Error" , msg: String) {
         DispatchQueue.main.async { [weak self] in
-            let popup = PopupDialog(title: title, message: msg)
-            self?.present(popup, animated: true, completion: nil)
+            
+//            let popup = PopupDialog(title: title, message: msg)
+//            self?.present(popup, animated: true, completion: nil)
         }
     }
     

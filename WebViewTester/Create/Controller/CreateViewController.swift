@@ -102,7 +102,7 @@ class CreateViewController: UIViewController {
         
         let transactionBody = CreateTransactionBody(id: userId, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
         
-        NetworkManager.shared.getTransactionId(
+        SmartinvestingApi.shared.getTransactionId(
         params: transactionBody) { [weak self] (result) in
             
             switch result {

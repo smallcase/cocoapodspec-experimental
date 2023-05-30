@@ -66,7 +66,7 @@ class SmallcaseProfileViewController: UIViewController {
         
         let subcriptionBody = CreateSubscriptionBody(id: userId, intent: IntentType.subscription.rawValue, config: subscriptionConfig)
         
-        NetworkManager.shared.getSubscriptionTransactionId(params: subcriptionBody) { [weak self] (result) in
+        SmartinvestingApi.shared.getSubscriptionTransactionId(params: subcriptionBody) { [weak self] (result) in
             
             switch result {
                 case .success(let response):
@@ -86,7 +86,7 @@ class SmallcaseProfileViewController: UIViewController {
         let orderConfig = OrderConfig(type: OrderType.buy.rawValue, scid: scid, iscid: nil, did: nil, orders: nil)
         let transactionBody = CreateTransactionBody(id: userId, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
         
-        NetworkManager.shared.getTransactionId(params: transactionBody) {[weak self] (result) in
+        SmartinvestingApi.shared.getTransactionId(params: transactionBody) {[weak self] (result) in
             switch result {
             case .success(let response):
                 print(response)

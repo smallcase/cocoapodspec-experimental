@@ -8,7 +8,7 @@
 
 import UIKit
 import SCGateway
-import PopupDialog
+//import PopupDialog
 
 
 class InvestmentDetailsViewController: UIViewController {
@@ -96,7 +96,7 @@ class InvestmentDetailsViewController: UIViewController {
         let orderConfig = OrderConfig(type: OrderType.exit.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
         let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
         
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+        SmartinvestingApi.shared.getTransactionId(params: params) { [weak self] (result) in
             switch result {
             case .success(let response):
                 print(response)
@@ -120,7 +120,7 @@ class InvestmentDetailsViewController: UIViewController {
         let orderConfig = OrderConfig(type: OrderType.investMore.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
         let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
         
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+        SmartinvestingApi.shared.getTransactionId(params: params) { [weak self] (result) in
             switch result {
             case .success(let response):
                 print(response)
@@ -145,7 +145,7 @@ class InvestmentDetailsViewController: UIViewController {
         let orderConfig = OrderConfig(type: nil, scid: nil, iscid: iscid, did: nil, orders: nil)
         let params = CreateTransactionBody(id: username, intent: IntentType.sipSetup.rawValue, orderConfig: orderConfig)
         
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+        SmartinvestingApi.shared.getTransactionId(params: params) { [weak self] (result) in
             switch result {
                 case .success(let response):
                     print(response)
@@ -168,7 +168,7 @@ class InvestmentDetailsViewController: UIViewController {
         let orderConfig = OrderConfig(type: OrderType.manage.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
         let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
         
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+        SmartinvestingApi.shared.getTransactionId(params: params) { [weak self] (result) in
             switch result {
                 case .success(let response):
                     print(response)
@@ -193,7 +193,7 @@ class InvestmentDetailsViewController: UIViewController {
         let orderConfig = OrderConfig(type: OrderType.sip.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
         let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
         
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+        SmartinvestingApi.shared.getTransactionId(params: params) { [weak self] (result) in
             switch result {
                 case .success(let response):
                     print(response)
@@ -218,7 +218,7 @@ class InvestmentDetailsViewController: UIViewController {
         let orderConfig = OrderConfig(type: OrderType.repair.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
         let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
         
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+        SmartinvestingApi.shared.getTransactionId(params: params) { [weak self] (result) in
             switch result {
                 case .success(let response):
                     print(response)
@@ -242,7 +242,7 @@ class InvestmentDetailsViewController: UIViewController {
         let orderConfig = OrderConfig(type: OrderType.rebalance.rawValue, scid: nil, iscid: iscid, did: nil, orders: nil)
         let params = CreateTransactionBody(id: username, intent: IntentType.transaction.rawValue, orderConfig: orderConfig)
         
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+        SmartinvestingApi.shared.getTransactionId(params: params) { [weak self] (result) in
             switch result {
                 case .success(let response):
                     print(response)
@@ -292,7 +292,7 @@ class InvestmentDetailsViewController: UIViewController {
         let orderConfig = OrderConfig(type: nil, scid: nil, iscid: iscid, did: nil, orders: nil)
         let params = CreateTransactionBody(id: username, intent: IntentType.cancelAmo.rawValue, orderConfig: orderConfig)
         
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+        SmartinvestingApi.shared.getTransactionId(params: params) { [weak self] (result) in
             switch result {
                 case .success(let response):
                     print(response)
@@ -399,9 +399,10 @@ class InvestmentDetailsViewController: UIViewController {
 
     
     func showErrorAlert(err: Error) {
-        let popup = PopupDialog(title: "Error ", message: err.localizedDescription )
+//        let popup = PopupDialog(title: "Error ", message: err.localizedDescription)
         DispatchQueue.main.async {
-            self.present(popup, animated: true, completion: nil)
+//            self.present(popup, animated: true, completion: nil)
+            self.showPopup(title: "Error", msg: err.localizedDescription)
         }
     }
 }

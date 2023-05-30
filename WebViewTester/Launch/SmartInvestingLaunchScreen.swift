@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftUI
+import SCGateway
+import Loans
 
 class SmartInvestingLaunchScreen: UIViewController {
 
@@ -19,12 +21,15 @@ class SmartInvestingLaunchScreen: UIViewController {
     
     @IBAction func launchLoansModule(_ sender: UIButton) {
         
-        if #available(iOS 13.0, *) {
-            let lasView = LASScreen()
-            let hostingController = UIHostingController(rootView: lasView)
+        if #available(iOS 15.0, *) {
+//            let lasView = LASScreen()
+//            let hostingController = UIHostingController(rootView: lasView)
+            
+            let newLasUserView = CreateUserScreen()
+            let hostingController = UIHostingController(rootView: newLasUserView)
             navigationController?.pushViewController(hostingController, animated: true)
         } else {
-            self.showPopup(title: "Error", msg: "This module is currently supported only on iOS 13+")
+            self.showPopup(title: "Error", msg: "This module is currently supported only on iOS 15+")
         }
         
     }

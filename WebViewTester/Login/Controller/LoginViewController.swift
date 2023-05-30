@@ -8,7 +8,7 @@
 
 import UIKit
 import SCGateway
-import PopupDialog
+//import PopupDialog
 import SafariServices
 import AuthenticationServices
 
@@ -140,8 +140,9 @@ class LoginViewController: UIViewController {
             
             
         }
-        let popupDialog = PopupDialog(title: "Status", message: msg)
-        self.present(popupDialog, animated: false, completion: nil)
+//        let popupDialog = PopupDialog(title: "Status", message: msg)
+//        self.present(popupDialog, animated: false, completion: nil)
+        self.showPopup(title: "Status", msg: msg)
         
     }
     
@@ -290,7 +291,7 @@ class LoginViewController: UIViewController {
     }
     
     func getAuthToken() {
-        NetworkManager.shared.getAuthToken(username: userNameString!) {[weak self] (result) in
+        SmartinvestingApi.shared.getAuthToken(username: userNameString!) {[weak self] (result) in
             switch result {
             case .success(let response):
                 print(response)
@@ -341,11 +342,15 @@ class LoginViewController: UIViewController {
         let transactionParams = CreateTransactionBody(id: userName, intent: IntentType.connect.rawValue, orderConfig: nil)
         
         if SCGateway.shared.isUserConnected() {
-            let popupDialog = PopupDialog(title: "Error", message: "User already Connected, authToken: \(SCGateway.shared.getUserAuthToken() ?? "nil")")
-            self.present(popupDialog, animated: true, completion: nil)
+            let msg = "User already Connected, authToken: \(SCGateway.shared.getUserAuthToken() ?? "nil")"
+            
+//            let popupDialog = PopupDialog(title: "Error", message: "User already Connected, authToken: \(SCGateway.shared.getUserAuthToken() ?? "nil")")
+//            self.present(popupDialog, animated: true, completion: nil)
+            
+            self.showPopup(title: "Error", msg: msg)
         } else {
          
-            NetworkManager.shared.getTransactionId(params: transactionParams) { [weak self] (result) in
+            SmartinvestingApi.shared.getTransactionId(params: transactionParams) { [weak self] (result) in
                 switch result {
                     case .success(let response):
                         print("response: \(response)")
@@ -357,9 +362,9 @@ class LoginViewController: UIViewController {
                     case .failure(let error):
                         DispatchQueue.main.async { [weak self] in
                             
-                            let popupDialog = PopupDialog(title: "Error", message: error.localizedDescription)
-                            
-                            self?.present(popupDialog, animated: true, completion: nil)
+//                            let popupDialog = PopupDialog(title: "Error", message: error.localizedDescription)
+//                            self?.present(popupDialog, animated: true, completion: nil)
+                            self?.showPopup(title: "Error", msg: error.localizedDescription)
                         }
                         print("error: \(error)")
                         
@@ -423,9 +428,6 @@ class LoginViewController: UIViewController {
                 print(result)
             }
         }
-        catch SCGatewayError.uninitialized {
-//            print(SCGatewayError.uninitialized.)
-        }
         catch let err {
             print(err)
         }
@@ -457,8 +459,9 @@ class LoginViewController: UIViewController {
     
     func showErrorPopup(msg: String?) {
         DispatchQueue.main.async { [weak self] in
-            let popupDialog = PopupDialog(title: "Error", message: msg)
-            self?.present(popupDialog, animated: true, completion: nil)
+//            let popupDialog = PopupDialog(title: "Error", message: msg)
+//            self?.present(popupDialog, animated: true, completion: nil)
+            self?.showPopup(title: "Error", msg: msg)
         }
     }
 
@@ -469,7 +472,7 @@ class LoginViewController: UIViewController {
     
     func connect(authToken: String) {
         
-        NetworkManager.shared.connectBroker(
+        SmartinvestingApi.shared.connectBroker(
             userId: userNameString!,
             authToken: authToken) { (result) in
                 print("LOGINVC: -> CONNECT BROKER --------> \(result)")

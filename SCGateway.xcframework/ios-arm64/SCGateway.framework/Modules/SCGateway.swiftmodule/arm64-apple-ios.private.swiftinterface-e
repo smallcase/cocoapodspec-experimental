@@ -1,11 +1,12 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SCGateway
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import AVKit
 import AuthenticationServices
 import Foundation
+import Loans
 import Mixpanel
 import MobileCoreServices
 import QuickLook
@@ -45,22 +46,9 @@ extension UIKit.UIImage {
   @objc public init(userId: Swift.String, idType: Swift.String)
   @objc deinit
 }
-public enum SCGatewayError : Swift.Int, Swift.Error {
+public enum TransactionError : Swift.Error {
   case uninitialized
   case configNotSet
-  public var errorMessage: Swift.String {
-    get
-  }
-  public var errorCode: Swift.Int {
-    get
-  }
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-public enum TransactionError : Swift.Error {
   case userMismatch
   case userMismatchWithData(data: SCGateway.Transaction.SuccessData?)
   case apiError
@@ -157,10 +145,10 @@ extension UIKit.UIEdgeInsets {
 }
 extension SCGateway.SCGateway {
   public func triggerLeadGen(presentingController: UIKit.UIViewController, params: Swift.Dictionary<Swift.String, Swift.String>?, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, retargeting: Swift.Bool?)
-  @objc dynamic public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
-  @objc dynamic public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, smallplugUiConfig: SCGateway.SmallplugUiConfig?, completion: @escaping ((Any?, Swift.Error?) -> Swift.Void))
-  @objc dynamic public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
-  @objc dynamic public func showOrders(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, Swift.Error?) -> Swift.Void))
+  @objc dynamic public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, completion: @escaping ((Any?, (any Swift.Error)?) -> Swift.Void))
+  @objc dynamic public func launchSmallPlug(presentingController: UIKit.UIViewController, smallplugData: SCGateway.SmallplugData?, smallplugUiConfig: SCGateway.SmallplugUiConfig?, completion: @escaping ((Any?, (any Swift.Error)?) -> Swift.Void))
+  @objc dynamic public func logoutUser(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, (any Swift.Error)?) -> Swift.Void))
+  @objc dynamic public func showOrders(presentingController: UIKit.UIViewController, completion: @escaping ((Swift.Bool, (any Swift.Error)?) -> Swift.Void))
 }
 extension SCGateway.SCGateway {
   public func triggerMfTransaction(presentingController: UIKit.UIViewController, transactionId: Swift.String, completion: @escaping (Swift.Result<SCGateway.TransactionIntent, SCGateway.TransactionError>) -> Swift.Void) throws
@@ -205,47 +193,47 @@ extension UIKit.UIColor {
 }
 public struct Transaction : Swift.Codable {
   public struct SuccessData : Swift.Codable {
-    public func encode(to encoder: Swift.Encoder) throws
-    public init(from decoder: Swift.Decoder) throws
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
   }
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct SubscriptionConfig : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct OrderConfig : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct MetaOrderConfig : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct SstOrder : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct SidInfo : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct Order : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct OrderBatch : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct OrderData : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct SipDetail : Swift.Codable {
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public enum GatewayAuthenticationError : Swift.Error {
   case canceledLogin
@@ -378,19 +366,19 @@ extension UIKit.UIFont {
   public static func jbs_registerFont(withFilenameString filenameString: Swift.String, bundle: Foundation.Bundle)
 }
 extension SCGateway.SCGateway {
-  @objc dynamic public func getSmallcases(params: [Swift.String : Any]?, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
-  @objc dynamic public func getSmallcaseProfile(scid: Swift.String, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
-  @objc dynamic public func getSmallcaseNews(scid: Swift.String?, iscid: Swift.String?, optionalParams: [Swift.String : Any]?, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
-  @objc dynamic public func getUserInvestments(iscids: [Swift.String]?, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
-  @objc dynamic public func getExitedSmallcases(completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
-  @objc dynamic public func markSmallcaseArchive(iscid: Swift.String, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
-  @objc dynamic public func getUserInvestmentDetails(iscid: Swift.String, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
-  @objc dynamic public func getHistorical(scid: Swift.String, benchmarkId: Swift.String, base: Swift.Int = 100, duration: Swift.String?, completion: @escaping (Foundation.Data?, Swift.Error?) -> Swift.Void)
+  @objc dynamic public func getSmallcases(params: [Swift.String : Any]?, completion: @escaping (Foundation.Data?, (any Swift.Error)?) -> Swift.Void)
+  @objc dynamic public func getSmallcaseProfile(scid: Swift.String, completion: @escaping (Foundation.Data?, (any Swift.Error)?) -> Swift.Void)
+  @objc dynamic public func getSmallcaseNews(scid: Swift.String?, iscid: Swift.String?, optionalParams: [Swift.String : Any]?, completion: @escaping (Foundation.Data?, (any Swift.Error)?) -> Swift.Void)
+  @objc dynamic public func getUserInvestments(iscids: [Swift.String]?, completion: @escaping (Foundation.Data?, (any Swift.Error)?) -> Swift.Void)
+  @objc dynamic public func getExitedSmallcases(completion: @escaping (Foundation.Data?, (any Swift.Error)?) -> Swift.Void)
+  @objc dynamic public func markSmallcaseArchive(iscid: Swift.String, completion: @escaping (Foundation.Data?, (any Swift.Error)?) -> Swift.Void)
+  @objc dynamic public func getUserInvestmentDetails(iscid: Swift.String, completion: @escaping (Foundation.Data?, (any Swift.Error)?) -> Swift.Void)
+  @objc dynamic public func getHistorical(scid: Swift.String, benchmarkId: Swift.String, base: Swift.Int = 100, duration: Swift.String?, completion: @escaping (Foundation.Data?, (any Swift.Error)?) -> Swift.Void)
 }
 @objc public class TransactionErrorResponse : ObjectiveC.NSObject, Swift.Codable {
   @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
 }
 public struct AnchoredConstraints {
   public var top: UIKit.NSLayoutConstraint?, leading: UIKit.NSLayoutConstraint?, bottom: UIKit.NSLayoutConstraint?, trailing: UIKit.NSLayoutConstraint?, width: UIKit.NSLayoutConstraint?, height: UIKit.NSLayoutConstraint?
@@ -432,9 +420,9 @@ extension UIKit.UIStackView {
   @objc public static var currentTransactionId: Swift.String
   @available(*, deprecated)
   @objc public func setup(config: SCGateway.GatewayConfig)
-  @objc public func setup(config: SCGateway.GatewayConfig, completion: ((Swift.Bool, Swift.Error?) -> Swift.Void)?)
-  @objc public func initializeGateway(_ authToken: Swift.String, completion: ((Swift.String, Swift.Error?) -> Swift.Void)?)
-  @objc public func initializeGateway(sdkToken: Swift.String, completion: ((Swift.Bool, Swift.Error?) -> Swift.Void)?)
+  @objc public func setup(config: SCGateway.GatewayConfig, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)?)
+  @objc public func initializeGateway(_ authToken: Swift.String, completion: ((Swift.String, (any Swift.Error)?) -> Swift.Void)?)
+  @objc public func initializeGateway(sdkToken: Swift.String, completion: ((Swift.Bool, (any Swift.Error)?) -> Swift.Void)?)
   public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, brokerConfig: SCGateway.BrokerConfigType?, completion: @escaping (Swift.Result<SCGateway.TransactionIntent, SCGateway.TransactionError>) -> Swift.Void) throws
   public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, utmParams: Swift.Dictionary<Swift.String, Swift.String>?, completion: @escaping (Swift.Result<SCGateway.TransactionIntent, SCGateway.TransactionError>) -> Swift.Void) throws
   public func triggerTransactionFlow(transactionId: Swift.String, presentingController: UIKit.UIViewController, completion: @escaping (Swift.Result<SCGateway.TransactionIntent, SCGateway.TransactionError>) -> Swift.Void) throws
@@ -467,14 +455,11 @@ extension UIKit.UIDevice {
 }
 extension SCGateway.SCGateway {
   @objc dynamic public func openUsEquitiesAccount(presentingController: UIKit.UIViewController)
-  @objc dynamic public func openUsEquitiesAccount(presentingController: UIKit.UIViewController, signUpConfig: SCGateway.SignUpConfig, completion: @escaping ((Swift.String?, Swift.Error?) -> Swift.Void))
+  @objc dynamic public func openUsEquitiesAccount(presentingController: UIKit.UIViewController, signUpConfig: SCGateway.SignUpConfig, completion: @escaping ((Swift.String?, (any Swift.Error)?) -> Swift.Void))
   @objc dynamic public func openUsEquitiesAccount(presentingController: UIKit.UIViewController, signUpConfig: SCGateway.SignUpConfig? = nil)
-  @objc dynamic public func openUsEquitiesAccount(presentingController: UIKit.UIViewController, signUpConfig: SCGateway.SignUpConfig, additionalConfig: [Swift.String : Any]? = nil, completion: @escaping ((Swift.String?, Swift.Error?) -> Swift.Void))
+  @objc dynamic public func openUsEquitiesAccount(presentingController: UIKit.UIViewController, signUpConfig: SCGateway.SignUpConfig, additionalConfig: [Swift.String : Any]? = nil, completion: @escaping ((Swift.String?, (any Swift.Error)?) -> Swift.Void))
   @objc dynamic public func openUsEquitiesAccount(presentingController: UIKit.UIViewController, signUpConfig: SCGateway.SignUpConfig, additionalConfig: [Swift.String : Any]? = nil)
 }
-extension SCGateway.SCGatewayError : Swift.Equatable {}
-extension SCGateway.SCGatewayError : Swift.Hashable {}
-extension SCGateway.SCGatewayError : Swift.RawRepresentable {}
 extension SCGateway.GatewayAuthenticationError : Swift.Equatable {}
 extension SCGateway.GatewayAuthenticationError : Swift.Hashable {}
 extension SCGateway.AllowedBrokerType : Swift.Equatable {}

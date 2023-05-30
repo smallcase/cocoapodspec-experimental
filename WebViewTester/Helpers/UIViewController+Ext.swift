@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import PopupDialog
+//import PopupDialog
 import SCGateway
 
 extension UIViewController {

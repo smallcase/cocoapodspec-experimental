@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import SCGateway
-import PopupDialog
+//import PopupDialog
 
 class HoldingsViewController: UIViewController {
     
@@ -73,7 +73,7 @@ class HoldingsViewController: UIViewController {
     //MARK: Create TxnID
     private func createTransactionId(params: CreateTransactionBody) {
         
-        NetworkManager.shared.getTransactionId(params: params) { [weak self] (result) in
+        SmartinvestingApi.shared.getTransactionId(params: params) { [weak self] (result) in
             switch result {
                 case .success(let response):
                     print(response)
@@ -119,7 +119,7 @@ class HoldingsViewController: UIViewController {
         
         if holdingsV2Switch.isOn {
             
-            NetworkManager.shared.fetchUserHoldings(
+            SmartinvestingApi.shared.fetchUserHoldings(
                 username: username,
                 mutualFunds: self.holdingsMfSwitch.isOn
             ) { [weak self] (result) in
@@ -136,7 +136,7 @@ class HoldingsViewController: UIViewController {
             
         } else {
             
-            NetworkManager.shared.getHoldings(username: username){ [weak self] (result) in
+            SmartinvestingApi.shared.getHoldings(username: username){ [weak self] (result) in
                 switch result {
                     case .success(let response):
                         
@@ -160,7 +160,7 @@ class HoldingsViewController: UIViewController {
                     case .failure(_):
                         //               self?.showPopup(msg: "\(error)")
                         
-                        NetworkManager.shared.getHoldings2(username: username) { [weak self] (result) in
+                        SmartinvestingApi.shared.getHoldings2(username: username) { [weak self] (result) in
                             
                             switch result {
                                     

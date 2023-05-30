@@ -15,9 +15,9 @@ extension Encodable {
         return String(data: jsonData, encoding: .utf8)!
     }
     
-    var dictionary: [String: Any]? {
+    var dictionaryValue: [String: Any]? {
         guard let data = try? JSONEncoder().encode(self) else { return nil }
-        return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
+        return (try? JSONSerialization.jsonObject(with: data, options: [])).flatMap { $0 as? [String: Any] }
     }
     
     func asDictionary() throws -> [String: Any] {
