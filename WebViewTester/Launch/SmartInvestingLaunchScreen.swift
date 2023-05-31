@@ -25,8 +25,11 @@ class SmartInvestingLaunchScreen: UIViewController {
 //            let lasView = LASScreen()
 //            let hostingController = UIHostingController(rootView: lasView)
             
-            let newLasUserView = CreateUserScreen()
-            let hostingController = UIHostingController(rootView: newLasUserView)
+//            let newLasUserView = CreateUserScreen()
+//            let hostingController = UIHostingController(rootView: newLasUserView)
+//            navigationController?.pushViewController(hostingController, animated: true)
+            
+            let hostingController = CreateUserScreen().embeddedInHostingController()
             navigationController?.pushViewController(hostingController, animated: true)
         } else {
             self.showPopup(title: "Error", msg: "This module is currently supported only on iOS 15+")

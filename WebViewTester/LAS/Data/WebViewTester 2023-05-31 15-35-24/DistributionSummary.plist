@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Smart Investing.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>212</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>A61308B22BB759C06A9EEFFF5DEF6A7345857BC0</string>
+				<key>dateExpires</key>
+				<string>23/01/24</string>
+				<key>type</key>
+				<string>Apple Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>1</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>A61308B22BB759C06A9EEFFF5DEF6A7345857BC0</string>
+						<key>dateExpires</key>
+						<string>23/01/24</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>Loans.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>BFHF2F2UCF</string>
+						<key>name</key>
+						<string>Smallcase Technologies Private Limited</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>1.0</string>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>1</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>A61308B22BB759C06A9EEFFF5DEF6A7345857BC0</string>
+						<key>dateExpires</key>
+						<string>23/01/24</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>Mixpanel.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>BFHF2F2UCF</string>
+						<key>name</key>
+						<string>Smallcase Technologies Private Limited</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>3.3.0</string>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>342</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>A61308B22BB759C06A9EEFFF5DEF6A7345857BC0</string>
+						<key>dateExpires</key>
+						<string>23/01/24</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>SCGateway.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>BFHF2F2UCF</string>
+						<key>name</key>
+						<string>Smallcase Technologies Private Limited</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>0.0.7</string>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>BFHF2F2UCF.com.smallcase.smartInvesting</string>
+				<key>com.apple.developer.associated-domains</key>
+				<array>
+					<string>applinks:gatewaydemo-dev.redirect.dev.smallcase.com</string>
+					<string>applinks:connectpro.repl.co/</string>
+					<string>applinks:gatewaydemo-dev.verify.dev.smallcase.com</string>
+					<string>applinks:useaccountopeningtwa.ankitdeshmukh2.repl.co</string>
+				</array>
+				<key>com.apple.developer.team-identifier</key>
+				<string>BFHF2F2UCF</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>Smart Investing.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>7e225166-32e8-4299-8d8d-69847ee0b91c</string>
+				<key>dateExpires</key>
+				<string>22/02/24</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: com.smallcase.smartInvesting</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>BFHF2F2UCF</string>
+				<key>name</key>
+				<string>Smallcase Technologies Private Limited</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>3.1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>

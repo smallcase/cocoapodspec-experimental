@@ -18,6 +18,10 @@ struct CreateInteractionBody: Codable {
         var lender: String?
         var userId: String?
         var opaqueId: String?
+  
+//        enum CodingKeys: String, CodingKey {
+//            case lender, userId, opaqueId
+//        }
         
         enum CodingKeys: String, CodingKey {
             case amount, type, lender, userId, opaqueId

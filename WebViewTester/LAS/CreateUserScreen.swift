@@ -11,6 +11,8 @@ import SwiftUI
 @available(iOS 15.0, *)
 struct CreateUserScreen: View {
     
+    @EnvironmentObject var hostingProvider: ViewControllerProvider
+    @StateObject var currentUserMode = LASUserMode()
 //    @StateObject var lasUser = LASUser()
     
     @State private var environmentIndex = 0
@@ -32,7 +34,7 @@ struct CreateUserScreen: View {
                 
                 Picker("Environment",
                        selection: Binding(
-                        get: { environmentIndex ?? 0 },
+                        get: { environmentIndex },
                         set: {
                             environmentIndex = $0
                             LASSessionManager.envIndex = environmentIndex
@@ -53,8 +55,8 @@ struct CreateUserScreen: View {
                     TextField("PAN", text: Binding(
                         get: { PAN ?? "" },
                         set: {
-                            PAN = $0
-                            LASSessionManager.pan = $0
+                            PAN = $0.uppercased()
+                            LASSessionManager.pan = $0.uppercased()
                         }
                     ))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -77,7 +79,8 @@ struct CreateUserScreen: View {
                         get: { userId ?? "" },
                         set: {
                             userId = $0
-                            LASSessionManager.userId = $0
+                            LASSessionManager.userId = $0.lowercased()
+                            currentUserMode.userMode = .newUser
                         }
                     ))
                     .padding(EdgeInsets.init(top: 15.0, leading: 0, bottom: 0, trailing: 0))
@@ -86,8 +89,8 @@ struct CreateUserScreen: View {
                     TextField("Lender", text: Binding(
                         get: { lender ?? "" },
                         set: {
-                            lender = $0
-                            LASSessionManager.lender = $0
+                            lender = $0.lowercased()
+                            LASSessionManager.lender = $0.lowercased()
                         }
                     ))
                     .padding(EdgeInsets.init(top: 15.0, leading: 0, bottom: 0, trailing: 0))
@@ -95,7 +98,7 @@ struct CreateUserScreen: View {
                     
                     NavigationLink(
                         "Register New User",
-                        destination: LASScreen()
+                        destination: LASScreen().environmentObject(hostingProvider).environmentObject(currentUserMode)
                     )
                     .frame(maxWidth: .infinity, alignment: .center)
                     .buttonStyle(.borderedProminent)
@@ -113,10 +116,11 @@ struct CreateUserScreen: View {
                     TextField("User Id", text: Binding(
                         get: { existingUserId ?? "" },
                         set: {
-                            existingUserId = $0
+                            existingUserId = $0.lowercased()
                             LASSessionManager.dob = ""
                             LASSessionManager.pan = ""
-                            LASSessionManager.userId = ""
+                            LASSessionManager.userId = existingUserId ?? ""
+                            currentUserMode.userMode = .existingUser
                         }
                     ))
                     .padding(EdgeInsets.init(top: 15.0, leading: 0, bottom: 0, trailing: 0))
@@ -124,7 +128,7 @@ struct CreateUserScreen: View {
                     
                     NavigationLink(
                         "Select Existing User",
-                        destination: LASScreen()
+                        destination: LASScreen().environmentObject(hostingProvider).environmentObject(currentUserMode)
                     )
                     .frame(maxWidth: .infinity, alignment: .center)
                     .buttonStyle(.borderedProminent)

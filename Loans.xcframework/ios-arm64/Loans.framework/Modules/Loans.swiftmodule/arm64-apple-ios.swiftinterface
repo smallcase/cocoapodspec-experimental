@@ -1,0 +1,85 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Loans
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AuthenticationServices
+import Foundation
+@_exported import Loans
+import SafariServices
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@objc public class ScLoanConfig : ObjectiveC.NSObject {
+  @objc public init(gatewayName: Swift.String)
+  public init(gatewayName: Swift.String, environment: SCLoanEnvironment? = .production)
+  @objc public init(gatewayName: Swift.String, environment: Foundation.NSNumber? = 0)
+  @objc deinit
+}
+public typealias ScLoanResult<T> = Swift.Result<T, ScLoanError>
+@objc @_hasMissingDesignatedInitializers @objcMembers public class ScLoanSuccess : ObjectiveC.NSObject {
+  @objc final public let isSuccess: Swift.Bool
+  @objc final public let data: Swift.String?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class ScLoanError : Foundation.NSError {
+  final public let isSuccess: Swift.Bool
+  @objc final public let errorCode: Swift.Int
+  @objc final public let errorMessage: Swift.String
+  @objc final public let data: Swift.String?
+  @objc override dynamic public var domain: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public var code: Swift.Int {
+    @objc get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SCGatewayLoanResult {
+  @objc deinit
+}
+@objc public enum PaymentType : ObjectiveC.NSInteger {
+  case principal = 0
+  case interest = 1
+  case shortfall = 2
+  case closure = 3
+  public var rawValue: ObjectiveC.NSInteger {
+    get
+  }
+  public init?(rawValue: ObjectiveC.NSInteger)
+  public typealias RawValue = ObjectiveC.NSInteger
+}
+@objc public enum SCLoanEnvironment : Swift.Int {
+  case development
+  case production
+  case staging
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class LoanInfo : ObjectiveC.NSObject {
+  @objc public init(interactionToken: Swift.String)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class SCLoans : ObjectiveC.NSObject {
+  @objc public static let instance: SCLoans
+  public func setupSCGatewayLoans(lasConfig: ScLoanConfig, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Swift.Void))
+  @objc public func setupSCGatewayLoans(lasConfig: ScLoanConfig, completion: @escaping (ScLoanSuccess?, ScLoanError?) -> Swift.Void)
+  public func apply(presentingController: UIKit.UIViewController, loanInfo: LoanInfo, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Swift.Void))
+  @objc public func apply(presentingController: UIKit.UIViewController, loanInfo: LoanInfo, completion: @escaping (ScLoanSuccess?, ScLoanError?) -> Swift.Void)
+  public func pay(presentingController: UIKit.UIViewController, loanInfo: LoanInfo, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Swift.Void))
+  @objc public func pay(presentingController: UIKit.UIViewController, loanInfo: LoanInfo, completion: @escaping (ScLoanSuccess?, ScLoanError?) -> Swift.Void)
+  public func withdraw(presentingController: UIKit.UIViewController, loanInfo: LoanInfo, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Swift.Void))
+  @objc public func withdraw(presentingController: UIKit.UIViewController, loanInfo: LoanInfo, completion: @escaping (ScLoanSuccess?, ScLoanError?) -> Swift.Void)
+  public func closeLoanAccount(presentingController: UIKit.UIViewController, loanInfo: LoanInfo, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Swift.Void))
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension PaymentType : Swift.Equatable {}
+extension PaymentType : Swift.Hashable {}
+extension PaymentType : Swift.RawRepresentable {}
+extension SCLoanEnvironment : Swift.Equatable {}
+extension SCLoanEnvironment : Swift.Hashable {}
+extension SCLoanEnvironment : Swift.RawRepresentable {}

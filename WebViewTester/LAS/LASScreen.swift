@@ -14,9 +14,12 @@ import Loans
 @available(iOS 13.0, *)
 struct LASScreen: View {
     
+    @EnvironmentObject var hostingProvider: ViewControllerProvider
+    @EnvironmentObject var lasUserMode: LASUserMode
+    
 //    @EnvironmentObject var lasUser: LASUser
     
-    @State private var gatewayName: String? = nil
+    @State private var gatewayName: String? = LASSessionManager.gatewayName
     
     //Create interaction
     @State private var intent: String? = nil
@@ -52,8 +55,8 @@ struct LASScreen: View {
                     TextField("gatewayName", text: Binding(
                         get: { gatewayName ?? "" },
                         set: {
-                            gatewayName = $0
-                            LASSessionManager.gatewayName = $0
+                            gatewayName = $0.lowercased()
+                            LASSessionManager.gatewayName = $0.lowercased()
                         }
                     ))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -80,7 +83,10 @@ struct LASScreen: View {
                     
                     TextField("intent", text: Binding(
                         get: { intent ?? "" },
-                        set: { intent = $0 }
+                        set: {
+                            intent = $0.lowercased()
+                            LASSessionManager.lasIntent = $0.lowercased()
+                        }
                     ))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     
@@ -90,13 +96,19 @@ struct LASScreen: View {
                     HStack(spacing: 20.0) {
                         TextField("amount", text: Binding(
                             get: { amount ?? "" },
-                            set: { amount = $0 }
+                            set: {
+                                amount = $0
+                                LASSessionManager.losAmount = $0
+                            }
                         ))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         
                         TextField("type", text: Binding(
                             get: { type ?? "" },
-                            set: { type = $0 }
+                            set: {
+                                type = $0.lowercased()
+                                LASSessionManager.losType = $0.lowercased()
+                            }
                         ))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
@@ -104,7 +116,10 @@ struct LASScreen: View {
                     HStack(spacing: 20.0) {
                         TextField("lender", text: Binding(
                             get: { lender ?? "" },
-                            set: { lender = $0 }
+                            set: {
+                                lender = $0.lowercased()
+                                LASSessionManager.lender = $0.lowercased()
+                            }
                         ))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         
@@ -170,7 +185,7 @@ struct LASScreen: View {
                 HStack(alignment: .center) {
                     
                     Button(action: {
-                        
+                        payLoanAmount()
                     }) {
                         Text("Pay")
                             .foregroundColor(.white)
@@ -183,7 +198,7 @@ struct LASScreen: View {
                     
                     
                     Button(action: {
-                        
+                        withdrawAmount()
                     }) {
                         Text("Withdraw")
                             .foregroundColor(.white)
@@ -212,44 +227,128 @@ struct LASScreen: View {
         }
     }
     
-    func triggerLOSJourney() {
-        SCLoans.instance.setupSCGatewayLoans(lasConfig: ScLoanConfig(gatewayName: gatewayName ?? "gatewaydemo")) { result in
-            
+    func registerNewOrExistingUser() {
+        
+        switch lasUserMode.userMode {
+            case .newUser: createUser()
+            case .existingUser: getUser()
+        }
+
+    }
+    
+    func createUser() {
+        SmartinvestingApi.shared.createUser() { result in
+            switch result {
+                case .success(let response):
+                    
+                if let res = response.toJson(), let resData = res["data"] as? [String: String] {
+                    showAlertDialog("Registered User", resData.toJsonString ?? "")
+                    LASSessionManager.lasUser = LASUser(lasUserId: resData["lasUserId"]!, opaqueId: resData["opaqueId"]!)
+                    
+                    ///set the UI Fields
+                    opaqueId = LASSessionManager.lasUser?.opaqueId
+                    userId = LASSessionManager.lasUser?.lasUserId
+                    lender = LASSessionManager.lender
+                    }
+                case .failure(let error):
+                showAlertDialog("Error Registering User", error.localizedDescription)
+            }
         }
     }
     
-    func getInteractionToken() {
-        print(LASSessionManager.dob)
+    func getUser() {
+        SmartinvestingApi.shared.getUser() { result in
+            switch result {
+                case .success(let response):
+                    
+                if let res = response.toJson(), let resData = res["data"] as? [String: String] {
+                    showAlertDialog("Registered User", resData.toJsonString ?? "")
+                    LASSessionManager.lasUser = LASUser(lasUserId: resData["lasUserId"]!, opaqueId: resData["opaqueId"]!)
+                    
+                    ///set the UI Fields
+                    opaqueId = LASSessionManager.lasUser?.opaqueId
+                    userId = LASSessionManager.lasUser?.lasUserId
+                    lender = LASSessionManager.lender
+                    }
+                case .failure(let error):
+                showAlertDialog("Error Registering User", error.localizedDescription)
+            }
+        }
     }
     
     func setupLoansSDK() {
         SCLoans.instance.setupSCGatewayLoans(lasConfig: ScLoanConfig(gatewayName: gatewayName ?? "gatewaydemo", environment: LASSessionManager.lasEnvironment)) { result in
             
             switch result {
-                case .success(_): print("Loans SDK setup successfully")
-                case .failure(let error): print(error.debugDescription)
+                case .success(_):
+                showAlertDialog("Setup Success", "Loans SDK setup successfully")
+                
+                case .failure(let error):
+                showAlertDialog("Error Registering User", error.debugDescription)
+                print(error.debugDescription)
             }
         }
     }
     
-    func registerNewOrExistingUser() {
-        SmartinvestingApi.shared.createUser() { result in
+    func getInteractionToken() {
+        SmartinvestingApi.shared.createInteraction() { result in
             switch result {
-                case .success(let response):
-                
-                    print(response.dictionaryValue)
-                    print(response.dictionaryValue?["data"] as? [String: String])
+            case .success(let response):
+                if let res = response.toJson(), let resData = res["data"] as? [String: String] {
+                    showAlertDialog("Interaction Created", resData.toJsonString ?? "")
                     
-                    if let res = response.dictionaryValue, let resData = res["data"] as? [String: String] {
-                        showingAlert = true
-                        alertTitle = "Success"
-                        alertMessage = resData.toJsonString ?? ""
-                        LASSessionManager.lasUser = LASUser(lasUserId: resData["lasUserId"]!, opaqueId: resData["opaqueId"]!)
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
+                    ///set UI fields
+                    interactionToken = resData["interactionToken"]
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
+    }
+    
+    func triggerLOSJourney() {
+        SCLoans.instance.apply(presentingController: hostingProvider.viewController!, loanInfo: LoanInfo(interactionToken: interactionToken!)) { result in
+            switch result {
+            case .success(let scLoanSuccess):
+                print(scLoanSuccess.data ?? "")
+                showAlertDialog("Success", scLoanSuccess.data ?? "")
+                
+            case .failure(let error):
+                print(error.code)
+            }
+        }
+    }
+    
+    func withdrawAmount() {
+        SCLoans.instance.withdraw(presentingController: hostingProvider.viewController!, loanInfo: LoanInfo(interactionToken: interactionToken!)) { result in
+            switch result {
+            case .success(let scLoanSuccess):
+                print(scLoanSuccess.data ?? "")
+                showAlertDialog("Success", scLoanSuccess.data ?? "")
+                
+            case .failure(let error):
+                print(error.code)
+            }
+        }
+    }
+    
+    func payLoanAmount() {
+        SCLoans.instance.pay(presentingController: hostingProvider.viewController!, loanInfo: LoanInfo(interactionToken: interactionToken!)) { result in
+            switch result {
+            case .success(let scLoanSuccess):
+                print(scLoanSuccess.data ?? "")
+                showAlertDialog("Success", scLoanSuccess.data ?? "")
+                
+            case .failure(let error):
+                print(error.code)
+            }
+        }
+    }
+    
+    func showAlertDialog(_ title: String, _ message: String) {
+        showingAlert = true
+        alertTitle = title
+        alertMessage = message
     }
 }
 
