@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -74,14 +74,19 @@
 		886B856C27F188FB004C6CDF /* MutualFundHoldingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886B856A27F188FB004C6CDF /* MutualFundHoldingCell.xib */; };
 		8872E8092878568B0002B389 /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872E8082878568B0002B389 /* Dictionary+Ext.swift */; };
 		88E393D028785F1700E38705 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E393CF28785F1700E38705 /* String+Ext.swift */; };
-		88F707C5297E5F9F00333AEB /* SCGateway.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F707C3297E5F8800333AEB /* SCGateway.xcframework */; };
-		88F707C6297E5F9F00333AEB /* SCGateway.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88F707C3297E5F8800333AEB /* SCGateway.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E3DF61C66F870D0271978F0 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C037023624AF2EB0A5651E4B /* Pods_WebViewTesterTests.framework */; };
 		D93C0E5F6852FCE9406B6762 /* Pods_WebViewTesterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BFE4F6D42FA67FAD3008C37 /* Pods_WebViewTesterUITests.framework */; };
 		DF374DC3C406F07E70BCACDC /* Pods_WebViewTester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA940EC508C11D71FCD55F7 /* Pods_WebViewTester.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		15AEE1F42AA0A355003884D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15AEE1EE2AA0A355003884D0 /* SCGateway.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 36F1DE5F2372A08900E36C39;
+			remoteInfo = SCGateway;
+		};
 		36F7D45622A9485C003B357A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 36F7D43922A9485A003B357A /* Project object */;
@@ -105,7 +110,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				88F707C6297E5F9F00333AEB /* SCGateway.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +117,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15AEE1EE2AA0A355003884D0 /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = "../gw-mob-sdk-ios/SCGateway.xcodeproj"; sourceTree = "<group>"; };
 		361995C6241665300054D5CF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		364596992436462300C4B617 /* SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3645969C24364FB000C4B617 /* libSCGateway.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSCGateway.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,7 +201,6 @@
 		888AF34C28B7800700B13FB6 /* Mixpanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88AEF3A828B4E93300367968 /* SCGateway_Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCGateway_Mixpanel.framework; path = "../SCGateway-Mixpanel/SCGateway_Mixpanel.framework"; sourceTree = "<group>"; };
 		88E393CF28785F1700E38705 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		88F707C3297E5F8800333AEB /* SCGateway.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SCGateway.xcframework; sourceTree = "<group>"; };
 		918AEA02D65A9DAEADC68424 /* Pods-WebViewTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTester.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.debug.xcconfig"; sourceTree = "<group>"; };
 		91D6BFF4A6197D66779E5589 /* Pods-WebViewTesterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTesterUITests/Pods-WebViewTesterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CA940EC508C11D71FCD55F7 /* Pods_WebViewTester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebViewTester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,7 +215,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88F707C5297E5F9F00333AEB /* SCGateway.xcframework in Frameworks */,
 				DF374DC3C406F07E70BCACDC /* Pods_WebViewTester.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +238,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15AEE1EF2AA0A355003884D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15AEE1F52AA0A355003884D0 /* SCGateway.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1623BB5555C1EA2952D236E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,7 +412,7 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				88F707C3297E5F8800333AEB /* SCGateway.xcframework */,
+				15AEE1EE2AA0A355003884D0 /* SCGateway.xcodeproj */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -655,6 +666,12 @@
 			);
 			productRefGroup = 36F7D44222A9485A003B357A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 15AEE1EF2AA0A355003884D0 /* Products */;
+					ProjectRef = 15AEE1EE2AA0A355003884D0 /* SCGateway.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				36F7D44022A9485A003B357A /* WebViewTester */,
@@ -663,6 +680,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		15AEE1F52AA0A355003884D0 /* SCGateway.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SCGateway.framework;
+			remoteRef = 15AEE1F42AA0A355003884D0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		36F7D43F22A9485A003B357A /* Resources */ = {
@@ -1025,7 +1052,7 @@
 				CODE_SIGN_ENTITLEMENTS = WebViewTester/WebViewTesterDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 201;
+				CURRENT_PROJECT_VERSION = 216;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1042,7 +1069,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 3.1.3;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1075,7 +1102,7 @@
 				CODE_SIGN_ENTITLEMENTS = WebViewTester/WebViewTester.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 201;
+				CURRENT_PROJECT_VERSION = 216;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1092,7 +1119,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 3.1.3;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
