@@ -12,18 +12,21 @@ import SCGateway
 
 extension UIViewController {
     
-    func showPopup(title: String? , msg: String?) {
+    func showPopup(title: String? , msg: String?, completion: (()->Void)? = nil) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             
             let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
             
             let cancelAction = UIAlertAction(title: "Copy", style: .default) { (action) in
                 UIPasteboard.general.string = msg
+                completion?()
             }
             
             alertController.addAction(cancelAction)
             
-            let destroyAction = UIAlertAction(title: "Ok", style: .default)
+            let destroyAction = UIAlertAction(title: "Ok", style: .default) {_ in
+                completion?()
+            }
             
             alertController.addAction(destroyAction)
             

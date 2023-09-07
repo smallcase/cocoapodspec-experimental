@@ -30,12 +30,12 @@ class NetworkManager {
     static let shared = NetworkManager()
     
     let session = URLSession.shared
-
+    
     func getBaseUrl() -> String {
         switch ENVIRONMENT {
         case .staging:
-//                return "https://smartinvesting-ddd.stag.smallcase.com"
-                return "https://api.stag.smartinvesting.io"
+            //                return "https://smartinvesting-ddd.stag.smallcase.com"
+            return "https://api.stag.smartinvesting.io"
         case .development:
             return "https://api.dev.smartinvesting.io"
         default:
@@ -77,7 +77,7 @@ class NetworkManager {
                 completion(.failure(NetworkError.parsingError))
             }
         }
-       
+        
         task.resume()
     }
     
@@ -188,7 +188,7 @@ class NetworkManager {
             
             do {
                 let decodedData = try JSONDecoder().decode(FetchHoldingsResponse.self, from: data)
-//                print("DECODED DATA: \(decodedData)")
+                //                print("DECODED DATA: \(decodedData)")
                 print("Fetch Holdings response: \(decodedData.toJSONString())")
                 completion(.success(decodedData))
             }
@@ -202,7 +202,7 @@ class NetworkManager {
         task.resume()
     }
     
-   func getHoldings(username: String, completion: @escaping(Result<GetHoldingsResponse, Error>) -> Void )  {
+    func getHoldings(username: String, completion: @escaping(Result<GetHoldingsResponse, Error>) -> Void )  {
         print(username)
         let urlString = "\(getBaseUrl())/holdings/fetch?id=\(username)"
         //let params: [String: Any] = ["id": username]
@@ -212,7 +212,7 @@ class NetworkManager {
             return
         }
         var urlRequest = URLRequest(url: url)
-
+        
         urlRequest.httpMethod = HTTPRequest.get
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         //urlRequest.setValue(username, forHTTPHeaderField: "id")
@@ -233,10 +233,10 @@ class NetworkManager {
             catch let err {
                 print(err)
                 completion(.failure(NetworkError.parsingError))
-            
+                
             }
         }
-       
+        
         task.resume()
     }
     
@@ -316,9 +316,49 @@ class NetworkManager {
             completion(.success(true))
             
         }
-   
+        
         task.resume()
+        
+    }
+    
+    func getPostbackResponse(transactionId: String, completion: @escaping(Result<Any, Error>) -> Void )  {
+        print(transactionId)
+        let urlString = "\(getBaseUrl())/transaction/response?transactionId=\(transactionId)"
+        //let params: [String: Any] = ["id": username]
+        
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NetworkError.invalidUrl))
+            return
+        }
+        var urlRequest = URLRequest(url: url)
+        
+        urlRequest.httpMethod = HTTPRequest.get
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        //urlRequest.setValue(username, forHTTPHeaderField: "id")
+        print("getPostbackResponse: urlRequest: \(urlRequest)")
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard let data = data else {
+                completion(.failure(NetworkError.noData))
+                return
+            }
             
+            do {
+                let responseString = String(describing: String(data: data, encoding: .utf8))
+                //                 print("JSON String: \(String(describing: String(data: data, encoding: .utf8)))")
+                //                 let decodedData = try JSONDecoder().decode(GetHoldingsResponse.self, from: data)
+                //                 print("DECODED DATA")
+                //                 print(decodedData)
+                completion(.success(responseString))
+            }
+            catch let err {
+                print(err)
+                completion(.failure(NetworkError.parsingError))
+                
+            }
+        }
+        
+        task.resume()
     }
     
     
