@@ -69,7 +69,7 @@ struct CreateUserScreen: View {
                                 LASSessionManager.dob = birthDate.formatted(date: .numeric, time: .omitted)
                             }
                         ),
-                        in: ...birthDate, displayedComponents: .date) {
+                        in: ...Date.now, displayedComponents: .date) {
                         Text("Date of birth").font(.body)
                     }.padding(EdgeInsets.init(top: 15.0, leading: 0, bottom: 0, trailing: 0))
                     
