@@ -1,0 +1,91 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Loans
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AuthenticationServices
+import Foundation
+@_exported import Loans
+import SafariServices
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@objc public class ScLoanConfig : ObjectiveC.NSObject {
+  @objc public init(gatewayName: Swift.String)
+  public init(gatewayName: Swift.String, environment: Loans.SCLoanEnvironment? = .production)
+  @objc public init(gatewayName: Swift.String, environment: Foundation.NSNumber? = 0)
+  @objc deinit
+}
+extension Loans.ScLoan {
+  @objc dynamic public func setup(config: Loans.ScLoanConfig, completion: @escaping (Loans.ScLoanSuccess?, Loans.ScLoanError?) -> Swift.Void)
+  @objc dynamic public func apply(presentingController: UIKit.UIViewController, loanInfo: Loans.ScLoanInfo, completion: @escaping (Loans.ScLoanSuccess?, Loans.ScLoanError?) -> Swift.Void)
+  @objc dynamic public func pay(presentingController: UIKit.UIViewController, loanInfo: Loans.ScLoanInfo, completion: @escaping (Loans.ScLoanSuccess?, Loans.ScLoanError?) -> Swift.Void)
+  @objc dynamic public func withdraw(presentingController: UIKit.UIViewController, loanInfo: Loans.ScLoanInfo, completion: @escaping (Loans.ScLoanSuccess?, Loans.ScLoanError?) -> Swift.Void)
+  @objc dynamic public func service(presentingController: UIKit.UIViewController, loanInfo: Loans.ScLoanInfo, completion: @escaping (Loans.ScLoanSuccess?, Loans.ScLoanError?) -> Swift.Void)
+}
+public typealias ScLoanResult<T> = Swift.Result<T, Loans.ScLoanError>
+@objc @_hasMissingDesignatedInitializers @objcMembers public class ScLoanSuccess : ObjectiveC.NSObject {
+  @objc final public let isSuccess: Swift.Bool
+  @objc final public let data: Swift.String?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class ScLoanError : Foundation.NSError {
+  final public let isSuccess: Swift.Bool
+  @objc final public let errorCode: Swift.Int
+  @objc final public let errorMessage: Swift.String
+  @objc final public let data: Swift.String?
+  @objc override dynamic public var domain: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public var code: Swift.Int {
+    @objc get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SCGatewayLoanResult {
+  @objc deinit
+}
+@objc public enum PaymentType : ObjectiveC.NSInteger {
+  case principal = 0
+  case interest = 1
+  case shortfall = 2
+  case closure = 3
+  public var rawValue: ObjectiveC.NSInteger {
+    get
+  }
+  public init?(rawValue: ObjectiveC.NSInteger)
+  public typealias RawValue = ObjectiveC.NSInteger
+}
+extension UIKit.UIFont {
+  public static func jbs_registerFont(withFilenameString filenameString: Swift.String, bundle: Foundation.Bundle)
+}
+@objc public enum SCLoanEnvironment : Swift.Int {
+  case development
+  case production
+  case staging
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class ScLoanInfo : ObjectiveC.NSObject {
+  @objc public init(interactionToken: Swift.String)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class ScLoan : ObjectiveC.NSObject {
+  @objc public static let instance: Loans.ScLoan
+  public func setup(config: Loans.ScLoanConfig, completion: @escaping ((Loans.ScLoanResult<Loans.ScLoanSuccess>) -> Swift.Void))
+  public func apply(presentingController: UIKit.UIViewController, loanInfo: Loans.ScLoanInfo, completion: @escaping ((Loans.ScLoanResult<Loans.ScLoanSuccess>) -> Swift.Void))
+  public func pay(presentingController: UIKit.UIViewController, loanInfo: Loans.ScLoanInfo, completion: @escaping ((Loans.ScLoanResult<Loans.ScLoanSuccess>) -> Swift.Void))
+  public func withdraw(presentingController: UIKit.UIViewController, loanInfo: Loans.ScLoanInfo, completion: @escaping ((Loans.ScLoanResult<Loans.ScLoanSuccess>) -> Swift.Void))
+  public func service(presentingController: UIKit.UIViewController, loanInfo: Loans.ScLoanInfo, completion: @escaping ((Loans.ScLoanResult<Loans.ScLoanSuccess>) -> Swift.Void))
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Loans.PaymentType : Swift.Equatable {}
+extension Loans.PaymentType : Swift.Hashable {}
+extension Loans.PaymentType : Swift.RawRepresentable {}
+extension Loans.SCLoanEnvironment : Swift.Equatable {}
+extension Loans.SCLoanEnvironment : Swift.Hashable {}
+extension Loans.SCLoanEnvironment : Swift.RawRepresentable {}

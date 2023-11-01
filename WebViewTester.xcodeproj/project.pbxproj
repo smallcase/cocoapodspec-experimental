@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -83,13 +83,9 @@
 		88A30D4B2A250A8F00EF324E /* CreateUserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A30D4A2A250A8F00EF324E /* CreateUserScreen.swift */; };
 		88A30D4E2A2515FF00EF324E /* LASSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A30D4D2A2515FF00EF324E /* LASSessionManager.swift */; };
 		88A30D502A2517BC00EF324E /* CreateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A30D4F2A2517BC00EF324E /* CreateUser.swift */; };
-		88C970572A25F2B800727554 /* SCGateway.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C970562A25F29200727554 /* SCGateway.xcframework */; };
-		88C970582A25F2B800727554 /* SCGateway.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88C970562A25F29200727554 /* SCGateway.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88E393D028785F1700E38705 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E393CF28785F1700E38705 /* String+Ext.swift */; };
 		88EB14D42A2662FB008438F6 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB14D32A2662FB008438F6 /* Data+Ext.swift */; };
 		88EB14D92A266B5F008438F6 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB14D82A266B5F008438F6 /* View+Ext.swift */; };
-		88EB14E12A272634008438F6 /* Loans.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88EB14DF2A27262F008438F6 /* Loans.xcframework */; };
-		88EB14E22A272634008438F6 /* Loans.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88EB14DF2A27262F008438F6 /* Loans.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88EB14E42A273609008438F6 /* LASUserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB14E32A273609008438F6 /* LASUserMode.swift */; };
 		9E3DF61C66F870D0271978F0 /* Pods_WebViewTesterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C037023624AF2EB0A5651E4B /* Pods_WebViewTesterTests.framework */; };
 		D93C0E5F6852FCE9406B6762 /* Pods_WebViewTesterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BFE4F6D42FA67FAD3008C37 /* Pods_WebViewTesterUITests.framework */; };
@@ -120,8 +116,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				88C970582A25F2B800727554 /* SCGateway.xcframework in Embed Frameworks */,
-				88EB14E22A272634008438F6 /* Loans.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,11 +215,9 @@
 		88A30D4D2A2515FF00EF324E /* LASSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LASSessionManager.swift; sourceTree = "<group>"; };
 		88A30D4F2A2517BC00EF324E /* CreateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUser.swift; sourceTree = "<group>"; };
 		88AEF3A828B4E93300367968 /* SCGateway_Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCGateway_Mixpanel.framework; path = "../SCGateway-Mixpanel/SCGateway_Mixpanel.framework"; sourceTree = "<group>"; };
-		88C970562A25F29200727554 /* SCGateway.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SCGateway.xcframework; sourceTree = "<group>"; };
 		88E393CF28785F1700E38705 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		88EB14D32A2662FB008438F6 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
 		88EB14D82A266B5F008438F6 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
-		88EB14DF2A27262F008438F6 /* Loans.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Loans.xcframework; sourceTree = "<group>"; };
 		88EB14E32A273609008438F6 /* LASUserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LASUserMode.swift; sourceTree = "<group>"; };
 		918AEA02D65A9DAEADC68424 /* Pods-WebViewTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTester.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.debug.xcconfig"; sourceTree = "<group>"; };
 		91D6BFF4A6197D66779E5589 /* Pods-WebViewTesterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebViewTesterUITests.debug.xcconfig"; path = "Target Support Files/Pods-WebViewTesterUITests/Pods-WebViewTesterUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -242,8 +234,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF374DC3C406F07E70BCACDC /* Pods_WebViewTester.framework in Frameworks */,
-				88EB14E12A272634008438F6 /* Loans.xcframework in Frameworks */,
-				88C970572A25F2B800727554 /* SCGateway.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,8 +421,6 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				88EB14DF2A27262F008438F6 /* Loans.xcframework */,
-				88C970562A25F29200727554 /* SCGateway.xcframework */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -1131,7 +1119,7 @@
 				CODE_SIGN_ENTITLEMENTS = WebViewTester/WebViewTesterDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 212;
+				CURRENT_PROJECT_VERSION = 218;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1142,13 +1130,13 @@
 				INFOPLIST_FILE = WebViewTester/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Smartinvesting;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.1.5;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1177,7 +1165,7 @@
 				CODE_SIGN_ENTITLEMENTS = WebViewTester/WebViewTester.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 212;
+				CURRENT_PROJECT_VERSION = 218;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1188,13 +1176,13 @@
 				INFOPLIST_FILE = WebViewTester/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Smartinvesting;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.1.5;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",

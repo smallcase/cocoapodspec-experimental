@@ -1,0 +1,4982 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AuthenticationServices",
+        "printedName": "AuthenticationServices",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ScLoanConfig",
+        "printedName": "ScLoanConfig",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(gatewayName:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanConfig",
+                "printedName": "Loans.ScLoanConfig",
+                "usr": "c:@M@Loans@objc(cs)ScLoanConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Loans@objc(cs)ScLoanConfig(im)initWithGatewayName:",
+            "mangledName": "$s5Loans12ScLoanConfigC11gatewayNameACSS_tcfc",
+            "moduleName": "Loans",
+            "objc_name": "initWithGatewayName:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(gatewayName:environment:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanConfig",
+                "printedName": "Loans.ScLoanConfig",
+                "usr": "c:@M@Loans@objc(cs)ScLoanConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Loans.SCLoanEnvironment?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SCLoanEnvironment",
+                    "printedName": "Loans.SCLoanEnvironment",
+                    "usr": "c:@M@Loans@E@SCLoanEnvironment"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5Loans12ScLoanConfigC11gatewayName11environmentACSS_AA17SCLoanEnvironmentOSgtcfc",
+            "mangledName": "$s5Loans12ScLoanConfigC11gatewayName11environmentACSS_AA17SCLoanEnvironmentOSgtcfc",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(gatewayName:environment:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanConfig",
+                "printedName": "Loans.ScLoanConfig",
+                "usr": "c:@M@Loans@objc(cs)ScLoanConfig"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSNumber?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSNumber",
+                    "printedName": "Foundation.NSNumber",
+                    "usr": "c:objc(cs)NSNumber"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Loans@objc(cs)ScLoanConfig(im)initWithGatewayName:environment:",
+            "mangledName": "$s5Loans12ScLoanConfigC11gatewayName11environmentACSS_So8NSNumberCSgtcfc",
+            "moduleName": "Loans",
+            "objc_name": "initWithGatewayName:environment:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanConfig",
+                "printedName": "Loans.ScLoanConfig",
+                "usr": "c:@M@Loans@objc(cs)ScLoanConfig"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Loans@objc(cs)ScLoanConfig(im)init",
+            "mangledName": "$s5Loans12ScLoanConfigCACycfc",
+            "moduleName": "Loans",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Loans@objc(cs)ScLoanConfig",
+        "mangledName": "$s5Loans12ScLoanConfigC",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ScLoanSuccess",
+        "printedName": "ScLoanSuccess",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "isSuccess",
+            "printedName": "isSuccess",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Loans@objc(cs)ScLoanSuccess(py)isSuccess",
+            "mangledName": "$s5Loans13ScLoanSuccessC02isD0Sbvp",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Loans@objc(cs)ScLoanSuccess(im)isSuccess",
+                "mangledName": "$s5Loans13ScLoanSuccessC02isD0Sbvg",
+                "moduleName": "Loans",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "data",
+            "printedName": "data",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Loans@objc(cs)ScLoanSuccess(py)data",
+            "mangledName": "$s5Loans13ScLoanSuccessC4dataSSSgvp",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Loans@objc(cs)ScLoanSuccess(im)data",
+                "mangledName": "$s5Loans13ScLoanSuccessC4dataSSSgvg",
+                "moduleName": "Loans",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanSuccess",
+                "printedName": "Loans.ScLoanSuccess",
+                "usr": "c:@M@Loans@objc(cs)ScLoanSuccess"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Loans@objc(cs)ScLoanSuccess(im)init",
+            "mangledName": "$s5Loans13ScLoanSuccessCACycfc",
+            "moduleName": "Loans",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Loans@objc(cs)ScLoanSuccess",
+        "mangledName": "$s5Loans13ScLoanSuccessC",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ScLoanError",
+        "printedName": "ScLoanError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "isSuccess",
+            "printedName": "isSuccess",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5Loans11ScLoanErrorC9isSuccessSbvp",
+            "mangledName": "$s5Loans11ScLoanErrorC9isSuccessSbvp",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5Loans11ScLoanErrorC9isSuccessSbvg",
+                "mangledName": "$s5Loans11ScLoanErrorC9isSuccessSbvg",
+                "moduleName": "Loans",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "errorCode",
+            "printedName": "errorCode",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Loans@objc(cs)ScLoanError(py)errorCode",
+            "mangledName": "$s5Loans11ScLoanErrorC9errorCodeSivp",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Loans@objc(cs)ScLoanError(im)errorCode",
+                "mangledName": "$s5Loans11ScLoanErrorC9errorCodeSivg",
+                "moduleName": "Loans",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "errorMessage",
+            "printedName": "errorMessage",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Loans@objc(cs)ScLoanError(py)errorMessage",
+            "mangledName": "$s5Loans11ScLoanErrorC12errorMessageSSvp",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Loans@objc(cs)ScLoanError(im)errorMessage",
+                "mangledName": "$s5Loans11ScLoanErrorC12errorMessageSSvg",
+                "moduleName": "Loans",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "data",
+            "printedName": "data",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Loans@objc(cs)ScLoanError(py)data",
+            "mangledName": "$s5Loans11ScLoanErrorC4dataSSSgvp",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Loans@objc(cs)ScLoanError(im)data",
+                "mangledName": "$s5Loans11ScLoanErrorC4dataSSSgvg",
+                "moduleName": "Loans",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "domain",
+            "printedName": "domain",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Loans@objc(cs)ScLoanError(py)domain",
+            "mangledName": "$s5Loans11ScLoanErrorC6domainSSvp",
+            "moduleName": "Loans",
+            "overriding": true,
+            "objc_name": "domain",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "Override"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Loans@objc(cs)ScLoanError(im)domain",
+                "mangledName": "$s5Loans11ScLoanErrorC6domainSSvg",
+                "moduleName": "Loans",
+                "overriding": true,
+                "objc_name": "domain",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "code",
+            "printedName": "code",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Loans@objc(cs)ScLoanError(py)code",
+            "mangledName": "$s5Loans11ScLoanErrorC4codeSivp",
+            "moduleName": "Loans",
+            "overriding": true,
+            "objc_name": "code",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Loans@objc(cs)ScLoanError(im)code",
+                "mangledName": "$s5Loans11ScLoanErrorC4codeSivg",
+                "moduleName": "Loans",
+                "overriding": true,
+                "objc_name": "code",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(domain:code:userInfo:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanError",
+                "printedName": "Loans.ScLoanError",
+                "usr": "c:@M@Loans@objc(cs)ScLoanError"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Loans@objc(cs)ScLoanError(im)initWithDomain:code:userInfo:",
+            "mangledName": "$s5Loans11ScLoanErrorC6domain4code8userInfoACSS_SiSDySSypGSgtcfc",
+            "moduleName": "Loans",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithDomain:code:userInfo:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Loans@objc(cs)ScLoanError",
+        "mangledName": "$s5Loans11ScLoanErrorC",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSError",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "Foundation.NSError",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SCGatewayLoanResult",
+        "printedName": "SCGatewayLoanResult",
+        "declKind": "Class",
+        "usr": "s:5Loans19SCGatewayLoanResultC",
+        "mangledName": "$s5Loans19SCGatewayLoanResultC",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SafariServices",
+        "printedName": "SafariServices",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "AuthenticationServices",
+        "printedName": "AuthenticationServices",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PaymentType",
+        "printedName": "PaymentType",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "principal",
+            "printedName": "principal",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.PaymentType.Type) -> Loans.PaymentType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PaymentType",
+                    "printedName": "Loans.PaymentType",
+                    "usr": "c:@M@Loans@E@PaymentType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Loans.PaymentType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PaymentType",
+                        "printedName": "Loans.PaymentType",
+                        "usr": "c:@M@Loans@E@PaymentType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@Loans@E@PaymentType@PaymentTypePrincipal",
+            "mangledName": "$s5Loans11PaymentTypeO9principalyA2CmF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "interest",
+            "printedName": "interest",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.PaymentType.Type) -> Loans.PaymentType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PaymentType",
+                    "printedName": "Loans.PaymentType",
+                    "usr": "c:@M@Loans@E@PaymentType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Loans.PaymentType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PaymentType",
+                        "printedName": "Loans.PaymentType",
+                        "usr": "c:@M@Loans@E@PaymentType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@Loans@E@PaymentType@PaymentTypeInterest",
+            "mangledName": "$s5Loans11PaymentTypeO8interestyA2CmF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "shortfall",
+            "printedName": "shortfall",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.PaymentType.Type) -> Loans.PaymentType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PaymentType",
+                    "printedName": "Loans.PaymentType",
+                    "usr": "c:@M@Loans@E@PaymentType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Loans.PaymentType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PaymentType",
+                        "printedName": "Loans.PaymentType",
+                        "usr": "c:@M@Loans@E@PaymentType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@Loans@E@PaymentType@PaymentTypeShortfall",
+            "mangledName": "$s5Loans11PaymentTypeO9shortfallyA2CmF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "closure",
+            "printedName": "closure",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.PaymentType.Type) -> Loans.PaymentType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PaymentType",
+                    "printedName": "Loans.PaymentType",
+                    "usr": "c:@M@Loans@E@PaymentType"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Loans.PaymentType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PaymentType",
+                        "printedName": "Loans.PaymentType",
+                        "usr": "c:@M@Loans@E@PaymentType"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@Loans@E@PaymentType@PaymentTypeClosure",
+            "mangledName": "$s5Loans11PaymentTypeO7closureyA2CmF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5Loans11PaymentTypeO8rawValueSivp",
+            "mangledName": "$s5Loans11PaymentTypeO8rawValueSivp",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5Loans11PaymentTypeO8rawValueSivg",
+                "mangledName": "$s5Loans11PaymentTypeO8rawValueSivg",
+                "moduleName": "Loans",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Loans.PaymentType?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PaymentType",
+                    "printedName": "Loans.PaymentType",
+                    "usr": "c:@M@Loans@E@PaymentType"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5Loans11PaymentTypeO8rawValueACSgSi_tcfc",
+            "mangledName": "$s5Loans11PaymentTypeO8rawValueACSgSi_tcfc",
+            "moduleName": "Loans",
+            "implicit": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@Loans@E@PaymentType",
+        "mangledName": "$s5Loans11PaymentTypeO",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SCLoanEnvironment",
+        "printedName": "SCLoanEnvironment",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "development",
+            "printedName": "development",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.SCLoanEnvironment.Type) -> Loans.SCLoanEnvironment",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SCLoanEnvironment",
+                    "printedName": "Loans.SCLoanEnvironment",
+                    "usr": "c:@M@Loans@E@SCLoanEnvironment"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Loans.SCLoanEnvironment.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SCLoanEnvironment",
+                        "printedName": "Loans.SCLoanEnvironment",
+                        "usr": "c:@M@Loans@E@SCLoanEnvironment"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@Loans@E@SCLoanEnvironment@SCLoanEnvironmentDevelopment",
+            "mangledName": "$s5Loans17SCLoanEnvironmentO11developmentyA2CmF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "production",
+            "printedName": "production",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.SCLoanEnvironment.Type) -> Loans.SCLoanEnvironment",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SCLoanEnvironment",
+                    "printedName": "Loans.SCLoanEnvironment",
+                    "usr": "c:@M@Loans@E@SCLoanEnvironment"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Loans.SCLoanEnvironment.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SCLoanEnvironment",
+                        "printedName": "Loans.SCLoanEnvironment",
+                        "usr": "c:@M@Loans@E@SCLoanEnvironment"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@Loans@E@SCLoanEnvironment@SCLoanEnvironmentProduction",
+            "mangledName": "$s5Loans17SCLoanEnvironmentO10productionyA2CmF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "staging",
+            "printedName": "staging",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.SCLoanEnvironment.Type) -> Loans.SCLoanEnvironment",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SCLoanEnvironment",
+                    "printedName": "Loans.SCLoanEnvironment",
+                    "usr": "c:@M@Loans@E@SCLoanEnvironment"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Loans.SCLoanEnvironment.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "SCLoanEnvironment",
+                        "printedName": "Loans.SCLoanEnvironment",
+                        "usr": "c:@M@Loans@E@SCLoanEnvironment"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@Loans@E@SCLoanEnvironment@SCLoanEnvironmentStaging",
+            "mangledName": "$s5Loans17SCLoanEnvironmentO7stagingyA2CmF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Loans.SCLoanEnvironment?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SCLoanEnvironment",
+                    "printedName": "Loans.SCLoanEnvironment",
+                    "usr": "c:@M@Loans@E@SCLoanEnvironment"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:5Loans17SCLoanEnvironmentO8rawValueACSgSi_tcfc",
+            "mangledName": "$s5Loans17SCLoanEnvironmentO8rawValueACSgSi_tcfc",
+            "moduleName": "Loans",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:5Loans17SCLoanEnvironmentO8rawValueSivp",
+            "mangledName": "$s5Loans17SCLoanEnvironmentO8rawValueSivp",
+            "moduleName": "Loans",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:5Loans17SCLoanEnvironmentO8rawValueSivg",
+                "mangledName": "$s5Loans17SCLoanEnvironmentO8rawValueSivg",
+                "moduleName": "Loans",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@Loans@E@SCLoanEnvironment",
+        "mangledName": "$s5Loans17SCLoanEnvironmentO",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ScLoanInfo",
+        "printedName": "ScLoanInfo",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(interactionToken:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanInfo",
+                "printedName": "Loans.ScLoanInfo",
+                "usr": "c:@M@Loans@objc(cs)ScLoanInfo"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Loans@objc(cs)ScLoanInfo(im)initWithInteractionToken:",
+            "mangledName": "$s5Loans10ScLoanInfoC16interactionTokenACSS_tcfc",
+            "moduleName": "Loans",
+            "objc_name": "initWithInteractionToken:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanInfo",
+                "printedName": "Loans.ScLoanInfo",
+                "usr": "c:@M@Loans@objc(cs)ScLoanInfo"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Loans@objc(cs)ScLoanInfo(im)init",
+            "mangledName": "$s5Loans10ScLoanInfoCACycfc",
+            "moduleName": "Loans",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Loans@objc(cs)ScLoanInfo",
+        "mangledName": "$s5Loans10ScLoanInfoC",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AuthenticationServices",
+        "printedName": "AuthenticationServices",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "SafariServices",
+        "printedName": "SafariServices",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AuthenticationServices",
+        "printedName": "AuthenticationServices",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "ScLoan",
+        "printedName": "ScLoan",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "instance",
+            "printedName": "instance",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoan",
+                "printedName": "Loans.ScLoan",
+                "usr": "c:@M@Loans@objc(cs)ScLoan"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Loans@objc(cs)ScLoan(cpy)instance",
+            "mangledName": "$s5Loans6ScLoanC8instanceACvpZ",
+            "moduleName": "Loans",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ScLoan",
+                    "printedName": "Loans.ScLoan",
+                    "usr": "c:@M@Loans@objc(cs)ScLoan"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Loans@objc(cs)ScLoan(cm)instance",
+                "mangledName": "$s5Loans6ScLoanC8instanceACvgZ",
+                "moduleName": "Loans",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "setup",
+            "printedName": "setup(config:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanConfig",
+                "printedName": "Loans.ScLoanConfig",
+                "usr": "c:@M@Loans@objc(cs)ScLoanConfig"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Result<Loans.ScLoanSuccess, Loans.ScLoanError>) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<Loans.ScLoanSuccess, Loans.ScLoanError>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ScLoanSuccess",
+                        "printedName": "Loans.ScLoanSuccess",
+                        "usr": "c:@M@Loans@objc(cs)ScLoanSuccess"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ScLoanError",
+                        "printedName": "Loans.ScLoanError",
+                        "usr": "c:@M@Loans@objc(cs)ScLoanError"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5Loans6ScLoanC5setup6config10completionyAA0bC6ConfigC_ys6ResultOyAA0bC7SuccessCAA0bC5ErrorCGctF",
+            "mangledName": "$s5Loans6ScLoanC5setup6config10completionyAA0bC6ConfigC_ys6ResultOyAA0bC7SuccessCAA0bC5ErrorCGctF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "apply",
+            "printedName": "apply(presentingController:loanInfo:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanInfo",
+                "printedName": "Loans.ScLoanInfo",
+                "usr": "c:@M@Loans@objc(cs)ScLoanInfo"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Result<Loans.ScLoanSuccess, Loans.ScLoanError>) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<Loans.ScLoanSuccess, Loans.ScLoanError>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ScLoanSuccess",
+                        "printedName": "Loans.ScLoanSuccess",
+                        "usr": "c:@M@Loans@objc(cs)ScLoanSuccess"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ScLoanError",
+                        "printedName": "Loans.ScLoanError",
+                        "usr": "c:@M@Loans@objc(cs)ScLoanError"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5Loans6ScLoanC5apply20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0Cys6ResultOyAA0bC7SuccessCAA0bC5ErrorCGctF",
+            "mangledName": "$s5Loans6ScLoanC5apply20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0Cys6ResultOyAA0bC7SuccessCAA0bC5ErrorCGctF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "pay",
+            "printedName": "pay(presentingController:loanInfo:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanInfo",
+                "printedName": "Loans.ScLoanInfo",
+                "usr": "c:@M@Loans@objc(cs)ScLoanInfo"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Result<Loans.ScLoanSuccess, Loans.ScLoanError>) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<Loans.ScLoanSuccess, Loans.ScLoanError>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ScLoanSuccess",
+                        "printedName": "Loans.ScLoanSuccess",
+                        "usr": "c:@M@Loans@objc(cs)ScLoanSuccess"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ScLoanError",
+                        "printedName": "Loans.ScLoanError",
+                        "usr": "c:@M@Loans@objc(cs)ScLoanError"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5Loans6ScLoanC3pay20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0Cys6ResultOyAA0bC7SuccessCAA0bC5ErrorCGctF",
+            "mangledName": "$s5Loans6ScLoanC3pay20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0Cys6ResultOyAA0bC7SuccessCAA0bC5ErrorCGctF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "withdraw",
+            "printedName": "withdraw(presentingController:loanInfo:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanInfo",
+                "printedName": "Loans.ScLoanInfo",
+                "usr": "c:@M@Loans@objc(cs)ScLoanInfo"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Result<Loans.ScLoanSuccess, Loans.ScLoanError>) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<Loans.ScLoanSuccess, Loans.ScLoanError>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ScLoanSuccess",
+                        "printedName": "Loans.ScLoanSuccess",
+                        "usr": "c:@M@Loans@objc(cs)ScLoanSuccess"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ScLoanError",
+                        "printedName": "Loans.ScLoanError",
+                        "usr": "c:@M@Loans@objc(cs)ScLoanError"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5Loans6ScLoanC8withdraw20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0Cys6ResultOyAA0bC7SuccessCAA0bC5ErrorCGctF",
+            "mangledName": "$s5Loans6ScLoanC8withdraw20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0Cys6ResultOyAA0bC7SuccessCAA0bC5ErrorCGctF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "service",
+            "printedName": "service(presentingController:loanInfo:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanInfo",
+                "printedName": "Loans.ScLoanInfo",
+                "usr": "c:@M@Loans@objc(cs)ScLoanInfo"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Result<Loans.ScLoanSuccess, Loans.ScLoanError>) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<Loans.ScLoanSuccess, Loans.ScLoanError>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ScLoanSuccess",
+                        "printedName": "Loans.ScLoanSuccess",
+                        "usr": "c:@M@Loans@objc(cs)ScLoanSuccess"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ScLoanError",
+                        "printedName": "Loans.ScLoanError",
+                        "usr": "c:@M@Loans@objc(cs)ScLoanError"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:5Loans6ScLoanC7service20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0Cys6ResultOyAA0bC7SuccessCAA0bC5ErrorCGctF",
+            "mangledName": "$s5Loans6ScLoanC7service20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0Cys6ResultOyAA0bC7SuccessCAA0bC5ErrorCGctF",
+            "moduleName": "Loans",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoan",
+                "printedName": "Loans.ScLoan",
+                "usr": "c:@M@Loans@objc(cs)ScLoan"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Loans@objc(cs)ScLoan(im)init",
+            "mangledName": "$s5Loans6ScLoanCACycfc",
+            "moduleName": "Loans",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "setup",
+            "printedName": "setup(config:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanConfig",
+                "printedName": "Loans.ScLoanConfig",
+                "usr": "c:@M@Loans@objc(cs)ScLoanConfig"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.ScLoanSuccess?, Loans.ScLoanError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Loans.ScLoanSuccess?, Loans.ScLoanError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Loans.ScLoanSuccess?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ScLoanSuccess",
+                            "printedName": "Loans.ScLoanSuccess",
+                            "usr": "c:@M@Loans@objc(cs)ScLoanSuccess"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Loans.ScLoanError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ScLoanError",
+                            "printedName": "Loans.ScLoanError",
+                            "usr": "c:@M@Loans@objc(cs)ScLoanError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Loans@objc(cs)ScLoan(im)setupWithConfig:completion:",
+            "mangledName": "$s5Loans6ScLoanC5setup6config10completionyAA0bC6ConfigC_yAA0bC7SuccessCSg_AA0bC5ErrorCSgtctF",
+            "moduleName": "Loans",
+            "objc_name": "setupWithConfig:completion:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "apply",
+            "printedName": "apply(presentingController:loanInfo:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanInfo",
+                "printedName": "Loans.ScLoanInfo",
+                "usr": "c:@M@Loans@objc(cs)ScLoanInfo"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.ScLoanSuccess?, Loans.ScLoanError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Loans.ScLoanSuccess?, Loans.ScLoanError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Loans.ScLoanSuccess?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ScLoanSuccess",
+                            "printedName": "Loans.ScLoanSuccess",
+                            "usr": "c:@M@Loans@objc(cs)ScLoanSuccess"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Loans.ScLoanError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ScLoanError",
+                            "printedName": "Loans.ScLoanError",
+                            "usr": "c:@M@Loans@objc(cs)ScLoanError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Loans@objc(cs)ScLoan(im)applyWithPresentingController:loanInfo:completion:",
+            "mangledName": "$s5Loans6ScLoanC5apply20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0CyAA0bC7SuccessCSg_AA0bC5ErrorCSgtctF",
+            "moduleName": "Loans",
+            "objc_name": "applyWithPresentingController:loanInfo:completion:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "pay",
+            "printedName": "pay(presentingController:loanInfo:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanInfo",
+                "printedName": "Loans.ScLoanInfo",
+                "usr": "c:@M@Loans@objc(cs)ScLoanInfo"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.ScLoanSuccess?, Loans.ScLoanError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Loans.ScLoanSuccess?, Loans.ScLoanError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Loans.ScLoanSuccess?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ScLoanSuccess",
+                            "printedName": "Loans.ScLoanSuccess",
+                            "usr": "c:@M@Loans@objc(cs)ScLoanSuccess"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Loans.ScLoanError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ScLoanError",
+                            "printedName": "Loans.ScLoanError",
+                            "usr": "c:@M@Loans@objc(cs)ScLoanError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Loans@objc(cs)ScLoan(im)payWithPresentingController:loanInfo:completion:",
+            "mangledName": "$s5Loans6ScLoanC3pay20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0CyAA0bC7SuccessCSg_AA0bC5ErrorCSgtctF",
+            "moduleName": "Loans",
+            "objc_name": "payWithPresentingController:loanInfo:completion:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "withdraw",
+            "printedName": "withdraw(presentingController:loanInfo:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanInfo",
+                "printedName": "Loans.ScLoanInfo",
+                "usr": "c:@M@Loans@objc(cs)ScLoanInfo"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.ScLoanSuccess?, Loans.ScLoanError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Loans.ScLoanSuccess?, Loans.ScLoanError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Loans.ScLoanSuccess?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ScLoanSuccess",
+                            "printedName": "Loans.ScLoanSuccess",
+                            "usr": "c:@M@Loans@objc(cs)ScLoanSuccess"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Loans.ScLoanError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ScLoanError",
+                            "printedName": "Loans.ScLoanError",
+                            "usr": "c:@M@Loans@objc(cs)ScLoanError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Loans@objc(cs)ScLoan(im)withdrawWithPresentingController:loanInfo:completion:",
+            "mangledName": "$s5Loans6ScLoanC8withdraw20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0CyAA0bC7SuccessCSg_AA0bC5ErrorCSgtctF",
+            "moduleName": "Loans",
+            "objc_name": "withdrawWithPresentingController:loanInfo:completion:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "service",
+            "printedName": "service(presentingController:loanInfo:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ScLoanInfo",
+                "printedName": "Loans.ScLoanInfo",
+                "usr": "c:@M@Loans@objc(cs)ScLoanInfo"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Loans.ScLoanSuccess?, Loans.ScLoanError?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Loans.ScLoanSuccess?, Loans.ScLoanError?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Loans.ScLoanSuccess?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ScLoanSuccess",
+                            "printedName": "Loans.ScLoanSuccess",
+                            "usr": "c:@M@Loans@objc(cs)ScLoanSuccess"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Loans.ScLoanError?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ScLoanError",
+                            "printedName": "Loans.ScLoanError",
+                            "usr": "c:@M@Loans@objc(cs)ScLoanError"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Loans@objc(cs)ScLoan(im)serviceWithPresentingController:loanInfo:completion:",
+            "mangledName": "$s5Loans6ScLoanC7service20presentingController8loanInfo10completionySo06UIViewF0C_AA0bcH0CyAA0bC7SuccessCSg_AA0bC5ErrorCSgtctF",
+            "moduleName": "Loans",
+            "objc_name": "serviceWithPresentingController:loanInfo:completion:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Loans@objc(cs)ScLoan",
+        "mangledName": "$s5Loans6ScLoanC",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AuthenticationServices",
+        "printedName": "AuthenticationServices",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Loans",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "Loans"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "URLSession",
+        "printedName": "URLSession",
+        "declKind": "Class",
+        "usr": "c:objc(cs)NSURLSession",
+        "moduleName": "Foundation",
+        "isOpen": true,
+        "intro_iOS": "7.0",
+        "objc_name": "NSURLSession",
+        "declAttributes": [
+          "Available",
+          "ObjC",
+          "SynthesizedProtocol",
+          "NonSendable",
+          "Sendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UIFont",
+        "printedName": "UIFont",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "jbs_registerFont",
+            "printedName": "jbs_registerFont(withFilenameString:bundle:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bundle",
+                "printedName": "Foundation.Bundle",
+                "usr": "c:objc(cs)NSBundle"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So6UIFontC5LoansE16jbs_registerFont18withFilenameString6bundleySS_So8NSBundleCtFZ",
+            "mangledName": "$sSo6UIFontC5LoansE16jbs_registerFont18withFilenameString6bundleySS_So8NSBundleCtFZ",
+            "moduleName": "Loans",
+            "static": true,
+            "declAttributes": [
+              "Final"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)UIFont",
+        "moduleName": "UIKit",
+        "isOpen": true,
+        "intro_iOS": "2.0",
+        "objc_name": "UIFont",
+        "declAttributes": [
+          "Available",
+          "ObjC",
+          "SynthesizedProtocol",
+          "NonSendable",
+          "Sendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/ScLoanConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 602,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/ScLoanConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 701,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/ScLoanConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 757,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/ScLoanConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 121,
+      "length": 12,
+      "value": "\"Loans.ScLoanConfig\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 394,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "FloatLiteral",
+      "offset": 804,
+      "length": 6,
+      "value": "1000.0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 936,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1264,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1422,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "FloatLiteral",
+      "offset": 1594,
+      "length": 6,
+      "value": "1000.0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "FloatLiteral",
+      "offset": 1762,
+      "length": 3,
+      "value": "0.1"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1979,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2244,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2720,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3035,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "FloatLiteral",
+      "offset": 3108,
+      "length": 3,
+      "value": "0.1"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3304,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3349,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3838,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4089,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4163,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 4467,
+      "length": 54,
+      "value": "\"SwiftGif: This image named \"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 4503,
+      "length": 1,
+      "value": "\"\" does not exist\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 4678,
+      "length": 58,
+      "value": "\"SwiftGif: Cannot turn image named \"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 4721,
+      "length": 1,
+      "value": "\"\" into NSData\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 5017,
+      "length": 47,
+      "value": "\"SwiftGif: Source for the image does not exist\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 5383,
+      "length": 5,
+      "value": "\"gif\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 5415,
+      "length": 55,
+      "value": "\"SwiftGif: This image named \"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 5452,
+      "length": 1,
+      "value": "\"\" does not exist\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 5627,
+      "length": 59,
+      "value": "\"SwiftGif: Cannot turn image named \"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 5671,
+      "length": 1,
+      "value": "\"\" into NSData\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 5986,
+      "length": 65,
+      "value": "\"SwiftGif: Cannot turn image named \"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIImage+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 6031,
+      "length": 1,
+      "value": "\"\" into NSDataAsset\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "BooleanLiteral",
+      "offset": 258,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 194,
+      "length": 13,
+      "value": "\"Loans.ScLoanSuccess\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "BooleanLiteral",
+      "offset": 439,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 981,
+      "length": 6,
+      "value": "\"data\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 997,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 1069,
+      "length": 39,
+      "value": "\"init(coder:) has not been implemented\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1184,
+      "length": 4,
+      "value": "2000"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 1204,
+      "length": 16,
+      "value": "\"internal_error\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1284,
+      "length": 4,
+      "value": "3004"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 1304,
+      "length": 10,
+      "value": "\"init_sdk\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1384,
+      "length": 4,
+      "value": "1012"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 1404,
+      "length": 16,
+      "value": "\"user_cancelled\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1490,
+      "length": 4,
+      "value": "1007"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 1510,
+      "length": 21,
+      "value": "\"invalid_interaction\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/SCGatewayLoanResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 382,
+      "length": 11,
+      "value": "\"Loans.ScLoanError\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/Base\/GatewaySFAuthenticationProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 445,
+      "length": 23,
+      "value": "\"launching url: \""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/Base\/GatewaySFAuthenticationProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 467,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "FloatLiteral",
+      "offset": 332,
+      "length": 4,
+      "value": "20.0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "FloatLiteral",
+      "offset": 388,
+      "length": 4,
+      "value": "60.0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 1464,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1680,
+      "length": 3,
+      "value": "500"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1686,
+      "length": 3,
+      "value": "599"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 1750,
+      "length": 75,
+      "value": "\"SERVER ERROR: \""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 1824,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 2219,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 2347,
+      "length": 14,
+      "value": "\"ERROR Thrown\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 3381,
+      "length": 34,
+      "value": "\"API RESPONSE ------------------>\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 3519,
+      "length": 9,
+      "value": "\"NO DATA\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 4358,
+      "length": 56,
+      "value": "\"------> Http response code: \""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 4413,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4651,
+      "length": 3,
+      "value": "200"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4657,
+      "length": 3,
+      "value": "599"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 4688,
+      "length": 34,
+      "value": "\"API RESPONSE ------------------>\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Provider\/ApiProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 4842,
+      "length": 9,
+      "value": "\"NO DATA\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/Base\/GatewayLoanConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 202,
+      "length": 17,
+      "value": "\"scgateway-loans\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 173,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 195,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 218,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 239,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 497,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 550,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 604,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 656,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 173,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 195,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 218,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/PaymentType.swift",
+      "kind": "IntegerLiteral",
+      "offset": 239,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/Data+Ext.swift",
+      "kind": "Array",
+      "offset": 320,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/Data+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 447,
+      "length": 47,
+      "value": "\"Failed to load: \""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/Data+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 493,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIFont+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 355,
+      "length": 66,
+      "value": "\"UIFont+:  Failed to register font - path for resource not found.\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIFont+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 553,
+      "length": 68,
+      "value": "\"UIFont+:  Failed to register font - font data could not be loaded.\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIFont+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 742,
+      "length": 72,
+      "value": "\"UIFont+:  Failed to register font - data provider could not be loaded.\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIFont+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 917,
+      "length": 63,
+      "value": "\"UIFont+:  Failed to register font - font could not be loaded.\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIFont+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1126,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIFont+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 1153,
+      "length": 132,
+      "value": "\"UIFont+:  Failed to register font - register graphics font failed - this font may have already been registered in the main bundle.\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/SCLoanEnvironment.swift",
+      "kind": "IntegerLiteral",
+      "offset": 177,
+      "length": 10,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/SCLoanEnvironment.swift",
+      "kind": "IntegerLiteral",
+      "offset": 197,
+      "length": 7,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/SCLoanEnvironment.swift",
+      "kind": "IntegerLiteral",
+      "offset": 177,
+      "length": 10,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/SCLoanEnvironment.swift",
+      "kind": "IntegerLiteral",
+      "offset": 197,
+      "length": 7,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/Dictionary+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 476,
+      "length": 65,
+      "value": "\"Unable to convert dictionary to json String :\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/Dictionary+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 540,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Animations\/CustomPresentingAnimation.swift",
+      "kind": "FloatLiteral",
+      "offset": 380,
+      "length": 3,
+      "value": "3.0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Animations\/CustomPresentingAnimation.swift",
+      "kind": "IntegerLiteral",
+      "offset": 861,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Animations\/CustomPresentingAnimation.swift",
+      "kind": "IntegerLiteral",
+      "offset": 992,
+      "length": 2,
+      "value": "68"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Animations\/CustomPresentingAnimation.swift",
+      "kind": "FloatLiteral",
+      "offset": 1034,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Animations\/CustomPresentingAnimation.swift",
+      "kind": "FloatLiteral",
+      "offset": 1193,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Animations\/CustomPresentingAnimation.swift",
+      "kind": "FloatLiteral",
+      "offset": 1222,
+      "length": 3,
+      "value": "0.9"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Animations\/CustomPresentingAnimation.swift",
+      "kind": "FloatLiteral",
+      "offset": 1250,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Animations\/CustomPresentingAnimation.swift",
+      "kind": "FloatLiteral",
+      "offset": 1498,
+      "length": 3,
+      "value": "1.0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Animations\/CustomPresentingAnimation.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1647,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/ScLoanInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 120,
+      "length": 10,
+      "value": "\"Loans.ScLoanInfo\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/Data\/ScLoanInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 487,
+      "length": 18,
+      "value": "\"Loans.ScLoanInfoInternal\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 959,
+      "length": 74,
+      "value": "\"https:\/\/api.unity.smallcase.com\/client\/\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 1029,
+      "length": 1,
+      "value": "\"\/v1\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 1084,
+      "length": 79,
+      "value": "\"https:\/\/unity-stag.las.smallcase.com\/client\/\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 1159,
+      "length": 1,
+      "value": "\"\/v1\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 1218,
+      "length": 78,
+      "value": "\"https:\/\/api-dev.unity.smallcase.com\/client\/\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 1292,
+      "length": 1,
+      "value": "\"\/v1\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 1786,
+      "length": 19,
+      "value": "\"\/interaction\/init\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 1879,
+      "length": 14,
+      "value": "\"\/interaction\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 2385,
+      "length": 9,
+      "value": "\"message\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 2425,
+      "length": 6,
+      "value": "\"code\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "Dictionary",
+      "offset": 2904,
+      "length": 99,
+      "value": "[(\"Content-Type\", \"application\/json\"), (\"x-gateway-sdk-type\", \"ios\")]"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3116,
+      "length": 23,
+      "value": "\"x-gateway-interaction\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3303,
+      "length": 5,
+      "value": "\"ios\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3336,
+      "length": 23,
+      "value": "\"x-gateway-sdk-version\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3363,
+      "length": 98,
+      "value": "\"ios:v\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3397,
+      "length": 1,
+      "value": "\",\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3423,
+      "length": 1,
+      "value": "\":v\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3460,
+      "length": 1,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3504,
+      "length": 23,
+      "value": "\"x-gateway-sdk-version\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3531,
+      "length": 35,
+      "value": "\"ios:v\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3565,
+      "length": 1,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3600,
+      "length": 26,
+      "value": "\"HEADERS: \""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/UnityService.swift",
+      "kind": "StringLiteral",
+      "offset": 3625,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "StringLiteral",
+      "offset": 189,
+      "length": 19,
+      "value": "\"LoadingScreenView\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 877,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "StringLiteral",
+      "offset": 923,
+      "length": 16,
+      "value": "\"gateway-loader\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "StringLiteral",
+      "offset": 1326,
+      "length": 22,
+      "value": "\"for loan application\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "StringLiteral",
+      "offset": 1377,
+      "length": 34,
+      "value": "\"Redirecting for loan application\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "StringLiteral",
+      "offset": 1494,
+      "length": 9,
+      "value": "\"payment\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "StringLiteral",
+      "offset": 1574,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "StringLiteral",
+      "offset": 1658,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "StringLiteral",
+      "offset": 1782,
+      "length": 34,
+      "value": "\"Redirecting for loan application\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "StringLiteral",
+      "offset": 1907,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "FloatLiteral",
+      "offset": 2109,
+      "length": 4,
+      "value": "1.31"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/Views\/LoadingScreenView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3037,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/ScLoanIntent.swift",
+      "kind": "StringLiteral",
+      "offset": 159,
+      "length": 18,
+      "value": "\"LOAN_APPLICATION\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/ScLoanIntent.swift",
+      "kind": "StringLiteral",
+      "offset": 197,
+      "length": 9,
+      "value": "\"PAYMENT\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/ScLoanIntent.swift",
+      "kind": "StringLiteral",
+      "offset": 227,
+      "length": 10,
+      "value": "\"WITHDRAW\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/ScLoanIntent.swift",
+      "kind": "StringLiteral",
+      "offset": 257,
+      "length": 9,
+      "value": "\"SERVICE\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/ScLoanIntent.swift",
+      "kind": "StringLiteral",
+      "offset": 159,
+      "length": 18,
+      "value": "\"LOAN_APPLICATION\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/ScLoanIntent.swift",
+      "kind": "StringLiteral",
+      "offset": 197,
+      "length": 9,
+      "value": "\"PAYMENT\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/ScLoanIntent.swift",
+      "kind": "StringLiteral",
+      "offset": 227,
+      "length": 10,
+      "value": "\"WITHDRAW\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/ScLoanIntent.swift",
+      "kind": "StringLiteral",
+      "offset": 257,
+      "length": 9,
+      "value": "\"SERVICE\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/Base\/GatewayASWebAuthenticationProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 596,
+      "length": 23,
+      "value": "\"launching url: \""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/Base\/GatewayASWebAuthenticationProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 618,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/Base\/GatewayASWebAuthenticationProvider.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1441,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 720,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 848,
+      "length": 18,
+      "value": "\"loan_application\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 871,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 964,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 1405,
+      "length": 71,
+      "value": "\"https:\/\/api.unity.smallcase.com\/client\/\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 1475,
+      "length": 1,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 1527,
+      "length": 76,
+      "value": "\"https:\/\/unity-stag.las.smallcase.com\/client\/\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 1602,
+      "length": 1,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 1790,
+      "length": 75,
+      "value": "\"https:\/\/unity-dev.las.smallcase.com\/client\/\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 1864,
+      "length": 1,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 2503,
+      "length": 6,
+      "value": "\"code\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2630,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 2688,
+      "length": 6,
+      "value": "\"data\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 2821,
+      "length": 12,
+      "value": "\"lenderName\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 2891,
+      "length": 5,
+      "value": "\"url\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 2954,
+      "length": 14,
+      "value": "\"openPlatform\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 3024,
+      "length": 8,
+      "value": "\"intent\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 3659,
+      "length": 9,
+      "value": "\"message\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 5734,
+      "length": 69,
+      "value": "\"-------------------- LOS Journey started --------------------------\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 6371,
+      "length": 69,
+      "value": "\"-------------------- LOS Journey started --------------------------\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 6805,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 7388,
+      "length": 3,
+      "value": "\"&\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7422,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7458,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 7498,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 7593,
+      "length": 9,
+      "value": "\"success\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 7672,
+      "length": 3,
+      "value": "\"=\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 7685,
+      "length": 7,
+      "value": "\"false\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 7756,
+      "length": 9,
+      "value": "\"message\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 7835,
+      "length": 3,
+      "value": "\"=\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 7848,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 7912,
+      "length": 6,
+      "value": "\"code\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 7989,
+      "length": 3,
+      "value": "\"=\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 8002,
+      "length": 4,
+      "value": "\"-1\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8011,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 8785,
+      "length": 6,
+      "value": "\"code\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8913,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 8963,
+      "length": 6,
+      "value": "\"data\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 9215,
+      "length": 9,
+      "value": "\"message\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/ViewModel\/LASViewModel.swift",
+      "kind": "StringLiteral",
+      "offset": 9373,
+      "length": 6,
+      "value": "\"data\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/URLComponents+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 501,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/CMSService.swift",
+      "kind": "StringLiteral",
+      "offset": 335,
+      "length": 28,
+      "value": "\"https:\/\/cms.smallcase.com\/\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/CMSService.swift",
+      "kind": "StringLiteral",
+      "offset": 410,
+      "length": 32,
+      "value": "\"https:\/\/cms-dev.smallcase.com\/\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/CMSService.swift",
+      "kind": "StringLiteral",
+      "offset": 497,
+      "length": 32,
+      "value": "\"https:\/\/cms-dev.smallcase.com\/\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Service\/CMSService.swift",
+      "kind": "StringLiteral",
+      "offset": 749,
+      "length": 16,
+      "value": "\"lender-configs\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/Coordinator\/LASCoordinator.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1397,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/Coordinator\/LASCoordinator.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1592,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/Coordinator\/LASCoordinator.swift",
+      "kind": "StringLiteral",
+      "offset": 126,
+      "length": 14,
+      "value": "\"Loans.LASCoordinator\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/Base\/SessionManager.swift",
+      "kind": "StringLiteral",
+      "offset": 290,
+      "length": 5,
+      "value": "\"iOS\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/Base\/SessionManager.swift",
+      "kind": "StringLiteral",
+      "offset": 447,
+      "length": 15,
+      "value": "\"LASSDKVersion\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/Base\/SessionManager.swift",
+      "kind": "StringLiteral",
+      "offset": 467,
+      "length": 7,
+      "value": "\"0.0.1\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/ScLoan.swift",
+      "kind": "StringLiteral",
+      "offset": 3290,
+      "length": 21,
+      "value": "\"GraphikApp-Bold.ttf\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/ScLoan.swift",
+      "kind": "StringLiteral",
+      "offset": 3433,
+      "length": 22,
+      "value": "\"GraphikApp-Light.ttf\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/ScLoan.swift",
+      "kind": "StringLiteral",
+      "offset": 3577,
+      "length": 23,
+      "value": "\"GraphikApp-Medium.ttf\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/ScLoan.swift",
+      "kind": "StringLiteral",
+      "offset": 3722,
+      "length": 29,
+      "value": "\"GraphikApp-MediumItalic.ttf\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/ScLoan.swift",
+      "kind": "StringLiteral",
+      "offset": 3873,
+      "length": 24,
+      "value": "\"GraphikApp-Regular.ttf\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/ScLoan.swift",
+      "kind": "StringLiteral",
+      "offset": 4019,
+      "length": 30,
+      "value": "\"GraphikApp-RegularItalic.ttf\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/External\/ScLoan.swift",
+      "kind": "StringLiteral",
+      "offset": 4171,
+      "length": 25,
+      "value": "\"GraphikApp-Semibold.ttf\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/String+Ext.swift",
+      "kind": "Array",
+      "offset": 319,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/String+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 465,
+      "length": 76,
+      "value": "\"Failed to convert JSON string to dictionary: \""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/String+Ext.swift",
+      "kind": "StringLiteral",
+      "offset": 540,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/HTTPMethod.swift",
+      "kind": "StringLiteral",
+      "offset": 144,
+      "length": 5,
+      "value": "\"GET\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/HTTPMethod.swift",
+      "kind": "StringLiteral",
+      "offset": 166,
+      "length": 6,
+      "value": "\"POST\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/HTTPMethod.swift",
+      "kind": "StringLiteral",
+      "offset": 188,
+      "length": 5,
+      "value": "\"PUT\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/HTTPMethod.swift",
+      "kind": "StringLiteral",
+      "offset": 212,
+      "length": 8,
+      "value": "\"DELETE\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/HTTPMethod.swift",
+      "kind": "StringLiteral",
+      "offset": 144,
+      "length": 5,
+      "value": "\"GET\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/HTTPMethod.swift",
+      "kind": "StringLiteral",
+      "offset": 166,
+      "length": 6,
+      "value": "\"POST\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/HTTPMethod.swift",
+      "kind": "StringLiteral",
+      "offset": 188,
+      "length": 5,
+      "value": "\"PUT\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Network\/Enums\/HTTPMethod.swift",
+      "kind": "StringLiteral",
+      "offset": 212,
+      "length": 8,
+      "value": "\"DELETE\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Core\/Base\/LenderInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 118,
+      "length": 10,
+      "value": "\"Loans.LenderInfo\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 452,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 735,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 773,
+      "length": 18,
+      "value": "\"smallcase-loader\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 1201,
+      "length": 39,
+      "value": "\"init(coder:) has not been implemented\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1453,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1510,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "FloatLiteral",
+      "offset": 1520,
+      "length": 3,
+      "value": "0.8"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1634,
+      "length": 3,
+      "value": "127"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1647,
+      "length": 2,
+      "value": "80"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1736,
+      "length": 2,
+      "value": "32"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1748,
+      "length": 3,
+      "value": "178"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1973,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 151,
+      "length": 27,
+      "value": "\"Loans.LoadingScreenViewController\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2398,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Features\/LAS\/UI\/LoadingScreenViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 2864,
+      "length": 21,
+      "value": "\"No Key Window Scene\""
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIView+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 284,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIView+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 361,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIView+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 439,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIView+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 611,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIView+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 765,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIView+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 937,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIView+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 986,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIView+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1065,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIView+Ext.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1115,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/indrajitroy\/smallcase\/scGitHub\/gw-mob-sdk-las-ios\/Loans\/Extensions\/UIView+Ext.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1196,
+      "length": 4,
+      "value": "true"
+    }
+  ]
+}

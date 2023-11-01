@@ -1,2 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-WebViewTester/Pods-WebViewTester-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Mixpanel-swift/Mixpanel.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/SCGateway/SCGateway.framework/SCGateway
+${PODS_XCFRAMEWORKS_BUILD_DIR}/SCLoans/Loans.framework/Loans

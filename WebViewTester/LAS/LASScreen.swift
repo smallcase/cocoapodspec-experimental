@@ -179,8 +179,20 @@ struct LASScreen: View {
                     }.edgesIgnoringSafeArea(.horizontal)
                 }.padding()
                 
-                Text("Loan Servicing")
-                    .font(.headline)
+                VStack(alignment: .center) {
+                    
+                    Button(action: {
+                        service()
+                    }) {
+                        Text("Service")
+                            .foregroundColor(.white)
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }.edgesIgnoringSafeArea(.horizontal)
+                }.padding()
                 
                 HStack(alignment: .center) {
                     
@@ -277,7 +289,7 @@ struct LASScreen: View {
     }
     
     func setupLoansSDK() {
-        SCLoans.instance.setupSCGatewayLoans(lasConfig: ScLoanConfig(gatewayName: gatewayName ?? "gatewaydemo", environment: LASSessionManager.lasEnvironment)) { result in
+        ScLoan.instance.setup(config: ScLoanConfig(gatewayName: gatewayName ?? "gatewaydemo", environment: LASSessionManager.lasEnvironment)) { result in
             
             switch result {
                 case .success(_):
@@ -307,11 +319,11 @@ struct LASScreen: View {
     }
     
     func triggerLOSJourney() {
-        SCLoans.instance.apply(presentingController: hostingProvider.viewController!, loanInfo: LoanInfo(interactionToken: interactionToken!)) { result in
+        ScLoan.instance.apply(presentingController: hostingProvider.viewController!, loanInfo: ScLoanInfo(interactionToken: interactionToken!)) { result in
             switch result {
-            case .success(let scLoanSuccess):
-                print(scLoanSuccess.data ?? "")
-                showAlertDialog("Success", scLoanSuccess.data ?? "")
+            case .success(let ScLoanSuccess):
+                print(ScLoanSuccess.data ?? "")
+                showAlertDialog("Success", ScLoanSuccess.data ?? "")
                 
             case .failure(let error):
                 print(error.code)
@@ -320,11 +332,11 @@ struct LASScreen: View {
     }
     
     func withdrawAmount() {
-        SCLoans.instance.withdraw(presentingController: hostingProvider.viewController!, loanInfo: LoanInfo(interactionToken: interactionToken!)) { result in
+        ScLoan.instance.withdraw(presentingController: hostingProvider.viewController!, loanInfo: ScLoanInfo(interactionToken: interactionToken!)) { result in
             switch result {
-            case .success(let scLoanSuccess):
-                print(scLoanSuccess.data ?? "")
-                showAlertDialog("Success", scLoanSuccess.data ?? "")
+            case .success(let ScLoanSuccess):
+                print(ScLoanSuccess.data ?? "")
+                showAlertDialog("Success", ScLoanSuccess.data ?? "")
                 
             case .failure(let error):
                 print(error.code)
@@ -333,13 +345,26 @@ struct LASScreen: View {
     }
     
     func payLoanAmount() {
-        SCLoans.instance.pay(presentingController: hostingProvider.viewController!, loanInfo: LoanInfo(interactionToken: interactionToken!)) { result in
+        ScLoan.instance.pay(presentingController: hostingProvider.viewController!, loanInfo: ScLoanInfo(interactionToken: interactionToken!)) { result in
+            switch result {
+            case .success(let ScLoanSuccess):
+                print(ScLoanSuccess.data ?? "")
+                showAlertDialog("Success", ScLoanSuccess.data ?? "")
+                
+            case .failure(let error):
+                print(error.code)
+            }
+        }
+    }
+    
+    func service() {
+        ScLoan.instance.service(presentingController: hostingProvider.viewController!, loanInfo: ScLoanInfo(interactionToken: interactionToken!)) { result in
             switch result {
             case .success(let scLoanSuccess):
                 print(scLoanSuccess.data ?? "")
                 showAlertDialog("Success", scLoanSuccess.data ?? "")
-                
             case .failure(let error):
+                showAlertDialog("Error: \(error.errorMessage) \(error.errorCode)", error.data ?? "")
                 print(error.code)
             }
         }
