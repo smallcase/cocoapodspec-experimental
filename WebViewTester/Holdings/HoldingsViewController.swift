@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SCGateway
+import SwiftUI
 //import PopupDialog
 
 class HoldingsViewController: UIViewController {
@@ -53,6 +54,16 @@ class HoldingsViewController: UIViewController {
     
     @IBAction func showUpdatedHoldings(_ sender: Any) {
         fetchHoldings()
+    }
+    
+    @IBAction func onMfHoldingsClick(_ sender: Any) {
+        print("MF MF MF MF MF MF MF MF MF FMF MF ")
+        if #available(iOS 15.0, *) {
+            let hostingController = MFHoldingsSwiftUIView().embeddedInHostingController()
+            navigationController?.pushViewController(hostingController, animated: true)
+        } else {
+            self.showPopup(title: "Error", msg: "This module is currently supported only on iOS 15+")
+        }
     }
     
     @IBOutlet weak var holdingsV2Switch: UISwitch!

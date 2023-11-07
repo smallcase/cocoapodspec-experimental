@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15E9B1172AA9F3F200A1135D /* MFHoldingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B1162AA9F3F200A1135D /* MFHoldingsViewController.swift */; };
-		15E9B1332AAA038A00A1135D /* SCGateway.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E9B1312AAA032800A1135D /* SCGateway.xcframework */; };
-		15E9B1342AAA038A00A1135D /* SCGateway.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 15E9B1312AAA032800A1135D /* SCGateway.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		15A9174F2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A9174E2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift */; };
 		361995C7241665300054D5CF /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361995C6241665300054D5CF /* UIViewController+Ext.swift */; };
 		3658975923842F300083F299 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658975823842F300083F299 /* NewsViewController.swift */; };
 		3658975E23842F580083F299 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658975C23842F580083F299 /* NewsTableViewCell.swift */; };
@@ -126,8 +124,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15A9174E2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFHoldingsSwiftUIView.swift; sourceTree = "<group>"; };
 		15E9B1162AA9F3F200A1135D /* MFHoldingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFHoldingsViewController.swift; sourceTree = "<group>"; };
-		15E9B1312AAA032800A1135D /* SCGateway.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SCGateway.xcframework; path = "../gw-mob-sdk-ios/XCFramework/xcframeworks/SCGateway.xcframework"; sourceTree = "<group>"; };
 		361995C6241665300054D5CF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		364596992436462300C4B617 /* SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3645969C24364FB000C4B617 /* libSCGateway.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSCGateway.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,6 +259,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15A917502AFA7775005E4EB1 /* MutualFunds */ = {
+			isa = PBXGroup;
+			children = (
+				15A9174E2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift */,
+			);
+			path = MutualFunds;
+			sourceTree = "<group>";
+		};
 		1623BB5555C1EA2952D236E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +456,7 @@
 		36F7D44322A9485A003B357A /* WebViewTester */ = {
 			isa = PBXGroup;
 			children = (
+				15A917502AFA7775005E4EB1 /* MutualFunds */,
 				88A30D3F2A1FC68200EF324E /* Network */,
 				8832CA9A2A0D07DF000508A7 /* Launch */,
 				8832CA972A0D058A000508A7 /* LAS */,
@@ -924,6 +931,7 @@
 				36DC3F2F2382A74E0058DE04 /* Investment.swift in Sources */,
 				88516D5227ECA0E8003D8D32 /* UserStockHoldingCellTableViewCell.swift in Sources */,
 				36AEFDB0237EF69200E45E63 /* SmallcaseConstituentsTVCell.swift in Sources */,
+				15A9174F2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift in Sources */,
 				36F7D4A522B0D462003B357A /* CreateTableViewCell.swift in Sources */,
 				36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */,
 				36AEFD9E237EB93300E45E63 /* CreateTransactionBody.swift in Sources */,
