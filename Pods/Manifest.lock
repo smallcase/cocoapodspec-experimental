@@ -2,27 +2,17 @@ PODS:
   - Mixpanel-swift (3.3.0):
     - Mixpanel-swift/Complete (= 3.3.0)
   - Mixpanel-swift/Complete (3.3.0)
-  - SCGateway (3.11.0):
-    - Mixpanel-swift (= 3.3.0)
-    - SCLoans (= 2.0.0)
-  - SCLoans (2.0.0)
 
 DEPENDENCIES:
   - Mixpanel-swift (~> 3.3.0)
-  - SCGateway (= 3.11.0)
-  - SCLoans (= 2.0.0)
 
 SPEC REPOS:
   trunk:
     - Mixpanel-swift
-    - SCGateway
-    - SCLoans
 
 SPEC CHECKSUMS:
   Mixpanel-swift: 6ffe368bcfc3b538f540f31372bc798afd90c1ad
-  SCGateway: 4dab1008f8407e6252fe32fe1dc921ca41a8ff1e
-  SCLoans: 638d344210649e0dc00e1879eb76f1309a21b703
 
-PODFILE CHECKSUM: d02e093b6d58a526c428b36e2f6fff10af5b3774
+PODFILE CHECKSUM: 30f723c3639dea361d507f03d0c7a39a4afec7d8
 
 COCOAPODS: 1.13.0

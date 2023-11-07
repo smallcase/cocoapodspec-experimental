@@ -16,8 +16,8 @@ target 'WebViewTester' do
   
   pod 'Mixpanel-swift','~> 3.3.0'
 
-  pod 'SCGateway' , '3.11.0'
-  pod 'SCLoans' , '2.0.0'
+#  pod 'SCGateway' , '3.11.0'
+#  pod 'SCLoans' , '2.0.0'
 
   target 'WebViewTesterTests' do
     inherit! :search_paths
