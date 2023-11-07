@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		15A9174F2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A9174E2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift */; };
+		15A917752AFA980D005E4EB1 /* Loans.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A917742AFA9802005E4EB1 /* Loans.framework */; };
+		15A917762AFA980D005E4EB1 /* Loans.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 15A917742AFA9802005E4EB1 /* Loans.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		15A917772AFA980D005E4EB1 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A9176C2AFA97FC005E4EB1 /* SCGateway.framework */; };
+		15A917782AFA980D005E4EB1 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 15A9176C2AFA97FC005E4EB1 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		361995C7241665300054D5CF /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361995C6241665300054D5CF /* UIViewController+Ext.swift */; };
 		3658975923842F300083F299 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658975823842F300083F299 /* NewsViewController.swift */; };
 		3658975E23842F580083F299 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658975C23842F580083F299 /* NewsTableViewCell.swift */; };
@@ -94,6 +98,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		15A9176B2AFA97FC005E4EB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15A917652AFA97FC005E4EB1 /* SCGateway.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 36F1DE5F2372A08900E36C39;
+			remoteInfo = SCGateway;
+		};
+		15A917732AFA9802005E4EB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15A9176D2AFA9801005E4EB1 /* Loans.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88331CD829F1BF1A006B66FB;
+			remoteInfo = Loans;
+		};
 		36F7D45622A9485C003B357A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 36F7D43922A9485A003B357A /* Project object */;
@@ -117,6 +135,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				15A917762AFA980D005E4EB1 /* Loans.framework in Embed Frameworks */,
+				15A917782AFA980D005E4EB1 /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +145,8 @@
 
 /* Begin PBXFileReference section */
 		15A9174E2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFHoldingsSwiftUIView.swift; sourceTree = "<group>"; };
+		15A917652AFA97FC005E4EB1 /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = "../gw-mob-sdk-ios/SCGateway.xcodeproj"; sourceTree = "<group>"; };
+		15A9176D2AFA9801005E4EB1 /* Loans.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Loans.xcodeproj; path = "../gw-mob-sdk-las-ios/Loans.xcodeproj"; sourceTree = "<group>"; };
 		15E9B1162AA9F3F200A1135D /* MFHoldingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFHoldingsViewController.swift; sourceTree = "<group>"; };
 		361995C6241665300054D5CF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		364596992436462300C4B617 /* SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +258,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15A917752AFA980D005E4EB1 /* Loans.framework in Frameworks */,
+				15A917772AFA980D005E4EB1 /* SCGateway.framework in Frameworks */,
 				DF374DC3C406F07E70BCACDC /* Pods_WebViewTester.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +289,22 @@
 				15A9174E2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift */,
 			);
 			path = MutualFunds;
+			sourceTree = "<group>";
+		};
+		15A917662AFA97FC005E4EB1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15A9176C2AFA97FC005E4EB1 /* SCGateway.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		15A9176E2AFA9801005E4EB1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15A917742AFA9802005E4EB1 /* Loans.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		1623BB5555C1EA2952D236E9 /* Frameworks */ = {
@@ -433,6 +473,8 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
+				15A9176D2AFA9801005E4EB1 /* Loans.xcodeproj */,
+				15A917652AFA97FC005E4EB1 /* SCGateway.xcodeproj */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -749,6 +791,16 @@
 			);
 			productRefGroup = 36F7D44222A9485A003B357A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 15A9176E2AFA9801005E4EB1 /* Products */;
+					ProjectRef = 15A9176D2AFA9801005E4EB1 /* Loans.xcodeproj */;
+				},
+				{
+					ProductGroup = 15A917662AFA97FC005E4EB1 /* Products */;
+					ProjectRef = 15A917652AFA97FC005E4EB1 /* SCGateway.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				36F7D44022A9485A003B357A /* WebViewTester */,
@@ -757,6 +809,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		15A9176C2AFA97FC005E4EB1 /* SCGateway.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SCGateway.framework;
+			remoteRef = 15A9176B2AFA97FC005E4EB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		15A917742AFA9802005E4EB1 /* Loans.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Loans.framework;
+			remoteRef = 15A917732AFA9802005E4EB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		36F7D43F22A9485A003B357A /* Resources */ = {

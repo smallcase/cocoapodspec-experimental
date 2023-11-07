@@ -14,39 +14,35 @@ struct MFHoldingsSwiftUIView: View {
     
     @EnvironmentObject var hostingProvider: ViewControllerProvider
     @StateObject var currentUserMode = LASUserMode()
-//    @StateObject var lasUser = LASUser()
+    //    @StateObject var lasUser = LASUser()
     
-    @State private var environmentIndex = 0
-    
-    @State private var PAN: String? = nil
     @State private var notes: String? = nil
     @State private var fromDate: String? = nil
-    @State private var lender: String? = nil
-    
-    @State private var existingUserId: String? = nil
     
     @State private var currentTransactionId: String? = nil
     
     @State private var showingAlert = false
-    @State private var isAlertMf = false
     @State private var alertTitle = "Success"
     @State private var alertMessage = ""
     
+    @State private var shouldFetchPostbackAfterAlerting = false
+    
     func mfAlert() -> Alert {
         return Alert(
-            title: Text(alertTitle),
+            title: Text("MF Alert!"+alertTitle),
             message: Text(alertMessage),
             primaryButton: .destructive(Text("Copy")) {
                 UIPasteboard.general.string = alertMessage
                 showingAlert = false
-                isAlertMf = false
+                shouldFetchPostbackAfterAlerting = false
                 print("SUCCESS POPUP COMPLETED")
                 self.getMfHoldings(transactionId: currentTransactionId ?? "")
             },
             secondaryButton: .cancel() {
                 showingAlert = false
-                isAlertMf = false
+                shouldFetchPostbackAfterAlerting = false
                 print("SUCCESS POPUP COMPLETED")
+                
                 self.getMfHoldings(transactionId: currentTransactionId ?? "")
             }
         )
@@ -81,6 +77,7 @@ struct MFHoldingsSwiftUIView: View {
                             showAlertDialog("Error creating TxnId", "Something went wrong")
                             return
                         }
+                        currentTransactionId = id
                         self.importMFHoldings(transactionId: id)
                     }
                 }) {
@@ -93,10 +90,43 @@ struct MFHoldingsSwiftUIView: View {
                         .cornerRadius(10)
                 }.edgesIgnoringSafeArea(.horizontal)
                 
+                TextField("Enter MF txn Id", text: Binding(
+                    get: { currentTransactionId ?? "" },
+                    set: {
+                        currentTransactionId = $0
+                    }
+                ))
+                .padding(EdgeInsets.init(top: 15.0, leading: 0, bottom: 0, trailing: 0))
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Button(action: {
+                    getMfHoldings(transactionId: currentTransactionId ?? "")
+                }) {
+                    Text("Fetch Postback")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }.edgesIgnoringSafeArea(.horizontal)
+                
+                Button(action: {
+                    importMFHoldings(transactionId: currentTransactionId ?? "")
+                }) {
+                    Text("Trigger MF Txn")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }.edgesIgnoringSafeArea(.horizontal)
+                
             }
             
         }.alert(isPresented: $showingAlert) {
-            isAlertMf ? mfAlert() :
+            shouldFetchPostbackAfterAlerting ? mfAlert() :
             Alert(
                 title: Text(alertTitle),
                 message: Text(alertMessage),
@@ -104,13 +134,15 @@ struct MFHoldingsSwiftUIView: View {
                     UIPasteboard.general.string = alertMessage
                     showingAlert = false
                 },
-                secondaryButton: .cancel()
+                secondaryButton: .cancel() {
+                    showingAlert = false
+                }
             )
         }
         
     }
     
-
+    
     
     func importMFHoldings(transactionId:String) {
         do {
@@ -118,15 +150,16 @@ struct MFHoldingsSwiftUIView: View {
                 switch result {
                 case .success(let response):
                     print("HOLDING RESPONSE: \(response)")
-                    isAlertMf = true
-                    self.showAlertDialog("Holdings Response", "\(response)")
+                    shouldFetchPostbackAfterAlerting = true
+                    self.showAlertDialog("MF Txn Response", "\(response)")
                     
                 case .failure(let error):
                     print(error)
-                    self.showAlertDialog("Holdings Error", hostingProvider.viewController!.convertErrorToJsonString(error: error) ?? "error converting transaction error to JSON")
+                    shouldFetchPostbackAfterAlerting = true
+                    self.showAlertDialog("MF Txn Error Response", hostingProvider.viewController!.convertErrorToJsonString(error: error) ?? "error converting transaction error to JSON")
                 }
             })
-}
+        }
         catch let err {
             print(err)
             self.showAlertDialog("Gateway Error", err.localizedDescription)
@@ -148,9 +181,13 @@ struct MFHoldingsSwiftUIView: View {
     }
     
     func showAlertDialog(_ title: String, _ message: String) {
-        showingAlert = true
-        alertTitle = title
-        alertMessage = message
+        // Added delay bacause two alerts displayed back to back was causing an issue woth the disposal of the first one
+        // Should think of a better way
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            showingAlert = true
+            alertTitle = title
+            alertMessage = message
+        }
     }
     
 }
