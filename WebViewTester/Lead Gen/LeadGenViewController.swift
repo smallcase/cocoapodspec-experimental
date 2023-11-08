@@ -39,7 +39,7 @@ class LeadGenViewController: UIViewController {
     
     @IBOutlet weak var smallplugParam: UITextField!
     
-    @IBOutlet weak var showLoginCtaSwitch: UISwitch!
+    @IBOutlet weak var showLoginCtaSwitch: UISwitch?
     
 
     lazy var tapRecognizer: UITapGestureRecognizer = {
@@ -86,13 +86,12 @@ class LeadGenViewController: UIViewController {
 //
 //            self.showPopup(title: "LeadGenResponse", msg: response)
 //        })
-        
         SCGateway.shared.triggerLeadGen(
             presentingController: self,
             params: params,
             utmParams: nil,
             retargeting: false,
-            showLoginCta: showLoginCtaSwitch.isOn,
+            showLoginCta: showLoginCtaSwitch?.isOn ?? false,
             completion: { (response) in
 
             self.showPopup(title: "LeadGenResponse", msg: response)
