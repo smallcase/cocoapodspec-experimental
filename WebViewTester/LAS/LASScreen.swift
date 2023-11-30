@@ -84,8 +84,8 @@ struct LASScreen: View {
                     TextField("intent", text: Binding(
                         get: { intent ?? "" },
                         set: {
-                            intent = $0.lowercased()
-                            LASSessionManager.lasIntent = $0.lowercased()
+                            intent = $0
+                            LASSessionManager.lasIntent = $0
                         }
                     ))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -313,6 +313,7 @@ struct LASScreen: View {
                     interactionToken = resData["interactionToken"]
                 }
             case .failure(let error):
+                showAlertDialog("Error creating interaction token", "\(error)")
                 print(error.localizedDescription)
             }
         }
@@ -326,6 +327,7 @@ struct LASScreen: View {
                 showAlertDialog("Success", ScLoanSuccess.data ?? "")
                 
             case .failure(let error):
+                showAlertDialog("Error in apply", "\(String(describing: error.toPrettyJson()))")
                 print(error.code)
             }
         }
@@ -339,6 +341,7 @@ struct LASScreen: View {
                 showAlertDialog("Success", ScLoanSuccess.data ?? "")
                 
             case .failure(let error):
+                showAlertDialog("Error in withdraw", "\(String(describing: error.toPrettyJson()))")
                 print(error.code)
             }
         }
@@ -352,6 +355,7 @@ struct LASScreen: View {
                 showAlertDialog("Success", ScLoanSuccess.data ?? "")
                 
             case .failure(let error):
+                showAlertDialog("Error in pay", "\(String(describing: error.toPrettyJson()))")
                 print(error.code)
             }
         }
@@ -364,7 +368,7 @@ struct LASScreen: View {
                 print(scLoanSuccess.data ?? "")
                 showAlertDialog("Success", scLoanSuccess.data ?? "")
             case .failure(let error):
-                showAlertDialog("Error: \(error.errorMessage) \(error.errorCode)", error.data ?? "")
+                showAlertDialog("Error in service", "\(String(describing: error.toPrettyJson()))")
                 print(error.code)
             }
         }
@@ -381,5 +385,21 @@ struct LASScreen: View {
 struct LASScreen_Previews: PreviewProvider {
     static var previews: some View {
         LASScreen()
+    }
+}
+
+
+extension ScLoanError {
+    func toPrettyJson() -> String? {
+        var errorDict : [String: Any?] = [
+            "errorCode": errorCode,
+            "errorMessage": errorMessage,
+        ]
+        
+        if let errorData = data {
+            errorDict["data"] = errorData.toDictionary
+        }
+        
+        return errorDict.toJsonString
     }
 }
