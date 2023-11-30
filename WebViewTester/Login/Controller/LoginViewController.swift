@@ -61,6 +61,8 @@ class LoginViewController: UIViewController {
         }
     }
     
+    var customAuthToken: String? = nil
+    
     var userNameString: String? {
         didSet {
             if let inputStr = userNameString {
@@ -97,6 +99,12 @@ class LoginViewController: UIViewController {
             gatewayNameTextField.delegate = self
 //            gatewayNameTextField.text = UserDefaults.standard.string(forKey: Constant.gatewayKey)
             gatewayNameTextField.text = "tickertape"
+        }
+    }
+    
+    @IBOutlet weak var customAuthTokenField: UITextField! {
+        didSet{
+            customAuthTokenField.delegate = self
         }
     }
     
@@ -291,6 +299,11 @@ class LoginViewController: UIViewController {
     }
     
     func getAuthToken() {
+        if  let token = self.customAuthTokenField.text, !token.isEmpty {
+            self.smallcaseAuthToken = token
+            UserDefaults.standard.set(token, forKey: UserDefaultConstants.authToken)
+            return
+        }
         SmartinvestingApi.shared.getAuthToken(username: userNameString!) {[weak self] (result) in
             switch result {
             case .success(let response):
@@ -406,6 +419,7 @@ class LoginViewController: UIViewController {
 //                        return
 
                     default:
+                        self?.showPopup(title: "response:", msg: "\(response)")
                         return
                     }
 
@@ -417,11 +431,7 @@ class LoginViewController: UIViewController {
 
                         self?.presentedViewController?.dismiss(animated: false)
 
-                        if error.rawValue == 1007 {
-                            self?.showPopup(title: "Error", msg: "\(error.message) \(error.rawValue)")
-                        } else {
-                            self?.showPopup(title: "Error", msg: "\(error.message)  \(error.rawValue)")
-                        }
+                    self?.showPopup(title: "Error", msg: "\(error.message) \(error.rawValue)")
 
 
                 }
@@ -449,6 +459,7 @@ class LoginViewController: UIViewController {
             }
         } catch let error as NSError {
             print("Failed to load: \(error.localizedDescription)")
+            self.showPopup(title: "Error", msg: "\(error)")
         }
     }
 
