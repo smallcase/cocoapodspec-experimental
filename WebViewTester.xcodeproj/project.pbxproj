@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		153A86D12BFA46C800418DAF /* Loans.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 153A86C82BFA46B600418DAF /* Loans.framework */; };
+		153A86D22BFA46C800418DAF /* Loans.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 153A86C82BFA46B600418DAF /* Loans.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		153A86D32BFA46C800418DAF /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 153A86D02BFA46BE00418DAF /* SCGateway.framework */; };
+		153A86D42BFA46C800418DAF /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 153A86D02BFA46BE00418DAF /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		15A9174F2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A9174E2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift */; };
 		361995C7241665300054D5CF /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361995C6241665300054D5CF /* UIViewController+Ext.swift */; };
 		3658975923842F300083F299 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658975823842F300083F299 /* NewsViewController.swift */; };
@@ -94,6 +98,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		153A86C72BFA46B600418DAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 153A86C12BFA46B600418DAF /* Loans.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88331CD829F1BF1A006B66FB;
+			remoteInfo = Loans;
+		};
+		153A86CF2BFA46BE00418DAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 153A86C92BFA46BE00418DAF /* SCGateway.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 36F1DE5F2372A08900E36C39;
+			remoteInfo = SCGateway;
+		};
 		36F7D45622A9485C003B357A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 36F7D43922A9485A003B357A /* Project object */;
@@ -117,6 +135,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				153A86D22BFA46C800418DAF /* Loans.framework in Embed Frameworks */,
+				153A86D42BFA46C800418DAF /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,6 +144,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		153A86C12BFA46B600418DAF /* Loans.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Loans.xcodeproj; path = loans/Loans.xcodeproj; sourceTree = "<group>"; };
+		153A86C92BFA46BE00418DAF /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = smallcase_gateway/SCGateway.xcodeproj; sourceTree = "<group>"; };
+		153A86D52BFA46DF00418DAF /* Mixpanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15A9174E2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFHoldingsSwiftUIView.swift; sourceTree = "<group>"; };
 		15E9B1162AA9F3F200A1135D /* MFHoldingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFHoldingsViewController.swift; sourceTree = "<group>"; };
 		361995C6241665300054D5CF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
@@ -236,6 +259,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				153A86D12BFA46C800418DAF /* Loans.framework in Frameworks */,
+				153A86D32BFA46C800418DAF /* SCGateway.framework in Frameworks */,
 				DF374DC3C406F07E70BCACDC /* Pods_WebViewTester.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +284,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		153A86C22BFA46B600418DAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				153A86C82BFA46B600418DAF /* Loans.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		153A86CA2BFA46BE00418DAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				153A86D02BFA46BE00418DAF /* SCGateway.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		15A917502AFA7775005E4EB1 /* MutualFunds */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +311,7 @@
 		1623BB5555C1EA2952D236E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				153A86D52BFA46DF00418DAF /* Mixpanel.framework */,
 				888AF34C28B7800700B13FB6 /* Mixpanel.framework */,
 				88AEF3A828B4E93300367968 /* SCGateway_Mixpanel.framework */,
 				3645969E2436906B00C4B617 /* SCGateway.framework */,
@@ -433,6 +475,8 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
+				153A86C92BFA46BE00418DAF /* SCGateway.xcodeproj */,
+				153A86C12BFA46B600418DAF /* Loans.xcodeproj */,
 				36F7D44322A9485A003B357A /* WebViewTester */,
 				36F7D45822A9485C003B357A /* WebViewTesterTests */,
 				36F7D46322A9485C003B357A /* WebViewTesterUITests */,
@@ -749,6 +793,16 @@
 			);
 			productRefGroup = 36F7D44222A9485A003B357A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 153A86C22BFA46B600418DAF /* Products */;
+					ProjectRef = 153A86C12BFA46B600418DAF /* Loans.xcodeproj */;
+				},
+				{
+					ProductGroup = 153A86CA2BFA46BE00418DAF /* Products */;
+					ProjectRef = 153A86C92BFA46BE00418DAF /* SCGateway.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				36F7D44022A9485A003B357A /* WebViewTester */,
@@ -757,6 +811,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		153A86C82BFA46B600418DAF /* Loans.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Loans.framework;
+			remoteRef = 153A86C72BFA46B600418DAF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		153A86D02BFA46BE00418DAF /* SCGateway.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SCGateway.framework;
+			remoteRef = 153A86CF2BFA46BE00418DAF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		36F7D43F22A9485A003B357A /* Resources */ = {

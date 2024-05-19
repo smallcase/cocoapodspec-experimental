@@ -1,0 +1,6 @@
+[submodule "smallcase_gateway"]
+	path = smallcase_gateway
+	url = https://github.com/smallcase/gw-mob-sdk-ios
+[submodule "loans"]
+	path = loans
+	url = https://github.com/smallcase/gw-mob-sdk-las-ios
