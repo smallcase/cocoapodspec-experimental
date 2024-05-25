@@ -1219,8 +1219,6 @@
 					"\"Accelerate\"",
 					"-framework",
 					"\"UIKit\"",
-					"-framework",
-					"\"SCGateway\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.smallcase.smartInvesting;
 				PRODUCT_NAME = "Smart Investing";
@@ -1265,8 +1263,6 @@
 					"\"Accelerate\"",
 					"-framework",
 					"\"UIKit\"",
-					"-framework",
-					"\"SCGateway\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.smallcase.smartInvesting;
 				PRODUCT_NAME = "Smart Investing";
