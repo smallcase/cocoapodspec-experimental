@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -695,6 +695,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36F7D46922A9485D003B357A /* Build configuration list for PBXNativeTarget "SmartInvesting" */;
 			buildPhases = (
+				15B9D83B2C01D26200EC2E44 /* ShellScript */,
 				05C1C5AE568F29C4B9E7BD86 /* [CP] Check Pods Manifest.lock */,
 				36F7D43D22A9485A003B357A /* Sources */,
 				36F7D43E22A9485A003B357A /* Frameworks */,
@@ -879,6 +880,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		15B9D83B2C01D26200EC2E44 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCG=\"SCGateway\"\nLOANS=\"Loans\"\n\nSCG_F_PATH=\"$TARGET_BUILD_DIR/$SCG.framework\"\nLOANS_F_PATH=\"$TARGET_BUILD_DIR/$LOANS.framework\"\n\nSCG_XCF_PATH=\"$BUILD_DIR/Output/$SCG.xcframework\"\nLOANS_XCF_PATH=\"$BUILD_DIR/Output/$LOANS.xcframework\"\n\nif [ \"$USE_XC_FRAMEWORKS\" == \"YES\" ]; then\n    echo \"Linking and Embedding XCFrameworks...\"\n    \n    cd $BUILD_DIR\n    \n    xcodebuild -create-xcframework \\\n    -framework \"Debug-iphoneos/$SCG.framework\" \\\n    -framework \"Debug-iphonesimulator/$SCG.framework\" \\\n    -output \"$SCG_XCF_PATH\"\n    \n    cd \"$SCG_XCF_PATH\"\n    find . -name \"*.swiftinterface\" -exec sed -i -e \"s/$SCG\\.//g\" {} \\;\n    \n    cd $BUILD_DIR\n    \n    xcodebuild -create-xcframework \\\n    -framework \"Debug-iphoneos/$LOANS.framework\" \\\n    -framework \"Debug-iphonesimulator/$LOANS.framework\" \\\n    -output \"$LOANS_XCF_PATH\"\n    \n    cd \"$LOANS_XCF_PATH\"\n    find . -name \"*.swiftinterface\" -exec sed -i -e \"s/$LOANS\\.//g\" {} \\;\n    \n    cd \"$SRCROOT\"\n    \n    ruby manage_framework.rb --remove --framework=\"$SCG.framework\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\n    ruby manage_framework.rb --remove --framework=\"$LOANS.framework\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\n    \n    ruby manage_framework.rb --add --framework=\"$SCG.xcframework\" --frameworkPath=\"$SCG_XCF_PATH\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\n    ruby manage_framework.rb --add --framework=\"$LOANS.xcframework\" --frameworkPath=\"$LOANS_XCF_PATH\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\n# else\n    \n\n    # ruby manage_framework.rb --remove --framework=\"$SCG.xcframework\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\n    # ruby manage_framework.rb --remove --framework=\"$LOANS.xcframework\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\n\n    # ruby manage_framework.rb --add --framework=\"$SCG.framework\" --frameworkPath=\"$SCG_F_PATH\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\n    # ruby manage_framework.rb --add --framework=\"$LOANS.framework\" --frameworkPath=\"$LOANS_F_PATH\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\n    \n    # echo \"Just building the app, skipping additional tasks.\"\n\n    # cd $BUILD_DIR\n\n    # xcodebuild -create-xcframework \\\n    # -framework \"Debug-iphoneos/$SCG.framework\" \\\n    # -framework \"Debug-iphonesimulator/$SCG.framework\" \\\n    # -output \"$SCG_XCF_PATH\"\n\n    # cd \"$SCG_XCF_PATH\"\n    # find . -name \"*.swiftinterface\" -exec sed -i -e \"s/$SCG\\.//g\" {} \\;\n\n    # cd $BUILD_DIR\n\n    # xcodebuild -create-xcframework \\\n    # -framework \"Debug-iphoneos/$LOANS.framework\" \\\n    # -framework \"Debug-iphonesimulator/$LOANS.framework\" \\\n    # -output \"$LOANS_XCF_PATH\"\n\n    # cd \"$LOANS_XCF_PATH\"\n    # find . -name \"*.swiftinterface\" -exec sed -i -e \"s/$LOANS\\.//g\" {} \\;\n\n    # cd \"$SRCROOT\"\n\n    # ruby manage_framework.rb --remove --framework=\"$SCG.framework\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\n    # ruby manage_framework.rb --remove --framework=\"$LOANS.framework\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\n\n    # ruby manage_framework.rb --add --framework=\"$SCG.xcframework\" --frameworkPath=\"$SCG_XCF_PATH\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\n    # ruby manage_framework.rb --add --framework=\"$LOANS.xcframework\" --frameworkPath=\"$LOANS_XCF_PATH\" --project=\"$PROJECT_FILE_PATH\" --target=\"$TARGET_NAME\"\nfi\n";
 		};
 		570976B69C26ACB5F20172B4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
