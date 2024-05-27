@@ -1,0 +1,28 @@
+name: Bump Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Select the type of version bump'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - auto
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Bump version using scli
+        id: scli-version-bump
+        run: |
+          echo "Type is : ${{ github.event.inputs.type }}"
