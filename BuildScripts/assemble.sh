@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+find .build -mindepth 1 -delete
+
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
   -scheme SmartInvesting \
@@ -19,18 +21,22 @@ xcodebuild \
   USE_XC_FRAMEWORKS=YES \
   build
 
+
+# # Define the path to the archives directory
+archives_dir=./.build/Products/Archives
+archivePath="$archives_dir/SmartInvesting.xcarchive"
+
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
   -scheme SmartInvesting \
   -destination 'generic/platform=iOS' \
+  -archivePath "$archivePath" \
   archive
 
 git restore .
 git clean -f
 git clean -fd
 
-# # Define the path to the archives directory
-archives_dir=~/Library/Developer/Xcode/Archives
 
 # Find the latest archive directory
 latest_archive=$(ls -t "$archives_dir" | head -n 1)
@@ -38,6 +44,6 @@ latest_archive_path="$archives_dir/$latest_archive/$(ls -t "$archives_dir/$lates
 
 xcodebuild \
   -exportArchive \
-  -archivePath "$latest_archive_path" \
-  -exportPath ./Products/SmartInvesting/ \
+  -archivePath "$archivePath" \
+  -exportPath ./.build/Products/SmartInvesting/ \
   -exportOptionsPlist './ExportOptions.plist'
