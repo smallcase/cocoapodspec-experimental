@@ -1,0 +1,4 @@
+changelog:
+  outFile: ".build/changelog.md"
+  githubRepo: "smallcase/gw-mob-sdk-ios"
+  repoPath: "./smallcase_gateway"
