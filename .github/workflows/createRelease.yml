@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       smallcase_gateway_version:
-        description: 'Smallcase Gateway release version (optional)'
+        description: 'SCGateway release version (optional)'
         required: false
         type: string
       loans_version:
@@ -55,7 +55,7 @@ jobs:
       with:
         repository: ${{ github.repository_owner }}/gw-mob-sdk-ios
         ref: dev
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GH_ACCESS_TOKEN }}
 
     - name: Create and push release branch for smallcase_gateway
       run: |
@@ -67,7 +67,7 @@ jobs:
       id: create_pr_smallcase_gateway
       uses: peter-evans/create-pull-request@v5
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GH_ACCESS_TOKEN }}
         commit-message: "Create release branch for version ${{ github.event.inputs.smallcase_gateway_version }}"
         branch: release/${{ github.event.inputs.smallcase_gateway_version }}
         base: prod
@@ -86,7 +86,7 @@ jobs:
       with:
         repository: ${{ github.repository_owner }}/gw-mob-sdk-las-ios
         ref: master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GH_ACCESS_TOKEN }}
 
     - name: Create and push release branch for loans
       run: |
@@ -98,7 +98,7 @@ jobs:
       id: create_pr_loans
       uses: peter-evans/create-pull-request@v5
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GH_ACCESS_TOKEN }}
         commit-message: "Create release branch for version ${{ github.event.inputs.loans_version }}"
         branch: release/${{ github.event.inputs.loans_version }}
         base: prod
