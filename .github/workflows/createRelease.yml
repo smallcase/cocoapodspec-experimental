@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          ref: development
+          ref: dev
 
       - name: Create and push release branch
         run: |
