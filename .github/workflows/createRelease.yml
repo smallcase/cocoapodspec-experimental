@@ -53,7 +53,7 @@ jobs:
     - name: Checkout smallcase_gateway repository
       uses: actions/checkout@v2
       with:
-        repository: ${{ github.repository_owner }}/smallcase_gateway
+        repository: ${{ github.repository_owner }}/gw-mob-sdk-ios
         ref: dev
         token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -84,7 +84,7 @@ jobs:
     - name: Checkout loans repository
       uses: actions/checkout@v2
       with:
-        repository: ${{ github.repository_owner }}/loans
+        repository: ${{ github.repository_owner }}/gw-mob-sdk-las-ios
         ref: master
         token: ${{ secrets.GITHUB_TOKEN }}
 
