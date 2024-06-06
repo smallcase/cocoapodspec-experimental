@@ -1,0 +1,38 @@
+name: Create Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version"
+        required: true
+        type: string
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: development
+
+      - name: Create and push release branch
+        run: |
+          VERSION=${{ github.event.inputs.version }}
+
+          git checkout -b release/${VERSION}
+
+          git push origin release/${VERSION}
+
+      - name: Create Pull Request
+        id: create_pr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Create release branch for version ${{ github.event.inputs.version }}"
+          branch: release/${{ github.event.inputs.version }}
+          base: prod
+          title: "Release ${VERSION}"
+          body: "Merging release branch for version ${{ github.event.inputs.version }} into prod"
+          labels: release
