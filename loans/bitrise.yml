@@ -1,0 +1,245 @@
+format_version: "11"
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+app:
+  envs:
+  - BITRISE_PROJECT_PATH: Loans.xcodeproj
+    opts:
+      is_expand: false
+  - BITRISE_SCHEME: Loans
+    opts:
+      is_expand: false
+  - BITRISE_DISTRIBUTION_METHOD: ad-hoc
+    opts:
+      is_expand: false
+meta:
+  bitrise.io:
+    stack: osx-xcode-14.2.x-ventura
+workflows:
+  deploy:
+    description: |
+      The workflow tests, builds and deploys the app using *Deploy to bitrise.io* step.
+
+      For testing the *retry_on_failure* test repetition mode is enabled.
+
+      Next steps:
+      - Set up [Connecting to an Apple service with API key](https://devcenter.bitrise.io/en/accounts/connecting-to-services/connecting-to-an-apple-service-with-api-key.html##).
+      - Or further customise code signing following our [iOS code signing](https://devcenter.bitrise.io/en/code-signing/ios-code-signing.html) guide.
+    steps:
+    - activate-ssh-key@4: {}
+    - git-clone@8: {}
+    - recreate-user-schemes@1:
+        inputs:
+        - project_path: $BITRISE_PROJECT_PATH
+    - xcode-archive@4:
+        inputs:
+        - project_path: $BITRISE_PROJECT_PATH
+        - scheme: $BITRISE_SCHEME
+        - distribution_method: $BITRISE_DISTRIBUTION_METHOD
+        - automatic_code_signing: api-key
+        - cache_level: none
+    - deploy-to-bitrise-io@2: {}
+  deploy-internal:
+    envs:
+    - SPEC_VERSION: 1.1.1
+    steps:
+    - set-git-credentials@1:
+        run_if: .IsCI
+        inputs:
+        - git_email_address: infra@smallcase.com
+        - git_user_name: sc-infra-bot
+    - brew-install@0:
+        run_if: .IsCI
+        inputs:
+        - packages: gnu-sed
+        - cache_enabled: "yes"
+    - activate-ssh-key@4:
+        inputs:
+        - verbose: "true"
+    - git-clone@6.2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        title: chore(release)
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            echo "Current branch: $(git describe --tags --exact-match 2>/dev/null || git branch --show-current 2>/dev/null || echo "Not on a branch or tag")"
+
+
+            ruby chore-release.rb --internal
+
+            echo "Current branch: $(git describe --tags --exact-match 2>/dev/null || git branch --show-current 2>/dev/null || echo "Not on a branch or tag")"
+    - cocoapods-install@2: {}
+    - script@1:
+        title: Create Loans.xcframework
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            echo "Current working directory: $(pwd)"
+            echo "Current branch: $(git describe --tags --exact-match 2>/dev/null || git branch --show-current 2>/dev/null || echo "Not on a branch or tag")"
+
+            xcodebuild -target LoansXCFramework
+    - script@1:
+        title: Convert Loans.xcframework into zip
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            echo "Current working directory: $(pwd)"
+            cd XCFramework/xcframeworks
+
+            # Command to convert .xcframework to zip
+            zip -r Loans.xcframework.zip Loans.xcframework
+    - script@1:
+        title: Upload Loans.xcframework.zip
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            aws_cli_id=$(pkgutil --pkgs=com.amazon.aws.cli2)
+
+            if [ -z "$aws_cli_id" ]; then
+                # Fetch aws cli tool
+                curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+
+                # Install aws cli tool with mac installer
+                sudo installer -pkg AWSCLIV2.pkg -target /
+
+                # Print out the aws cli installation details
+                which aws
+                aws --version
+            fi
+
+            s3_dir=$(ruby fetch-s3-bucket.rb -i)
+            echo $s3_dir
+
+            # Upload zip file to aws s3 bucket
+            AWS_ACCESS_KEY_ID=$ACCESS_KEY AWS_SECRET_ACCESS_KEY=$SECRET_KEY aws s3 cp XCFramework/xcframeworks/Loans.xcframework.zip s3://$s3_dir
+    - script@1:
+        title: Cocoapod repo push (Deploy)
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            pod repo add smallcase-cocoapodspecs-internal https://github.com/smallcase/cocoapodspec-internal.git
+
+            cd internal
+
+            pod spec lint --allow-warnings
+
+            pod repo push smallcase-cocoapodspecs-internal --allow-warnings
+    - script@1:
+        title: Post release
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            git push --tags
+    meta:
+      bitrise.io:
+        machine_type_id: g2-m1.4core
+        stack: osx-xcode-14.3.x-ventura
+  primary:
+    description: |
+      The workflow only builds the project because the project scanner could not find any tests.
+
+      Next steps:
+      - Check out [Getting started with iOS apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-ios-apps.html).
+    steps:
+    - activate-ssh-key@4: {}
+    - git-clone@8: {}
+    - recreate-user-schemes@1:
+        inputs:
+        - project_path: $BITRISE_PROJECT_PATH
+    - xcode-build-for-test@1:
+        inputs:
+        - project_path: $BITRISE_PROJECT_PATH
+        - scheme: $BITRISE_SCHEME
+        - destination: platform=iOS Simulator,name=iPhone 8 Plus,OS=latest
+        - cache_level: none
+    - deploy-to-bitrise-io@2: {}
+  test-release:
+    description: |
+      The workflow tests, builds and deploys the app using *Deploy to bitrise.io* step.
+
+      For testing the *retry_on_failure* test repetition mode is enabled.
+
+      Next steps:
+      - Set up [Connecting to an Apple service with API key](https://devcenter.bitrise.io/en/accounts/connecting-to-services/connecting-to-an-apple-service-with-api-key.html##).
+      - Or further customise code signing following our [iOS code signing](https://devcenter.bitrise.io/en/code-signing/ios-code-signing.html) guide.
+    steps:
+    - activate-ssh-key@4: {}
+    - git-clone@8: {}
+    - recreate-user-schemes@1:
+        inputs:
+        - project_path: $BITRISE_PROJECT_PATH
+    - xcode-archive@4:
+        inputs:
+        - project_path: $BITRISE_PROJECT_PATH
+        - scheme: $BITRISE_SCHEME
+        - distribution_method: $BITRISE_DISTRIBUTION_METHOD
+        - automatic_code_signing: api-key
+        - cache_level: none
+    - deploy-to-bitrise-io@2: {}
+  z-test-changelog:
+    steps:
+    - set-git-credentials@1:
+        run_if: .IsCI
+        inputs:
+          - git_email_address: gatewaytech@smallcase.com
+          - git_user_name: gateway-tech-bot
+    - activate-ssh-key@4: { }
+    - git-clone@8: { }
+    - script@1:
+        title: Test Changelog Generation
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+            
+            git fetch --all
+            
+            tag=v2.0.1
+            
+            echo "Bash generate changelog"
+            git log "$tag"..HEAD --pretty=format:"%h - %s (%an, %ar)"
+            
+            echo "SCLI generate changelog"
+            scli git generate-changelog -tag=$tag
