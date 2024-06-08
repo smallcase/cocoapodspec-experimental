@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		153A86D12BFA46C800418DAF /* Loans.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 153A86C82BFA46B600418DAF /* Loans.framework */; };
-		153A86D22BFA46C800418DAF /* Loans.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 153A86C82BFA46B600418DAF /* Loans.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		153A86D32BFA46C800418DAF /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 153A86D02BFA46BE00418DAF /* SCGateway.framework */; };
-		153A86D42BFA46C800418DAF /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 153A86D02BFA46BE00418DAF /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		157BA5352C1594170020ECF5 /* Loans.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157BA5342C1594100020ECF5 /* Loans.framework */; };
+		157BA5362C1594170020ECF5 /* Loans.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 157BA5342C1594100020ECF5 /* Loans.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		157BA5372C1594170020ECF5 /* SCGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157BA52C2C15940A0020ECF5 /* SCGateway.framework */; };
+		157BA5382C1594170020ECF5 /* SCGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 157BA52C2C15940A0020ECF5 /* SCGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		15A9174F2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A9174E2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift */; };
 		361995C7241665300054D5CF /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361995C6241665300054D5CF /* UIViewController+Ext.swift */; };
 		3658975923842F300083F299 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658975823842F300083F299 /* NewsViewController.swift */; };
@@ -98,19 +98,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		153A86C72BFA46B600418DAF /* PBXContainerItemProxy */ = {
+		157BA52B2C15940A0020ECF5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 153A86C12BFA46B600418DAF /* Loans.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 88331CD829F1BF1A006B66FB;
-			remoteInfo = Loans;
-		};
-		153A86CF2BFA46BE00418DAF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 153A86C92BFA46BE00418DAF /* SCGateway.xcodeproj */;
+			containerPortal = 157BA5252C1594090020ECF5 /* SCGateway.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 36F1DE5F2372A08900E36C39;
 			remoteInfo = SCGateway;
+		};
+		157BA5332C1594100020ECF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 157BA52D2C1594100020ECF5 /* Loans.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88331CD829F1BF1A006B66FB;
+			remoteInfo = Loans;
 		};
 		36F7D45622A9485C003B357A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -135,8 +135,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				153A86D22BFA46C800418DAF /* Loans.framework in Embed Frameworks */,
-				153A86D42BFA46C800418DAF /* SCGateway.framework in Embed Frameworks */,
+				157BA5362C1594170020ECF5 /* Loans.framework in Embed Frameworks */,
+				157BA5382C1594170020ECF5 /* SCGateway.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,9 +145,9 @@
 
 /* Begin PBXFileReference section */
 		0FA965CAD9585D616493498D /* Pods-SmartInvestingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvestingUITests.debug.xcconfig"; path = "Target Support Files/Pods-SmartInvestingUITests/Pods-SmartInvestingUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		153A86C12BFA46B600418DAF /* Loans.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Loans.xcodeproj; path = loans/Loans.xcodeproj; sourceTree = "<group>"; };
-		153A86C92BFA46BE00418DAF /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = smallcase_gateway/SCGateway.xcodeproj; sourceTree = "<group>"; };
 		153A86D52BFA46DF00418DAF /* Mixpanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		157BA5252C1594090020ECF5 /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = smallcase_gateway/SCGateway.xcodeproj; sourceTree = "<group>"; };
+		157BA52D2C1594100020ECF5 /* Loans.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Loans.xcodeproj; path = loans/Loans.xcodeproj; sourceTree = "<group>"; };
 		15A9174E2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFHoldingsSwiftUIView.swift; sourceTree = "<group>"; };
 		15E9B1162AA9F3F200A1135D /* MFHoldingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFHoldingsViewController.swift; sourceTree = "<group>"; };
 		361995C6241665300054D5CF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
@@ -256,8 +256,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				153A86D12BFA46C800418DAF /* Loans.framework in Frameworks */,
-				153A86D32BFA46C800418DAF /* SCGateway.framework in Frameworks */,
+				157BA5352C1594170020ECF5 /* Loans.framework in Frameworks */,
+				157BA5372C1594170020ECF5 /* SCGateway.framework in Frameworks */,
 				FF65CD249AC2D384AE42D068 /* Pods_SmartInvesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,18 +281,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		153A86C22BFA46B600418DAF /* Products */ = {
+		157BA5262C1594090020ECF5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				153A86C82BFA46B600418DAF /* Loans.framework */,
+				157BA52C2C15940A0020ECF5 /* SCGateway.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		153A86CA2BFA46BE00418DAF /* Products */ = {
+		157BA52E2C1594100020ECF5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				153A86D02BFA46BE00418DAF /* SCGateway.framework */,
+				157BA5342C1594100020ECF5 /* Loans.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -472,8 +472,8 @@
 		36F7D43822A9485A003B357A = {
 			isa = PBXGroup;
 			children = (
-				153A86C92BFA46BE00418DAF /* SCGateway.xcodeproj */,
-				153A86C12BFA46B600418DAF /* Loans.xcodeproj */,
+				157BA52D2C1594100020ECF5 /* Loans.xcodeproj */,
+				157BA5252C1594090020ECF5 /* SCGateway.xcodeproj */,
 				36F7D44322A9485A003B357A /* SmartInvesting */,
 				36F7D45822A9485C003B357A /* SmartInvestingTests */,
 				36F7D46322A9485C003B357A /* SmartInvestingUITests */,
@@ -695,8 +695,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36F7D46922A9485D003B357A /* Build configuration list for PBXNativeTarget "SmartInvesting" */;
 			buildPhases = (
-				15B9D83B2C01D26200EC2E44 /* ShellScript */,
 				05C1C5AE568F29C4B9E7BD86 /* [CP] Check Pods Manifest.lock */,
+				15B9D83B2C01D26200EC2E44 /* ShellScript */,
 				36F7D43D22A9485A003B357A /* Sources */,
 				36F7D43E22A9485A003B357A /* Frameworks */,
 				36F7D43F22A9485A003B357A /* Resources */,
@@ -786,12 +786,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 153A86C22BFA46B600418DAF /* Products */;
-					ProjectRef = 153A86C12BFA46B600418DAF /* Loans.xcodeproj */;
+					ProductGroup = 157BA52E2C1594100020ECF5 /* Products */;
+					ProjectRef = 157BA52D2C1594100020ECF5 /* Loans.xcodeproj */;
 				},
 				{
-					ProductGroup = 153A86CA2BFA46BE00418DAF /* Products */;
-					ProjectRef = 153A86C92BFA46BE00418DAF /* SCGateway.xcodeproj */;
+					ProductGroup = 157BA5262C1594090020ECF5 /* Products */;
+					ProjectRef = 157BA5252C1594090020ECF5 /* SCGateway.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -804,18 +804,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		153A86C82BFA46B600418DAF /* Loans.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Loans.framework;
-			remoteRef = 153A86C72BFA46B600418DAF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		153A86D02BFA46BE00418DAF /* SCGateway.framework */ = {
+		157BA52C2C15940A0020ECF5 /* SCGateway.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SCGateway.framework;
-			remoteRef = 153A86CF2BFA46BE00418DAF /* PBXContainerItemProxy */;
+			remoteRef = 157BA52B2C15940A0020ECF5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		157BA5342C1594100020ECF5 /* Loans.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Loans.framework;
+			remoteRef = 157BA5332C1594100020ECF5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1212,7 +1212,7 @@
 				CODE_SIGN_ENTITLEMENTS = SmartInvesting/WebViewTesterDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 224;
+				CURRENT_PROJECT_VERSION = 230;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1256,7 +1256,7 @@
 				CODE_SIGN_ENTITLEMENTS = SmartInvesting/WebViewTester.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 224;
+				CURRENT_PROJECT_VERSION = 230;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",

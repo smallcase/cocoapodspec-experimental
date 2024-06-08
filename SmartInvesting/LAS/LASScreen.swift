@@ -292,8 +292,8 @@ struct LASScreen: View {
         ScLoan.instance.setup(config: ScLoanConfig(gatewayName: gatewayName ?? "gatewaydemo", environment: LASSessionManager.lasEnvironment)) { result in
             
             switch result {
-                case .success(_):
-                showAlertDialog("Setup Success", "Loans SDK setup successfully")
+                case .success(let res):
+                showAlertDialog("Setup Success", "\(String(describing: res.data))")
                 
                 case .failure(let error):
                 showAlertDialog("Error Registering User", error.debugDescription)

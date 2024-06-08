@@ -93,3 +93,6 @@ fastlane/test_output
 iOSInjectionProject/
 .DS_Store
 .bitrise.secrets.yml
+
+*.tar.gz
+*.gz

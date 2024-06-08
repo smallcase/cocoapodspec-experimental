@@ -1,28 +1,122 @@
 name: Bump Version
 
+env:
+  COMMIT_MSG: "chore:"
+
 on:
   workflow_dispatch:
     inputs:
-      type:
-        description: 'Select the type of version bump'
+      scliVersion:
+        description: 'Select scli version'
         required: true
-        default: 'patch'
-        type: choice
-        options:
-          - patch
-          - minor
-          - major
-          - auto
+        default: 'v0.0.4'
+      
+      scg:
+        description: 'Should bump scg?'
+        required: true
+        type: boolean
+      loans:
+        description: 'Should bump loans?'
+        required: true
+        type: boolean
 
 jobs:
-  run-script:
+  install-scli:
     runs-on: ubuntu-latest
-
     steps:
+      - name: Set Git configuration
+        run: |
+          git config --global user.name "Github Action Bot"
+          git config --global user.email "gatewaytech@smallcase.com"
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Bump version using scli
-        id: scli-version-bump
+      - name: Install scli
+        id: scli-install
         run: |
-          echo "Type is : ${{ github.event.inputs.type }}"
+          TAG="${{ github.event.inputs.scliVersion }}"
+          GITHUB_ACCESS_TOKEN="${{ secrets.GH_ACCESS_TOKEN }}"
+          curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/feat/cobra-viper-gw-mob-deploy/install.sh | bash -s -- $TAG $GITHUB_ACCESS_TOKEN
+          
+          echo "$HOME/go/bin" >> $GITHUB_PATH
+
+      - name: Test scli
+        id: scli-test
+        run: |
+          echo $GITHUB_PATH
+          echo $PATH
+          scli version
+
+          rm *.tar.gz
+
+      - name: Bump scg
+        if: ${{ inputs.scg }}
+        id: bump-scg
+        run: |
+          scli versionBump smallcase_gateway/SCGateway/Helpers/Info.plist --onlyCode --vckey "CFBundleVersion"
+
+          scg_vers=$(scli prop smallcase_gateway/SCGateway/Helpers/Info.plist "CFBundleShortVersionString")
+          scg_vers_code=$(scli prop smallcase_gateway/SCGateway/Helpers/Info.plist "CFBundleVersion")
+          scg="scg:$scg_vers-$scg_vers_code"
+          commit_msg="$COMMIT_MSG $scg"
+
+          podspec="smallcase_gateway/internal/SCGateway-ci.podspec.json"
+          
+          source=$(jq -r '.source.http' "$podspec")
+          new_version="$scg_vers-$scg_vers_code"
+          updated_source=$(echo $source | sed -E "s|/[0-9]+\.[0-9]+\.[0-9]+/|/${new_version}/|")
+          jq --arg value "$updated_source" ".source.http = \$value" "$podspec" > tmp.$$.json && mv tmp.$$.json "$podspec"
+          jq --arg value "$new_version" ".version = \$value" "$podspec" > tmp.$$.json && mv tmp.$$.json "$podspec"
+          
+          echo "COMMIT_MSG=$commit_msg" >> $GITHUB_ENV
+
+      - name: Bump loans
+        if: ${{ inputs.loans }}
+        id: bump-loans
+        run: |
+          scli versionBump loans/Loans/Info.plist --onlyCode --vckey "CFBundleVersion"
+
+          loans_vers=$(scli prop loans/Loans/Info.plist "CFBundleShortVersionString")
+          loans_vers_code=$(scli prop loans/Loans/Info.plist "CFBundleVersion")
+          loans=" loans:$loans_vers-$loans_vers_code"
+          commit_msg="$COMMIT_MSG $loans"
+
+          podspec="loans/internal/SCLoans-ci.podspec.json"
+
+          source=$(jq -r '.source.http' "$podspec")
+          new_version="$loans_vers-$loans_vers_code"
+          updated_source=$(echo $source | sed -E "s|/[0-9]+\.[0-9]+\.[0-9]+/|/${new_version}/|")
+          jq --arg value "$updated_source" ".source.http = \$value" "$podspec" > tmp.$$.json && mv tmp.$$.json "$podspec"
+          jq --arg value "$new_version" ".version = \$value" "$podspec" > tmp.$$.json && mv tmp.$$.json "$podspec"
+          
+          echo "COMMIT_MSG=$commit_msg" >> $GITHUB_ENV
+          
+      - name: Bump smart investing
+        id: bump-si
+        run: |
+          scli versionBump SmartInvesting/Info.plist --onlyCode --vckey "CFBundleVersion"
+          
+      - name: Commit
+        run: |
+          si_vers=$(scli prop SmartInvesting/Info.plist "CFBundleShortVersionString")
+          si_vers_code=$(scli prop SmartInvesting/Info.plist "CFBundleVersion")
+          si="si:$si_vers-$si_vers_code"
+
+          commit_msg=$COMMIT_MSG
+          commit_desc=""
+
+          if [ "$commit_msg" == "chore:" ];then
+            commit_msg="$commit_msg $si"
+          else
+            commit_desc="$si"
+          fi
+
+          
+          git add .
+          git status
+          git commit -m "$commit_msg" -m "$commit_desc"
+  
+      - name: Push
+        run: |
+          git push
