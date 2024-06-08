@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GraphikApp-Medium.ttf">
+            <string>GraphikApp-Medium</string>
+        </array>
+        <array key="GraphikApp-Regular.ttf">
+            <string>GraphikApp-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginFallbackView" customModule="SCGateway" customModuleProvider="target">
+            <connections>
+                <outlet property="brokerLogo" destination="Eou-Yh-1ne" id="Iji-bP-Rsi"/>
+                <outlet property="btnContinueOnBroker" destination="IHq-X2-scM" id="smM-rv-hHl"/>
+                <outlet property="btnContinueWithWeb" destination="vTC-kR-X4b" id="lDk-dM-01v"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="fbD-n9-WdP"/>
+                <outlet property="crossIcon" destination="2l9-Z4-3bS" id="Dip-bI-ome"/>
+                <outlet property="labelLoginWithBroker" destination="pRv-qW-123" id="Mwy-7t-Iid"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="325"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2l9-Z4-3bS">
+                    <rect key="frame" x="300" y="44" width="43" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="kKj-r6-Gaq"/>
+                        <constraint firstAttribute="width" constant="43" id="ouf-8T-Rkq"/>
+                    </constraints>
+                    <buttonConfiguration key="configuration" style="plain" image="close" title=" " imagePadding="0.0"/>
+                    <connections>
+                        <action selector="clickedCrossIcon:" destination="-1" eventType="touchUpInside" id="Ta6-M9-jVT"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="broker-zerodha" translatesAutoresizingMaskIntoConstraints="NO" id="Eou-Yh-1ne">
+                    <rect key="frame" x="151.5" y="94" width="40" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="E31-iH-q4c"/>
+                        <constraint firstAttribute="width" constant="40" id="dYF-c4-lbW"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Login with Kite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRv-qW-123">
+                    <rect key="frame" x="112" y="148" width="119.5" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="qMt-Ga-t1F"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GraphikApp-Medium" family="Graphik App" pointSize="18"/>
+                    <color key="textColor" red="0.18431372549019609" green="0.21176470588235294" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Complete broker login for smallcase" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPh-Ga-8S6">
+                    <rect key="frame" x="58.5" y="176" width="226" height="16.5"/>
+                    <fontDescription key="fontDescription" name="GraphikApp-Regular" family="Graphik App" pointSize="14"/>
+                    <color key="textColor" red="0.50588235294117645" green="0.52941176470588236" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHq-X2-scM">
+                    <rect key="frame" x="17" y="216.5" width="309" height="52"/>
+                    <color key="backgroundColor" red="0.1215686275" green="0.47843137250000001" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="ewV-sO-7ZX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GraphikApp-Medium" family="Graphik App" pointSize="14"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Continue on Kite app">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="clickedContinueOnBrokerApp:" destination="-1" eventType="touchUpInside" id="1dj-Pu-l4y"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8OC-OB-8lG">
+                    <rect key="frame" x="37" y="276.5" width="269.5" height="28.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Unable to login on app?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gh-eg-WyW">
+                            <rect key="frame" x="0.0" y="0.0" width="150.5" height="28.5"/>
+                            <fontDescription key="fontDescription" name="GraphikApp-Regular" family="Graphik App" pointSize="14"/>
+                            <color key="textColor" red="0.50588235294117645" green="0.52941176470588236" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTC-kR-X4b">
+                            <rect key="frame" x="152.5" y="0.0" width="117" height="28.5"/>
+                            <fontDescription key="fontDescription" name="GraphikApp-Medium" family="Graphik App" pointSize="14"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Continue with web">
+                                <color key="titleColor" red="0.1215686275" green="0.47843137250000001" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickedContinueOnWeb:" destination="-1" eventType="touchUpInside" id="5kv-bD-32I"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="vTC-kR-X4b" firstAttribute="centerY" secondItem="6gh-eg-WyW" secondAttribute="centerY" id="DeK-Yk-d9a"/>
+                        <constraint firstItem="vTC-kR-X4b" firstAttribute="height" secondItem="6gh-eg-WyW" secondAttribute="height" id="qL2-Jz-5H9"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IHq-X2-scM" secondAttribute="trailing" constant="17" id="4Wf-47-Crn"/>
+                <constraint firstItem="Eou-Yh-1ne" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="9ZD-5u-7SZ"/>
+                <constraint firstItem="DPh-Ga-8S6" firstAttribute="top" secondItem="pRv-qW-123" secondAttribute="bottom" constant="8" id="AXt-1a-IZD"/>
+                <constraint firstItem="pRv-qW-123" firstAttribute="top" secondItem="Eou-Yh-1ne" secondAttribute="bottom" constant="28" id="HVc-WB-t9k"/>
+                <constraint firstItem="pRv-qW-123" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="IdX-J4-14m"/>
+                <constraint firstItem="8OC-OB-8lG" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="PRx-6b-G6b"/>
+                <constraint firstItem="2l9-Z4-3bS" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="V6w-FU-Cg6"/>
+                <constraint firstItem="IHq-X2-scM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="17" id="VGj-g0-dmx"/>
+                <constraint firstItem="IHq-X2-scM" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VsT-mP-9q0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2l9-Z4-3bS" secondAttribute="trailing" id="YcU-OJ-ehJ"/>
+                <constraint firstItem="IHq-X2-scM" firstAttribute="top" secondItem="DPh-Ga-8S6" secondAttribute="bottom" constant="24" id="jZ5-Rt-Hch"/>
+                <constraint firstItem="8OC-OB-8lG" firstAttribute="top" secondItem="IHq-X2-scM" secondAttribute="bottom" constant="8" id="oAq-U9-Y18"/>
+                <constraint firstItem="Eou-Yh-1ne" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="p8j-mc-sMI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8OC-OB-8lG" secondAttribute="bottom" constant="20" id="s24-cX-kcK"/>
+                <constraint firstItem="DPh-Ga-8S6" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="sPW-kv-yQc"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="80.434782608695656" y="185.82589285714286"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="broker-zerodha" width="16" height="16"/>
+        <image name="close" width="16" height="16"/>
+    </resources>
+</document>
