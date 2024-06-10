@@ -1,0 +1,32 @@
+name: "Install scli"
+description: "A reusable step that can be called with different inputs"
+inputs:
+  version:
+    description: "The scli version"
+    required: true
+  token:
+    description: "The Github access token"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install scli
+      id: scli-install
+      shell: bash
+      run: |
+        TAG="${{ inputs.version }}"
+        GITHUB_ACCESS_TOKEN="${{ inputs.token }}"
+        curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/feat/cobra-viper-gw-mob-deploy/install.sh | bash -s -- $TAG $GITHUB_ACCESS_TOKEN
+
+        echo "$HOME/go/bin" >> $GITHUB_PATH
+
+    - name: Test scli
+      id: scli-test
+      shell: bash
+      run: |
+        echo $GITHUB_PATH
+        echo $PATH
+        scli version
+
+        rm *.tar.gz

@@ -1212,7 +1212,7 @@
 				CODE_SIGN_ENTITLEMENTS = SmartInvesting/WebViewTesterDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 230;
+				CURRENT_PROJECT_VERSION = 231;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -1256,7 +1256,7 @@
 				CODE_SIGN_ENTITLEMENTS = SmartInvesting/WebViewTester.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 230;
+				CURRENT_PROJECT_VERSION = 231;
 				DEVELOPMENT_TEAM = BFHF2F2UCF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",

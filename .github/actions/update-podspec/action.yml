@@ -1,0 +1,33 @@
+name: 'Update Podspec version and source'
+description: 'A reusable step that can be called with different inputs'
+inputs:
+  version:
+    description: 'Version'
+    required: true
+  versionCode:
+    description: 'Version Code'
+    required: true
+  podspec:
+    description: 'Podspec path'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run Script with Input
+      shell: bash
+      run: |
+        podspec="${{ inputs.podspec }}"
+        cat $podspec
+
+        new_version="${{ inputs.version }}-${{ inputs.versionCode }}"
+        if [[ "${{ inputs.versionCode }}" == "" ]];then
+          new_version="${{ inputs.version }}"
+        fi
+
+        source=$(jq -r '.source.http' "$podspec")
+        updated_source=$(echo $source | sed -E "s|(/[^/]+/)[0-9]+\.[0-9]+\.[0-9]+(-[0-9]+)?|\1${new_version}|")
+        jq --arg value "$updated_source" ".source.http = \$value" "$podspec" > tmp.$$.json && mv tmp.$$.json "$podspec"
+        jq --arg value "$new_version" ".version = \$value" "$podspec" > tmp.$$.json && mv tmp.$$.json "$podspec"
+
+        cat $podspec
