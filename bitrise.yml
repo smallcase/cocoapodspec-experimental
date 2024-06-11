@@ -1,0 +1,201 @@
+format_version: "12"
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+app:
+  envs:
+  - SCLI_VERSION: v0.0.4-17-g9ee90d9
+    opts:
+      is_expand: false
+  - SCLI_PATH: scli
+    opts:
+      is_expand: false
+  - RELEASE_SCG: false
+    opts:
+      is_expand: false
+  - RELEASE_LOANS: false
+    opts:
+      is_expand: false
+  - RELEASE_TYPE: "prod"
+    opts:
+      is_expand: false
+  - BINARY_PATH: .build/Products/SmartInvesting/Smart Investing.ipa
+    opts:
+      is_expand: false
+  - COCOA_INTERNAL_REPO: sc-cocoapodspec-internal
+    opts:
+      is_expand: false
+  - COCOA_INTERNAL_REPO_URL: "https://github.com/smallcase/cocoapodspec-internal.git"
+    opts:
+      is_expand: false
+workflows:
+  assemble:
+    steps:
+    - script@1:
+        title: Assemble
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            echo "$RELEASE_TYPE"
+
+            sh BuildScripts/assemble.sh
+  ci-setup:
+    steps:
+    - set-git-credentials@1:
+        run_if: .IsCI
+        inputs:
+        - git_email_address: gatewaytech@smallcase.com
+        - git_user_name: gateway-tech-bot
+    - activate-ssh-key@4: {}
+    - git-clone@8.2:
+        inputs:
+        - fetch_tags: "yes"
+        - clone_depth: "-1"
+    - script@1:
+        title: Pod Install
+        run_if: .IsCI
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -e
+            set -o pipefail
+            set -x
+
+            pod install
+
+            cd smallcase_gateway
+            pod install
+
+            cd loans
+            pod install
+    - script@1:
+        title: Install SCLI
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -e
+            set -o pipefail
+            set -x
+
+            curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/feat/cobra-viper-gw-mob-deploy/install.sh | bash -s -- $SCLI_VERSION $GITHUB_ACCESS_TOKEN
+
+  firebase-deploy:
+    steps:
+    - script@1:
+        title: Firebase Deploy
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -e
+            set -o pipefail
+            set -x
+
+            echo "$RELEASE_TYPE"
+
+            changelog_file_path=".build/changelog.md"
+
+            # Check if file exists
+
+            if [[ -f "$changelog_file_path" ]]; then
+              firebase appdistribution:distribute "$BINARY_PATH" --app "$FIREBASE_APP_ID" --release-notes-file "$changelog_file_path" --groups "smallcase"
+            else
+              firebase appdistribution:distribute "$BINARY_PATH" --app "$FIREBASE_APP_ID" --groups "smallcase"
+            fi
+  generate-changelogs:
+    steps:
+    - script@1:
+        title: Generate Changelogs
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -e
+            set -o pipefail
+            set -x
+
+            echo "$RELEASE_TYPE"
+
+            if [[ "$RELEASE_SCG" == "true" ]];then
+              echo "Generating SCGateway Changelog..."
+              $SCLI_PATH changelog --githubToken "$GITHUB_ACCESS_TOKEN"
+            fi
+
+            if [[ "$RELEASE_LOANS" == "true" ]];then
+              echo "Generating Loans Changelog..."
+              $SCLI_PATH changelog --githubToken "$GITHUB_ACCESS_TOKEN"
+            fi
+  release-internal:
+    before_run:
+    - ci-setup
+    after_run:
+    - assemble
+    - release-sdks
+    - generate-changelogs
+    - firebase-deploy
+    envs:
+    - RELEASE_TYPE: internal
+      opts:
+        is_expand: false
+  release-prod:
+    before_run:
+    - ci-setup
+    after_run:
+    - assemble
+    - release-sdks
+    - generate-changelogs
+    - firebase-deploy
+    envs:
+    - RELEASE_TYPE: prod
+      opts:
+        is_expand: false
+  release-qa:
+    before_run:
+    - ci-setup
+    after_run:
+    - assemble
+    - generate-changelogs
+    - firebase-deploy
+    envs:
+    - RELEASE_TYPE: qa
+      opts:
+        is_expand: false
+  release-sdks:
+    envs:
+    - SCG_XC_FRAMEWORK_PATH: ".build/Products/SCGateway.xcframework"
+    - LOANS_XC_FRAMEWORK_PATH: ".build/Products/Loans.xcframework"
+    steps:
+    - script@1:
+        title: Release SDKs
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -e
+            set -o pipefail
+            set -x
+
+            scg_podspec="smallcase_gateway/internal/SCGateway-ci.podspec.json"
+            loans_podspec="loans/internal/SCLoans-ci.podspec.json"
+            repo="$COCOA_INTERNAL_REPO"
+            repo_url="$COCOA_INTERNAL_REPO_URL"
+            
+            if [[ "$RELEASE_TYPE" == "prod" ]];then
+              scg_podspec="smallcase_gateway/SCGateway.podspec.json"
+              loans_podspec="loans/SCLoans.podspec.json"
+              repo="trunk"
+              repo_url=""
+            fi
+
+            if [[ "$RELEASE_SCG" == "true" ]];then
+              echo "Releasing SCGateway..."
+              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$SCG_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$scg_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
+            fi
+
+            if [[ "$RELEASE_LOANS" == "true" ]];then
+              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$LOANS_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$loans_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
+              echo "Releasing SCGateway..."
+            fi
