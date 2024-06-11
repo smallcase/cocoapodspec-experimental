@@ -71,8 +71,7 @@
 		36F7D4B822B10397003B357A /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4B622B10397003B357A /* SearchCell.swift */; };
 		36F7D4B922B10397003B357A /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F7D4B722B10397003B357A /* SearchCell.xib */; };
 		36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */; };
-		39A37EAD6A7A86F9F8CB6EFC /* Pods_SmartInvestingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2221701B7FA8A988172C55F /* Pods_SmartInvestingTests.framework */; };
-		6B98CE63F9CA991BDC7411CC /* Pods_SmartInvestingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1EA633B2A92E40650C6458 /* Pods_SmartInvestingUITests.framework */; };
+		5F3E81B1B9193D38CB7C606A /* Pods_SmartInvestingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8802EE63438A0420F3127721 /* Pods_SmartInvestingTests.framework */; };
 		88017AAC29657C0A00A6A83E /* USEAOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88017AAB29657C0A00A6A83E /* USEAOViewController.swift */; };
 		8817B54826E7C55A00DCFD33 /* Encodable+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */; };
 		8832CA992A0D05C0000508A7 /* LASScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8832CA982A0D05C0000508A7 /* LASScreen.swift */; };
@@ -94,7 +93,7 @@
 		88EB14D42A2662FB008438F6 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB14D32A2662FB008438F6 /* Data+Ext.swift */; };
 		88EB14D92A266B5F008438F6 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB14D82A266B5F008438F6 /* View+Ext.swift */; };
 		88EB14E42A273609008438F6 /* LASUserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB14E32A273609008438F6 /* LASUserMode.swift */; };
-		FF65CD249AC2D384AE42D068 /* Pods_SmartInvesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BE52A539E9D641828958CE /* Pods_SmartInvesting.framework */; };
+		E768F9D4ADC3E1F479CF9714 /* Pods_SmartInvestingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB9DDC89BA5D35CB085076C /* Pods_SmartInvestingUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,12 +143,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0FA965CAD9585D616493498D /* Pods-SmartInvestingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvestingUITests.debug.xcconfig"; path = "Target Support Files/Pods-SmartInvestingUITests/Pods-SmartInvestingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		03721D4103DC1AFAA2DD16A4 /* Pods-SmartInvestingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvestingTests.release.xcconfig"; path = "Target Support Files/Pods-SmartInvestingTests/Pods-SmartInvestingTests.release.xcconfig"; sourceTree = "<group>"; };
 		153A86D52BFA46DF00418DAF /* Mixpanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		157BA5252C1594090020ECF5 /* SCGateway.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCGateway.xcodeproj; path = smallcase_gateway/SCGateway.xcodeproj; sourceTree = "<group>"; };
 		157BA52D2C1594100020ECF5 /* Loans.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Loans.xcodeproj; path = loans/Loans.xcodeproj; sourceTree = "<group>"; };
 		15A9174E2AFA7767005E4EB1 /* MFHoldingsSwiftUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFHoldingsSwiftUIView.swift; sourceTree = "<group>"; };
 		15E9B1162AA9F3F200A1135D /* MFHoldingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFHoldingsViewController.swift; sourceTree = "<group>"; };
+		1B49FD2D4C6405F51B3737B2 /* Pods-SmartInvestingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvestingUITests.debug.xcconfig"; path = "Target Support Files/Pods-SmartInvestingUITests/Pods-SmartInvestingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		361995C6241665300054D5CF /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		364596992436462300C4B617 /* SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3645969C24364FB000C4B617 /* libSCGateway.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSCGateway.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,9 +218,13 @@
 		36F7D4B622B10397003B357A /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		36F7D4B722B10397003B357A /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateViewController+SearchDelegate.swift"; sourceTree = "<group>"; };
-		41BAD6FDAAEB9D60EF697430 /* Pods-SmartInvestingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvestingTests.debug.xcconfig"; path = "Target Support Files/Pods-SmartInvestingTests/Pods-SmartInvestingTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7AB7B4ACB21A1E9E1036D5A4 /* Pods-SmartInvesting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvesting.debug.xcconfig"; path = "Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting.debug.xcconfig"; sourceTree = "<group>"; };
+		389AF1DC11FAB5788E1E6F9C /* Pods-SmartInvesting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvesting.debug.xcconfig"; path = "Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting.debug.xcconfig"; sourceTree = "<group>"; };
+		544264570E3CB24B0C72D2A8 /* Pods-SmartInvestingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvestingUITests.release.xcconfig"; path = "Target Support Files/Pods-SmartInvestingUITests/Pods-SmartInvestingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		59FEF8E9F4A6D2FBEDDA8A71 /* Pods_SmartInvesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartInvesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77039FFE58A641B393481D88 /* Pods-SmartInvestingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvestingTests.debug.xcconfig"; path = "Target Support Files/Pods-SmartInvestingTests/Pods-SmartInvestingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7CD205E48C6A6E22B32CF4DC /* Pods-SmartInvesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvesting.release.xcconfig"; path = "Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting.release.xcconfig"; sourceTree = "<group>"; };
 		88017AAB29657C0A00A6A83E /* USEAOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USEAOViewController.swift; sourceTree = "<group>"; };
+		8802EE63438A0420F3127721 /* Pods_SmartInvestingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartInvestingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+ext.swift"; sourceTree = "<group>"; };
 		8832CA982A0D05C0000508A7 /* LASScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LASScreen.swift; sourceTree = "<group>"; };
 		8832CA9B2A0D0803000508A7 /* SmartInvestingLaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartInvestingLaunchScreen.swift; sourceTree = "<group>"; };
@@ -239,16 +243,11 @@
 		88A30D4D2A2515FF00EF324E /* LASSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LASSessionManager.swift; sourceTree = "<group>"; };
 		88A30D4F2A2517BC00EF324E /* CreateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUser.swift; sourceTree = "<group>"; };
 		88AEF3A828B4E93300367968 /* SCGateway_Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCGateway_Mixpanel.framework; path = "../SCGateway-Mixpanel/SCGateway_Mixpanel.framework"; sourceTree = "<group>"; };
-		88BE52A539E9D641828958CE /* Pods_SmartInvesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartInvesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E393CF28785F1700E38705 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		88EB14D32A2662FB008438F6 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
 		88EB14D82A266B5F008438F6 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		88EB14E32A273609008438F6 /* LASUserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LASUserMode.swift; sourceTree = "<group>"; };
-		AC239DE8DD0EF6F3A224E358 /* Pods-SmartInvestingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvestingTests.release.xcconfig"; path = "Target Support Files/Pods-SmartInvestingTests/Pods-SmartInvestingTests.release.xcconfig"; sourceTree = "<group>"; };
-		CC1EA633B2A92E40650C6458 /* Pods_SmartInvestingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartInvestingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2221701B7FA8A988172C55F /* Pods_SmartInvestingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartInvestingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E420E00863EC7E9BCE4196AD /* Pods-SmartInvestingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvestingUITests.release.xcconfig"; path = "Target Support Files/Pods-SmartInvestingUITests/Pods-SmartInvestingUITests.release.xcconfig"; sourceTree = "<group>"; };
-		FE990E7FFF27D50A96A109C3 /* Pods-SmartInvesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInvesting.release.xcconfig"; path = "Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting.release.xcconfig"; sourceTree = "<group>"; };
+		9DB9DDC89BA5D35CB085076C /* Pods_SmartInvestingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartInvestingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +257,6 @@
 			files = (
 				157BA5352C1594170020ECF5 /* Loans.framework in Frameworks */,
 				157BA5372C1594170020ECF5 /* SCGateway.framework in Frameworks */,
-				FF65CD249AC2D384AE42D068 /* Pods_SmartInvesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +264,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39A37EAD6A7A86F9F8CB6EFC /* Pods_SmartInvestingTests.framework in Frameworks */,
+				5F3E81B1B9193D38CB7C606A /* Pods_SmartInvestingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B98CE63F9CA991BDC7411CC /* Pods_SmartInvestingUITests.framework in Frameworks */,
+				E768F9D4ADC3E1F479CF9714 /* Pods_SmartInvestingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,9 +312,9 @@
 				3645969E2436906B00C4B617 /* SCGateway.framework */,
 				3645969C24364FB000C4B617 /* libSCGateway.a */,
 				364596992436462300C4B617 /* SCGateway.framework */,
-				88BE52A539E9D641828958CE /* Pods_SmartInvesting.framework */,
-				D2221701B7FA8A988172C55F /* Pods_SmartInvestingTests.framework */,
-				CC1EA633B2A92E40650C6458 /* Pods_SmartInvestingUITests.framework */,
+				59FEF8E9F4A6D2FBEDDA8A71 /* Pods_SmartInvesting.framework */,
+				8802EE63438A0420F3127721 /* Pods_SmartInvestingTests.framework */,
+				9DB9DDC89BA5D35CB085076C /* Pods_SmartInvestingUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -610,12 +608,12 @@
 		3E3B351C612B58ACF7BB478B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7AB7B4ACB21A1E9E1036D5A4 /* Pods-SmartInvesting.debug.xcconfig */,
-				FE990E7FFF27D50A96A109C3 /* Pods-SmartInvesting.release.xcconfig */,
-				41BAD6FDAAEB9D60EF697430 /* Pods-SmartInvestingTests.debug.xcconfig */,
-				AC239DE8DD0EF6F3A224E358 /* Pods-SmartInvestingTests.release.xcconfig */,
-				0FA965CAD9585D616493498D /* Pods-SmartInvestingUITests.debug.xcconfig */,
-				E420E00863EC7E9BCE4196AD /* Pods-SmartInvestingUITests.release.xcconfig */,
+				389AF1DC11FAB5788E1E6F9C /* Pods-SmartInvesting.debug.xcconfig */,
+				7CD205E48C6A6E22B32CF4DC /* Pods-SmartInvesting.release.xcconfig */,
+				77039FFE58A641B393481D88 /* Pods-SmartInvestingTests.debug.xcconfig */,
+				03721D4103DC1AFAA2DD16A4 /* Pods-SmartInvestingTests.release.xcconfig */,
+				1B49FD2D4C6405F51B3737B2 /* Pods-SmartInvestingUITests.debug.xcconfig */,
+				544264570E3CB24B0C72D2A8 /* Pods-SmartInvestingUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -695,13 +693,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36F7D46922A9485D003B357A /* Build configuration list for PBXNativeTarget "SmartInvesting" */;
 			buildPhases = (
-				05C1C5AE568F29C4B9E7BD86 /* [CP] Check Pods Manifest.lock */,
+				DE3112FFF72127166513E4F7 /* [CP] Check Pods Manifest.lock */,
 				15B9D83B2C01D26200EC2E44 /* ShellScript */,
 				36F7D43D22A9485A003B357A /* Sources */,
 				36F7D43E22A9485A003B357A /* Frameworks */,
 				36F7D43F22A9485A003B357A /* Resources */,
 				88F7B56428A380AD000F03AD /* Embed Frameworks */,
-				570976B69C26ACB5F20172B4 /* [CP] Embed Pods Frameworks */,
+				3DC8B237208FC6BDAB9BC3E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -716,7 +714,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36F7D46C22A9485D003B357A /* Build configuration list for PBXNativeTarget "SmartInvestingTests" */;
 			buildPhases = (
-				647773C72E744DBE3D07A6FC /* [CP] Check Pods Manifest.lock */,
+				2DCDF6DD7BA67550D00D35D6 /* [CP] Check Pods Manifest.lock */,
 				36F7D45122A9485C003B357A /* Sources */,
 				36F7D45222A9485C003B357A /* Frameworks */,
 				36F7D45322A9485C003B357A /* Resources */,
@@ -735,7 +733,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36F7D46F22A9485D003B357A /* Build configuration list for PBXNativeTarget "SmartInvestingUITests" */;
 			buildPhases = (
-				FD90B7A3AF67542CDC6CD620 /* [CP] Check Pods Manifest.lock */,
+				7FA577AAC5B3436470F9ADF5 /* [CP] Check Pods Manifest.lock */,
 				36F7D45C22A9485C003B357A /* Sources */,
 				36F7D45D22A9485C003B357A /* Frameworks */,
 				36F7D45E22A9485C003B357A /* Resources */,
@@ -859,28 +857,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05C1C5AE568F29C4B9E7BD86 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SmartInvesting-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		15B9D83B2C01D26200EC2E44 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -898,24 +874,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\n/Users/indrajitroy/smallcase/scGitHub/gw-mob-smartinvesting-ios/BuildScripts/create_xc_frameworks.sh\n";
 		};
-		570976B69C26ACB5F20172B4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		647773C72E744DBE3D07A6FC /* [CP] Check Pods Manifest.lock */ = {
+		2DCDF6DD7BA67550D00D35D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -937,7 +896,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FD90B7A3AF67542CDC6CD620 /* [CP] Check Pods Manifest.lock */ = {
+		3DC8B237208FC6BDAB9BC3E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FA577AAC5B3436470F9ADF5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -953,6 +929,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-SmartInvestingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE3112FFF72127166513E4F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartInvesting-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1205,7 +1203,7 @@
 		};
 		36F7D46A22A9485D003B357A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7AB7B4ACB21A1E9E1036D5A4 /* Pods-SmartInvesting.debug.xcconfig */;
+			baseConfigurationReference = 389AF1DC11FAB5788E1E6F9C /* Pods-SmartInvesting.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -1249,7 +1247,7 @@
 		};
 		36F7D46B22A9485D003B357A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE990E7FFF27D50A96A109C3 /* Pods-SmartInvesting.release.xcconfig */;
+			baseConfigurationReference = 7CD205E48C6A6E22B32CF4DC /* Pods-SmartInvesting.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -1293,7 +1291,7 @@
 		};
 		36F7D46D22A9485D003B357A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41BAD6FDAAEB9D60EF697430 /* Pods-SmartInvestingTests.debug.xcconfig */;
+			baseConfigurationReference = 77039FFE58A641B393481D88 /* Pods-SmartInvestingTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1315,7 +1313,7 @@
 		};
 		36F7D46E22A9485D003B357A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC239DE8DD0EF6F3A224E358 /* Pods-SmartInvestingTests.release.xcconfig */;
+			baseConfigurationReference = 03721D4103DC1AFAA2DD16A4 /* Pods-SmartInvestingTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1337,7 +1335,7 @@
 		};
 		36F7D47022A9485D003B357A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FA965CAD9585D616493498D /* Pods-SmartInvestingUITests.debug.xcconfig */;
+			baseConfigurationReference = 1B49FD2D4C6405F51B3737B2 /* Pods-SmartInvestingUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1358,7 +1356,7 @@
 		};
 		36F7D47122A9485D003B357A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E420E00863EC7E9BCE4196AD /* Pods-SmartInvestingUITests.release.xcconfig */;
+			baseConfigurationReference = 544264570E3CB24B0C72D2A8 /* Pods-SmartInvestingUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -195,7 +195,7 @@
 		15C0BC3228CA0F2A002555B7 /* MutualFundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutualFundsViewController.swift; sourceTree = "<group>"; };
 		15C0BC3528CA0FBC002555B7 /* MFCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFCoordinator.swift; sourceTree = "<group>"; };
 		15C0BC3828CA11F3002555B7 /* MFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFViewModel.swift; sourceTree = "<group>"; };
-		23601AA5EACC2D50084C3CB7 /* Pods-SCGateway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCGateway.debug.xcconfig"; path = "Target Support Files/Pods-SCGateway/Pods-SCGateway.debug.xcconfig"; sourceTree = "<group>"; };
+		2F9F9BF3E8B61EFCEC16FC50 /* Pods-SCGateway.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCGateway.release.xcconfig"; path = "Target Support Files/Pods-SCGateway/Pods-SCGateway.release.xcconfig"; sourceTree = "<group>"; };
 		361995CA241923B60054D5CF /* TransactionCallbackStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCallbackStatus.swift; sourceTree = "<group>"; };
 		362A3F642374936C00BF50D6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		362A3F672374954D00BF50D6 /* AuthenticationSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSessionProtocol.swift; sourceTree = "<group>"; };
@@ -275,13 +275,12 @@
 		36F1DEFE2373010500E36C39 /* BrokerSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerSelectModel.swift; sourceTree = "<group>"; };
 		36F1DF002373016B00E36C39 /* BrokerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerConfig.swift; sourceTree = "<group>"; };
 		36F1DF042373FC6300E36C39 /* BrokerSelectCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerSelectCoordinator.swift; sourceTree = "<group>"; };
-		5B1A99556F6996B84DCB910B /* Pods_SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74BBEA4EC1D7F6508DD7F528 /* Pods_SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		880F65C52693643800055D7B /* Encodable+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+ext.swift"; sourceTree = "<group>"; };
 		88157F65285A05970008E7E3 /* SmallplugViewController+JSCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SmallplugViewController+JSCallback.swift"; sourceTree = "<group>"; };
 		88157F66285A05970008E7E3 /* SmallplugViewController+WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SmallplugViewController+WebView.swift"; sourceTree = "<group>"; };
 		881FFC02268AEA7500236168 /* BrokerChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerChooserViewController.swift; sourceTree = "<group>"; };
 		88226BF629430DF100A36C7E /* UtmParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtmParams.swift; sourceTree = "<group>"; };
-		882C253A2963FCB600AA2012 /* Pods_SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		882C50332844DDBF008F9273 /* FivePaisaPwaControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FivePaisaPwaControllerDelegate.swift; sourceTree = "<group>"; };
 		88337C7328FEA07F00B1B18D /* USEAccountOpeningConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USEAccountOpeningConstants.swift; sourceTree = "<group>"; };
 		8840CD2225DD3CD7008738C7 /* SwiftUiColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiColor.swift; sourceTree = "<group>"; };
@@ -294,7 +293,6 @@
 		884EC3ED28EF091700EEB640 /* SCGateway+USEAccountOpening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCGateway+USEAccountOpening.swift"; sourceTree = "<group>"; };
 		88537B812624AB63007193CE /* CustomPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentAnimationController.swift; sourceTree = "<group>"; };
 		885AD13628F42ECF00C6B48B /* Mixpanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8862670C297013C5002A316F /* Pods_SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		886288B52930EC3E00B73BFB /* Mixpanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		886607C62697358D005658BE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8871634C27B260BB00E5AC2E /* NonTransactionalIntentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonTransactionalIntentType.swift; sourceTree = "<group>"; };
@@ -332,16 +330,11 @@
 		88E851D226B19D8D005B9691 /* SmallplugViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallplugViewModel.swift; sourceTree = "<group>"; };
 		88E851D526B19DEA005B9691 /* SmallplugCoordinatorVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallplugCoordinatorVMDelegate.swift; sourceTree = "<group>"; };
 		88E851D726B19E5F005B9691 /* SmallplugViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallplugViewModelProtocol.swift; sourceTree = "<group>"; };
-		88EA49E62965961A0025D065 /* Pods_SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88EA51F42948B109000B1BD8 /* USECoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USECoordinator.swift; sourceTree = "<group>"; };
 		88EA51F92949E475000B1BD8 /* Data+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+ext.swift"; sourceTree = "<group>"; };
-		88EA51FB2949F1F5000B1BD8 /* Pods_SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		88EE2AF42954DA720020EBFC /* Pods_SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		88F707BF297E5EB400333AEB /* Pods_SCGateway.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SCGateway.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F80D1525E7C63900825CD4 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		88F8C54F26AFEB6D00483F13 /* SmallPlugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPlugViewController.swift; sourceTree = "<group>"; };
 		88FF0B91283CA5A20090A1F8 /* SCGateway+Mixpanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCGateway+Mixpanel.swift"; sourceTree = "<group>"; };
-		A17E91D8EC53DDC3E2E34771 /* Pods-SCGateway.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCGateway.release.xcconfig"; path = "Target Support Files/Pods-SCGateway/Pods-SCGateway.release.xcconfig"; sourceTree = "<group>"; };
 		A970030824ED0A9D00B4C6B0 /* GraphikApp-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GraphikApp-Bold.ttf"; sourceTree = "<group>"; };
 		A970030924ED0A9D00B4C6B0 /* GraphikApp-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GraphikApp-Regular.ttf"; sourceTree = "<group>"; };
 		A970030A24ED0A9D00B4C6B0 /* GraphikApp-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GraphikApp-Light.ttf"; sourceTree = "<group>"; };
@@ -349,6 +342,7 @@
 		A970030C24ED0A9D00B4C6B0 /* GraphikApp-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GraphikApp-MediumItalic.ttf"; sourceTree = "<group>"; };
 		A970030D24ED0A9D00B4C6B0 /* GraphikApp-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GraphikApp-Semibold.ttf"; sourceTree = "<group>"; };
 		A970030E24ED0A9D00B4C6B0 /* GraphikApp-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GraphikApp-Medium.ttf"; sourceTree = "<group>"; };
+		C474DC02E84DBB541349D5D7 /* Pods-SCGateway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCGateway.debug.xcconfig"; path = "Target Support Files/Pods-SCGateway/Pods-SCGateway.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -904,15 +898,9 @@
 		88FF0B8C283BB1000090A1F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				88F707BF297E5EB400333AEB /* Pods_SCGateway.framework */,
-				8862670C297013C5002A316F /* Pods_SCGateway.framework */,
-				88EA49E62965961A0025D065 /* Pods_SCGateway.framework */,
-				882C253A2963FCB600AA2012 /* Pods_SCGateway.framework */,
-				88EE2AF42954DA720020EBFC /* Pods_SCGateway.framework */,
-				88EA51FB2949F1F5000B1BD8 /* Pods_SCGateway.framework */,
 				886288B52930EC3E00B73BFB /* Mixpanel.framework */,
 				885AD13628F42ECF00C6B48B /* Mixpanel.framework */,
-				5B1A99556F6996B84DCB910B /* Pods_SCGateway.framework */,
+				74BBEA4EC1D7F6508DD7F528 /* Pods_SCGateway.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -920,8 +908,8 @@
 		9EE50F3D15683D73CE94639C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				23601AA5EACC2D50084C3CB7 /* Pods-SCGateway.debug.xcconfig */,
-				A17E91D8EC53DDC3E2E34771 /* Pods-SCGateway.release.xcconfig */,
+				C474DC02E84DBB541349D5D7 /* Pods-SCGateway.debug.xcconfig */,
+				2F9F9BF3E8B61EFCEC16FC50 /* Pods-SCGateway.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -944,7 +932,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36F1DE672372A08900E36C39 /* Build configuration list for PBXNativeTarget "SCGateway" */;
 			buildPhases = (
-				97FED5D26CF21A65FF919C48 /* [CP] Check Pods Manifest.lock */,
+				1A64134FC9848A212AEF5931 /* [CP] Check Pods Manifest.lock */,
 				36F1DE5A2372A08900E36C39 /* Headers */,
 				36F1DE5B2372A08900E36C39 /* Sources */,
 				36F1DE5C2372A08900E36C39 /* Frameworks */,
@@ -1048,25 +1036,7 @@
 			shellPath = /bin/sh;
 			shellScript = "#! /bin/sh -e\n# This script demonstrates archive and create action on frameworks and libraries\n#\n# @author Dipanjan Jana\n\n# Release dir path\nOUTPUT_DIR_PATH=\"${PROJECT_DIR}/XCFramework\"\n\nrm -rf SCGateway.Framework\nrm -rf XCFramework\n\nfunction archivePathSimulator {\n  local DIR=${OUTPUT_DIR_PATH}/archives/\"${1}-SIMULATOR\"\n  echo \"${DIR}\"\n}\n\nfunction archivePathDevice {\n  local DIR=${OUTPUT_DIR_PATH}/archives/\"${1}-DEVICE\"\n  echo \"${DIR}\"\n}\n\n\n# Archive takes 3 params\n#\n# 1st == SCHEME\n# 2nd == destination\n# 3rd == archivePath\n#function archive {\n#    echo \"▸ Starts archiving the scheme: ${1} for destination: ${2};\\n▸ Archive path: ${3}.xcarchive\"\n#    xcodebuild archive \\\n    -project \"${PROJECT_NAME}.xcodeproj\" \\\n    -scheme ${1} \\\n    -destination \"${2}\" \\\n    -archivePath \"${3}\" \\\n    SKIP_INSTALL=NO \\\n    BUILD_LIBRARY_FOR_DISTRIBUTION=YES | xcpretty\n#}\n\n# Build workspace to include cocoapod dependency\nfunction archive {\n    echo \"▸ Starts archiving the scheme: ${1} for destination: ${2};\\n▸ Archive path: ${3}.xcarchive\"\n    xcodebuild archive \\\n    -workspace \"${PROJECT_NAME}.xcworkspace\" \\\n    -scheme ${1} \\\n    -destination \"${2}\" \\\n    -archivePath \"${3}\" \\\n    SKIP_INSTALL=NO \\\n    BUILD_LIBRARY_FOR_DISTRIBUTION=YES | xcpretty\n}\n\n# Builds archive for iOS simulator & device + macOS\nfunction buildArchive {\n  SCHEME=${1}\n\n  archive $SCHEME \"generic/platform=iOS Simulator\" $(archivePathSimulator $SCHEME)\n  archive $SCHEME \"generic/platform=iOS\" $(archivePathDevice $SCHEME)\n}\n\n# Creates xc framework\nfunction createXCFramework {\n  FRAMEWORK_ARCHIVE_PATH_POSTFIX=\".xcarchive/Products/Library/Frameworks\"\n  FRAMEWORK_SIMULATOR_DIR=\"$(archivePathSimulator $1)${FRAMEWORK_ARCHIVE_PATH_POSTFIX}\"\n  FRAMEWORK_DEVICE_DIR=\"$(archivePathDevice $1)${FRAMEWORK_ARCHIVE_PATH_POSTFIX}\"\n  FRAMEWORK_MAC_DIR=\"$(archivePathMac $1)${FRAMEWORK_ARCHIVE_PATH_POSTFIX}\"\n  xcodebuild -create-xcframework \\\n            -framework ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework \\\n            -framework ${FRAMEWORK_DEVICE_DIR}/${1}.framework \\\n            -output ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework\n}\n\n\n#### Dynamic Framework ####\n\nDYNAMIC_FRAMEWORK=SCGateway\n\necho \"▸ Archive $DYNAMIC_FRAMEWORK\"\nbuildArchive ${DYNAMIC_FRAMEWORK}\n\necho \"▸ Create $DYNAMIC_FRAMEWORK.xcframework\"\ncreateXCFramework ${DYNAMIC_FRAMEWORK}\n\ncd XCFramework/xcframeworks/SCGateway.xcframework\n\nfind . -name \"*.swiftinterface\" -exec sed -i -e 's/SCGateway\\.//g' {} \\;\n";
 		};
-		36F1DECD2372D3FB00E36C39 /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n#!/bin/sh\nrm -rf SCGateway.Framework\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\necho \"UNIVERSAL_OUTPUTFOLDER\"\necho \"${UNIVERSAL_OUTPUTFOLDER}\"\n# Step 1. Build Device and Simulator versions\n#xcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n#xcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\necho \"CONFIGURATION\"\necho \"${CONFIGURATION}\"\n\necho \"BUILD_DIR\"\necho \"${BUILD_DIR}\"\n\necho \"BUILD_ROOT\"\necho \"${BUILD_ROOT}\"\n\necho \"PROJECT_NAME\"\necho \"${PROJECT_NAME}\"\n\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" BUILD_LIBRARY_FOR_DISTRIBUTION=YES clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" EXCLUDED_ARCHS=\"arm64\" BUILD_LIBRARY_FOR_DISTRIBUTION=YES clean build\n\n\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\necho \"SIMULATOR_SWIFT_MODULES_DIR\"\necho \"${SIMULATOR_SWIFT_MODULES_DIR}\"\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\necho \"PROJECT_DIR\"\necho \"${PROJECT_DIR}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}\"\n\n# Step 6. Convenience step to open the project's directory in Finder\n#open \"${PROJECT_DIR}\"\n";
-		};
-		97FED5D26CF21A65FF919C48 /* [CP] Check Pods Manifest.lock */ = {
+		1A64134FC9848A212AEF5931 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1087,6 +1057,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		36F1DECD2372D3FB00E36C39 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n#!/bin/sh\nrm -rf SCGateway.Framework\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\necho \"UNIVERSAL_OUTPUTFOLDER\"\necho \"${UNIVERSAL_OUTPUTFOLDER}\"\n# Step 1. Build Device and Simulator versions\n#xcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n#xcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\necho \"CONFIGURATION\"\necho \"${CONFIGURATION}\"\n\necho \"BUILD_DIR\"\necho \"${BUILD_DIR}\"\n\necho \"BUILD_ROOT\"\necho \"${BUILD_ROOT}\"\n\necho \"PROJECT_NAME\"\necho \"${PROJECT_NAME}\"\n\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" BUILD_LIBRARY_FOR_DISTRIBUTION=YES clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" EXCLUDED_ARCHS=\"arm64\" BUILD_LIBRARY_FOR_DISTRIBUTION=YES clean build\n\n\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\necho \"SIMULATOR_SWIFT_MODULES_DIR\"\necho \"${SIMULATOR_SWIFT_MODULES_DIR}\"\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\necho \"PROJECT_DIR\"\necho \"${PROJECT_DIR}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}\"\n\n# Step 6. Convenience step to open the project's directory in Finder\n#open \"${PROJECT_DIR}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1377,7 +1365,7 @@
 		};
 		36F1DE682372A08900E36C39 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23601AA5EACC2D50084C3CB7 /* Pods-SCGateway.debug.xcconfig */;
+			baseConfigurationReference = C474DC02E84DBB541349D5D7 /* Pods-SCGateway.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				BITCODE_GENERATION_MODE = bitcode;
@@ -1416,7 +1404,7 @@
 		};
 		36F1DE692372A08900E36C39 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A17E91D8EC53DDC3E2E34771 /* Pods-SCGateway.release.xcconfig */;
+			baseConfigurationReference = 2F9F9BF3E8B61EFCEC16FC50 /* Pods-SCGateway.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				BITCODE_GENERATION_MODE = bitcode;

@@ -101,7 +101,9 @@
 /* Begin PBXFileReference section */
 		153E50FB2ACF4096009FC808 /* ScLoan+ObjC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScLoan+ObjC.swift"; sourceTree = "<group>"; };
 		153E50FD2ACF4610009FC808 /* ScLoanIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScLoanIntent.swift; sourceTree = "<group>"; };
-		2F6F673D7CD3CBAEA2576AEC /* Pods_Loans.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loans.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A88AC66128016023A0E9EE3 /* Pods-Loans.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loans.debug.xcconfig"; path = "Target Support Files/Pods-Loans/Pods-Loans.debug.xcconfig"; sourceTree = "<group>"; };
+		452284931D3A67DC85253C30 /* Pods_Loans.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loans.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		641FE822D3E7F673C2D154D9 /* Pods-Loans.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loans.release.xcconfig"; path = "Target Support Files/Pods-Loans/Pods-Loans.release.xcconfig"; sourceTree = "<group>"; };
 		8813FF742A1B42D20088F948 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
 		8813FF762A1B43CF0088F948 /* LenderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenderInfo.swift; sourceTree = "<group>"; };
 		8813FF782A1B4F3E0088F948 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
@@ -161,8 +163,6 @@
 		88C970592A25F4BD00727554 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		88EB14DC2A270D7E008438F6 /* LenderConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LenderConfigs.swift; sourceTree = "<group>"; };
 		88FE79AE2A72DC2900855ACA /* gateway-loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "gateway-loader.gif"; sourceTree = "<group>"; };
-		901A2923EFCE9CA72CCC4D5F /* Pods-Loans.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loans.release.xcconfig"; path = "Target Support Files/Pods-Loans/Pods-Loans.release.xcconfig"; sourceTree = "<group>"; };
-		A2ECB7216D2D6748D2539F3A /* Pods-Loans.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loans.debug.xcconfig"; path = "Target Support Files/Pods-Loans/Pods-Loans.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C5F212B8DB9E400D14EC8 /* GatewayIosConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayIosConfig.swift; sourceTree = "<group>"; };
 		AB5DDE5A2B73781F000F8C27 /* MixpanelConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelConstants.swift; sourceTree = "<group>"; };
 		AB5DDE5D2B7389CE000F8C27 /* ScLoans+Mixpanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScLoans+Mixpanel.swift"; sourceTree = "<group>"; };
@@ -482,8 +482,8 @@
 		913BB985E0E7C378E02A4E73 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A2ECB7216D2D6748D2539F3A /* Pods-Loans.debug.xcconfig */,
-				901A2923EFCE9CA72CCC4D5F /* Pods-Loans.release.xcconfig */,
+				1A88AC66128016023A0E9EE3 /* Pods-Loans.debug.xcconfig */,
+				641FE822D3E7F673C2D154D9 /* Pods-Loans.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -508,7 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				AB9168B92B73A70300239E55 /* Mixpanel.framework */,
-				2F6F673D7CD3CBAEA2576AEC /* Pods_Loans.framework */,
+				452284931D3A67DC85253C30 /* Pods_Loans.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -531,7 +531,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88331CDF29F1BF1A006B66FB /* Build configuration list for PBXNativeTarget "Loans" */;
 			buildPhases = (
-				4B5F48F3BB6F4EE6201C587D /* [CP] Check Pods Manifest.lock */,
+				C3F892E9F47CE54356277BD0 /* [CP] Check Pods Manifest.lock */,
 				88331CD329F1BF1A006B66FB /* Headers */,
 				88331CD429F1BF1A006B66FB /* Sources */,
 				88331CD529F1BF1A006B66FB /* Frameworks */,
@@ -609,28 +609,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B5F48F3BB6F4EE6201C587D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Loans-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8855DFD92A08F592008BFCA1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -664,6 +642,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#! /bin/sh -e\n#\n# @author Ankit Deshmukh\n\n# Release dir path\nOUTPUT_DIR_PATH=\"${PROJECT_DIR}/XCFramework\"\n\nrm -rf Loans.Framework\nrm -rf XCFramework\n\nfunction archivePathSimulator {\n  local DIR=${OUTPUT_DIR_PATH}/archives/\"${1}-SIMULATOR\"\n  echo \"${DIR}\"\n}\n\nfunction archivePathDevice {\n  local DIR=${OUTPUT_DIR_PATH}/archives/\"${1}-DEVICE\"\n  echo \"${DIR}\"\n}\n\n\n# Archive takes 3 params\n#\n# 1st == SCHEME\n# 2nd == destination\n# 3rd == archivePath\n#function archive {\n#    echo \"▸ Starts archiving the scheme: ${1} for destination: ${2};\\n▸ Archive path: ${3}.xcarchive\"\n#    xcodebuild archive \\\n    -project \"${PROJECT_NAME}.xcodeproj\" \\\n    -scheme ${1} \\\n    -destination \"${2}\" \\\n    -archivePath \"${3}\" \\\n    SKIP_INSTALL=NO \\\n    BUILD_LIBRARY_FOR_DISTRIBUTION=YES | xcpretty\n#}\n\n# Build workspace to include cocoapod dependency\nfunction archive {\n    echo \"▸ Starts archiving the scheme: ${1} for destination: ${2};\\n▸ Archive path: ${3}.xcarchive\"\n    xcodebuild archive \\\n    -workspace \"${PROJECT_NAME}.xcworkspace\" \\\n    -scheme ${1} \\\n    -destination \"${2}\" \\\n    -archivePath \"${3}\" \\\n    SKIP_INSTALL=NO \\\n    BUILD_LIBRARY_FOR_DISTRIBUTION=YES | xcpretty\n}\n\n# Builds archive for iOS simulator & device + macOS\nfunction buildArchive {\n  SCHEME=${1}\n\n  archive $SCHEME \"generic/platform=iOS Simulator\" $(archivePathSimulator $SCHEME)\n  archive $SCHEME \"generic/platform=iOS\" $(archivePathDevice $SCHEME)\n}\n\n# Creates xc framework\nfunction createXCFramework {\n  FRAMEWORK_ARCHIVE_PATH_POSTFIX=\".xcarchive/Products/Library/Frameworks\"\n  FRAMEWORK_SIMULATOR_DIR=\"$(archivePathSimulator $1)${FRAMEWORK_ARCHIVE_PATH_POSTFIX}\"\n  FRAMEWORK_DEVICE_DIR=\"$(archivePathDevice $1)${FRAMEWORK_ARCHIVE_PATH_POSTFIX}\"\n  xcodebuild -create-xcframework \\\n            -framework ${FRAMEWORK_SIMULATOR_DIR}/${1}.framework \\\n            -framework ${FRAMEWORK_DEVICE_DIR}/${1}.framework \\\n            -output ${OUTPUT_DIR_PATH}/xcframeworks/${1}.xcframework\n}\n\n\n#### Dynamic Framework ####\n\nDYNAMIC_FRAMEWORK=Loans\n\necho \"▸ Archive $DYNAMIC_FRAMEWORK\"\nbuildArchive ${DYNAMIC_FRAMEWORK}\n\necho \"▸ Create $DYNAMIC_FRAMEWORK.xcframework\"\ncreateXCFramework ${DYNAMIC_FRAMEWORK}\n\ncd XCFramework/xcframeworks/Loans.xcframework\n\nfind . -name \"*.swiftinterface\" -exec sed -i -e 's/Loans\\.//g' {} \\;\n";
+		};
+		C3F892E9F47CE54356277BD0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Loans-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -851,7 +851,7 @@
 		};
 		88331CE029F1BF1A006B66FB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2ECB7216D2D6748D2539F3A /* Pods-Loans.debug.xcconfig */;
+			baseConfigurationReference = 1A88AC66128016023A0E9EE3 /* Pods-Loans.debug.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -890,7 +890,7 @@
 		};
 		88331CE129F1BF1A006B66FB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 901A2923EFCE9CA72CCC4D5F /* Pods-Loans.release.xcconfig */;
+			baseConfigurationReference = 641FE822D3E7F673C2D154D9 /* Pods-Loans.release.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
