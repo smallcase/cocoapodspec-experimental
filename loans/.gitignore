@@ -1,7 +1,5 @@
 build/*
 XCFramework/*
-Pods/*
-Pods/
 .DS_Store
 
 ## User settings

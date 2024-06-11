@@ -1,0 +1,6 @@
+framework module Pods_SCGateway {
+  umbrella header "Pods-SCGateway-umbrella.h"
+
+  export *
+  module * { export * }
+}
