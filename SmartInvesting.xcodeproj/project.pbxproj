@@ -872,7 +872,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n/Users/indrajitroy/smallcase/scGitHub/gw-mob-smartinvesting-ios/BuildScripts/create_xc_frameworks.sh\n";
+			shellScript = "\n$SRCROOT/BuildScripts/create_xc_frameworks.sh\n";
 		};
 		2DCDF6DD7BA67550D00D35D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
