@@ -4,19 +4,19 @@ on:
   workflow_dispatch:
     inputs:
       scliVersion:
-        description: "Select scli version"
+        description: "scli version"
         required: true
         default: "v0.0.4"
       releaseType:
         type: choice
-        description: "Select the type of release"
+        description: "Release type"
         options:
           - qa
           - internal
           - prod
       bumpType:
         type: choice
-        description: "Select the type of version bump"
+        description: "Version bump type"
         options:
           - patch
           - minor
@@ -30,6 +30,10 @@ on:
         description: "Should bump loans?"
         required: true
         type: boolean
+      bitrise:
+        description: "Trigger bitrise?"
+        type: boolean
+        default: false
 
 jobs:
   bump-versions:
@@ -149,3 +153,40 @@ jobs:
       - name: Push
         run: |
           git push
+      
+      - name: Trigger Bitrise Workflow
+        if: ${{ inputs.bitrise }}
+        run: |
+          BITRISE_APP_SLUG="d6c77e34-9075-4262-8c39-12b4d5adf82c"
+          BITRISE_BUILD_TRIGGER_URL="https://api.bitrise.io/v0.1/apps/$BITRISE_APP_SLUG/builds"
+
+          WORKFLOW_ID="release-qa"
+          if [[ "${{ inputs.releaseType }}" == "prod" ]];then
+            WORKFLOW_ID="release-prod"
+          fi
+          if [[ "${{ inputs.releaseType }}" == "internal" ]];then
+            WORKFLOW_ID="release-internal"
+          fi
+
+          # Prepare the payload
+          PAYLOAD=$(cat <<EOF
+          {
+            "hook_info": {
+                "type": "bitrise"
+            },
+            "build_params": {
+                "branch": "${{ github.head_ref || github.ref_name }}",
+                "workflow_id": "${WORKFLOW_ID}"
+            }
+          }
+          EOF
+          )
+          
+          # Trigger the Bitrise workflow
+          curl -X 'POST' \
+            "$BITRISE_BUILD_TRIGGER_URL" \
+            -H 'accept: application/json' \
+            -H "Authorization: ${{ secrets.BITRISE_API_TOKEN }}" \
+            -H 'Content-Type: application/json' \
+            -d "$PAYLOAD"
+

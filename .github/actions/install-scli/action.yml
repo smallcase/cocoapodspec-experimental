@@ -15,9 +15,9 @@ runs:
       id: scli-install
       shell: bash
       run: |
-        TAG="${{ inputs.version }}"
+        SCLI_VERSION="${{ inputs.version }}"
         GITHUB_ACCESS_TOKEN="${{ inputs.token }}"
-        curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/feat/cobra-viper-gw-mob-deploy/install.sh | bash -s -- $TAG $GITHUB_ACCESS_TOKEN
+        curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/master/install.sh | bash -s -- $SCLI_VERSION $GITHUB_ACCESS_TOKEN
 
         echo "$HOME/go/bin" >> $GITHUB_PATH
 
