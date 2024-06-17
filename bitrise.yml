@@ -144,7 +144,7 @@ workflows:
             set -o pipefail
             set -x
 
-            curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/feat/cobra-viper-gw-mob-deploy/install.sh | bash -s -- $SCLI_VERSION $GITHUB_ACCESS_TOKEN
+            curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/master/install.sh | bash -s -- $SCLI_VERSION $GITHUB_ACCESS_TOKEN
     - manage-ios-code-signing@2: {}
   z-assemble:
     steps:
