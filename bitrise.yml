@@ -15,7 +15,7 @@ app:
   - RELEASE_LOANS: false
     opts:
       is_expand: false
-  - RELEASE_TYPE: "prod"
+  - RELEASE_TYPE: prod
     opts:
       is_expand: false
   - BINARY_PATH: .build/Products/SmartInvesting/Smart Investing.ipa
@@ -24,11 +24,129 @@ app:
   - COCOA_INTERNAL_REPO: sc-cocoapodspec-internal
     opts:
       is_expand: false
-  - COCOA_INTERNAL_REPO_URL: "https://github.com/smallcase/cocoapodspec-internal.git"
+  - COCOA_INTERNAL_REPO_URL: https://github.com/smallcase/cocoapodspec-internal.git
     opts:
       is_expand: false
+  - BITRISE_PROJECT_PATH: SmartInvesting.xcworkspace
+    opts:
+      is_expand: false
+  - BITRISE_SCHEME: SmartInvesting
+    opts:
+      is_expand: false
+meta:
+  bitrise.io:
+    machine_type_id: g2-m1.4core
+    stack: osx-xcode-15.2.x
 workflows:
-  assemble:
+  release-internal:
+    before_run:
+    - x-ci-setup
+    after_run:
+    - z-assemble
+    - release-sdks
+    - z-generate-changelogs
+    - z-firebase-deploy
+    envs:
+    - RELEASE_TYPE: internal
+      opts:
+        is_expand: false
+  release-prod:
+    before_run:
+    - x-ci-setup
+    after_run:
+    - z-assemble
+    - release-sdks
+    - z-generate-changelogs
+    - z-firebase-deploy
+    envs:
+    - RELEASE_TYPE: prod
+      opts:
+        is_expand: false
+  release-qa:
+    before_run:
+    - x-ci-setup
+    after_run:
+    - z-assemble
+    - z-generate-changelogs
+    - z-firebase-deploy
+    envs:
+    - RELEASE_TYPE: qa
+      opts:
+        is_expand: false
+  release-sdks:
+    envs:
+    - SCG_XC_FRAMEWORK_PATH: .build/Products/SCGateway.xcframework
+    - LOANS_XC_FRAMEWORK_PATH: .build/Products/Loans.xcframework
+    steps:
+    - script@1:
+        title: Release SDKs
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -e
+            set -o pipefail
+            set -x
+
+            scg_podspec="smallcase_gateway/internal/SCGateway-ci.podspec.json"
+            loans_podspec="loans/internal/SCLoans-ci.podspec.json"
+            repo="$COCOA_INTERNAL_REPO"
+            repo_url="$COCOA_INTERNAL_REPO_URL"
+
+            if [[ "$RELEASE_TYPE" == "prod" ]];then
+              scg_podspec="smallcase_gateway/SCGateway.podspec.json"
+              loans_podspec="loans/SCLoans.podspec.json"
+              repo="trunk"
+              repo_url=""
+            fi
+
+            if [[ "$RELEASE_SCG" == "true" ]];then
+              echo "Releasing SCGateway..."
+              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$SCG_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$scg_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
+            fi
+
+            if [[ "$RELEASE_LOANS" == "true" ]];then
+              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$LOANS_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$loans_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
+              echo "Releasing SCGateway..."
+            fi
+  x-ci-setup:
+    steps:
+    - set-git-credentials@1:
+        run_if: .IsCI
+        inputs:
+        - git_email_address: gatewaytech@smallcase.com
+        - git_user_name: gateway-tech-bot
+    - activate-ssh-key@4: {}
+    - certificate-and-profile-installer@1: {}
+    - git-clone@8.2:
+        inputs:
+        - fetch_tags: "yes"
+        - clone_depth: "-1"
+    - cocoapods-install@2:
+        run_if: .IsCI
+        inputs:
+        - podfile_directory: ./smallcase_gateway
+        - is_cache_disabled: "true"
+    - cocoapods-install@2:
+        run_if: .IsCI
+        inputs:
+        - podfile_directory: ./loans
+        - is_cache_disabled: "true"
+    - cocoapods-install@2:
+        run_if: .IsCI
+        inputs:
+        - is_cache_disabled: "true"
+    - script@1:
+        title: Install SCLI
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -e
+            set -o pipefail
+            set -x
+
+            curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/feat/cobra-viper-gw-mob-deploy/install.sh | bash -s -- $SCLI_VERSION $GITHUB_ACCESS_TOKEN
+    - manage-ios-code-signing@2: {}
+  z-assemble:
     steps:
     - script@1:
         title: Assemble
@@ -45,48 +163,71 @@ workflows:
             echo "$RELEASE_TYPE"
 
             sh BuildScripts/assemble.sh
-  ci-setup:
+  z-firebase-deploy:
     steps:
-    - set-git-credentials@1:
-        run_if: .IsCI
-        inputs:
-        - git_email_address: gatewaytech@smallcase.com
-        - git_user_name: gateway-tech-bot
-    - activate-ssh-key@4: {}
-    - git-clone@8.2:
-        inputs:
-        - fetch_tags: "yes"
-        - clone_depth: "-1"
     - script@1:
-        title: Pod Install
+        title: Install Firebase CLI
         run_if: .IsCI
         inputs:
         - content: |-
             #!/usr/bin/env bash
+            # fail if any commands fails
             set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
             set -o pipefail
+            # debug log
             set -x
 
-            pod install
-
-            cd smallcase_gateway
-            pod install
-
-            cd loans
-            pod install
+            # Docs: https://firebase.google.com/docs/cli#install-cli-mac-linux
+            curl -sL https://firebase.tools | upgrade=true bash
     - script@1:
-        title: Install SCLI
+        title: Set Firebase Credentials
+        run_if: .IsCI
         inputs:
         - content: |-
             #!/usr/bin/env bash
+            # fail if any commands fails
             set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
             set -o pipefail
+            # debug log
             set -x
 
-            curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/feat/cobra-viper-gw-mob-deploy/install.sh | bash -s -- $SCLI_VERSION $GITHUB_ACCESS_TOKEN
+            # Check if BITRISEIO_FIREBASE_PRIVATE_KEY_URL is set
+            if [ -z "$BITRISEIO_FIREBASE_PRIVATE_KEY_URL" ]; then
+                echo "BITRISEIO_FIREBASE_PRIVATE_KEY_URL is not set"
+                exit 1
+            fi
 
-  firebase-deploy:
-    steps:
+            curl -L -o service_account.json "$BITRISEIO_FIREBASE_PRIVATE_KEY_URL"
+
+            # Check if the download was successful
+            if [ ! -f ./service_account.json ]; then
+                echo "Failed to download the service account JSON file"
+                exit 1
+            fi
+
+            echo "Exporting GOOGLE_APPLICATION_CREDENTIALS..."
+            export GOOGLE_APPLICATION_CREDENTIALS="$(pwd)/service_account.json"
+            echo "Exporting GOOGLE_APPLICATION_CREDENTIALS with envman..."
+            envman add --key GOOGLE_APPLICATION_CREDENTIALS --value "$(pwd)/service_account.json"
+
+            echo "GOOGLE_APPLICATION_CREDENTIALS : $GOOGLE_APPLICATION_CREDENTIALS"
+    - script@1:
+        title: Firebase CLI status check
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            firebase --version
+            # This should succeed if GOOGLE_APPLICATION_CREDENTIALS was set properly
+            firebase projects:list
     - script@1:
         title: Firebase Deploy
         inputs:
@@ -107,7 +248,7 @@ workflows:
             else
               firebase appdistribution:distribute "$BINARY_PATH" --app "$FIREBASE_APP_ID" --groups "smallcase"
             fi
-  generate-changelogs:
+  z-generate-changelogs:
     steps:
     - script@1:
         title: Generate Changelogs
@@ -128,74 +269,4 @@ workflows:
             if [[ "$RELEASE_LOANS" == "true" ]];then
               echo "Generating Loans Changelog..."
               $SCLI_PATH changelog --githubToken "$GITHUB_ACCESS_TOKEN"
-            fi
-  release-internal:
-    before_run:
-    - ci-setup
-    after_run:
-    - assemble
-    - release-sdks
-    - generate-changelogs
-    - firebase-deploy
-    envs:
-    - RELEASE_TYPE: internal
-      opts:
-        is_expand: false
-  release-prod:
-    before_run:
-    - ci-setup
-    after_run:
-    - assemble
-    - release-sdks
-    - generate-changelogs
-    - firebase-deploy
-    envs:
-    - RELEASE_TYPE: prod
-      opts:
-        is_expand: false
-  release-qa:
-    before_run:
-    - ci-setup
-    after_run:
-    - assemble
-    - generate-changelogs
-    - firebase-deploy
-    envs:
-    - RELEASE_TYPE: qa
-      opts:
-        is_expand: false
-  release-sdks:
-    envs:
-    - SCG_XC_FRAMEWORK_PATH: ".build/Products/SCGateway.xcframework"
-    - LOANS_XC_FRAMEWORK_PATH: ".build/Products/Loans.xcframework"
-    steps:
-    - script@1:
-        title: Release SDKs
-        inputs:
-        - content: |-
-            #!/usr/bin/env bash
-            set -e
-            set -o pipefail
-            set -x
-
-            scg_podspec="smallcase_gateway/internal/SCGateway-ci.podspec.json"
-            loans_podspec="loans/internal/SCLoans-ci.podspec.json"
-            repo="$COCOA_INTERNAL_REPO"
-            repo_url="$COCOA_INTERNAL_REPO_URL"
-            
-            if [[ "$RELEASE_TYPE" == "prod" ]];then
-              scg_podspec="smallcase_gateway/SCGateway.podspec.json"
-              loans_podspec="loans/SCLoans.podspec.json"
-              repo="trunk"
-              repo_url=""
-            fi
-
-            if [[ "$RELEASE_SCG" == "true" ]];then
-              echo "Releasing SCGateway..."
-              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$SCG_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$scg_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
-            fi
-
-            if [[ "$RELEASE_LOANS" == "true" ]];then
-              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$LOANS_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$loans_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
-              echo "Releasing SCGateway..."
             fi
