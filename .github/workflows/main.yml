@@ -6,7 +6,7 @@ on:
       scliVersion:
         description: "scli version"
         required: true
-        default: "v0.0.4"
+        default: "v0.0.4-25-g45834be"
       releaseType:
         type: choice
         description: "Release type"
@@ -158,7 +158,6 @@ jobs:
         if: ${{ inputs.bitrise }}
         run: |
           BITRISE_APP_SLUG="d6c77e34-9075-4262-8c39-12b4d5adf82c"
-          BITRISE_BUILD_TRIGGER_URL="https://api.bitrise.io/v0.1/apps/$BITRISE_APP_SLUG/builds"
 
           WORKFLOW_ID="release-qa"
           if [[ "${{ inputs.releaseType }}" == "prod" ]];then
@@ -168,25 +167,5 @@ jobs:
             WORKFLOW_ID="release-internal"
           fi
 
-          # Prepare the payload
-          PAYLOAD=$(cat <<EOF
-          {
-            "hook_info": {
-                "type": "bitrise"
-            },
-            "build_params": {
-                "branch": "${{ github.head_ref || github.ref_name }}",
-                "workflow_id": "${WORKFLOW_ID}"
-            }
-          }
-          EOF
-          )
-          
-          # Trigger the Bitrise workflow
-          curl -X 'POST' \
-            "$BITRISE_BUILD_TRIGGER_URL" \
-            -H 'accept: application/json' \
-            -H "Authorization: ${{ secrets.BITRISE_API_TOKEN }}" \
-            -H 'Content-Type: application/json' \
-            -d "$PAYLOAD"
+          scli triggerBitrise --appSlug "$BITRISE_APP_SLUG" --workflowId "${WORKFLOW_ID}" --branch "${{ github.head_ref || github.ref_name }}" --bitriseToken "${{ secrets.BITRISE_API_TOKEN }}"
 
