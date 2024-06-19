@@ -6,7 +6,7 @@ on:
       scliVersion:
         description: "scli version"
         required: true
-        default: "v0.0.4-25-g45834be"
+        default: "v0.0.4-26-g47943f3"
       releaseType:
         type: choice
         description: "Release type"
@@ -167,5 +167,6 @@ jobs:
             WORKFLOW_ID="release-internal"
           fi
 
-          scli triggerBitrise --appSlug "$BITRISE_APP_SLUG" --workflowId "${WORKFLOW_ID}" --branch "${{ github.head_ref || github.ref_name }}" --bitriseToken "${{ secrets.BITRISE_API_TOKEN }}"
-
+          scli triggerBitrise --appSlug "$BITRISE_APP_SLUG" --workflowId "${WORKFLOW_ID}" --branch "${{ github.head_ref || github.ref_name }}" \
+          --bitriseToken "${{ secrets.BITRISE_API_TOKEN }}" \
+          --message "$(git log -1 --pretty=%B%n%H)"
