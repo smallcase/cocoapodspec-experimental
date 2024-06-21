@@ -72,16 +72,14 @@ class LoadingScreenViewController: UIViewController {
 extension LoadingScreenViewController: ViewModelUIViewControllerDelegate {
     
     func updateState(showLoadingView: Bool) {
-        
-        DispatchQueue.main.async {
-            self.smallcaseLoaderImageView.isHidden = showLoadingView
-            self.loadingView.isHidden = !showLoadingView
-            self.loadingView.updateUi()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-                self?.viewModel?.launchLOSJourney()
+            DispatchQueue.main.async {
+                self.smallcaseLoaderImageView.isHidden = showLoadingView
+                self.loadingView.isHidden = !showLoadingView
+                self.loadingView.updateUi()
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(SessionManager.gatewayIosConfig?.uiConfig.loansLoader.duration ?? 3000)) { [weak self] in
+                    self?.viewModel?.launchLOSJourney()
+                }
             }
-        }
         
     }
 }

@@ -21,7 +21,7 @@ def fetch_plist_value(plist_path, key)
 
   def set_plist_value(plist_path, key, value)
     # Construct the PlistBuddy command to read the value for the given key
-    command = "/usr/libexec/PlistBuddy -c 'Set :#{key} #{value}' #{./}"
+    command = "/usr/libexec/PlistBuddy -c 'Set :#{key} #{value}' #{plist_path}"
 
     # Execute the command
     system(command)
