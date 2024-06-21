@@ -13,6 +13,8 @@ app:
   - COCOA_REPO_URL: https://github.com/smallcase/cocoapodspec-internal.git
   - SCG_PODSPEC: smallcase_gateway/internal/SCGateway-ci.podspec.json
   - LOANS_PODSPEC: loans/internal/SCLoans-ci.podspec.json
+  - BITRISE_PROJECT_PATH: SmartInvesting.xcworkspace
+  - BITRISE_SCHEME: SmartInvesting
 meta:
   bitrise.io:
     machine_type_id: g2-m1.4core
