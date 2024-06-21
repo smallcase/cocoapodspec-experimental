@@ -4,35 +4,15 @@ project_type: ios
 app:
   envs:
   - SCLI_VERSION: v0.0.4-17-g9ee90d9
-    opts:
-      is_expand: false
   - SCLI_PATH: scli
-    opts:
-      is_expand: false
   - RELEASE_SCG: false
-    opts:
-      is_expand: false
   - RELEASE_LOANS: false
-    opts:
-      is_expand: false
-  - RELEASE_TYPE: prod
-    opts:
-      is_expand: false
-  - BINARY_PATH: .build/Products/SmartInvesting/Smart Investing.ipa
-    opts:
-      is_expand: false
-  - COCOA_INTERNAL_REPO: sc-cocoapodspec-internal
-    opts:
-      is_expand: false
-  - COCOA_INTERNAL_REPO_URL: https://github.com/smallcase/cocoapodspec-internal.git
-    opts:
-      is_expand: false
-  - BITRISE_PROJECT_PATH: SmartInvesting.xcworkspace
-    opts:
-      is_expand: false
-  - BITRISE_SCHEME: SmartInvesting
-    opts:
-      is_expand: false
+  - RELEASE_TYPE: qa
+  - BINARY_PATH: ".build/Products/SmartInvesting/Smart Investing.ipa"
+  - COCOA_REPO: sc-cocoapodspec-internal
+  - COCOA_REPO_URL: https://github.com/smallcase/cocoapodspec-internal.git
+  - SCG_PODSPEC: smallcase_gateway/internal/SCGateway-ci.podspec.json
+  - LOANS_PODSPEC: loans/internal/SCLoans-ci.podspec.json
 meta:
   bitrise.io:
     machine_type_id: g2-m1.4core
@@ -48,8 +28,10 @@ workflows:
     - z-firebase-deploy
     envs:
     - RELEASE_TYPE: internal
-      opts:
-        is_expand: false
+    - COCOA_REPO: sc-cocoapodspec-internal
+    - COCOA_REPO_URL: https://github.com/smallcase/cocoapodspec-internal.git
+    - SCG_PODSPEC: smallcase_gateway/internal/SCGateway-internal.podspec.json
+    - LOANS_PODSPEC: loans/internal/SCLoans-internal.podspec.json
   release-prod:
     before_run:
     - x-ci-setup
@@ -60,8 +42,9 @@ workflows:
     - z-firebase-deploy
     envs:
     - RELEASE_TYPE: prod
-      opts:
-        is_expand: false
+    - COCOA_REPO: trunk
+    - SCG_PODSPEC: smallcase_gateway/SCGateway.podspec.json
+    - LOANS_PODSPEC: loans/SCLoans.podspec.json
   release-qa:
     before_run:
     - x-ci-setup
@@ -79,6 +62,26 @@ workflows:
     - LOANS_XC_FRAMEWORK_PATH: .build/Products/Loans.xcframework
     steps:
     - script@1:
+        title: Install AWS CLI
+        run_if: .IsCI
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            # Fetch aws cli tool
+            curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg
+            # Install aws cli tool with mac installer
+            sudo installer -pkg AWSCLIV2.pkg -target 
+            # Print out the aws cli installation details
+            which aws
+            aws --version
+    - script@1:
         title: Release SDKs
         inputs:
         - content: |-
@@ -87,17 +90,10 @@ workflows:
             set -o pipefail
             set -x
 
-            scg_podspec="smallcase_gateway/internal/SCGateway-ci.podspec.json"
-            loans_podspec="loans/internal/SCLoans-ci.podspec.json"
-            repo="$COCOA_INTERNAL_REPO"
-            repo_url="$COCOA_INTERNAL_REPO_URL"
-
-            if [[ "$RELEASE_TYPE" == "prod" ]];then
-              scg_podspec="smallcase_gateway/SCGateway.podspec.json"
-              loans_podspec="loans/SCLoans.podspec.json"
-              repo="trunk"
-              repo_url=""
-            fi
+            scg_podspec="$SCG_PODSPEC"
+            loans_podspec="$LOANS_PODSPEC"
+            repo="$COCOA_REPO"
+            repo_url="$COCOA_REPO_URL"
 
             if [[ "$RELEASE_SCG" == "true" ]];then
               echo "Releasing SCGateway..."
@@ -105,8 +101,8 @@ workflows:
             fi
 
             if [[ "$RELEASE_LOANS" == "true" ]];then
+              echo "Releasing SCLoans..."
               $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$LOANS_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$loans_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
-              echo "Releasing SCGateway..."
             fi
   x-ci-setup:
     steps:
