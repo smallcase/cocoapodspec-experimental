@@ -3,7 +3,7 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: ios
 app:
   envs:
-  - SCLI_VERSION: v0.0.4-17-g9ee90d9
+  - SCLI_VERSION: v0.1.0
   - SCLI_PATH: scli
   - RELEASE_SCG: false
   - RELEASE_LOANS: false
@@ -24,7 +24,6 @@ workflows:
     after_run:
     - z-assemble
     - release-sdks
-    - z-generate-changelogs
     - z-firebase-deploy
     envs:
     - RELEASE_TYPE: internal
@@ -38,7 +37,6 @@ workflows:
     after_run:
     - z-assemble
     - release-sdks
-    - z-generate-changelogs
     - z-firebase-deploy
     envs:
     - RELEASE_TYPE: prod
@@ -50,7 +48,6 @@ workflows:
     - x-ci-setup
     after_run:
     - z-assemble
-    - z-generate-changelogs
     - z-firebase-deploy
     envs:
     - RELEASE_TYPE: qa
@@ -235,34 +232,7 @@ workflows:
 
             echo "$RELEASE_TYPE"
 
-            changelog_file_path=".build/changelog.md"
+            scope="smallcase_gateway,loans"
+            firebase_changelog=$($SCLI_PATH changelog --format "firebase" --dirs "$scope")
 
-            # Check if file exists
-
-            if [[ -f "$changelog_file_path" ]]; then
-              firebase appdistribution:distribute "$BINARY_PATH" --app "$FIREBASE_APP_ID" --release-notes-file "$changelog_file_path" --groups "smallcase"
-            else
-              firebase appdistribution:distribute "$BINARY_PATH" --app "$FIREBASE_APP_ID" --groups "smallcase"
-            fi
-  z-generate-changelogs:
-    steps:
-    - script@1:
-        title: Generate Changelogs
-        inputs:
-        - content: |-
-            #!/usr/bin/env bash
-            set -e
-            set -o pipefail
-            set -x
-
-            echo "$RELEASE_TYPE"
-
-            if [[ "$RELEASE_SCG" == "true" ]];then
-              echo "Generating SCGateway Changelog..."
-              $SCLI_PATH changelog --githubToken "$GITHUB_ACCESS_TOKEN"
-            fi
-
-            if [[ "$RELEASE_LOANS" == "true" ]];then
-              echo "Generating Loans Changelog..."
-              $SCLI_PATH changelog --githubToken "$GITHUB_ACCESS_TOKEN"
-            fi
+            firebase appdistribution:distribute "$BINARY_PATH" --app "$FIREBASE_APP_ID" --release-notes "$firebase_changelog" --groups "smallcase"
