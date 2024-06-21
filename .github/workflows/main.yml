@@ -128,7 +128,7 @@ jobs:
 
       - name: Commit
         run: |
-          commit_type="chore(${{ github.event.inputs.releaseType }})"
+          commit_type="chore(${{ github.event.inputs.releaseType }}):"
           si="si:${{ steps.set-versions.outputs.si_version }}-${{ steps.set-versions.outputs.si_version_code }}"
           scg="scg:${{ steps.set-versions.outputs.scg_version }}-${{ steps.set-versions.outputs.scg_version_code }}"
           loans="loans:${{ steps.set-versions.outputs.loans_version }}-${{ steps.set-versions.outputs.loans_version_code }}"
