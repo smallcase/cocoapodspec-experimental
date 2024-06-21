@@ -76,7 +76,7 @@ workflows:
             # Fetch aws cli tool
             curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
             # Install aws cli tool with mac installer
-            sudo installer -pkg AWSCLIV2.pkg -target 
+            sudo installer -pkg AWSCLIV2.pkg -target /
             # Print out the aws cli installation details
             which aws
             aws --version
