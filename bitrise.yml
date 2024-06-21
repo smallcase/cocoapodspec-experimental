@@ -141,6 +141,34 @@ workflows:
 
             curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/master/install.sh | bash -s -- $SCLI_VERSION $GITHUB_ACCESS_TOKEN
     - manage-ios-code-signing@2: {}
+    - script@1:
+        title: Override Env variables
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+
+            # Fail if any commands fail
+            set -e
+            # Make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # Debug log
+            set -x
+
+            # Loop through all environment variables
+            for var in $(env | grep -o '^OVERRIDE_[^=]*'); do
+              # Extract the base variable name by removing the 'OVERRIDE_' prefix
+              base_var=${var#OVERRIDE_}
+
+              # Get the value of the OVERRIDE_ variable
+              override_value=$(eval echo \$$var)
+
+              # Check if the base variable exists
+              if [[ -n $(eval echo \$$base_var) ]]; then
+                echo "Overriding $base_var with $override_value"
+                envman add --key "$base_var" --value "$override_value"
+              fi
+            done
+
   z-assemble:
     steps:
     - script@1:
