@@ -6,7 +6,7 @@ on:
       scliVersion:
         description: "scli version"
         required: true
-        default: "v0.0.4-26-g47943f3"
+        default: "v0.2.0-alpha-1"
       releaseType:
         type: choice
         description: "Release type"
