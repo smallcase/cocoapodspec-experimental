@@ -5,9 +5,9 @@ app:
   envs:
   - SCLI_VERSION: v0.1.0
   - SCLI_PATH: scli
+  - RELEASE_TYPE: qa
   - RELEASE_SCG: false
   - RELEASE_LOANS: false
-  - RELEASE_TYPE: qa
   - BINARY_PATH: .build/Products/SmartInvesting/Smart Investing.ipa
   - COCOA_REPO: sc-cocoapodspec-internal
   - COCOA_REPO_URL: https://github.com/smallcase/cocoapodspec-internal.git
@@ -30,7 +30,7 @@ workflows:
     envs:
     - RELEASE_TYPE: internal
     - COCOA_REPO: sc-cocoapodspec-internal
-    - COCOA_REPO_URL: https://github.com/smallcase/cocoapodspec-internal.git
+    - COCOA_REPO_URL: git@github.com:smallcase/cocoapodspec-internal.git
     - SCG_PODSPEC: smallcase_gateway/internal/SCGateway-internal.podspec.json
     - LOANS_PODSPEC: loans/internal/SCLoans-internal.podspec.json
   release-prod:
@@ -53,8 +53,6 @@ workflows:
     - z-firebase-deploy
     envs:
     - RELEASE_TYPE: qa
-      opts:
-        is_expand: false
   release-sdks:
     before_run:
     - z-override-envs
