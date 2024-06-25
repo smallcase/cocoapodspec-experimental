@@ -7,32 +7,35 @@ else
     echo ".build directory does not exist"
 fi
 
+scheme="${SC_ASSEMBLE_SCHEME:-SmartInvesting}"
+
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
-  -scheme SmartInvesting \
+  -scheme $scheme \
   clean
 
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
-  -scheme SmartInvesting \
+  -scheme $scheme \
   -destination "generic/platform=iOS Simulator" \
   build
 
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
-  -scheme SmartInvesting \
+  -scheme $scheme \
   -destination "generic/platform=iOS" \
   USE_XC_FRAMEWORKS=YES \
   build
 
 
 # # Define the path to the archives directory
-archives_dir=./.build/Products/Archives
+archives_dir_default=./.build/Products/Archives
+archives_dir="${SC_ARCHIVE_DIR:-$archives_dir_default}"
 archivePath="$archives_dir/SmartInvesting.xcarchive"
 
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
-  -scheme SmartInvesting \
+  -scheme $scheme \
   -destination 'generic/platform=iOS' \
   -archivePath "$archivePath" \
   archive

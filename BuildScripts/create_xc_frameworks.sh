@@ -10,14 +10,17 @@ LOANS_F_PATH="$TARGET_BUILD_DIR/$LOANS.framework"
 SCG_XCF_PATH="$SRCROOT/.build/Products/$SCG.xcframework"
 LOANS_XCF_PATH="$SRCROOT/.build/Products/$LOANS.xcframework"
 
+DEST_SIM="$CONFIGURATION-iphonesimulator"
+DEST_DEVICE="$CONFIGURATION-iphoneos"
+
 if [ "$USE_XC_FRAMEWORKS" == "YES" ]; then
     echo "Linking and Embedding XCFrameworks..."
     
     cd $BUILD_DIR
     
     xcodebuild -create-xcframework \
-    -framework "Debug-iphoneos/$SCG.framework" \
-    -framework "Debug-iphonesimulator/$SCG.framework" \
+    -framework "$DEST_DEVICE/$SCG.framework" \
+    -framework "$DEST_SIM/$SCG.framework" \
     -output "$SCG_XCF_PATH"
     
     cd "$SCG_XCF_PATH"
@@ -26,8 +29,8 @@ if [ "$USE_XC_FRAMEWORKS" == "YES" ]; then
     cd $BUILD_DIR
     
     xcodebuild -create-xcframework \
-    -framework "Debug-iphoneos/$LOANS.framework" \
-    -framework "Debug-iphonesimulator/$LOANS.framework" \
+    -framework "$DEST_DEVICE/$LOANS.framework" \
+    -framework "$DEST_SIM/$LOANS.framework" \
     -output "$LOANS_XCF_PATH"
     
     cd "$LOANS_XCF_PATH"
