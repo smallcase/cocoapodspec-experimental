@@ -3,10 +3,6 @@ name: Bump Version
 on:
   workflow_dispatch:
     inputs:
-      scliVersion:
-        description: "scli version"
-        required: true
-        default: "v0.2.0-alpha-1"
       releaseType:
         type: choice
         description: "Release type"
@@ -14,6 +10,12 @@ on:
           - qa
           - internal
           - prod
+      scheme:
+        type: choice
+        description: "Scheme"
+        options:
+          - release
+          - debug
       bumpType:
         type: choice
         description: "Version bump type"
@@ -23,18 +25,28 @@ on:
           - major
           - auto
       scg:
-        description: "Should bump scg?"
+        description: "SCGateway"
         required: true
         type: boolean
       loans:
-        description: "Should bump loans?"
+        description: "SCLoans"
         required: true
         type: boolean
       bitrise:
-        description: "Trigger bitrise?"
+        description: "Trigger Bitrise"
         type: boolean
         default: false
+      scliVersion:
+        description: "scli version"
+        required: true
+        default: "v0.2.0-alpha-1"
 
+env:
+  SCG_INFO_PLIST: smallcase_gateway/SCGateway/Helpers/Info.plist
+  LOANS_INFO_PLIST: loans/Loans/Info.plist
+  SI_INFO_PLIST: SmartInvesting/Info.plist
+  VERSION_KEY: CFBundleShortVersionString
+  VERSION_CODE_KEY: CFBundleVersion
 jobs:
   bump-versions:
     runs-on: ubuntu-latest
@@ -58,48 +70,60 @@ jobs:
         id: bump-scg
         run: |
           if [ "${{ github.event.inputs.releaseType }}" == "prod" ];then
-            scli versionBump smallcase_gateway/SCGateway/Helpers/Info.plist --bumpType "${{ github.event.inputs.bumpType }}" --vkey "CFBundleShortVersionString" --vckey "CFBundleVersion"
+            scli versionBump "$SCG_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --vckey "$VERSION_CODE_KEY"
           else
-            scli versionBump smallcase_gateway/SCGateway/Helpers/Info.plist --onlyCode --vckey "CFBundleVersion"
+            scli versionBump "$SCG_INFO_PLIST" --onlyCode --vckey "$VERSION_CODE_KEY"
           fi
       - name: Bump loans
         if: ${{ inputs.loans }}
         id: bump-loans
         run: |
           if [ "${{ github.event.inputs.releaseType }}" == "prod" ];then
-            scli versionBump loans/Loans/Info.plist --bumpType "${{ github.event.inputs.bumpType }}" --vkey "CFBundleShortVersionString" --vckey "CFBundleVersion"
+            scli versionBump "$LOANS_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --vckey "$VERSION_CODE_KEY"
           else
-            scli versionBump loans/Loans/Info.plist --onlyCode --vckey "CFBundleVersion"
+            scli versionBump "$LOANS_INFO_PLIST" --onlyCode --vckey "$VERSION_CODE_KEY"
           fi    
       - name: Bump smart investing
         id: bump-si
         run: |
           if [ "${{ github.event.inputs.releaseType }}" == "prod" ];then
-            scli versionBump SmartInvesting/Info.plist --bumpType "${{ github.event.inputs.bumpType }}" --vkey "CFBundleShortVersionString" --vckey "CFBundleVersion"
+            scli versionBump "$SI_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --vckey "$VERSION_CODE_KEY"
           else
-            scli versionBump SmartInvesting/Info.plist --onlyCode --vckey "CFBundleVersion"
+            scli versionBump "$SI_INFO_PLIST" --onlyCode --vckey "$VERSION_CODE_KEY"
           fi
 
       - name: Set Versions
         id: set-versions
         run: |
-          si_version=$(scli prop SmartInvesting/Info.plist "CFBundleShortVersionString")
-          si_version_code=$(scli prop SmartInvesting/Info.plist "CFBundleVersion")
+          si_version=$(scli prop $SI_INFO_PLIST "$VERSION_KEY")
+          si_version_code=$(scli prop $SI_INFO_PLIST "$VERSION_CODE_KEY")
 
           echo "::set-output name=si_version::$si_version"
           echo "::set-output name=si_version_code::$si_version_code"
 
-          scg_version=$(scli prop smallcase_gateway/SCGateway/Helpers/Info.plist "CFBundleShortVersionString")
-          scg_version_code=$(scli prop smallcase_gateway/SCGateway/Helpers/Info.plist "CFBundleVersion")
+          scg_version=$(scli prop $SCG_INFO_PLIST "$VERSION_KEY")
+          scg_version_code=$(scli prop $SCG_INFO_PLIST "$VERSION_CODE_KEY")
 
           echo "::set-output name=scg_version::$scg_version"
           echo "::set-output name=scg_version_code::$scg_version_code"
           
-          loans_version=$(scli prop loans/Loans/Info.plist "CFBundleShortVersionString")
-          loans_version_code=$(scli prop loans/Loans/Info.plist "CFBundleVersion")
+          loans_version=$(scli prop $LOANS_INFO_PLIST "$VERSION_KEY")
+          loans_version_code=$(scli prop $LOANS_INFO_PLIST "$VERSION_CODE_KEY")
           
           echo "::set-output name=loans_version::$loans_version"
           echo "::set-output name=loans_version_code::$loans_version_code"
+
+          scg_podspec="smallcase_gateway/podspecs/${{ github.event.inputs.scheme }}/SCGateway-${{ github.event.inputs.releaseType }}.podspec.json"
+          loans_podspec="loans/podspecs/${{ github.event.inputs.scheme }}/SCLoans-${{ github.event.inputs.releaseType }}.podspec.json"
+          
+          if [[ "${{ github.event.inputs.releaseType }}" == "prod" ]];then
+            scg_podspec="smallcase_gateway/SCGateway.podspec.json"
+            loans_podspec="loans/SCLoans.podspec.json"
+          fi
+
+          echo "::set-output name=scg_podspec::$scg_podspec"
+          echo "::set-output name=loans_podspec::$loans_podspec"
+
       - name: Outputs
         run: |
           echo ${{ steps.set-versions.outputs.scg_version }}
@@ -117,14 +141,16 @@ jobs:
         with:
           version: "${{ steps.set-versions.outputs.scg_version }}"
           versionCode: "${{ github.event.inputs.releaseType != 'prod' && steps.set-versions.outputs.scg_version_code || '' }}"
-          podspec: "smallcase_gateway/internal/SCGateway-ci.podspec.json"
+          scheme: "${{ github.event.inputs.scheme }}"
+          podspec: "${{ steps.set-versions.outputs.scg_podspec }}"
       - name: Update Loans Podspec
         if: ${{ inputs.loans }}
         uses: ./.github/actions/update-podspec
         with:
           version: "${{ steps.set-versions.outputs.loans_version }}"
           versionCode: "${{ github.event.inputs.releaseType != 'prod' && steps.set-versions.outputs.loans_version_code || '' }}"
-          podspec: "loans/internal/SCLoans-ci.podspec.json"
+          scheme: "${{ github.event.inputs.scheme }}"
+          podspec: "${{ steps.set-versions.outputs.loans_podspec }}"
 
       - name: Commit
         run: |

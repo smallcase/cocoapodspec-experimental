@@ -7,6 +7,9 @@ inputs:
   versionCode:
     description: 'Version Code'
     required: true
+  scheme:
+    description: 'Scheme'
+    required: false
   podspec:
     description: 'Podspec path'
     required: true
@@ -20,9 +23,14 @@ runs:
         podspec="${{ inputs.podspec }}"
         cat $podspec
 
-        new_version="${{ inputs.version }}-${{ inputs.versionCode }}"
-        if [[ "${{ inputs.versionCode }}" == "" ]];then
-          new_version="${{ inputs.version }}"
+        new_version="${{ inputs.version }}"
+
+        if [[ "${{ inputs.versionCode }}" != "" ]];then
+          new_version="$new_version-${{ inputs.versionCode }}"
+        fi
+
+        if [[ "${{ inputs.scheme }}" != "release" ]];then
+          new_version="$new_version-${{ inputs.scheme }}"
         fi
 
         source=$(jq -r '.source.http' "$podspec")
