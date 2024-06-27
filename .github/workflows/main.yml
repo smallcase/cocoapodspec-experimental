@@ -156,6 +156,8 @@ jobs:
           podspec: "${{ steps.set-versions.outputs.loans_podspec }}"
 
       - name: Commit, Tag & Push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           commit_type="chore(${{ github.event.inputs.releaseType }}):"
           si="si/${{ steps.set-versions.outputs.si_version }}"
