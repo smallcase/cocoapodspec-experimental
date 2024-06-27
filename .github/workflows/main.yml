@@ -39,7 +39,7 @@ on:
       scliVersion:
         description: "scli version"
         required: true
-        default: "v0.2.0-alpha-1"
+        default: "v0.2.0-alpha-1-1-g1d16d5a"
 
 env:
   SCG_INFO_PLIST: smallcase_gateway/SCGateway/Helpers/Info.plist
@@ -134,7 +134,9 @@ jobs:
 
           echo ${{ steps.set-versions.outputs.si_version }}
           echo ${{ steps.set-versions.outputs.si_version_code }}
-
+          
+          echo ${{ steps.set-versions.outputs.scg_podspec }}
+          echo ${{ steps.set-versions.outputs.loans_podspec }}
       - name: Update SCG Podspec
         if: ${{ inputs.scg }}
         uses: ./.github/actions/update-podspec
@@ -185,14 +187,17 @@ jobs:
         run: |
           BITRISE_APP_SLUG="d6c77e34-9075-4262-8c39-12b4d5adf82c"
 
-          WORKFLOW_ID="release-qa"
-          if [[ "${{ inputs.releaseType }}" == "prod" ]];then
-            WORKFLOW_ID="release-prod"
-          fi
-          if [[ "${{ inputs.releaseType }}" == "internal" ]];then
-            WORKFLOW_ID="release-internal"
+          WORKFLOW_ID="release-sdks"
+          release_scg=true
+          release_loans=true
+
+          if [[ "${{ inputs.releaseType }}" != "qa" ]];then
+            WORKFLOW_ID="release-sdks"
+            release_scg=true
+            release_loans=true
           fi
 
           scli triggerBitrise --appSlug "$BITRISE_APP_SLUG" --workflowId "${WORKFLOW_ID}" --branch "${{ github.head_ref || github.ref_name }}" \
           --bitriseToken "${{ secrets.BITRISE_API_TOKEN }}" \
+          --envs "OVERRIDE_RELEASE_SCG=$release_scg,OVERRIDE_RELEASE_LOANS=$release_loans,OVERRIDE_BITRISE_SCHEME=${{ inputs.scheme }},OVERRIDE_SCG_PODSPEC=${{ steps.set-versions.outputs.scg_podspec }},OVERRIDE_LOANS_PODSPEC=${{ steps.set-versions.outputs.loans_podspec }}" \
           --message "$(git log -1 --pretty=%B%n%H)"
