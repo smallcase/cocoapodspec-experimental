@@ -1,18 +1,7 @@
 #!/bin/sh
 set -e
 
-if [ -d ".build" ]; then
-    find .build -mindepth 1 -delete
-else
-    echo ".build directory does not exist"
-fi
-
 scheme="${SC_ASSEMBLE_SCHEME:-SmartInvesting}"
-
-xcodebuild \
-  -workspace SmartInvesting.xcworkspace \
-  -scheme $scheme \
-  clean
 
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
@@ -29,9 +18,9 @@ xcodebuild \
 
 
 # # Define the path to the archives directory
-archives_dir_default=./.build/Products/Archives
+archives_dir_default=./.build/Archives
 archives_dir="${SC_ARCHIVE_DIR:-$archives_dir_default}"
-archivePath="$archives_dir/SmartInvesting.xcarchive"
+archivePath="$archives_dir/$SC_ASSEMBLE_SCHEME/SmartInvesting.xcarchive"
 
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
@@ -52,5 +41,5 @@ latest_archive_path="$archives_dir/$latest_archive/$(ls -t "$archives_dir/$lates
 xcodebuild \
   -exportArchive \
   -archivePath "$archivePath" \
-  -exportPath ./.build/Products/SmartInvesting/ \
+  -exportPath ./.build/Products/$SC_ASSEMBLE_SCHEME/SmartInvesting/ \
   -exportOptionsPlist './ExportOptions.plist'

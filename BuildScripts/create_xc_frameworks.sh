@@ -7,8 +7,8 @@ LOANS="Loans"
 SCG_F_PATH="$TARGET_BUILD_DIR/$SCG.framework"
 LOANS_F_PATH="$TARGET_BUILD_DIR/$LOANS.framework"
 
-SCG_XCF_PATH="$SRCROOT/.build/Products/$SCG.xcframework"
-LOANS_XCF_PATH="$SRCROOT/.build/Products/$LOANS.xcframework"
+SCG_XCF_PATH="$SRCROOT/.build/Frameworks/$CONFIGURATION/$SCG.xcframework"
+LOANS_XCF_PATH="$SRCROOT/.build/Frameworks/$CONFIGURATION/$LOANS.xcframework"
 
 DEST_SIM="$CONFIGURATION-iphonesimulator"
 DEST_DEVICE="$CONFIGURATION-iphoneos"
