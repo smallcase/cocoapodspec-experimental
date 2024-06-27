@@ -40,7 +40,7 @@ for var in $(env | grep -o '^OVERRIDE_[^=]*'); do
     if [[ -n $(eval echo \$$base_var) ]]; then
         echo "Overriding $base_var with $override_value"
         envman add --key "$base_var" --value "$override_value"
-        export "$key=$value"
+        export "$base_var=$override_value"
     fi
 done
 
