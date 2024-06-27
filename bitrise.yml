@@ -8,7 +8,7 @@ app:
   - RELEASE_SCG: false
   - RELEASE_LOANS: false
   - COCOA_REPO: sc-cocoapodspec-internal
-  - COCOA_REPO_URL: https://github.com/smallcase/cocoapodspec-internal.git
+  - COCOA_REPO_URL: git@github.com:smallcase/cocoapodspec-internal.git
   - SCG_PODSPEC: smallcase_gateway/internal/SCGateway-ci.podspec.json
   - LOANS_PODSPEC: loans/internal/SCLoans-ci.podspec.json
   - BITRISE_PROJECT_PATH: SmartInvesting.xcworkspace
