@@ -6,6 +6,7 @@ on:
       releaseType:
         type: choice
         description: "Release type"
+        required: true
         options:
           - qa
           - internal
@@ -13,6 +14,7 @@ on:
       scheme:
         type: choice
         description: "Scheme"
+        required: true
         options:
           - release
           - debug
@@ -26,20 +28,19 @@ on:
           - auto
       scg:
         description: "SCGateway"
-        required: true
         type: boolean
+        default: false
       loans:
         description: "SCLoans"
-        required: true
         type: boolean
+        default: false
       bitrise:
         description: "Trigger Bitrise"
         type: boolean
         default: false
       scliVersion:
         description: "scli version"
-        required: true
-        default: "v0.2.0-alpha-1-1-g1d16d5a"
+        default: "v0.2.0-alpha-2"
 
 env:
   SCG_INFO_PLIST: smallcase_gateway/SCGateway/Helpers/Info.plist
@@ -154,12 +155,18 @@ jobs:
           scheme: "${{ github.event.inputs.scheme }}"
           podspec: "${{ steps.set-versions.outputs.loans_podspec }}"
 
-      - name: Commit
+      - name: Commit, Tag & Push
         run: |
           commit_type="chore(${{ github.event.inputs.releaseType }}):"
-          si="si:${{ steps.set-versions.outputs.si_version }}-${{ steps.set-versions.outputs.si_version_code }}"
-          scg="scg:${{ steps.set-versions.outputs.scg_version }}-${{ steps.set-versions.outputs.scg_version_code }}"
-          loans="loans:${{ steps.set-versions.outputs.loans_version }}-${{ steps.set-versions.outputs.loans_version_code }}"
+          si="si/${{ steps.set-versions.outputs.si_version }}"
+          scg="scg/${{ steps.set-versions.outputs.scg_version }}"
+          loans="loans/${{ steps.set-versions.outputs.loans_version }}"
+
+          if [[ "${{ github.event.inputs.releaseType }}" == "prod" ]];then
+            si+="-${{ steps.set-versions.outputs.si_version_code }}"
+            scg+="-${{ steps.set-versions.outputs.scg_version_code }}"
+            loans+="-${{ steps.set-versions.outputs.loans_version_code }}"
+          fi
 
           commit_msg=""
           commit_desc="$scg, $loans, $si"
@@ -177,27 +184,55 @@ jobs:
           git add .
           git status
           git commit -m "$commit_msg" -m "$commit_desc"
-
-      - name: Push
-        run: |
+          
           git push
+
+          if [[ "${{ github.event.inputs.releaseType }}" != "qa" ]];then
+            tag_name=""
+            if [[ "${{ inputs.scg }}" == "true" && "${{ inputs.loans }}" == "true" ]];then
+              tag_name+="$scg-$loans"
+            elif [[ "${{ inputs.scg }}" == "true" ]]; then
+              tag_name+="$scg"
+            elif [[ "${{ inputs.loans }}" == "true" ]]; then
+              tag_name+="$loans"
+            else
+              tag_name+="$si"
+            fi
+            
+            git tag "$tag_name"
+            git push --tags
+
+            if [[ "${{ github.event.inputs.releaseType }}" == "prod" ]];then
+              gh release create "$tag_name" --title "$tag_name"
+            fi
+          fi
       
       - name: Trigger Bitrise Workflow
         if: ${{ inputs.bitrise }}
         run: |
           BITRISE_APP_SLUG="d6c77e34-9075-4262-8c39-12b4d5adf82c"
 
-          WORKFLOW_ID="release-sdks"
-          release_scg=true
-          release_loans=true
+          WORKFLOW_ID="release-app"
+          release_scg=false
+          release_loans=false
+          repo=""
 
           if [[ "${{ inputs.releaseType }}" != "qa" ]];then
             WORKFLOW_ID="release-sdks"
-            release_scg=true
-            release_loans=true
+            release_scg="${{ inputs.scg }}"
+            release_loans="${{ inputs.loans }}"
+
+            if [[ "${{ github.event.inputs.releaseType }}" == "prod" ]];then
+              repo="trunk"
+            fi
           fi
 
           scli triggerBitrise --appSlug "$BITRISE_APP_SLUG" --workflowId "${WORKFLOW_ID}" --branch "${{ github.head_ref || github.ref_name }}" \
           --bitriseToken "${{ secrets.BITRISE_API_TOKEN }}" \
-          --envs "OVERRIDE_RELEASE_SCG=$release_scg,OVERRIDE_RELEASE_LOANS=$release_loans,OVERRIDE_BITRISE_SCHEME=${{ inputs.scheme }},OVERRIDE_SCG_PODSPEC=${{ steps.set-versions.outputs.scg_podspec }},OVERRIDE_LOANS_PODSPEC=${{ steps.set-versions.outputs.loans_podspec }}" \
+          --envs "OVERRIDE_RELEASE_SCG=$release_scg,\
+          OVERRIDE_RELEASE_LOANS=$release_loans,\
+          OVERRIDE_BITRISE_SCHEME=${{ inputs.scheme }},\
+          OVERRIDE_SCG_PODSPEC=${{ steps.set-versions.outputs.scg_podspec }},\
+          OVERRIDE_LOANS_PODSPEC=${{ steps.set-versions.outputs.loans_podspec }},\
+          OVERRIDE_COCOA_REPO=$repo" \
           --message "$(git log -1 --pretty=%B%n%H)"

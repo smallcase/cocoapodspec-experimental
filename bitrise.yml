@@ -3,14 +3,14 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: ios
 app:
   envs:
-  - SCLI_VERSION: v0.1.0
+  - SCLI_VERSION: v0.2.0-alpha-2
   - SCLI_PATH: scli
   - RELEASE_SCG: false
   - RELEASE_LOANS: false
   - COCOA_REPO: sc-cocoapodspec-internal
   - COCOA_REPO_URL: git@github.com:smallcase/cocoapodspec-internal.git
-  - SCG_PODSPEC: smallcase_gateway/internal/SCGateway-ci.podspec.json
-  - LOANS_PODSPEC: loans/internal/SCLoans-ci.podspec.json
+  - SCG_PODSPEC: smallcase_gateway/podspecs/release/SCGateway-qa.podspec.json
+  - LOANS_PODSPEC: loans/internal/podspecs/release/SCLoans-qa.podspec.json
   - BITRISE_PROJECT_PATH: SmartInvesting.xcworkspace
   - BITRISE_SCHEME: release
 meta:
@@ -33,7 +33,7 @@ workflows:
             set -o pipefail
             # debug log
             set -x
-            
+
             sh BuildScripts/clean.sh
             sh BuildScripts/assemble.sh
   ci-setup:
@@ -149,6 +149,12 @@ workflows:
             firebase_changelog=$($SCLI_PATH changelog --format "firebase" --dirs "$scope")
 
             firebase appdistribution:distribute "$BINARY_PATH" --app "$FIREBASE_APP_ID" --release-notes "$firebase_changelog" --groups "smallcase"
+  release-app:
+    before_run:
+    - ci-setup
+    - assemble
+    after_run:
+    - firebase-deploy
   release-sdks:
     before_run:
     - ci-setup
