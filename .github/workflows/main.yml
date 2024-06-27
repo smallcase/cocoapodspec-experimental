@@ -40,7 +40,7 @@ on:
         default: false
       scliVersion:
         description: "scli version"
-        default: "v0.2.0-alpha-3"
+        default: "v0.2.0"
 
 env:
   SCG_INFO_PLIST: smallcase_gateway/SCGateway/Helpers/Info.plist

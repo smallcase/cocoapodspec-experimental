@@ -3,7 +3,7 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: ios
 app:
   envs:
-  - SCLI_VERSION: v0.2.0-alpha-3
+  - SCLI_VERSION: v0.2.0
   - SCLI_PATH: scli
   - RELEASE_SCG: false
   - RELEASE_LOANS: false
