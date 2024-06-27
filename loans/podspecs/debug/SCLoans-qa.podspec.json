@@ -1,6 +1,6 @@
 {
   "name": "SCLoans-qa",
-  "version": "2.1.1-6-debug",
+  "version": "2.1.1-7-debug",
   "summary": "Setup smallcase Loans iOS SDK to allow your users to apply for various types of Loans",
   "description": "smallcase Gateway offers a unified set of APIs & SDKs to bring seamless borrowing experience in your app or website.",
   "homepage": "https://developers.gateway.smallcase.com/docs/ios-integration",
@@ -13,7 +13,7 @@
   },
   "vendored_frameworks": "Loans.xcframework",
   "source": {
-    "http": "https://gateway.smallcase.com/laons_internal/2.1.1-6-debug-debug/Loans.xcframework.zip"
+    "http": "https://gateway.smallcase.com/laons_internal/2.1.1-7-debug-debug-debug/Loans.xcframework.zip"
   },
   "dependencies": {
     "Mixpanel-swift": [
