@@ -1,5 +1,5 @@
 {
-  "name": "SCGateway-ci",
+  "name": "SCGateway-qa",
   "version": "3.12.0-350",
   "summary": "Setup smallcase Gateway iOS SDK to allow your users to transact in stocks, ETFs & smallcases, and much more",
   "description": "Gateway offers a unified set of APIs & SDKs to bring seamless trading & investing experience in your app or website.",

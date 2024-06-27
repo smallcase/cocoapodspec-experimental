@@ -1,5 +1,5 @@
 {
-  "name": "SCLoans-ci",
+  "name": "SCLoans-qa",
   "version": "2.1.1-5-debug",
   "summary": "Setup smallcase Loans iOS SDK to allow your users to apply for various types of Loans",
   "description": "smallcase Gateway offers a unified set of APIs & SDKs to bring seamless borrowing experience in your app or website.",
