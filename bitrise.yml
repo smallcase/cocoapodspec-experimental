@@ -55,7 +55,7 @@ workflows:
     - RELEASE_TYPE: qa
   release-sdks:
     before_run:
-    - z-override-envs
+    - z-set-envs
     envs:
     - SCG_XC_FRAMEWORK_PATH: .build/Products/SCGateway.xcframework
     - LOANS_XC_FRAMEWORK_PATH: .build/Products/Loans.xcframework
@@ -105,7 +105,6 @@ workflows:
             fi
   x-ci-setup:
     after_run:
-    - z-override-envs
     - z-install-scli
     steps:
     - set-git-credentials@1:
@@ -119,6 +118,20 @@ workflows:
         inputs:
         - fetch_tags: "yes"
         - clone_depth: "-1"
+    - script@1:
+        title: Set Env variables
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+
+            # Fail if any commands fail
+            set -e
+            # Make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # Debug log
+            set -x
+            
+            sh BuildScripts/bitrise-set-envs.sh
     - cocoapods-install@2:
         run_if: .IsCI
         inputs:
@@ -152,8 +165,6 @@ workflows:
 
             sh BuildScripts/assemble.sh
   z-firebase-deploy:
-    before_run:
-    - z-override-envs
     steps:
     - script@1:
         title: Install Firebase CLI
@@ -245,10 +256,10 @@ workflows:
             set -x
 
             curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/master/install.sh | bash -s -- $SCLI_VERSION $GITHUB_ACCESS_TOKEN
-  z-override-envs:
+  z-set-envs:
     steps:
     - script@1:
-        title: Override Env variables
+        title: Set Env variables
         inputs:
         - content: |-
             #!/usr/bin/env bash
@@ -260,17 +271,4 @@ workflows:
             # Debug log
             set -x
 
-            # Loop through all environment variables
-            for var in $(env | grep -o '^OVERRIDE_[^=]*'); do
-              # Extract the base variable name by removing the 'OVERRIDE_' prefix
-              base_var=${var#OVERRIDE_}
-
-              # Get the value of the OVERRIDE_ variable
-              override_value=$(eval echo \$$var)
-
-              # Check if the base variable exists
-              if [[ -n $(eval echo \$$base_var) ]]; then
-                echo "Overriding $base_var with $override_value"
-                envman add --key "$base_var" --value "$override_value"
-              fi
-            done
+            sh BuildScripts/bitrise-set-envs.sh
