@@ -20,7 +20,7 @@ xcodebuild \
 # # Define the path to the archives directory
 archives_dir_default=./.build/Archives
 archives_dir="${SC_ARCHIVE_DIR:-$archives_dir_default}"
-archivePath="$archives_dir/$SC_ASSEMBLE_SCHEME/SmartInvesting.xcarchive"
+archivePath="$archives_dir/$scheme/SmartInvesting.xcarchive"
 
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
