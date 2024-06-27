@@ -12,7 +12,7 @@ app:
   - SCG_PODSPEC: smallcase_gateway/internal/SCGateway-ci.podspec.json
   - LOANS_PODSPEC: loans/internal/SCLoans-ci.podspec.json
   - BITRISE_PROJECT_PATH: SmartInvesting.xcworkspace
-  - BITRISE_SCHEME: SmartInvesting
+  - BITRISE_SCHEME: release
 meta:
   bitrise.io:
     machine_type_id: g2-m1.4core
@@ -190,12 +190,20 @@ workflows:
             repo="$COCOA_REPO"
             repo_url="$COCOA_REPO_URL"
 
+            capitalize() {
+              echo "$1" | awk '{ for (i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2)) } 1'
+            }
+
+            scheme=$(capitalize "$BITRISE_SCHEME")
+            
             if [[ "$RELEASE_SCG" == "true" ]];then
+              SCG_XC_FRAMEWORK_PATH=${SCG_XC_FRAMEWORK_PATH:-".build/Frameworks/$scheme/SCGateway.xcframework"}
               echo "Releasing SCGateway..."
               $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$SCG_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$scg_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
             fi
 
             if [[ "$RELEASE_LOANS" == "true" ]];then
+              LOANS_XC_FRAMEWORK_PATH=${LOANS_XC_FRAMEWORK_PATH:-".build/Frameworks/$scheme/Loans.xcframework"}
               echo "Releasing SCLoans..."
               $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$LOANS_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$loans_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
             fi

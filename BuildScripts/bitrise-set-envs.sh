@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# THIS SCRIPT IS ONLY MEANT TO BE RUN FROM INSIDE BITRISE
+# IT USES THE $ENV_FILE ENV Variable from .bitrise.secrets.yml
+
 # Fail if any commands fail
 set -e
 # Make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
@@ -13,18 +16,17 @@ env_file="$ENV_FILE"
 # Check if the properties file exists
 if [[ ! -f "$env_file" ]]; then
     echo "Properties file not found: $env_file"
-    exit 1
+else
+    # Read the properties file line by line and set environment variables
+    while read -r line || [[ -n "$line" ]]; do
+        if [[ $line != \#* && $line != '' ]]; then # Skip comments and empty lines
+            key=$(echo "$line" | cut -d '=' -f 1)
+            value=$(echo "$line" | cut -d '=' -f 2-)
+            envman add --key "$key" --value "$value"
+            export "$key=$value"
+        fi
+    done <$env_file
 fi
-
-# Read the properties file line by line and set environment variables
-while read -r line || [[ -n "$line" ]]; do
-    if [[ $line != \#* && $line != '' ]]; then # Skip comments and empty lines
-        key=$(echo "$line" | cut -d '=' -f 1)
-        value=$(echo "$line" | cut -d '=' -f 2-)
-        envman add --key "$key" --value "$value"
-        export "$key=$value"
-    fi
-done <$env_file
 
 # Loop through all environment variables
 for var in $(env | grep -o '^OVERRIDE_[^=]*'); do
