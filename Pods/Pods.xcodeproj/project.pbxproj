@@ -8,140 +8,140 @@
 
 /* Begin PBXBuildFile section */
 		0AF244BFCFD77E00E0E39CA84D450624 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76ED7FB214F1E4B0DE26BC1C7003BB9 /* People.swift */; };
+		0E08E254E6E67151E1AB78A5209A821C /* Pods-SmartInvestingUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 55ADF74A77446E1FCD79CB66279202DA /* Pods-SmartInvestingUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		11310696DD8509174CD119ECDC298778 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */; };
 		15AABFC7A206DE3CF77FE28432131ED8 /* Mixpanel-swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC408700210AC3028FF4B9CF80FCB4 /* Mixpanel-swift-dummy.m */; };
 		1775DAC3D4766532492000186073FB66 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D59702523412BC81AF24C7E9A16F179 /* CoreTelephony.framework */; };
 		1C62CB7966B6C64304438A80364EF5B4 /* MixpanelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9F38088D58DD8E37EE106AC9D32EDF /* MixpanelType.swift */; };
 		1CF3E544301E4401F4EF580E9F9B985B /* AutomaticEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52DFBD6C38D75522F2BDF493CF5E58D /* AutomaticEvents.swift */; };
-		25EC4D7D01DDF2334DF8B3150B4FE605 /* Pods-WebViewTesterUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AFEADED94CB8053935CD7DF8EDB2FE22 /* Pods-WebViewTesterUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27701A48482D57CB11CFDA1E68795AA8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F687947C3876571B4B188C9839374 /* Logger.swift */; };
+		2CE53D64CE7F59CD38A032424F450399 /* Pods-SmartInvesting-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 133B6C58250FEC90D13AFCE036601DB9 /* Pods-SmartInvesting-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35086C4A19844756760686C2500643F1 /* Pods-SmartInvestingUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E07B536D7BEB604819934C5395865B28 /* Pods-SmartInvestingUITests-dummy.m */; };
 		3656CF4BCCC31599BFE82F2962882AC3 /* ReadWriteLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2C44F8D0FCE2B57FDBDB6ABBEB5397 /* ReadWriteLock.swift */; };
-		3CF6D2CF7900D1C5E75D7CB8EF16BF3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */; };
 		3DBA0D57F679F801B52CA50870074CCE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FC22849DAEA09611FEA5251456A963 /* Error.swift */; };
+		41E337570BF339DE98ABEA212572D6AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */; };
 		47BD4D49898836276411A3AC9137E22E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5B61B6C827FD7E07F3F13115EF720A /* UIKit.framework */; };
-		5672B5302390A8803C6D005DF1ADA551 /* Pods-WebViewTesterTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CE681E832D89E0C8CAFD62119427C6 /* Pods-WebViewTesterTests-dummy.m */; };
 		586CB2D9F34B6308ECFAB8FF977DC695 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */; };
+		5995B1536CEC912402D938FCF730A8D7 /* Pods-SmartInvesting-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4C7AF318798C0F27031CE5E2C6F0D /* Pods-SmartInvesting-dummy.m */; };
 		5C583320EDA55E312990A61DA6C417BF /* Flush.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4DB4882A731A3B74393960F9E42E15 /* Flush.swift */; };
-		6020166F39C3A6539E174A4B5BC2C8DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */; };
-		63400099B1EB0863BA2FA814C5DE3761 /* Pods-WebViewTester-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E7B3A191811A50FAE926FC89990163E5 /* Pods-WebViewTester-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5EDA6FAE80E2218B5F7A8E72F927927E /* Pods-SmartInvestingTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 35835918FD14835BE1D049CFFDBCF12E /* Pods-SmartInvestingTests-dummy.m */; };
 		64B7D1A50FE4565A35C279CE4FD222CF /* MixpanelPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82FA8C355EB59D2FB9589819A8019E /* MixpanelPersistence.swift */; };
-		6709CBD258D6939384064FA0B9387C12 /* Pods-WebViewTesterUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E2F93A3F4170302E8C63A908210376 /* Pods-WebViewTesterUITests-dummy.m */; };
 		6F51953C2596F8644F27EE0FB5841793 /* DecideRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F792917C6A0237279E2F13B4577D0D /* DecideRequest.swift */; };
 		7015680FDDFAC9F0AE2F3EBCE5873660 /* PrintLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0242195C94D24F1A40997B1A81230C26 /* PrintLogging.swift */; };
 		74C5EAFB565079DB511AF9087F5D6BD3 /* Mixpanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B96EBF80D64CCB7B897567F91081D09 /* Mixpanel.swift */; };
+		76F838C63E52C99FEBA5F9C8EAD044F2 /* Pods-SmartInvestingTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E24594CB75CAE09D58778F9DE261C4C8 /* Pods-SmartInvestingTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		878A7CFA1555BBDED58A0601607CC151 /* MixpanelInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7EA7A66269E69AFB197E7E147F301C /* MixpanelInstance.swift */; };
 		94D754C539148C23019373A0A04885EA /* SessionMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09525E3663F93FFB5A1248DFCDB4ED36 /* SessionMetadata.swift */; };
 		A2667FBAD0E0974CD042C26813BC1743 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D6184790E4D7B787C7C5D78D840E4 /* JSONHandler.swift */; };
-		A98A9DCA2A482C1129E2943BBADEC8DB /* Pods-WebViewTesterTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5329BA75F0905BF6EFDB36D3949B5D68 /* Pods-WebViewTesterTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0B755C236D1214A16C09C615ABF382A /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5319829C1A4E29A149C40890983BA88C /* Track.swift */; };
 		B5324506B72895DC9148979DE0C9DD56 /* AutomaticProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3020BEAB4142127741E0A6A49FFCE0 /* AutomaticProperties.swift */; };
 		B5A3870B6937E4B8479800231A865E2F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0437E4422F393968DC7CEFE2F955ED0 /* Network.swift */; };
 		B76F6FCAB13CB02B9ECCEC49B9C2C862 /* MPDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88BED9F9C212940C4000C73F1A9B9EF /* MPDB.swift */; };
 		BEF404AE5999B9A170A6A836496BDB9F /* Mixpanel-swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 788574C89103A8DACD84F68EEA885D1E /* Mixpanel-swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB168C3905521EE7DCB2E8D0270AB37D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */; };
 		DB1964255DC67DA8136DE58B34E775EE /* FlushRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD146C413A48CD36EE2EFF10F4D08D9 /* FlushRequest.swift */; };
 		DF119E94FBEBEAFA468663DB1D425ED0 /* Decide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0B76935A196656F514A4EB583E8B1D /* Decide.swift */; };
-		E081CF81E66D2C8630939965F903AE89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */; };
-		E2085941A17AA05095BA082859501549 /* Pods-WebViewTester-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FD68119F9FDEEBCC96C551AA6646E1 /* Pods-WebViewTester-dummy.m */; };
 		E8095EF69DB8312C353DCD16CCB201F8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7C847AC6F78D90A77526BCE8A7F95 /* Constants.swift */; };
 		E8DE8339B56A18A73DA07C2ED53C609A /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F8DF6F2B8D3CF442DAC5E086A21DA1 /* Group.swift */; };
 		F55DC0288D02582AAD371ADF6383DAEF /* FileLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678A374A7527AADB65A58E731758D936 /* FileLogging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7401A6D0FA0BBF62ED6077E73F691D92 /* PBXContainerItemProxy */ = {
+		51F0D34A193588310E90C7ABE610A126 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5940557262A09186DB6A5C993F9A1E0;
+			remoteInfo = "Pods-SmartInvesting";
+		};
+		711EEFFDECF519D3E54F126A624C8DA3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E1886A99D3887E7B636CFCD67E199412;
 			remoteInfo = "Mixpanel-swift";
 		};
-		C76123A9A8C82A6CB1B7F1EDE5665106 /* PBXContainerItemProxy */ = {
+		C2CF2E2BBE6ABCFFC81831BC17DC06A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CB70F74CE4ED55CA4C1E93F5C0F57430;
-			remoteInfo = "Pods-WebViewTester";
-		};
-		ED3F1AEDC2FB0A1F855EAC81D06314E3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CB70F74CE4ED55CA4C1E93F5C0F57430;
-			remoteInfo = "Pods-WebViewTester";
+			remoteGlobalIDString = D5940557262A09186DB6A5C993F9A1E0;
+			remoteInfo = "Pods-SmartInvesting";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		02037106265BF85962B86C811AEB19DB /* Mixpanel-swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Mixpanel-swift-prefix.pch"; sourceTree = "<group>"; };
 		0242195C94D24F1A40997B1A81230C26 /* PrintLogging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PrintLogging.swift; path = Sources/PrintLogging.swift; sourceTree = "<group>"; };
+		0361ACA02DE16A1945551C69656D0802 /* Pods-SmartInvestingUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SmartInvestingUITests-Info.plist"; sourceTree = "<group>"; };
 		09525E3663F93FFB5A1248DFCDB4ED36 /* SessionMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionMetadata.swift; path = Sources/SessionMetadata.swift; sourceTree = "<group>"; };
 		0F7EA7A66269E69AFB197E7E147F301C /* MixpanelInstance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MixpanelInstance.swift; path = Sources/MixpanelInstance.swift; sourceTree = "<group>"; };
-		11DD54F53501F8BD6DE81B8557E8CBCD /* Pods-WebViewTester */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-WebViewTester"; path = Pods_WebViewTester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1809567131CF037A42BFDA17CD8C63D7 /* Pods-WebViewTesterUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WebViewTesterUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		133B6C58250FEC90D13AFCE036601DB9 /* Pods-SmartInvesting-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SmartInvesting-umbrella.h"; sourceTree = "<group>"; };
+		15B7F59F3DC65D00DBEAA52641C7E4A9 /* Pods-SmartInvestingTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SmartInvestingTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		191B129128B7E3879420CE52249D2474 /* Mixpanel-swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Mixpanel-swift.modulemap"; sourceTree = "<group>"; };
 		1EBC408700210AC3028FF4B9CF80FCB4 /* Mixpanel-swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Mixpanel-swift-dummy.m"; sourceTree = "<group>"; };
-		277C34A59408C9B56F620E383058E036 /* Pods-WebViewTesterUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WebViewTesterUITests-Info.plist"; sourceTree = "<group>"; };
 		2E0B76935A196656F514A4EB583E8B1D /* Decide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Decide.swift; path = Sources/Decide.swift; sourceTree = "<group>"; };
 		2F7391C458E3453A3030337E427C20E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3106651F608FF9E872964798302D36DE /* Mixpanel-swift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Mixpanel-swift"; path = Mixpanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35835918FD14835BE1D049CFFDBCF12E /* Pods-SmartInvestingTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SmartInvestingTests-dummy.m"; sourceTree = "<group>"; };
+		38166586F7C183BBEFEA53EC57700619 /* Pods-SmartInvesting.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SmartInvesting.modulemap"; sourceTree = "<group>"; };
 		3E2C44F8D0FCE2B57FDBDB6ABBEB5397 /* ReadWriteLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReadWriteLock.swift; path = Sources/ReadWriteLock.swift; sourceTree = "<group>"; };
-		46FD68119F9FDEEBCC96C551AA6646E1 /* Pods-WebViewTester-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WebViewTester-dummy.m"; sourceTree = "<group>"; };
-		48E2F93A3F4170302E8C63A908210376 /* Pods-WebViewTesterUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WebViewTesterUITests-dummy.m"; sourceTree = "<group>"; };
 		4B96EBF80D64CCB7B897567F91081D09 /* Mixpanel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mixpanel.swift; path = Sources/Mixpanel.swift; sourceTree = "<group>"; };
-		4CE3C89005A0B5DC58096AC587C92FE9 /* Pods-WebViewTesterTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WebViewTesterTests-Info.plist"; sourceTree = "<group>"; };
 		4D3020BEAB4142127741E0A6A49FFCE0 /* AutomaticProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutomaticProperties.swift; path = Sources/AutomaticProperties.swift; sourceTree = "<group>"; };
-		4DB5AF58A5AFE8D0CC5B460783CA2F5E /* Pods-WebViewTester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WebViewTester.release.xcconfig"; sourceTree = "<group>"; };
-		50A34E09B437833C729CB7B5FABFEB65 /* Pods-WebViewTesterUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-WebViewTesterUITests"; path = Pods_WebViewTesterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5319829C1A4E29A149C40890983BA88C /* Track.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Track.swift; path = Sources/Track.swift; sourceTree = "<group>"; };
-		5329BA75F0905BF6EFDB36D3949B5D68 /* Pods-WebViewTesterTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WebViewTesterTests-umbrella.h"; sourceTree = "<group>"; };
+		5405F0E7A5852E3E8D957AE1B7FD6B1C /* Pods-SmartInvestingTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SmartInvestingTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		55ADF74A77446E1FCD79CB66279202DA /* Pods-SmartInvestingUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SmartInvestingUITests-umbrella.h"; sourceTree = "<group>"; };
+		58C248D05965408F9245145A810B7F99 /* Pods-SmartInvestingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SmartInvestingTests.release.xcconfig"; sourceTree = "<group>"; };
 		5A5B61B6C827FD7E07F3F13115EF720A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		5D59702523412BC81AF24C7E9A16F179 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		63F792917C6A0237279E2F13B4577D0D /* DecideRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DecideRequest.swift; path = Sources/DecideRequest.swift; sourceTree = "<group>"; };
 		678A374A7527AADB65A58E731758D936 /* FileLogging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileLogging.swift; path = Sources/FileLogging.swift; sourceTree = "<group>"; };
-		6B0FF1CEC3B9F81271E5AF1899BB6AE9 /* Pods-WebViewTester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WebViewTester.debug.xcconfig"; sourceTree = "<group>"; };
-		6B7A95E41F40D61DA9FCAB174574B6F9 /* Pods-WebViewTesterUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WebViewTesterUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		6D3B5D86D067FC6FCF0EFD5D7CEF105E /* Pods-WebViewTesterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WebViewTesterTests.release.xcconfig"; sourceTree = "<group>"; };
 		6DD7C847AC6F78D90A77526BCE8A7F95 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Sources/Constants.swift; sourceTree = "<group>"; };
 		788574C89103A8DACD84F68EEA885D1E /* Mixpanel-swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Mixpanel-swift-umbrella.h"; sourceTree = "<group>"; };
+		7CF4C7AF318798C0F27031CE5E2C6F0D /* Pods-SmartInvesting-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SmartInvesting-dummy.m"; sourceTree = "<group>"; };
+		8D74F7F7641CAA88AE7F8CF60B52AD57 /* Pods-SmartInvesting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SmartInvesting.release.xcconfig"; sourceTree = "<group>"; };
+		8D8DE7BCB818E6F619DC39CC14340758 /* Pods-SmartInvesting-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SmartInvesting-Info.plist"; sourceTree = "<group>"; };
+		8F77F439299AA623AF57AF6F4CEAA141 /* Pods-SmartInvestingTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SmartInvestingTests-Info.plist"; sourceTree = "<group>"; };
 		8FD146C413A48CD36EE2EFF10F4D08D9 /* FlushRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlushRequest.swift; path = Sources/FlushRequest.swift; sourceTree = "<group>"; };
 		9334E04175FCBC989A9496E229EC3A07 /* Mixpanel-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Mixpanel-swift.release.xcconfig"; sourceTree = "<group>"; };
-		9806F2E003D30C89A70C067BF907B4FC /* Pods-WebViewTesterTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WebViewTesterTests.modulemap"; sourceTree = "<group>"; };
+		9958ACE163307D1F84659ED253E99F89 /* Pods-SmartInvestingUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SmartInvestingUITests.modulemap"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A043B4C769629DEACE08923FE7BF1C80 /* Pods-WebViewTesterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WebViewTesterUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		A2A51ECB8DE47EE4A8F6478E93533B0E /* Pods-WebViewTesterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WebViewTesterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A21DE166135C8D2F5A2C51B15EA3C7F7 /* Pods-SmartInvesting-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SmartInvesting-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A52DFBD6C38D75522F2BDF493CF5E58D /* AutomaticEvents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutomaticEvents.swift; path = Sources/AutomaticEvents.swift; sourceTree = "<group>"; };
-		A928E47909027E2C92D035374FE8B1F8 /* Pods-WebViewTester.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WebViewTester.modulemap"; sourceTree = "<group>"; };
-		A92F77DDA278009D62FA3D6065C22A29 /* Pods-WebViewTesterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WebViewTesterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A996C0D6E0CED12C8035E3BF4C23A659 /* Pods-SmartInvestingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SmartInvestingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA82FA8C355EB59D2FB9589819A8019E /* MixpanelPersistence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MixpanelPersistence.swift; path = Sources/MixpanelPersistence.swift; sourceTree = "<group>"; };
-		AC50E7047BEA7B1DC034BB208E1643CA /* Pods-WebViewTester-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WebViewTester-acknowledgements.markdown"; sourceTree = "<group>"; };
-		AFEADED94CB8053935CD7DF8EDB2FE22 /* Pods-WebViewTesterUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WebViewTesterUITests-umbrella.h"; sourceTree = "<group>"; };
+		B093822D7840B2DFD0EFF28D587DE4F1 /* Pods-SmartInvesting */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SmartInvesting"; path = Pods_SmartInvesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4EA184656628928A992F5089980BAAB /* Pods-SmartInvesting-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SmartInvesting-frameworks.sh"; sourceTree = "<group>"; };
 		B76ED7FB214F1E4B0DE26BC1C7003BB9 /* People.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = People.swift; path = Sources/People.swift; sourceTree = "<group>"; };
-		BE939C4BE1915B6A16024B4382F62859 /* Pods-WebViewTester-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WebViewTester-frameworks.sh"; sourceTree = "<group>"; };
 		C1171BDCB76E7589D1B0062985E5961C /* Mixpanel-swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Mixpanel-swift-Info.plist"; sourceTree = "<group>"; };
-		C3C011E8B214C0B3CD43E4FB89311D10 /* Pods-WebViewTester-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WebViewTester-Info.plist"; sourceTree = "<group>"; };
 		CE4DB4882A731A3B74393960F9E42E15 /* Flush.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Flush.swift; path = Sources/Flush.swift; sourceTree = "<group>"; };
 		D0437E4422F393968DC7CEFE2F955ED0 /* Network.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Sources/Network.swift; sourceTree = "<group>"; };
-		D3CE681E832D89E0C8CAFD62119427C6 /* Pods-WebViewTesterTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WebViewTesterTests-dummy.m"; sourceTree = "<group>"; };
+		D1301C8234214EC95300D082F1BE2AD6 /* Pods-SmartInvestingTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SmartInvestingTests.modulemap"; sourceTree = "<group>"; };
 		D3FC22849DAEA09611FEA5251456A963 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Sources/Error.swift; sourceTree = "<group>"; };
-		D644EEB860AD59E12902F39E30932C5A /* Pods-WebViewTesterTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WebViewTesterTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D615E458B17BA3575ED563CAC4DC77E6 /* Pods-SmartInvesting-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SmartInvesting-acknowledgements.plist"; sourceTree = "<group>"; };
 		D79F687947C3876571B4B188C9839374 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Sources/Logger.swift; sourceTree = "<group>"; };
-		DA7CD6A069B2B690A2B2D04D302C1319 /* Pods-WebViewTester-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WebViewTester-acknowledgements.plist"; sourceTree = "<group>"; };
+		DDFBBCD0B912D63713EF6FC9C9E52E89 /* Pods-SmartInvestingUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SmartInvestingUITests"; path = Pods_SmartInvestingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE1E977E911DB7641AA9639DB25C28CF /* Pods-SmartInvestingUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SmartInvestingUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E07B536D7BEB604819934C5395865B28 /* Pods-SmartInvestingUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SmartInvestingUITests-dummy.m"; sourceTree = "<group>"; };
+		E1ED2594AE802B89D7B1CC8A4E2F92A5 /* Pods-SmartInvestingUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SmartInvestingUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		E24594CB75CAE09D58778F9DE261C4C8 /* Pods-SmartInvestingTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SmartInvestingTests-umbrella.h"; sourceTree = "<group>"; };
 		E335AA4C255ACCE2BB73065D5575C7C4 /* Mixpanel-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Mixpanel-swift.debug.xcconfig"; sourceTree = "<group>"; };
-		E6431A435CAC9FCE357F4F8CB49F7CE1 /* Pods-WebViewTesterUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WebViewTesterUITests.modulemap"; sourceTree = "<group>"; };
-		E7B3A191811A50FAE926FC89990163E5 /* Pods-WebViewTester-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WebViewTester-umbrella.h"; sourceTree = "<group>"; };
+		E864E6E52AE78C8E940CD9042D4E8700 /* Pods-SmartInvestingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SmartInvestingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E8F8DF6F2B8D3CF442DAC5E086A21DA1 /* Group.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Group.swift; path = Sources/Group.swift; sourceTree = "<group>"; };
 		EA9F38088D58DD8E37EE106AC9D32EDF /* MixpanelType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MixpanelType.swift; path = Sources/MixpanelType.swift; sourceTree = "<group>"; };
-		F42ACF3F26F4CF2E7C19136CB3A415DA /* Pods-WebViewTesterTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WebViewTesterTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		ED44F83DB5E74294B49552023828DE4F /* Pods-SmartInvestingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SmartInvestingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EEFC1CB41BD46A71A6C163E0B2551062 /* Pods-SmartInvestingTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SmartInvestingTests"; path = Pods_SmartInvestingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51D6184790E4D7B787C7C5D78D840E4 /* JSONHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONHandler.swift; path = Sources/JSONHandler.swift; sourceTree = "<group>"; };
 		F88BED9F9C212940C4000C73F1A9B9EF /* MPDB.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MPDB.swift; path = Sources/MPDB.swift; sourceTree = "<group>"; };
-		FD84D36D6EA06334A2DE78FBF8AE0D56 /* Pods-WebViewTesterTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-WebViewTesterTests"; path = Pods_WebViewTesterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE7A9F1DD8C24D73CE13744F8ED9A1AE /* Pods-SmartInvesting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SmartInvesting.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		42AFFD354F47D4AD8B71AAE9BE4FB466 /* Frameworks */ = {
+		002623370C1FA0245E98F511B2538CA2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E081CF81E66D2C8630939965F903AE89 /* Foundation.framework in Frameworks */,
+				41E337570BF339DE98ABEA212572D6AA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,19 +155,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EA45E502954DBA4FBD273912A9BB9D79 /* Frameworks */ = {
+		8F43FA059F2ABF9078930CDE5C3866FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CF6D2CF7900D1C5E75D7CB8EF16BF3D /* Foundation.framework in Frameworks */,
+				11310696DD8509174CD119ECDC298778 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD7BCF6995EA9D5501A523E0FAE4C1C1 /* Frameworks */ = {
+		FA4E68AE74A4D2E071CB672612CBE726 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6020166F39C3A6539E174A4B5BC2C8DD /* Foundation.framework in Frameworks */,
+				DB168C3905521EE7DCB2E8D0270AB37D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +182,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1212347AD6C5DEBAF7928C3746FA6F8D /* Pods-SmartInvestingTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1301C8234214EC95300D082F1BE2AD6 /* Pods-SmartInvestingTests.modulemap */,
+				15B7F59F3DC65D00DBEAA52641C7E4A9 /* Pods-SmartInvestingTests-acknowledgements.markdown */,
+				5405F0E7A5852E3E8D957AE1B7FD6B1C /* Pods-SmartInvestingTests-acknowledgements.plist */,
+				35835918FD14835BE1D049CFFDBCF12E /* Pods-SmartInvestingTests-dummy.m */,
+				8F77F439299AA623AF57AF6F4CEAA141 /* Pods-SmartInvestingTests-Info.plist */,
+				E24594CB75CAE09D58778F9DE261C4C8 /* Pods-SmartInvestingTests-umbrella.h */,
+				A996C0D6E0CED12C8035E3BF4C23A659 /* Pods-SmartInvestingTests.debug.xcconfig */,
+				58C248D05965408F9245145A810B7F99 /* Pods-SmartInvestingTests.release.xcconfig */,
+			);
+			name = "Pods-SmartInvestingTests";
+			path = "Target Support Files/Pods-SmartInvestingTests";
+			sourceTree = "<group>";
+		};
 		1B0EC00C44E8362EE0EAFC761E686B72 /* Mixpanel-swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,25 +208,21 @@
 			path = "Mixpanel-swift";
 			sourceTree = "<group>";
 		};
-		1C3495049534E3512572CFED4617D0A0 /* Targets Support Files */ = {
+		40592E06A1F1408BCF84714ED81062F8 /* Pods-SmartInvesting */ = {
 			isa = PBXGroup;
 			children = (
-				75649DB2D4B4D0F32B2003941553E020 /* Pods-WebViewTester */,
-				ED8260983503B53B3764E90D5894D533 /* Pods-WebViewTesterTests */,
-				C6F796EEDB50CD21649F00DA6C851CDA /* Pods-WebViewTesterUITests */,
+				38166586F7C183BBEFEA53EC57700619 /* Pods-SmartInvesting.modulemap */,
+				A21DE166135C8D2F5A2C51B15EA3C7F7 /* Pods-SmartInvesting-acknowledgements.markdown */,
+				D615E458B17BA3575ED563CAC4DC77E6 /* Pods-SmartInvesting-acknowledgements.plist */,
+				7CF4C7AF318798C0F27031CE5E2C6F0D /* Pods-SmartInvesting-dummy.m */,
+				B4EA184656628928A992F5089980BAAB /* Pods-SmartInvesting-frameworks.sh */,
+				8D8DE7BCB818E6F619DC39CC14340758 /* Pods-SmartInvesting-Info.plist */,
+				133B6C58250FEC90D13AFCE036601DB9 /* Pods-SmartInvesting-umbrella.h */,
+				FE7A9F1DD8C24D73CE13744F8ED9A1AE /* Pods-SmartInvesting.debug.xcconfig */,
+				8D74F7F7641CAA88AE7F8CF60B52AD57 /* Pods-SmartInvesting.release.xcconfig */,
 			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		39915846958B4C2C7FB3366C985BB1B2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3106651F608FF9E872964798302D36DE /* Mixpanel-swift */,
-				11DD54F53501F8BD6DE81B8557E8CBCD /* Pods-WebViewTester */,
-				FD84D36D6EA06334A2DE78FBF8AE0D56 /* Pods-WebViewTesterTests */,
-				50A34E09B437833C729CB7B5FABFEB65 /* Pods-WebViewTesterUITests */,
-			);
-			name = Products;
+			name = "Pods-SmartInvesting";
+			path = "Target Support Files/Pods-SmartInvesting";
 			sourceTree = "<group>";
 		};
 		59CB405BC6640A2D014669BC676E3FEE /* Complete */ = {
@@ -243,37 +255,30 @@
 			name = Complete;
 			sourceTree = "<group>";
 		};
-		75649DB2D4B4D0F32B2003941553E020 /* Pods-WebViewTester */ = {
+		72F7225912D0D11D290D5EF69CB09DF8 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A928E47909027E2C92D035374FE8B1F8 /* Pods-WebViewTester.modulemap */,
-				AC50E7047BEA7B1DC034BB208E1643CA /* Pods-WebViewTester-acknowledgements.markdown */,
-				DA7CD6A069B2B690A2B2D04D302C1319 /* Pods-WebViewTester-acknowledgements.plist */,
-				46FD68119F9FDEEBCC96C551AA6646E1 /* Pods-WebViewTester-dummy.m */,
-				BE939C4BE1915B6A16024B4382F62859 /* Pods-WebViewTester-frameworks.sh */,
-				C3C011E8B214C0B3CD43E4FB89311D10 /* Pods-WebViewTester-Info.plist */,
-				E7B3A191811A50FAE926FC89990163E5 /* Pods-WebViewTester-umbrella.h */,
-				6B0FF1CEC3B9F81271E5AF1899BB6AE9 /* Pods-WebViewTester.debug.xcconfig */,
-				4DB5AF58A5AFE8D0CC5B460783CA2F5E /* Pods-WebViewTester.release.xcconfig */,
+				40592E06A1F1408BCF84714ED81062F8 /* Pods-SmartInvesting */,
+				1212347AD6C5DEBAF7928C3746FA6F8D /* Pods-SmartInvestingTests */,
+				CDF684679538D8CC9FDED4508E6C5A4E /* Pods-SmartInvestingUITests */,
 			);
-			name = "Pods-WebViewTester";
-			path = "Target Support Files/Pods-WebViewTester";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		C6F796EEDB50CD21649F00DA6C851CDA /* Pods-WebViewTesterUITests */ = {
+		CDF684679538D8CC9FDED4508E6C5A4E /* Pods-SmartInvestingUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E6431A435CAC9FCE357F4F8CB49F7CE1 /* Pods-WebViewTesterUITests.modulemap */,
-				1809567131CF037A42BFDA17CD8C63D7 /* Pods-WebViewTesterUITests-acknowledgements.markdown */,
-				6B7A95E41F40D61DA9FCAB174574B6F9 /* Pods-WebViewTesterUITests-acknowledgements.plist */,
-				48E2F93A3F4170302E8C63A908210376 /* Pods-WebViewTesterUITests-dummy.m */,
-				277C34A59408C9B56F620E383058E036 /* Pods-WebViewTesterUITests-Info.plist */,
-				AFEADED94CB8053935CD7DF8EDB2FE22 /* Pods-WebViewTesterUITests-umbrella.h */,
-				A043B4C769629DEACE08923FE7BF1C80 /* Pods-WebViewTesterUITests.debug.xcconfig */,
-				A92F77DDA278009D62FA3D6065C22A29 /* Pods-WebViewTesterUITests.release.xcconfig */,
+				9958ACE163307D1F84659ED253E99F89 /* Pods-SmartInvestingUITests.modulemap */,
+				DE1E977E911DB7641AA9639DB25C28CF /* Pods-SmartInvestingUITests-acknowledgements.markdown */,
+				E1ED2594AE802B89D7B1CC8A4E2F92A5 /* Pods-SmartInvestingUITests-acknowledgements.plist */,
+				E07B536D7BEB604819934C5395865B28 /* Pods-SmartInvestingUITests-dummy.m */,
+				0361ACA02DE16A1945551C69656D0802 /* Pods-SmartInvestingUITests-Info.plist */,
+				55ADF74A77446E1FCD79CB66279202DA /* Pods-SmartInvestingUITests-umbrella.h */,
+				E864E6E52AE78C8E940CD9042D4E8700 /* Pods-SmartInvestingUITests.debug.xcconfig */,
+				ED44F83DB5E74294B49552023828DE4F /* Pods-SmartInvestingUITests.release.xcconfig */,
 			);
-			name = "Pods-WebViewTesterUITests";
-			path = "Target Support Files/Pods-WebViewTesterUITests";
+			name = "Pods-SmartInvestingUITests";
+			path = "Target Support Files/Pods-SmartInvestingUITests";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -282,9 +287,20 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
 				E41115D1B96680A7BA5B230656C87046 /* Pods */,
-				39915846958B4C2C7FB3366C985BB1B2 /* Products */,
-				1C3495049534E3512572CFED4617D0A0 /* Targets Support Files */,
+				CFCD2575A5731172B5214C5E9AD697E3 /* Products */,
+				72F7225912D0D11D290D5EF69CB09DF8 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		CFCD2575A5731172B5214C5E9AD697E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3106651F608FF9E872964798302D36DE /* Mixpanel-swift */,
+				B093822D7840B2DFD0EFF28D587DE4F1 /* Pods-SmartInvesting */,
+				EEFC1CB41BD46A71A6C163E0B2551062 /* Pods-SmartInvestingTests */,
+				DDFBBCD0B912D63713EF6FC9C9E52E89 /* Pods-SmartInvestingUITests */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		D18498EF38B71E7F4A085B2F19FE697E /* iOS */ = {
@@ -320,38 +336,22 @@
 			path = "../Target Support Files/Mixpanel-swift";
 			sourceTree = "<group>";
 		};
-		ED8260983503B53B3764E90D5894D533 /* Pods-WebViewTesterTests */ = {
-			isa = PBXGroup;
-			children = (
-				9806F2E003D30C89A70C067BF907B4FC /* Pods-WebViewTesterTests.modulemap */,
-				D644EEB860AD59E12902F39E30932C5A /* Pods-WebViewTesterTests-acknowledgements.markdown */,
-				F42ACF3F26F4CF2E7C19136CB3A415DA /* Pods-WebViewTesterTests-acknowledgements.plist */,
-				D3CE681E832D89E0C8CAFD62119427C6 /* Pods-WebViewTesterTests-dummy.m */,
-				4CE3C89005A0B5DC58096AC587C92FE9 /* Pods-WebViewTesterTests-Info.plist */,
-				5329BA75F0905BF6EFDB36D3949B5D68 /* Pods-WebViewTesterTests-umbrella.h */,
-				A2A51ECB8DE47EE4A8F6478E93533B0E /* Pods-WebViewTesterTests.debug.xcconfig */,
-				6D3B5D86D067FC6FCF0EFD5D7CEF105E /* Pods-WebViewTesterTests.release.xcconfig */,
-			);
-			name = "Pods-WebViewTesterTests";
-			path = "Target Support Files/Pods-WebViewTesterTests";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		33E01656C7BB78F657207177E8173719 /* Headers */ = {
+		2C54FDC9BB2F2608D578675639C59100 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63400099B1EB0863BA2FA814C5DE3761 /* Pods-WebViewTester-umbrella.h in Headers */,
+				0E08E254E6E67151E1AB78A5209A821C /* Pods-SmartInvestingUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E2AB9D362E5DE4C481331D9F8D3D021 /* Headers */ = {
+		2CB6F7A94E89A307D4A0FC1691D1A7C3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25EC4D7D01DDF2334DF8B3150B4FE605 /* Pods-WebViewTesterUITests-umbrella.h in Headers */,
+				76F838C63E52C99FEBA5F9C8EAD044F2 /* Pods-SmartInvestingTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,72 +363,72 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C08B90FDB9F4A7F1ABBA0BD7AB182B27 /* Headers */ = {
+		F2082D4970D70E36E68EF734F149D830 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A98A9DCA2A482C1129E2943BBADEC8DB /* Pods-WebViewTesterTests-umbrella.h in Headers */,
+				2CE53D64CE7F59CD38A032424F450399 /* Pods-SmartInvesting-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7FEDF04C2BDBC620770DBD5BE65A2278 /* Pods-WebViewTesterTests */ = {
+		572EC970BB789B8D37E2F97C60945F02 /* Pods-SmartInvestingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B367108C9D6B2B5AFBFCDF7A17A5107A /* Build configuration list for PBXNativeTarget "Pods-WebViewTesterTests" */;
+			buildConfigurationList = 11DD54E1753C58B6B87B9461BAB5FEF3 /* Build configuration list for PBXNativeTarget "Pods-SmartInvestingTests" */;
 			buildPhases = (
-				C08B90FDB9F4A7F1ABBA0BD7AB182B27 /* Headers */,
-				A5C0D2A760B82542B11F04C0E29C1978 /* Sources */,
-				FD7BCF6995EA9D5501A523E0FAE4C1C1 /* Frameworks */,
-				4F2FE755BA57C8CA6FEB05446CDBEDE9 /* Resources */,
+				2CB6F7A94E89A307D4A0FC1691D1A7C3 /* Headers */,
+				39CD8C6BA8962FD71F85E74DC01357BC /* Sources */,
+				8F43FA059F2ABF9078930CDE5C3866FE /* Frameworks */,
+				0ED82505860FF69354D22166F8D404DB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				97EF5B303F5BF25310A5D170C33F2351 /* PBXTargetDependency */,
+				8033AC43E6C7FF58BC0BFB280535331B /* PBXTargetDependency */,
 			);
-			name = "Pods-WebViewTesterTests";
-			productName = Pods_WebViewTesterTests;
-			productReference = FD84D36D6EA06334A2DE78FBF8AE0D56 /* Pods-WebViewTesterTests */;
+			name = "Pods-SmartInvestingTests";
+			productName = Pods_SmartInvestingTests;
+			productReference = EEFC1CB41BD46A71A6C163E0B2551062 /* Pods-SmartInvestingTests */;
 			productType = "com.apple.product-type.framework";
 		};
-		A02E297F94047B871D88CFB821EA1DBF /* Pods-WebViewTesterUITests */ = {
+		910F1AA840DFDC5223C8A3F55AF22175 /* Pods-SmartInvestingUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 15F4576EAB5823CD254E230B99295FF7 /* Build configuration list for PBXNativeTarget "Pods-WebViewTesterUITests" */;
+			buildConfigurationList = B9937B50F7E96639E303259C130CB66B /* Build configuration list for PBXNativeTarget "Pods-SmartInvestingUITests" */;
 			buildPhases = (
-				3E2AB9D362E5DE4C481331D9F8D3D021 /* Headers */,
-				1BE4AAE3D98A0894A8F1D62A74150527 /* Sources */,
-				EA45E502954DBA4FBD273912A9BB9D79 /* Frameworks */,
-				9871446330C5BB758B794F7AFD50B836 /* Resources */,
+				2C54FDC9BB2F2608D578675639C59100 /* Headers */,
+				3DFC37B7FA15312BBFBFBDD6BF99C066 /* Sources */,
+				FA4E68AE74A4D2E071CB672612CBE726 /* Frameworks */,
+				97B9EC12F98449F94BC6862995CD91B4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D7891FE2C2D2C242ECB687548EF6E43B /* PBXTargetDependency */,
+				2D5C8CCF0C9B06E7B890FFFB09DCE126 /* PBXTargetDependency */,
 			);
-			name = "Pods-WebViewTesterUITests";
-			productName = Pods_WebViewTesterUITests;
-			productReference = 50A34E09B437833C729CB7B5FABFEB65 /* Pods-WebViewTesterUITests */;
+			name = "Pods-SmartInvestingUITests";
+			productName = Pods_SmartInvestingUITests;
+			productReference = DDFBBCD0B912D63713EF6FC9C9E52E89 /* Pods-SmartInvestingUITests */;
 			productType = "com.apple.product-type.framework";
 		};
-		CB70F74CE4ED55CA4C1E93F5C0F57430 /* Pods-WebViewTester */ = {
+		D5940557262A09186DB6A5C993F9A1E0 /* Pods-SmartInvesting */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 56782C860AEDD4EFA7FE7000098D1C40 /* Build configuration list for PBXNativeTarget "Pods-WebViewTester" */;
+			buildConfigurationList = DC5C7FEBED243FC6F1FD042B003413F4 /* Build configuration list for PBXNativeTarget "Pods-SmartInvesting" */;
 			buildPhases = (
-				33E01656C7BB78F657207177E8173719 /* Headers */,
-				29CCC2D6CCB447AE57A55626F3D8F37F /* Sources */,
-				42AFFD354F47D4AD8B71AAE9BE4FB466 /* Frameworks */,
-				A4A5363BA1A387087994738AED9D634A /* Resources */,
+				F2082D4970D70E36E68EF734F149D830 /* Headers */,
+				5465C6FE3E1C07BDDFEF59B36D1C0523 /* Sources */,
+				002623370C1FA0245E98F511B2538CA2 /* Frameworks */,
+				9C17CF84BA1A3046B44403D1B750C13E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CEE6434FD77EFF1E25838661493B3062 /* PBXTargetDependency */,
+				9F1E97C861F76314B2A022619D318067 /* PBXTargetDependency */,
 			);
-			name = "Pods-WebViewTester";
-			productName = Pods_WebViewTester;
-			productReference = 11DD54F53501F8BD6DE81B8557E8CBCD /* Pods-WebViewTester */;
+			name = "Pods-SmartInvesting";
+			productName = Pods_SmartInvesting;
+			productReference = B093822D7840B2DFD0EFF28D587DE4F1 /* Pods-SmartInvesting */;
 			productType = "com.apple.product-type.framework";
 		};
 		E1886A99D3887E7B636CFCD67E199412 /* Mixpanel-swift */ = {
@@ -467,20 +467,20 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 39915846958B4C2C7FB3366C985BB1B2 /* Products */;
+			productRefGroup = CFCD2575A5731172B5214C5E9AD697E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				E1886A99D3887E7B636CFCD67E199412 /* Mixpanel-swift */,
-				CB70F74CE4ED55CA4C1E93F5C0F57430 /* Pods-WebViewTester */,
-				7FEDF04C2BDBC620770DBD5BE65A2278 /* Pods-WebViewTesterTests */,
-				A02E297F94047B871D88CFB821EA1DBF /* Pods-WebViewTesterUITests */,
+				D5940557262A09186DB6A5C993F9A1E0 /* Pods-SmartInvesting */,
+				572EC970BB789B8D37E2F97C60945F02 /* Pods-SmartInvestingTests */,
+				910F1AA840DFDC5223C8A3F55AF22175 /* Pods-SmartInvestingUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4F2FE755BA57C8CA6FEB05446CDBEDE9 /* Resources */ = {
+		0ED82505860FF69354D22166F8D404DB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -494,14 +494,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9871446330C5BB758B794F7AFD50B836 /* Resources */ = {
+		97B9EC12F98449F94BC6862995CD91B4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A4A5363BA1A387087994738AED9D634A /* Resources */ = {
+		9C17CF84BA1A3046B44403D1B750C13E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -511,27 +511,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1BE4AAE3D98A0894A8F1D62A74150527 /* Sources */ = {
+		39CD8C6BA8962FD71F85E74DC01357BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6709CBD258D6939384064FA0B9387C12 /* Pods-WebViewTesterUITests-dummy.m in Sources */,
+				5EDA6FAE80E2218B5F7A8E72F927927E /* Pods-SmartInvestingTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		29CCC2D6CCB447AE57A55626F3D8F37F /* Sources */ = {
+		3DFC37B7FA15312BBFBFBDD6BF99C066 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2085941A17AA05095BA082859501549 /* Pods-WebViewTester-dummy.m in Sources */,
+				35086C4A19844756760686C2500643F1 /* Pods-SmartInvestingUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A5C0D2A760B82542B11F04C0E29C1978 /* Sources */ = {
+		5465C6FE3E1C07BDDFEF59B36D1C0523 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5672B5302390A8803C6D005DF1ADA551 /* Pods-WebViewTesterTests-dummy.m in Sources */,
+				5995B1536CEC912402D938FCF730A8D7 /* Pods-SmartInvesting-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,30 +569,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		97EF5B303F5BF25310A5D170C33F2351 /* PBXTargetDependency */ = {
+		2D5C8CCF0C9B06E7B890FFFB09DCE126 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-WebViewTester";
-			target = CB70F74CE4ED55CA4C1E93F5C0F57430 /* Pods-WebViewTester */;
-			targetProxy = ED3F1AEDC2FB0A1F855EAC81D06314E3 /* PBXContainerItemProxy */;
+			name = "Pods-SmartInvesting";
+			target = D5940557262A09186DB6A5C993F9A1E0 /* Pods-SmartInvesting */;
+			targetProxy = 51F0D34A193588310E90C7ABE610A126 /* PBXContainerItemProxy */;
 		};
-		CEE6434FD77EFF1E25838661493B3062 /* PBXTargetDependency */ = {
+		8033AC43E6C7FF58BC0BFB280535331B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SmartInvesting";
+			target = D5940557262A09186DB6A5C993F9A1E0 /* Pods-SmartInvesting */;
+			targetProxy = C2CF2E2BBE6ABCFFC81831BC17DC06A2 /* PBXContainerItemProxy */;
+		};
+		9F1E97C861F76314B2A022619D318067 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Mixpanel-swift";
 			target = E1886A99D3887E7B636CFCD67E199412 /* Mixpanel-swift */;
-			targetProxy = 7401A6D0FA0BBF62ED6077E73F691D92 /* PBXContainerItemProxy */;
-		};
-		D7891FE2C2D2C242ECB687548EF6E43B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-WebViewTester";
-			target = CB70F74CE4ED55CA4C1E93F5C0F57430 /* Pods-WebViewTester */;
-			targetProxy = C76123A9A8C82A6CB1B7F1EDE5665106 /* PBXContainerItemProxy */;
+			targetProxy = 711EEFFDECF519D3E54F126A624C8DA3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0D043B7C1CE5FDF734766050D54478F5 /* Debug */ = {
+		0E854596AAB5B1E678973C582759C729 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2A51ECB8DE47EE4A8F6478E93533B0E /* Pods-WebViewTesterTests.debug.xcconfig */;
+			baseConfigurationReference = FE7A9F1DD8C24D73CE13744F8ED9A1AE /* Pods-SmartInvesting.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -604,7 +604,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-WebViewTesterTests/Pods-WebViewTesterTests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -613,7 +613,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-WebViewTesterTests/Pods-WebViewTesterTests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -627,9 +627,9 @@
 			};
 			name = Debug;
 		};
-		4DC0B538FE422417A4564513197D5C21 /* Release */ = {
+		1583075B930A25DE331EC8D2A687A35E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DB5AF58A5AFE8D0CC5B460783CA2F5E /* Pods-WebViewTester.release.xcconfig */;
+			baseConfigurationReference = E864E6E52AE78C8E940CD9042D4E8700 /* Pods-SmartInvestingUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -641,7 +641,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SmartInvestingUITests/Pods-SmartInvestingUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -650,7 +650,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SmartInvestingUITests/Pods-SmartInvestingUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -659,15 +659,14 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		72BA815F0285CD31B9A19A3569FCF157 /* Release */ = {
+		3F158FCDBF59AF94ED9BD50A5794F641 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D3B5D86D067FC6FCF0EFD5D7CEF105E /* Pods-WebViewTesterTests.release.xcconfig */;
+			baseConfigurationReference = ED44F83DB5E74294B49552023828DE4F /* Pods-SmartInvestingUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -679,7 +678,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-WebViewTesterTests/Pods-WebViewTesterTests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SmartInvestingUITests/Pods-SmartInvestingUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -688,7 +687,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-WebViewTesterTests/Pods-WebViewTesterTests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SmartInvestingUITests/Pods-SmartInvestingUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -736,43 +735,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		8D890720509E926884D2E948C812099A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A043B4C769629DEACE08923FE7BF1C80 /* Pods-WebViewTesterUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-WebViewTesterUITests/Pods-WebViewTesterUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-WebViewTesterUITests/Pods-WebViewTesterUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		903A0004D3E6651EFD5D2E16214D101B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -836,9 +798,9 @@
 			};
 			name = Release;
 		};
-		9D085AA0F9A1E1532F7C9206299C556A /* Debug */ = {
+		A3BBED719F32EA57BD35562ADBC9FCBB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B0FF1CEC3B9F81271E5AF1899BB6AE9 /* Pods-WebViewTester.debug.xcconfig */;
+			baseConfigurationReference = 8D74F7F7641CAA88AE7F8CF60B52AD57 /* Pods-SmartInvesting.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -850,7 +812,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -859,7 +821,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-WebViewTester/Pods-WebViewTester.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SmartInvesting/Pods-SmartInvesting.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -868,10 +830,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		AC62CDAA1F991D59F6C8867FDDA0AD14 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -972,9 +935,9 @@
 			};
 			name = Debug;
 		};
-		BDFA72D411813434E258717AA0477F6B /* Release */ = {
+		ED4A12F48CA8A058474B7963295C1621 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A92F77DDA278009D62FA3D6065C22A29 /* Pods-WebViewTesterUITests.release.xcconfig */;
+			baseConfigurationReference = A996C0D6E0CED12C8035E3BF4C23A659 /* Pods-SmartInvestingTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -986,7 +949,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-WebViewTesterUITests/Pods-WebViewTesterUITests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SmartInvestingTests/Pods-SmartInvestingTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -995,7 +958,44 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-WebViewTesterUITests/Pods-WebViewTesterUITests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SmartInvestingTests/Pods-SmartInvestingTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FF29BC0BBF8C45C1FAFA99DB67B0E53B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58C248D05965408F9245145A810B7F99 /* Pods-SmartInvestingTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SmartInvestingTests/Pods-SmartInvestingTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SmartInvestingTests/Pods-SmartInvestingTests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1013,11 +1013,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		15F4576EAB5823CD254E230B99295FF7 /* Build configuration list for PBXNativeTarget "Pods-WebViewTesterUITests" */ = {
+		11DD54E1753C58B6B87B9461BAB5FEF3 /* Build configuration list for PBXNativeTarget "Pods-SmartInvestingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8D890720509E926884D2E948C812099A /* Debug */,
-				BDFA72D411813434E258717AA0477F6B /* Release */,
+				ED4A12F48CA8A058474B7963295C1621 /* Debug */,
+				FF29BC0BBF8C45C1FAFA99DB67B0E53B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1031,20 +1031,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		56782C860AEDD4EFA7FE7000098D1C40 /* Build configuration list for PBXNativeTarget "Pods-WebViewTester" */ = {
+		B9937B50F7E96639E303259C130CB66B /* Build configuration list for PBXNativeTarget "Pods-SmartInvestingUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D085AA0F9A1E1532F7C9206299C556A /* Debug */,
-				4DC0B538FE422417A4564513197D5C21 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B367108C9D6B2B5AFBFCDF7A17A5107A /* Build configuration list for PBXNativeTarget "Pods-WebViewTesterTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0D043B7C1CE5FDF734766050D54478F5 /* Debug */,
-				72BA815F0285CD31B9A19A3569FCF157 /* Release */,
+				1583075B930A25DE331EC8D2A687A35E /* Debug */,
+				3F158FCDBF59AF94ED9BD50A5794F641 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1054,6 +1045,15 @@
 			buildConfigurations = (
 				AC62CDAA1F991D59F6C8867FDDA0AD14 /* Debug */,
 				79988B9FCAFD4CF104230F22C5F16048 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC5C7FEBED243FC6F1FD042B003413F4 /* Build configuration list for PBXNativeTarget "Pods-SmartInvesting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E854596AAB5B1E678973C582759C729 /* Debug */,
+				A3BBED719F32EA57BD35562ADBC9FCBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

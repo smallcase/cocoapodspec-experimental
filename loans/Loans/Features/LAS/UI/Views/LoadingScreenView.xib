@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GraphikApp-Medium.ttf">
+            <string>GraphikApp-Medium</string>
+        </array>
+        <array key="GraphikApp-Regular.ttf">
+            <string>GraphikApp-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingScreenView" customModule="Loans" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Vze-hS-jFh"/>
+                <outlet property="loaderGif" destination="TKC-Bl-GpS" id="3Uc-cu-yC3"/>
+                <outlet property="redirectingText" destination="0vW-n1-KP1" id="f1H-9L-YdA"/>
+                <outlet property="redirectionDescriptionText" destination="eN9-tb-4dC" id="N3P-Bb-48J"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="224"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gateway-loader.gif" translatesAutoresizingMaskIntoConstraints="NO" id="TKC-Bl-GpS">
+                    <rect key="frame" x="97.666666666666686" y="84" width="160" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="8uU-Kf-Ph3"/>
+                        <constraint firstAttribute="height" constant="40" id="MRy-pZ-vsu"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redirecting for loan application..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vW-n1-KP1">
+                    <rect key="frame" x="16" y="144" width="323" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="27" id="HuC-ZU-LrI"/>
+                        <constraint firstAttribute="height" constant="25" id="UP6-w3-eAl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GraphikApp-Medium" family="Graphik App" pointSize="16"/>
+                    <color key="textColor" red="0.18431372549019609" green="0.21176470588235294" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="HuC-ZU-LrI"/>
+                        </mask>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do not press back, refresh, or close this page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eN9-tb-4dC">
+                    <rect key="frame" x="16" y="173" width="323" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="lov-YG-8OF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GraphikApp-Regular" family="Graphik App" pointSize="14"/>
+                    <color key="textColor" red="0.50588235294117645" green="0.52941176470588236" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lamf_loader_background" translatesAutoresizingMaskIntoConstraints="NO" id="vYV-Xn-U1w">
+                    <rect key="frame" x="97" y="44" width="326" height="170"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="eN9-tb-4dC" firstAttribute="top" secondItem="0vW-n1-KP1" secondAttribute="bottom" constant="4" id="6Xk-r8-Ugp"/>
+                <constraint firstItem="vYV-Xn-U1w" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="97" id="9Ke-Qg-b8e"/>
+                <constraint firstItem="TKC-Bl-GpS" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="DUK-b2-DoE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0vW-n1-KP1" secondAttribute="trailing" constant="16" id="E2m-i6-YRf"/>
+                <constraint firstItem="TKC-Bl-GpS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Iau-Es-k5I"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eN9-tb-4dC" secondAttribute="trailing" constant="16" id="O1d-xb-cMB"/>
+                <constraint firstItem="vYV-Xn-U1w" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-10" id="Y4R-WQ-xGH"/>
+                <constraint firstItem="vYV-Xn-U1w" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="byt-tm-pty"/>
+                <constraint firstItem="eN9-tb-4dC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="oBm-bB-fVY"/>
+                <constraint firstItem="0vW-n1-KP1" firstAttribute="top" secondItem="TKC-Bl-GpS" secondAttribute="bottom" constant="20" id="rNi-t3-8Bt"/>
+                <constraint firstItem="vYV-Xn-U1w" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="68" id="tXM-Q1-beM"/>
+                <constraint firstItem="0vW-n1-KP1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="w1D-J2-Qs9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-27" y="-109"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="gateway-loader.gif" width="611" height="181"/>
+        <image name="lamf_loader_background" width="246.66667175292969" height="209.33332824707031"/>
+    </resources>
+</document>

@@ -8,7 +8,7 @@ source 'https://github.com/smallcase/las-cocoapodspec-internal.git'
 # default source for all other pods
 source 'https://cdn.cocoapods.org'
 
-target 'WebViewTester' do
+target 'SmartInvesting' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   
@@ -19,12 +19,12 @@ target 'WebViewTester' do
 #  pod 'SCGateway' , '3.11.0'
 #  pod 'SCLoans' , '2.0.0'
 
-  target 'WebViewTesterTests' do
+  target 'SmartInvestingTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'WebViewTesterUITests' do
+  target 'SmartInvestingUITests' do
     inherit! :search_paths
     # Pods for testing
   end

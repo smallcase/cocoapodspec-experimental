@@ -3,105 +3,35 @@ name: Create Release
 on:
   workflow_dispatch:
     inputs:
-      main_version:
-        description: 'Main repository release version'
+      version:
+        description: 'Release version'
         required: true
-        type: string
-      smallcase_gateway_version:
-        description: 'SCGateway release version (optional)'
-        required: false
-        type: string
-      loans_version:
-        description: 'SCLoans release version (optional)'
-        required: false
         type: string
 
 jobs:
-  create-main-release:
+  create-release:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        ref: feat/ci
+        fetch-depth: 1
 
     - name: Create and push release branch
       run: |
-        MAIN_VERSION=${{ github.event.inputs.main_version }}
-        git checkout -b release/${MAIN_VERSION}
-        git push origin release/${MAIN_VERSION}
+        git branch | cat
+        git log --max-count=5 "--pretty=format:%H%n%an%n%ad%n%B" | cat
+        RELEASE_BRANCH=release/${{ github.event.inputs.version }}
+        git checkout -b ${RELEASE_BRANCH}
+        
+        git branch | cat
+        git log --max-count=5 "--pretty=format:%H%n%an%n%ad%n%B" | cat
+        git push origin ${RELEASE_BRANCH}
 
     - name: Create Pull Request
       id: create_pr
-      uses: peter-evans/create-pull-request@v5
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: "Create release branch for version ${{ github.event.inputs.main_version }}"
-        branch: release/${{ github.event.inputs.main_version }}
-        base: dev
-        title: "Release ${{ github.event.inputs.main_version }}"
-        body: "Merging release branch for version ${{ github.event.inputs.main_version }} into prod"
-        labels: release
-
-  create-smallcase-gateway-release:
-    needs: create-main-release
-    if: ${{ github.event.inputs.smallcase_gateway_version }}
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout smallcase_gateway repository
-      uses: actions/checkout@v2
-      with:
-        repository: ${{ github.repository_owner }}/gw-mob-sdk-ios
-        ref: dev
-        token: ${{ secrets.GH_ACCESS_TOKEN }}
-
-    - name: Create and push release branch for smallcase_gateway
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        VERSION=${{ github.event.inputs.smallcase_gateway_version }}
-        git checkout -b release/${VERSION}
-        git push origin release/${VERSION}
-
-    - name: Create Pull Request for smallcase_gateway
-      id: create_pr_smallcase_gateway
-      uses: peter-evans/create-pull-request@v5
-      with:
-        token: ${{ secrets.GH_ACCESS_TOKEN }}
-        commit-message: "Create release branch for version ${{ github.event.inputs.smallcase_gateway_version }}"
-        branch: release/${{ github.event.inputs.smallcase_gateway_version }}
-        base: prod
-        title: "Release ${{ github.event.inputs.smallcase_gateway_version }} for smallcase_gateway"
-        body: "Merging release branch for version ${{ github.event.inputs.smallcase_gateway_version }} into prod for smallcase_gateway"
-        labels: release
-
-  create-loans-release:
-    needs: create-main-release
-    if: ${{ github.event.inputs.loans_version }}
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout loans repository
-      uses: actions/checkout@v2
-      with:
-        repository: ${{ github.repository_owner }}/gw-mob-sdk-las-ios
-        ref: master
-        token: ${{ secrets.GH_ACCESS_TOKEN }}
-
-    - name: Create and push release branch for loans
-      run: |
-        VERSION=${{ github.event.inputs.loans_version }}
-        git checkout -b release/${VERSION}
-        git push origin release/${VERSION}
-
-    - name: Create Pull Request for loans
-      id: create_pr_loans
-      uses: peter-evans/create-pull-request@v5
-      with:
-        token: ${{ secrets.GH_ACCESS_TOKEN }}
-        commit-message: "Create release branch for version ${{ github.event.inputs.loans_version }}"
-        branch: release/${{ github.event.inputs.loans_version }}
-        base: prod
-        title: "Release ${{ github.event.inputs.loans_version }} for loans"
-        body: "Merging release branch for version ${{ github.event.inputs.loans_version }} into prod for loans"
-        labels: release
+        gh pr create --base dev --head release/${{ github.event.inputs.version }} --title "Release/${{ github.event.inputs.version }}" --body "" --label "release"

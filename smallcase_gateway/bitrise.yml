@@ -1,0 +1,1413 @@
+format_version: "8"
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+app:
+  envs:
+  - SPEC_VERSION: 1.1.1
+    opts:
+      is_expand: false
+meta:
+  bitrise.io:
+    machine_type_id: g2-m1.4core
+    stack: osx-xcode-15.2.x
+trigger_map:
+- push_branch: mixpanel-release-demo
+  workflow: mixpanel-demo-prod
+- pull_request_source_branch: '*'
+  pull_request_target_branch: dev
+  workflow: primary
+- pull_request_source_branch: '*'
+  pull_request_target_branch: prod
+  workflow: deploy
+- pull_request_target_branch: internal-release
+  workflow: internal-release
+workflows:
+  deploy:
+    envs:
+    - SPEC_VERSION: 1.1.1
+      opts:
+        is_expand: false
+    steps:
+    - set-git-credentials@1:
+        inputs:
+        - git_email_address: infra@smallcase.com
+        - git_user_name: sc-infra-bot
+    - brew-install@0:
+        inputs:
+        - packages: gnu-sed
+        - cache_enabled: "yes"
+    - activate-ssh-key@4:
+        inputs:
+        - verbose: "true"
+    - git-clone@6.2: {}
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        title: Create SCGateway.xcframework
+        inputs:
+        - content: |+
+            #!/usr/bin/env bash
+
+            # fail if any commands fails
+            set -e
+
+            # debug log
+            set -x
+
+
+
+    - script@1:
+        title: Convert SCGateway.xcframework into zip
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+
+            # debug log
+            set -x
+
+            #Working Code as on 29/11/2022
+
+            # <--- Start
+
+            #cd /Users/vagrant/git
+            #mkdir Archive
+            #cd Archive
+            #curl -O https://s3.ap-south-1.amazonaws.com/gateway.smallcase.com/scdk_ios/license.rtf
+            #cp -R /Users/vagrant/git/SCGateway.framework /Users/vagrant/git/Archive
+            #cd /Users/vagrant/git
+            #find . -name ".DS_Store" -delete
+            #zip -r SCGateway.framework.zip Archive -x "*.DS_Store"
+            #zip -r SCGateway.framework.zip Archive
+            #cp SCGateway.framework.zip /Users/vagrant
+            #mkdir $SPEC_VERSION
+            #cd $SPEC_VERSION
+            #mkdir $SPEC_VERSION
+            #cd $SPEC_VERSION
+            #cp /Users/vagrant/git/SCGateway.framework.zip .
+
+            # End --->
+
+            # New code
+            # Date: 29/11/2022
+
+            echo "Removing existing xcframeworks directory (if any)"
+            rm -rf /Users/vagrant/git/xcframeworks
+
+            cd /Users/vagrant/git
+
+            echo "Contents of XCFramework/xcframeworks"
+            ls -a /Users/vagrant/git/XCFramework/xcframeworks
+
+            cp -R /Users/vagrant/git/XCFramework/xcframeworks/SCGateway.xcframework /Users/vagrant/git
+
+            find . -name ".DS_Store" -delete
+
+            ls -a
+            zip -r SCGateway.xcframework.zip SCGateway.xcframework
+
+            ls -a
+
+            mkdir $SPEC_VERSION
+            cd $SPEC_VERSION
+
+            cp /Users/vagrant/git/SCGateway.xcframework.zip .
+    - script@1:
+        title: Upload SCGateway.xcframework.zip
+        inputs:
+        - content: ""
+    - script@1:
+        title: Git clone cocoapods repo
+        is_always_run: true
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            git clone --branch mixpanel_xc_cocoapods git@github.com:smallcase/cocoapodspecs.git
+    - script@1:
+        title: Cocoapod repo push (Deploy)
+        is_always_run: true
+        inputs:
+        - content: ""
+    - script@1:
+        title: Notification
+        inputs:
+        - content: "#!/usr/bin/env bash\n# fail if any commands fails\nset -e\n# debug
+            log\nset -x\n\n# write your script here\necho \"Hello World!\"\n\n# or
+            run a script from your repository, like:\n# bash ./path/to/script.sh\n#
+            not just bash, e.g.:\n# ruby ./path/to/script.rb\n\nAPPLICATION_NAME=SCGateway-iOS\nSTANDARD_COMMIT=\"${GIT_CLONE_COMMIT_MESSAGE_SUBJECT//
+            /-}\" \nif (($BITRISE_BUILD_STATUS==0))\nthen\ncurl -i -X POST -H 'Content-Type:
+            application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#7CFC00\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'SUCCESS'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' |\\n| Workflow | '$BITRISE_TRIGGERED_WORKFLOW_TITLE'
+            | \"}]}}' -H 'Authorization: Bearer icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\n\nelse\ncurl
+            -i -X POST -H 'Content-Type: application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#FF0000\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'FAILED'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' |\\n| Workflow | '$BITRISE_TRIGGERED_WORKFLOW_TITLE'
+            | \"}]}}' -H 'Authorization: Bearer icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\nfi\n"
+    - script@1:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+
+            set -x
+
+            publish() {
+                MR_DESCRIPTION=`curl --location --request GET 'https://gitlab.com/api/v4/projects/16210307/merge_requests?view=simple&target_branch=prod' \
+            --header 'PRIVATE-TOKEN: '$GITLAB_TOKEN'' | jq '.[0].description' | tr -d '"'`
+            echo $MR_DESCRIPTION
+                CURRENT_CHANGELOG=`curl --request GET \
+                --url https://dash.readme.io/api/v1/changelogs/ios\
+                --header 'Authorization: Basic '$README_AUTH'' | jq '.body' | tr -d '"'`
+            echo $CURRENT_CHANGELOG
+
+                NEW_CHANGELOG="${MR_DESCRIPTION} \n\n ${CURRENT_CHANGELOG} \n\n"
+            echo $NEW_CHANGELOG
+
+                curl --request PUT \
+                --url https://dash.readme.io/api/v1/changelogs/ios \
+                --header 'Authorization: Basic '$README_AUTH'' \
+                --header 'Content-Type: application/json' \
+                --data-raw '
+                    {
+                        "hidden":false,
+                        "title":"ios",
+                        "type":"added",
+                        "body": "'"${NEW_CHANGELOG}"'"
+                        }'
+            }
+
+            publish
+    meta:
+      bitrise.io:
+        machine_type_id: g2-m1.4core
+        stack: osx-xcode-15.2.x
+  deploy-internal:
+    envs:
+    - SPEC_VERSION: 1.1.1
+    steps:
+    - set-git-credentials@1:
+        run_if: .IsCI
+        inputs:
+        - git_email_address: infra@smallcase.com
+        - git_user_name: sc-infra-bot
+    - brew-install@0:
+        run_if: .IsCI
+        inputs:
+        - packages: gnu-sed
+        - cache_enabled: "yes"
+    - activate-ssh-key@4:
+        inputs:
+        - verbose: "true"
+    - git-clone@6.2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        title: chore(release)
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            echo "Current branch: $(git describe --tags --exact-match 2>/dev/null || git branch --show-current 2>/dev/null || echo "Not on a branch or tag")"
+
+
+            ruby chore-release.rb --internal
+
+            echo "Current branch: $(git describe --tags --exact-match 2>/dev/null || git branch --show-current 2>/dev/null || echo "Not on a branch or tag")"
+    - cocoapods-install@2: {}
+    - script@1:
+        title: Create SCGateway.xcframework
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            echo "Current working directory: $(pwd)"
+            echo "Current branch: $(git describe --tags --exact-match 2>/dev/null || git branch --show-current 2>/dev/null || echo "Not on a branch or tag")"
+
+            xcodebuild -target SCGatewayXcFramework
+    - script@1:
+        title: Convert SCGateway.xcframework into zip
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            echo "Current working directory: $(pwd)"
+            cd XCFramework/xcframeworks
+
+            # Command to convert .xcframework to zip
+            zip -r SCGateway.xcframework.zip SCGateway.xcframework
+    - script@1:
+        title: Upload SCGateway.xcframework.zip
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            aws_cli_id=$(pkgutil --pkgs=com.amazon.aws.cli2)
+
+            if [ -z "$aws_cli_id" ]; then
+                # Fetch aws cli tool
+                curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+
+                # Install aws cli tool with mac installer
+                sudo installer -pkg AWSCLIV2.pkg -target /
+
+                # Print out the aws cli installation details
+                which aws
+                aws --version
+            fi
+
+            s3_dir=$(ruby fetch-s3-bucket.rb -i)
+            echo $s3_dir
+
+            # Upload zip file to aws s3 bucket
+            AWS_ACCESS_KEY_ID=$ACCESS_KEY AWS_SECRET_ACCESS_KEY=$SECRET_KEY aws s3 cp XCFramework/xcframeworks/SCGateway.xcframework.zip s3://$s3_dir
+    - script@1:
+        title: Cocoapod repo push (Deploy)
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            pod repo add smallcase-cocoapodspecs-internal https://github.com/smallcase/cocoapodspec-internal.git
+
+            cd internal
+
+            pod spec lint --allow-warnings
+
+            pod repo push smallcase-cocoapodspecs-internal --allow-warnings
+    - script@1:
+        title: Post release
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            git push --tags
+    meta:
+      bitrise.io:
+        machine_type_id: g2-m1.4core
+        stack: osx-xcode-14.3.x-ventura
+  internal-dev:
+    steps:
+    - set-git-credentials@1:
+        inputs:
+        - git_email_address: infra@smallcase.com
+        - git_user_name: sc-infra-bot
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@6:
+        title: git clone SCGateway repository
+    - script@1:
+        title: Clone Smartinvesting-ios repo
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Downloading Smartinvesting repo (DEV branch)"
+
+            # or run a script from your repository, like:
+            # bash ./path/to/script.sh
+            # not just bash, e.g.:
+            # ruby ./path/to/script.rb
+            git clone --single-branch --branch dev git@github.com:smallcase/Smartinvesting-ios.git
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        title: Create SCGateway.framework
+        inputs:
+        - content: |+
+            # fail if any commands fails
+            set -e
+
+            # debug log
+            set -x
+
+            # write your script here
+
+            rm -rf /Users/vagrant/git/SCGateway.framework
+            rm -rf XCFramework
+
+            xcodebuild -project SCGateway.xcodeproj -scheme SCGatewayFramework -destination generic/platform=iOS -configuration Debug \
+            CODE_SIGNING_REQUIRED=NO
+
+            cp -R /Users/vagrant/git/SCGateway.framework /Users/vagrant/git/smartinvesting-ios
+
+
+
+    - script@1:
+        title: Copy SCGateway.framework to smartinvesting-ios
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Hello World!"
+
+            # or run a script from your repository, like:
+            # bash ./path/to/script.sh
+            # not just bash, e.g.:
+            # ruby ./path/to/script.rb
+            cp -R /Users/vagrant/git/SCGateway.framework /Users/vagrant/git/smartinvesting-ios
+    - cocoapods-install@2:
+        inputs:
+        - source_root_path: /Users/vagrant/git/smartinvesting-ios
+    - xcode-archive@4:
+        inputs:
+        - distribution_method: ad-hoc
+        - perform_clean_action: "yes"
+        - verbose_log: "yes"
+        - automatic_code_signing: api-key
+    - script@1:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Test Firebase manual"
+
+            echo "Installing Firebase CLI"
+            curl -sL https://firebase.tools | bash
+
+            echo "Uploading app to Firebase"
+            firebase appdistribution:distribute $BITRISE_IPA_PATH --app 1:615764606669:ios:1d34e3a1320eae16e7b384 --release-notes "Dummy build" --groups "smallcase" --token $FIREBASE_TOKEN --debug
+    - firebase-app-distribution@0:
+        inputs:
+        - app_path: $BITRISE_IPA_PATH
+        - app: 1:615764606669:ios:1d34e3a1320eae16e7b384
+        - testers: ankit.deshmukh@smallcase.com
+        - groups: smallcase
+        - release_notes: $GIT_CLONE_COMMIT_MESSAGE_SUBJECT
+        - upgrade_firebase_tools: "true"
+        - is_debug: "true"
+        - firebase_token: $FIREBASE_TOKEN
+    - script@1:
+        title: Push new version and changelog
+        inputs:
+        - content: git remote add github git@github.com:smallcase/gw-mob-sdk-ios.git
+            && git push --follow-tags github dev
+    - script@1:
+        title: Notification
+        is_always_run: true
+        inputs:
+        - content: "#!/usr/bin/env bash\n# fail if any commands fails\nset -e\n# debug
+            log\nset -x\n\n# write your script here\necho \"Hello World!\"\n\n# or
+            run a script from your repository, like:\n# bash ./path/to/script.sh\n#
+            not just bash, e.g.:\n# ruby ./path/to/script.rb\nAPPLICATION_NAME=SCGateway-iOS\nSTANDARD_COMMIT=\"${GIT_CLONE_COMMIT_MESSAGE_SUBJECT//
+            /-}\" \nif (($BITRISE_BUILD_STATUS==0))\nthen\ncurl -i -X POST -H 'Content-Type:
+            application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#7CFC00\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'SUCCESS'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' | \"}]}}' -H 'Authorization: Bearer
+            icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\n\nelse\ncurl
+            -i -X POST -H 'Content-Type: application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#FF0000\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'FAILED'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' | \"}]}}' -H 'Authorization: Bearer
+            icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\nfi\n"
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.3.x
+  internal-release:
+    envs:
+    - SPEC_VERSION: 1.1.1
+      opts:
+        is_expand: false
+    steps:
+    - set-git-credentials@1:
+        inputs:
+        - git_email_address: infra@smallcase.com
+        - git_user_name: sc-infra-bot
+    - brew-install@0:
+        inputs:
+        - packages: gnu-sed
+        - cache_enabled: "yes"
+    - activate-ssh-key@4: {}
+    - git-clone@6: {}
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        title: Create SCGateway.xcframework
+        inputs:
+        - content: |+
+            #!/usr/bin/env bash
+
+            # fail if any commands fails
+            set -e
+
+            # debug log
+            set -x
+
+    - script@1:
+        title: Convert SCGateway.xcframework into zip
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+
+            # debug log
+            set -x
+
+            #Working Code as on 29/11/2022
+
+            # <--- Start
+
+            #cd /Users/vagrant/git
+            #mkdir Archive
+            #cd Archive
+            #curl -O https://s3.ap-south-1.amazonaws.com/gateway.smallcase.com/scdk_ios/license.rtf
+            #cp -R /Users/vagrant/git/SCGateway.framework /Users/vagrant/git/Archive
+            #cd /Users/vagrant/git
+            #find . -name ".DS_Store" -delete
+            #zip -r SCGateway.framework.zip Archive -x "*.DS_Store"
+            #zip -r SCGateway.framework.zip Archive
+            #cp SCGateway.framework.zip /Users/vagrant
+            #mkdir $SPEC_VERSION
+            #cd $SPEC_VERSION
+            #mkdir $SPEC_VERSION
+            #cd $SPEC_VERSION
+            #cp /Users/vagrant/git/SCGateway.framework.zip .
+
+            # End --->
+
+            # New code
+            # Date: 29/11/2022
+
+            echo "Removing existing xcframeworks directory (if any)"
+            rm -rf /Users/vagrant/git/xcframeworks
+
+            cd /Users/vagrant/git
+
+            echo "Contents of XCFramework/xcframeworks"
+            ls -a /Users/vagrant/git/XCFramework/xcframeworks
+
+            cp -R /Users/vagrant/git/XCFramework/xcframeworks/SCGateway.xcframework /Users/vagrant/git
+
+            find . -name ".DS_Store" -delete
+
+            ls -a
+            zip -r SCGateway.xcframework.zip SCGateway.xcframework
+
+            ls -a
+
+            mkdir $SPEC_VERSION
+            cd $SPEC_VERSION
+
+            cp /Users/vagrant/git/SCGateway.xcframework.zip .
+    - script@1:
+        title: Upload SCGateway.xcframework.zip to s3
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+
+            # fail if any commands fails
+            set -e
+
+            # debug log
+            set -x
+
+            # Working code as on 29/11/2022
+
+            # <--- Start
+            #curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+            #sudo installer -pkg AWSCLIV2.pkg -target /usr/local/bin/aws
+
+            #AWS_ACCESS_KEY_ID=$ACCESS_KEY AWS_SECRET_ACCESS_KEY=$SECRET_KEY aws s3 cp /Users/vagrant/git/$SPEC_VERSION s3://gateway.smallcase.com/scdk_ios/$SPEC_VERSION --recursive
+            #aws s3 cp SOURCE_DIR s3://DEST_BUCKET/ --recursive
+
+            # End --->
+
+            # New code
+            # Date: 29/11/2022
+            curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+            sudo installer -pkg AWSCLIV2.pkg -target /usr/local/bin/aws
+
+            AWS_ACCESS_KEY_ID=$ACCESS_KEY AWS_SECRET_ACCESS_KEY=$SECRET_KEY aws s3 cp /Users/vagrant/git/$SPEC_VERSION s3://gateway.smallcase.com/scgateway_internal/$SPEC_VERSION --recursive
+    - script@1:
+        title: Git clone cocoapods repo
+        is_always_run: true
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            git clone --branch podspec-file-branch git@github.com:smallcase/cocoapodspec-internal.git
+    - script@1:
+        title: cocoapod repo push
+        is_always_run: true
+        inputs:
+        - content: ""
+    - script@1:
+        title: Notification
+        inputs:
+        - content: "#!/usr/bin/env bash\n# fail if any commands fails\nset -e\n# debug
+            log\nset -x\n\n# write your script here\necho \"Hello World!\"\n\n# or
+            run a script from your repository, like:\n# bash ./path/to/script.sh\n#
+            not just bash, e.g.:\n# ruby ./path/to/script.rb\n\nAPPLICATION_NAME=SCGateway-iOS\nSTANDARD_COMMIT=\"${GIT_CLONE_COMMIT_MESSAGE_SUBJECT//
+            /-}\" \nif (($BITRISE_BUILD_STATUS==0))\nthen\ncurl -i -X POST -H 'Content-Type:
+            application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#7CFC00\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'SUCCESS'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' |\\n| Workflow | '$BITRISE_TRIGGERED_WORKFLOW_TITLE'
+            | \"}]}}' -H 'Authorization: Bearer icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\n\nelse\ncurl
+            -i -X POST -H 'Content-Type: application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#FF0000\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'FAILED'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' |\\n| Workflow | '$BITRISE_TRIGGERED_WORKFLOW_TITLE'
+            | \"}]}}' -H 'Authorization: Bearer icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\nfi\n"
+    - script@1:
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+
+            set -x
+
+            publish() {
+                MR_DESCRIPTION=`curl --location --request GET 'https://gitlab.com/api/v4/projects/16210307/merge_requests?view=simple&target_branch=prod' \
+            --header 'PRIVATE-TOKEN: '$GITLAB_TOKEN'' | jq '.[0].description' | tr -d '"'`
+            echo $MR_DESCRIPTION
+                CURRENT_CHANGELOG=`curl --request GET \
+                --url https://dash.readme.io/api/v1/changelogs/ios\
+                --header 'Authorization: Basic '$README_AUTH'' | jq '.body' | tr -d '"'`
+            echo $CURRENT_CHANGELOG
+
+                NEW_CHANGELOG="${MR_DESCRIPTION} \n\n ${CURRENT_CHANGELOG} \n\n"
+            echo $NEW_CHANGELOG
+
+                curl --request PUT \
+                --url https://dash.readme.io/api/v1/changelogs/ios \
+                --header 'Authorization: Basic '$README_AUTH'' \
+                --header 'Content-Type: application/json' \
+                --data-raw '
+                    {
+                        "hidden":false,
+                        "title":"ios",
+                        "type":"added",
+                        "body": "'"${NEW_CHANGELOG}"'"
+                        }'
+            }
+
+            publish
+    meta:
+      bitrise.io:
+        stack: osx-xcode-13.3.x
+  mixpanel-demo-dev:
+    steps:
+    - set-git-credentials@1:
+        inputs:
+        - git_email_address: infra@smallcase.com
+        - git_user_name: sc-infra-bot
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@6:
+        title: git clone SCGateway repository
+    - script@1:
+        title: Clone Smartinvesting-ios repo
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Downloading Smartinvesting repo (DEV branch)"
+
+            git clone --single-branch --branch dev git@github.com:smallcase/Smartinvesting-ios.git
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        title: Create SCGateway.xcframework
+        inputs:
+        - content: |+
+            # fail if any commands fails
+            set -e
+
+            # debug log
+            set -x
+
+            # write your script here
+
+            rm -rf /Users/vagrant/git/SCGateway.framework
+            rm -rf /Users/vagrant/git/XCFramework
+
+            xcodebuild -workspace SCGateway.xcworkspace -scheme SCGatewayXcFramework -destination generic/platform=iOS -configuration Debug \
+            CODE_SIGNING_REQUIRED=NO
+
+            # cp -R /Users/vagrant/git/XCFramework/xcframeworks/SCGateway.xcframework /Users/vagrant/git/smartinvesting-ios
+
+
+
+    - script@1:
+        title: Copy SCGateway XCFramework to Smartinvesting
+        inputs:
+        - content: |-
+            # fail if any commands fails
+            set -e
+
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+
+            # debug log
+            set -x
+
+            cp -R /Users/vagrant/git/XCFramework/xcframeworks/SCGateway.xcframework /Users/vagrant/git/smartinvesting-ios
+    - cocoapods-install@2: {}
+    - xcode-archive@4:
+        inputs:
+        - perform_clean_action: "yes"
+        - automatic_code_signing: apple-id
+        - verbose_log: "yes"
+        - project_path: /Users/vagrant/git/smartinvesting-ios/WebViewTester.xcworkspace
+        - scheme: WebViewTester
+        - export_development_team: BFHF2F2UCF
+        - distribution_method: ad-hoc
+    - firebase-app-distribution@0.10:
+        is_always_run: true
+        inputs:
+        - app: 1:615764606669:ios:1d34e3a1320eae16e7b384
+        - release_notes: Dummy Mixpanel Build
+        - groups: smallcase
+        - upgrade_firebase_tools: "true"
+        - is_debug: "true"
+        - firebase_token: $FIREBASE_TOKEN
+    - script@1:
+        title: Notify via Mattermost
+        inputs:
+        - content: "# fail if any commands fails\nset -e\n\n# make pipelines' return
+            status equal the last command to exit with a non-zero status, or zero
+            if all commands exit successfully\nset -o pipefail\n\n# debug log\nset
+            -x\n\nAPPLICATION_NAME=SCGateway-iOS\nSTANDARD_COMMIT=\"${GIT_CLONE_COMMIT_MESSAGE_SUBJECT//
+            /-}\" \nif (($BITRISE_BUILD_STATUS==0))\nthen\ncurl -i -X POST -H 'Content-Type:
+            application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#7CFC00\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'SUCCESS'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' | \"}]}}' -H 'Authorization: Bearer
+            icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\n\nelse\ncurl
+            -i -X POST -H 'Content-Type: application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#FF0000\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'FAILED'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' | \"}]}}' -H 'Authorization: Bearer
+            icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\nfi\n"
+    meta:
+      bitrise.io:
+        machine_type_id: g2-m1.4core
+        stack: osx-xcode-15.2.x
+  mixpanel-demo-prod:
+    envs:
+    - SPEC_VERSION: 1.1.1
+      opts:
+        is_expand: false
+    steps:
+    - set-git-credentials@1.0:
+        inputs:
+        - git_email_address: infra@smallcase.com
+        - git_user_name: sc-infra-bot
+    - brew-install@0.12:
+        inputs:
+        - packages: gnu-sed
+        - cache_enabled: "yes"
+    - activate-ssh-key@4: {}
+    - git-clone@6.2: {}
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        title: Create SCGateway.xcframework
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            rm -rf /Users/vagrant/git/SCGateway.framework
+            rm -rf /Users/vagrant/git/XCFramework
+
+            xcodebuild -workspace SCGateway.xcworkspace -scheme SCGatewayXcFramework -destination generic/platform=iOS -configuration Debug \
+            CODE_SIGNING_REQUIRED=NO
+
+            version_number=`jq -r '.version' package.json`
+            #version_number="${version_number//"/}"
+            echo $version_number
+            envman add --key SPEC_VERSION --value "$version_number"
+
+            echo $SPEC_VERSION
+    - script@1:
+        title: Convert SCGateway.xcframework into zip
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            rm -rf /Users/vagrant/git/xcframeworks
+
+            cd /Users/vagrant/git
+
+            #Fetch license file from AWS S3
+            # curl -O https://s3.ap-south-1.amazonaws.com/gateway.smallcase.com/scdk_ios/license.rtf
+
+            ls -a
+            ls -a /Users/vagrant/git/XCFramework/xcframeworks
+
+            cp -R /Users/vagrant/git/XCFramework/xcframeworks/SCGateway.xcframework /Users/vagrant/git
+
+            find . -name ".DS_Store" -delete
+
+            ls -a
+            zip -r SCGateway.xcframework.zip SCGateway.xcframework
+
+            ls -a
+
+            mkdir $SPEC_VERSION
+            cd $SPEC_VERSION
+
+            cp /Users/vagrant/git/SCGateway.xcframework.zip .
+    - script@1:
+        title: Upload SCGateway.xcframework.zip to s3
+        inputs:
+        - content: |-
+            # fail if any commands fails
+            set -e
+
+            # debug log
+            set -x
+
+            curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+            sudo installer -pkg AWSCLIV2.pkg -target /usr/local/bin/aws
+
+            AWS_ACCESS_KEY_ID=$ACCESS_KEY AWS_SECRET_ACCESS_KEY=$SECRET_KEY aws s3 cp /Users/vagrant/git/$SPEC_VERSION s3://gateway.smallcase.com/scgateway_mixpanel/$SPEC_VERSION --recursive
+            #aws s3 cp SOURCE_DIR s3://DEST_BUCKET/ --recursive
+    - script@1:
+        title: Git clone cocoapods repo
+        inputs:
+        - content: |-
+            # fail if any commands fails
+            set -e
+
+            # debug log
+            set -x
+
+            git clone --branch mixpanel_xc_cocoapods git@github.com:smallcase/cocoapodspecs.git
+    - script@1:
+        title: cocoapod repo push
+        inputs:
+        - content: |-
+            # fail if any commands fails
+            set -e
+
+            # debug log
+            set -x
+
+            cd /Users/vagrant/git/cocoapodspecs/
+            gsed -i 's+sdkversion+"'"$SPEC_VERSION"'"+g' SCGateway.podspec
+
+            #envman add --key version --value "$SPEC_VERSION"
+
+            pod repo add cocoapodspecs git@github.com:smallcase/cocoapodspecs.git
+
+            pod repo push cocoapodspecs SCGateway.podspec --verbose --allow-warnings
+    - script@1:
+        title: Notification
+        inputs:
+        - content: "#!/usr/bin/env bash\n# fail if any commands fails\nset -e\n# debug
+            log\nset -x\n\n# write your script here\necho \"Hello World!\"\n\n# or
+            run a script from your repository, like:\n# bash ./path/to/script.sh\n#
+            not just bash, e.g.:\n# ruby ./path/to/script.rb\n\nAPPLICATION_NAME=SCGateway-iOS\nSTANDARD_COMMIT=\"${GIT_CLONE_COMMIT_MESSAGE_SUBJECT//
+            /-}\" \nif (($BITRISE_BUILD_STATUS==0))\nthen\ncurl -i -X POST -H 'Content-Type:
+            application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#7CFC00\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'SUCCESS'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' |\\n| Workflow | '$BITRISE_TRIGGERED_WORKFLOW_TITLE'
+            | \"}]}}' -H 'Authorization: Bearer icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\n\nelse\ncurl
+            -i -X POST -H 'Content-Type: application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#FF0000\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'FAILED'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' |\\n| Workflow | '$BITRISE_TRIGGERED_WORKFLOW_TITLE'
+            | \"}]}}' -H 'Authorization: Bearer icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\nfi\n"
+    meta:
+      bitrise.io:
+        machine_type_id: g2-m1.4core
+        stack: osx-xcode-15.2.x
+  mixpanel-spm-release-demo:
+    envs:
+    - SPEC_VERSION: 1.1.1
+      opts:
+        is_expand: false
+    steps:
+    - set-git-credentials@1.0:
+        inputs:
+        - git_email_address: infra@smallcase.com
+        - git_user_name: sc-infra-bot
+    - brew-install@0.12:
+        inputs:
+        - packages: gnu-sed
+        - cache_enabled: "yes"
+    - activate-ssh-key@4: {}
+    - git-clone@6.2: {}
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        title: Create SCGateway.xcframework
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            rm -rf /Users/vagrant/git/SCGateway.framework
+            rm -rf /Users/vagrant/git/XCFramework
+
+            xcodebuild -project SCGateway.xcodeproj -scheme SCGatewayXcFramework -destination generic/platform=iOS -configuration Debug \
+            CODE_SIGNING_REQUIRED=NO
+
+            # xcodebuild -workspace SCGateway.xcworkspace -scheme SCGatewayXcFramework -destination generic/platform=iOS -configuration Debug \
+            # CODE_SIGNING_REQUIRED=NO
+
+            version_number=`jq -r '.version' package.json`
+            #version_number="${version_number//"/}"
+            echo $version_number
+            envman add --key SPEC_VERSION --value "$version_number"
+
+            echo $SPEC_VERSION
+    - script@1:
+        title: Convert SCGateway.xcframework into zip
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            rm -rf /Users/vagrant/git/xcframeworks
+
+            cd /Users/vagrant/git
+
+            #Fetch license file from AWS S3
+            # curl -O https://s3.ap-south-1.amazonaws.com/gateway.smallcase.com/scdk_ios/license.rtf
+
+            ls -a
+            ls -a /Users/vagrant/git/XCFramework/xcframeworks
+
+            cp -R /Users/vagrant/git/XCFramework/xcframeworks/SCGateway.xcframework /Users/vagrant/git
+
+            find . -name ".DS_Store" -delete
+
+            ls -a
+            zip -r SCGateway.xcframework.zip SCGateway.xcframework
+
+            ls -a
+
+            mkdir $SPEC_VERSION
+            cd $SPEC_VERSION
+
+            cp /Users/vagrant/git/SCGateway.xcframework.zip .
+    - script@1:
+        title: Clone the repo with Package.swift file
+        inputs:
+        - content: |-
+            # fail if any commands fails
+            set -e
+
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+
+            # debug log
+            set -x
+
+            git clone https://github.com/ankit-deshmukh/demo-gateway-sdk-swift-package-mixpanel.git
+    - script@1:
+        title: Notification
+        inputs:
+        - content: "#!/usr/bin/env bash\n# fail if any commands fails\nset -e\n# debug
+            log\nset -x\n\n# write your script here\necho \"Hello World!\"\n\n# or
+            run a script from your repository, like:\n# bash ./path/to/script.sh\n#
+            not just bash, e.g.:\n# ruby ./path/to/script.rb\n\nAPPLICATION_NAME=SCGateway-iOS\nSTANDARD_COMMIT=\"${GIT_CLONE_COMMIT_MESSAGE_SUBJECT//
+            /-}\" \nif (($BITRISE_BUILD_STATUS==0))\nthen\ncurl -i -X POST -H 'Content-Type:
+            application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#7CFC00\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'SUCCESS'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' |\\n| Workflow | '$BITRISE_TRIGGERED_WORKFLOW_TITLE'
+            | \"}]}}' -H 'Authorization: Bearer icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\n\nelse\ncurl
+            -i -X POST -H 'Content-Type: application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#FF0000\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'FAILED'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' |\\n| Workflow | '$BITRISE_TRIGGERED_WORKFLOW_TITLE'
+            | \"}]}}' -H 'Authorization: Bearer icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\nfi\n"
+    meta:
+      bitrise.io:
+        machine_type_id: g2-m1.4core
+        stack: osx-xcode-15.2.x
+  primary:
+    steps:
+    - set-git-credentials@1:
+        inputs:
+        - git_email_address: infra@smallcase.com
+        - git_user_name: sc-infra-bot
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@6.2:
+        title: git clone SCGateway repository
+    - script@1:
+        title: Clone Smartinvesting-ios repo
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Cloning Smartinvesting Repo"
+
+            # or run a script from your repository, like:
+            # bash ./path/to/script.sh
+            # not just bash, e.g.:
+            # ruby ./path/to/script.rb
+            git clone --single-branch --branch dev git@github.com:smallcase/Smartinvesting-ios.git
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        title: Create SCGateway.xcframework
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+
+            #update 20/09/2022
+            #xcodebuild -target "${PROJECT_NAME}" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR="${BUILD_DIR}" BUILD_ROOT="${BUILD_ROOT}" #BUILD_LIBRARY_FOR_DISTRIBUTION=YES clean build
+            #xcodebuild -target "${PROJECT_NAME}" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR="${BUILD_DIR}" BUILD_ROOT="${BUILD_ROOT}" EXCLUDED_ARCHS="arm64" #BUILD_LIBRARY_FOR_DISTRIBUTION=YES clean build
+
+            #Working script as on 28/11/2022
+            # <--- Start
+
+            #rm -rf /Users/vagrant/git/SCGateway.framework
+            #xcodebuild -project SCGateway.xcodeproj -scheme SCGatewayFramework -destination generic/platform=iOS -configuration Debug \
+            #CODE_SIGNING_REQUIRED=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES clean build EXCLUDED_ARCHS="arm64"
+
+            #cp -R /Users/vagrant/git/SCGateway.framework /Users/vagrant/git/smartinvesting-ios
+
+            # End --->
+
+
+            #New script to build xcframework
+            # Date: 28/11/2022
+
+            rm -rf /Users/vagrant/git/SCGateway.framework
+            rm -rf /Users/vagrant/git/XCFramework
+
+            xcodebuild -workspace SCGateway.xcworkspace -scheme SCGatewayXcFramework -destination generic/platform=iOS -configuration Debug \
+            CODE_SIGNING_REQUIRED=NO
+    - script@1:
+        title: Copy SCGateway.xcframework to smartinvesting-ios
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Copying SCGateway Library to Smartinvesting App"
+
+            # Working Script as on 28/11/2022
+            # <--- Start
+
+            #cp -R /Users/vagrant/git/SCGateway.framework /Users/vagrant/git/smartinvesting-ios
+
+            # End --->
+
+            # New script to copy XCFramework
+            # Date: 28/11/2022
+
+            cp -R /Users/vagrant/git/XCFramework/xcframeworks/SCGateway.xcframework /Users/vagrant/git/smartinvesting-ios
+    - cocoapods-install@2:
+        inputs:
+        - source_root_path: /Users/vagrant/git/smartinvesting-ios
+    - xcode-archive@4:
+        inputs:
+        - project_path: /Users/vagrant/git/smartinvesting-ios/WebViewTester.xcworkspace
+        - scheme: WebViewTester
+        - configuration: ""
+        - export_method: ad-hoc
+        - team_id: BFHF2F2UCF
+        - xcodebuild_options: '-allowProvisioningUpdates '
+        - distribution_method: ad-hoc
+        - perform_clean_action: "yes"
+        - automatic_code_signing: apple-id
+        - export_development_team: BFHF2F2UCF
+        - verbose_log: "yes"
+        - custom_export_options_plist_content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE
+            plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist
+            version=\"1.0\">\n<dict>\n\t<key>compileBitcode</key>\n\t<true/>\n\t<key>destination</key>\n\t<string>export</string>\n\t<key>method</key>\n\t<string>ad-hoc</string>\n\t<key>stripSwiftSymbols</key>\n\t<true/>\n\t<key>teamID</key>\n\t<string>BFHF2F2UCF</string>\n\t<key>thinning</key>\n\t<string>&lt;none&gt;</string>\n
+            \       <key>provisioningProfiles</key>\n        <dict>\n        <key>com.smallcase.smartInvesting</key>\n
+            \       <string>Bitrise ios ad-hoc - (com.smallcase.smartInvesting)</string>\n
+            \       </dict>\n        <key>signingCertificate</key>\n        <string>Apple
+            Distribution: Smallcase Technologies Private Limited (BFHF2F2UCF)</string>\n
+            \       <key>signingStyle</key>\n        <string>manual</string>\n</dict>\n</plist>\n"
+    - firebase-app-distribution@0:
+        inputs:
+        - app_path: $BITRISE_IPA_PATH
+        - app: 1:615764606669:ios:1d34e3a1320eae16e7b384
+        - testers: ankit.deshmukh@smallcase.com
+        - groups: smallcase
+        - release_notes: $GIT_CLONE_COMMIT_MESSAGE_SUBJECT
+        - upgrade_firebase_tools: "true"
+        - is_debug: "true"
+        - firebase_token: $FIREBASE_TOKEN
+    - script@1:
+        title: Push new version and changelog
+        inputs:
+        - content: git remote add github git@github.com:smallcase/gw-mob-sdk-ios.git
+            && git push --follow-tags github dev
+    - script@1:
+        title: Notification
+        is_always_run: true
+        inputs:
+        - content: "#!/usr/bin/env bash\n# fail if any commands fails\nset -e\n# debug
+            log\nset -x\n\n# write your script here\necho \"Hello World!\"\n\n# or
+            run a script from your repository, like:\n# bash ./path/to/script.sh\n#
+            not just bash, e.g.:\n# ruby ./path/to/script.rb\nAPPLICATION_NAME=SCGateway-iOS\nSTANDARD_COMMIT=\"${GIT_CLONE_COMMIT_MESSAGE_SUBJECT//
+            /-}\" \nif (($BITRISE_BUILD_STATUS==0))\nthen\ncurl -i -X POST -H 'Content-Type:
+            application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#7CFC00\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'SUCCESS'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' | \"}]}}' -H 'Authorization: Bearer
+            icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\n\nelse\ncurl
+            -i -X POST -H 'Content-Type: application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#FF0000\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'FAILED'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' | \"}]}}' -H 'Authorization: Bearer
+            icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\nfi\n"
+    meta:
+      bitrise.io:
+        machine_type_id: g2-m1.4core
+        stack: osx-xcode-15.2.x
+  test:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@4: {}
+    - script@1:
+        title: Clone Smartinvesting-ios repo
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Hello World!"
+
+            # or run a script from your repository, like:
+            # bash ./path/to/script.sh
+            # not just bash, e.g.:
+            # ruby ./path/to/script.rb
+            git clone --single-branch --branch dev git@gitlab.com:smallcase/mobile/gateway/smartinvesting-ios.git
+    - script@1:
+        title: Version bump
+        inputs:
+        - content: |-
+            npm i -g standard-version
+            npm run release
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        title: Create SCGateway.framework
+        inputs:
+        - content: |+
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Hello World!"
+
+            rm -rf /Users/vagrant/git/SCGateway.framework
+            xcodebuild -project SCGateway.xcodeproj -scheme SCGatewayFramework -destination generic/platform=iOS -configuration Debug \
+            CODE_SIGNING_REQUIRED=NO
+
+            cp -R /Users/vagrant/git/SCGateway.framework /Users/vagrant/git/smartinvesting-ios
+
+
+
+    - script@1:
+        title: Copy SCGateway.framework to smartinvesting-ios
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Hello World!"
+
+            # or run a script from your repository, like:
+            # bash ./path/to/script.sh
+            # not just bash, e.g.:
+            # ruby ./path/to/script.rb
+            cp -R /Users/vagrant/git/SCGateway.framework /Users/vagrant/git/smartinvesting-ios
+    - cocoapods-install@2:
+        inputs:
+        - source_root_path: /Users/vagrant/git/smartinvesting-ios
+    - ios-auto-provision@1:
+        is_always_run: true
+        inputs:
+        - team_id: BFHF2F2UCF
+        - project_path: /Users/vagrant/git/smartinvesting-ios/WebViewTester.xcworkspace
+        - scheme: WebViewTester
+        - configuration: Release
+        - distribution_type: ad-hoc
+    - xcode-archive@3:
+        inputs:
+        - project_path: /Users/vagrant/git/smartinvesting-ios/WebViewTester.xcworkspace
+        - scheme: WebViewTester
+        - configuration: Release
+        - export_method: ad-hoc
+        - team_id: BFHF2F2UCF
+        - xcodebuild_options: '-allowProvisioningUpdates '
+        - custom_export_options_plist_content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE
+            plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist
+            version=\"1.0\">\n<dict>\n\t<key>compileBitcode</key>\n\t<true/>\n\t<key>destination</key>\n\t<string>export</string>\n\t<key>method</key>\n\t<string>ad-hoc</string>\n\t<key>signingStyle</key>\n\t<string>automatic</string>\n\t<key>stripSwiftSymbols</key>\n\t<true/>\n\t<key>teamID</key>\n\t<string>BFHF2F2UCF</string>\n\t<key>thinning</key>\n\t<string>&lt;none&gt;</string>\n</dict>\n</plist>\n"
+    - script@1:
+        title: Push new version and changelog
+        inputs:
+        - is_debug: "yes"
+        - content: git push --follow-tags origin testing_changelog
+    meta:
+      bitrise.io:
+        machine_type_id: g2-m1.4core
+        stack: osx-xcode-15.2.x
+  testXcode12:
+    steps:
+    - set-git-credentials@1:
+        inputs:
+        - git_email_address: infra@smallcase.com
+        - git_user_name: infra.smallcase
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@4: {}
+    - script@1:
+        title: Clone Smartinvesting-ios repo
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Hello World!"
+
+            # or run a script from your repository, like:
+            # bash ./path/to/script.sh
+            # not just bash, e.g.:
+            # ruby ./path/to/script.rb
+            git clone --single-branch --branch dev git@gitlab.com:smallcase/mobile/gateway/smartinvesting-ios.git
+    - script@1:
+        title: Version bump
+        inputs:
+        - content: |-
+            npm i -g standard-version
+            npm run release
+    - cache-pull@2: {}
+    - certificate-and-profile-installer@1: {}
+    - script@1:
+        title: Create SCGateway.framework
+        inputs:
+        - content: |+
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Hello World!"
+
+            rm -rf /Users/vagrant/git/SCGateway.framework
+            xcodebuild -project SCGateway.xcodeproj -scheme SCGatewayFramework -destination generic/platform=iOS -configuration Debug \
+            CODE_SIGNING_REQUIRED=NO
+
+            cp -R /Users/vagrant/git/SCGateway.framework /Users/vagrant/git/smartinvesting-ios
+
+
+
+    - script@1:
+        title: Copy SCGateway.framework to smartinvesting-ios
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            echo "Hello World!"
+
+            # or run a script from your repository, like:
+            # bash ./path/to/script.sh
+            # not just bash, e.g.:
+            # ruby ./path/to/script.rb
+            cp -R /Users/vagrant/git/SCGateway.framework /Users/vagrant/git/smartinvesting-ios
+    - cocoapods-install@2:
+        inputs:
+        - source_root_path: /Users/vagrant/git/smartinvesting-ios
+    - ios-auto-provision@1:
+        is_always_run: true
+        inputs:
+        - team_id: BFHF2F2UCF
+        - project_path: /Users/vagrant/git/smartinvesting-ios/WebViewTester.xcworkspace
+        - scheme: WebViewTester
+        - configuration: Release
+        - distribution_type: ad-hoc
+    - xcode-archive@3:
+        inputs:
+        - project_path: /Users/vagrant/git/smartinvesting-ios/WebViewTester.xcworkspace
+        - scheme: WebViewTester
+        - configuration: Release
+        - export_method: ad-hoc
+        - team_id: BFHF2F2UCF
+        - xcodebuild_options: '-allowProvisioningUpdates '
+        - custom_export_options_plist_content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE
+            plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist
+            version=\"1.0\">\n<dict>\n\t<key>compileBitcode</key>\n\t<true/>\n\t<key>destination</key>\n\t<string>export</string>\n\t<key>method</key>\n\t<string>ad-hoc</string>\n\t<key>signingStyle</key>\n\t<string>automatic</string>\n\t<key>stripSwiftSymbols</key>\n\t<true/>\n\t<key>teamID</key>\n\t<string>BFHF2F2UCF</string>\n\t<key>thinning</key>\n\t<string>&lt;none&gt;</string>\n</dict>\n</plist>\n"
+    - firebase-app-distribution@0:
+        inputs:
+        - app_path: $BITRISE_IPA_PATH
+        - app: 1:615764606669:ios:1d34e3a1320eae16e7b384
+        - testers: ""
+        - groups: smallcase
+        - release_notes: $GIT_CLONE_COMMIT_MESSAGE_SUBJECT
+        - firebase_token: $FIREBASE_TOKEN
+    - script@1:
+        title: Push new version and changelog
+        inputs:
+        - content: git push --follow-tags origin dev
+    - script@1:
+        title: Notification
+        is_always_run: true
+        inputs:
+        - content: "#!/usr/bin/env bash\n# fail if any commands fails\nset -e\n# debug
+            log\nset -x\n\n# write your script here\necho \"Hello World!\"\n\n# or
+            run a script from your repository, like:\n# bash ./path/to/script.sh\n#
+            not just bash, e.g.:\n# ruby ./path/to/script.rb\nAPPLICATION_NAME=SCGateway-iOS\nSTANDARD_COMMIT=\"${GIT_CLONE_COMMIT_MESSAGE_SUBJECT//
+            /-}\" \nif (($BITRISE_BUILD_STATUS==0))\nthen\ncurl -i -X POST -H 'Content-Type:
+            application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#7CFC00\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'SUCCESS'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' | \"}]}}' -H 'Authorization: Bearer
+            icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\n\nelse\ncurl
+            -i -X POST -H 'Content-Type: application/json' -d '{\"channel_id\":\"dru9769zrpfw9duwsi571a736c\",\"props\":{\"attachments\":
+            [{\"color\": \"#FF0000\" ,\"pretext\": \"**Bitrise SCGateway-iOS build
+            notification**\",\"text\":  \"| Build Status | 'FAILED'|\\n|--|--|\\n|
+            Application Name | '$APPLICATION_NAME' |\\n|Source Repo | '$BITRISE_GIT_BRANCH'
+            |\\n| Target Repo | '$BITRISEIO_GIT_BRANCH_DEST'|\\n|Build URL | '$BITRISE_BUILD_URL'
+            |\\n| Message | '$STANDARD_COMMIT' | \"}]}}' -H 'Authorization: Bearer
+            icw9uzgy8bry9y6sjrnmqrmnce' https://chat.smallcase.com/api/v4/posts\nfi\n"
+    meta:
+      bitrise.io:
+        machine_type_id: g2-m1.4core
+        stack: osx-xcode-15.2.x
