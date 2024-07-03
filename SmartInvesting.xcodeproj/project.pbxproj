@@ -72,8 +72,6 @@
 		36F7D4B922B10397003B357A /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F7D4B722B10397003B357A /* SearchCell.xib */; };
 		36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */; };
 		5F3E81B1B9193D38CB7C606A /* Pods_SmartInvestingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8802EE63438A0420F3127721 /* Pods_SmartInvestingTests.framework */; };
-		66DA7FFFA1FD2C8F9C088204 /* Pods_SmartInvesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FEF8E9F4A6D2FBEDDA8A71 /* Pods_SmartInvesting.framework */; };
-		88017AAC29657C0A00A6A83E /* USEAOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88017AAB29657C0A00A6A83E /* USEAOViewController.swift */; };
 		8817B54826E7C55A00DCFD33 /* Encodable+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */; };
 		8832CA992A0D05C0000508A7 /* LASScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8832CA982A0D05C0000508A7 /* LASScreen.swift */; };
 		8832CA9C2A0D0803000508A7 /* SmartInvestingLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8832CA9B2A0D0803000508A7 /* SmartInvestingLaunchScreen.swift */; };
