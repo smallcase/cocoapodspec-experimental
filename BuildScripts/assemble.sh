@@ -41,5 +41,5 @@ latest_archive_path="$archives_dir/$latest_archive/$(ls -t "$archives_dir/$lates
 xcodebuild \
   -exportArchive \
   -archivePath "$archivePath" \
-  -exportPath ./.build/Products/$SC_ASSEMBLE_SCHEME/SmartInvesting/ \
+  -exportPath ./.build/Products/$scheme/SmartInvesting/ \
   -exportOptionsPlist './ExportOptions.plist'
