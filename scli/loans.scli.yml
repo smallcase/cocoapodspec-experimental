@@ -1,5 +1,0 @@
-changelog:
-  outFile: ".build/changelog.md"
-  githubRepo: "smallcase/gw-mob-sdk-las-ios"
-  repoPath: "./loans"
-  excludePrefix: "Merge"
