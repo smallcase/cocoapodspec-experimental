@@ -233,6 +233,7 @@ workflows:
   z-install-scli:
     steps:
     - script@1:
+        run_if: not .IsPR
         title: Install SCLI
         inputs:
         - content: |-
