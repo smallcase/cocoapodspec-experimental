@@ -39,8 +39,6 @@ struct MixpanelUserDefaultsKeys {
     static let suiteName = "Mixpanel"
     static let prefix = "mixpanel"
     static let optOutStatus = "OptOutStatus"
-    static let automaticEventEnabled = "AutomaticEventEnabled"
-    static let automaticEventEnabledFromDecide = "AutomaticEventEnabledFromDecide"
     static let timedEvents = "timedEvents"
     static let superProperties = "superProperties"
     static let distinctID = "MPDistinctID"
@@ -53,16 +51,17 @@ struct MixpanelUserDefaultsKeys {
 
 class MixpanelPersistence {
     
-    let apiToken: String
+    let instanceName: String
     let mpdb: MPDB
+    private static let archivedClasses = [NSArray.self, NSDictionary.self, NSSet.self, NSString.self, NSDate.self, NSURL.self, NSNumber.self, NSNull.self]
     
-    init(token: String) {
-        apiToken = token
-        mpdb = MPDB.init(token: apiToken)
+    init(instanceName: String) {
+        self.instanceName = instanceName
+        mpdb = MPDB.init(token: instanceName)
     }
     
     deinit {
-       mpdb.close()
+        mpdb.close()
     }
     
     func closeDB() {
@@ -87,27 +86,18 @@ class MixpanelPersistence {
             entities = entities.filter { !($0["event"] as! String).hasPrefix("$ae_") }
         }
         if type == PersistenceType.people {
-            let distinctId = MixpanelPersistence.loadIdentity(apiToken: apiToken).distinctID
+            let distinctId = MixpanelPersistence.loadIdentity(instanceName: instanceName).distinctID
             return entities.map { entityWithDistinctId($0, distinctId: distinctId) }
         }
         return entities
     }
-
+    
     private func entityWithDistinctId(_ entity: InternalProperties, distinctId: String) -> InternalProperties {
         var result = entity;
         result["$distinct_id"] = distinctId
         return result
     }
     
-    func removeAutomaticEvents() {
-        let events = loadEntitiesInBatch(type: .events)
-        let ids = events.filter { ($0["event"] as! String).hasPrefix("$ae_") }
-            .map { $0["id"] as! Int32 }
-        if !ids.isEmpty {
-            removeEntitiesInBatch(type: .events, ids: ids)
-        }
-    }
-
     func removeEntitiesInBatch(type: PersistenceType, ids: [Int32]) {
         mpdb.deleteRows(type, ids: ids)
     }
@@ -122,119 +112,88 @@ class MixpanelPersistence {
         }
     }
     
-    static func saveOptOutStatusFlag(value: Bool, apiToken: String) {
+    static func saveOptOutStatusFlag(value: Bool, instanceName: String) {
         guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
             return
         }
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
+        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(instanceName)-"
         defaults.setValue(value, forKey: "\(prefix)\(MixpanelUserDefaultsKeys.optOutStatus)")
         defaults.synchronize()
     }
     
-    static func loadOptOutStatusFlag(apiToken: String) -> Bool? {
+    static func loadOptOutStatusFlag(instanceName: String) -> Bool? {
         guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
             return nil
         }
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
+        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(instanceName)-"
         return defaults.object(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.optOutStatus)") as? Bool
     }
     
-    static func saveAutomaticEventsEnabledFlag(value: Bool, fromDecide: Bool, apiToken: String) {
+    static func saveTimedEvents(timedEvents: InternalProperties, instanceName: String) {
         guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
             return
         }
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
-        if fromDecide {
-            defaults.setValue(value, forKey: "\(prefix)\(MixpanelUserDefaultsKeys.automaticEventEnabledFromDecide)")
-        } else {
-            defaults.setValue(value, forKey: "\(prefix)\(MixpanelUserDefaultsKeys.automaticEventEnabled)")
+        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(instanceName)-"
+        do {
+            let timedEventsData = try NSKeyedArchiver.archivedData(withRootObject: timedEvents, requiringSecureCoding: false)
+            defaults.set(timedEventsData, forKey: "\(prefix)\(MixpanelUserDefaultsKeys.timedEvents)")
+            defaults.synchronize()
+        } catch {
+            Logger.warn(message: "Failed to archive timed events")
         }
-        defaults.synchronize()
     }
     
-    static func loadAutomaticEventsEnabledFlag(apiToken: String) -> Bool {
-        #if TV_AUTO_EVENTS
-        return true
-        #else
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
-        guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
-            return true
-        }
-        if defaults.object(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.automaticEventEnabled)") == nil &&
-            defaults.object(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.automaticEventEnabledFromDecide)") == nil {
-            return true // default true
-        }
-        if defaults.object(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.automaticEventEnabled)") != nil {
-            return defaults.bool(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.automaticEventEnabled)")
-        } else { // if there is no local settings, get the value from Decide
-            return defaults.bool(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.automaticEventEnabledFromDecide)")
-        }
-        #endif
-    }
-    
-    static func automaticEventsFlagIsSet(apiToken: String) -> Bool {
-        #if TV_AUTO_EVENTS
-        return true
-        #else
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
-        guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
-            return false // no user defaults at all
-        }
-        if defaults.object(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.automaticEventEnabled)") == nil &&
-            defaults.object(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.automaticEventEnabledFromDecide)") == nil {
-            return false // neither flag is set
-        }
-        return true // at least one of the flags is set
-        #endif
-    }
- 
-    static func saveTimedEvents(timedEvents: InternalProperties, apiToken: String) {
-        guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
-            return
-        }
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
-        let timedEventsData = NSKeyedArchiver.archivedData(withRootObject: timedEvents)
-        defaults.set(timedEventsData, forKey: "\(prefix)\(MixpanelUserDefaultsKeys.timedEvents)")
-        defaults.synchronize()
-    }
-    
-    static func loadTimedEvents(apiToken: String) -> InternalProperties {
+    static func loadTimedEvents(instanceName: String) -> InternalProperties {
         guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
             return InternalProperties()
         }
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
+        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(instanceName)-"
         guard let timedEventsData  = defaults.data(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.timedEvents)") else {
             return InternalProperties()
         }
-        return NSKeyedUnarchiver.unarchiveObject(with: timedEventsData) as? InternalProperties ?? InternalProperties()
+        do {
+            return try NSKeyedUnarchiver.unarchivedObject(ofClasses: archivedClasses, from: timedEventsData) as? InternalProperties ?? InternalProperties()
+        } catch {
+            Logger.warn(message: "Failed to unarchive timed events")
+            return InternalProperties()
+        }
     }
     
-    static func saveSuperProperties(superProperties: InternalProperties, apiToken: String) {
+    static func saveSuperProperties(superProperties: InternalProperties, instanceName: String) {
         guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
             return
         }
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
-        let superPropertiesData = NSKeyedArchiver.archivedData(withRootObject: superProperties)
-        defaults.set(superPropertiesData, forKey: "\(prefix)\(MixpanelUserDefaultsKeys.superProperties)")
-        defaults.synchronize()
+        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(instanceName)-"
+        do {
+            let superPropertiesData = try NSKeyedArchiver.archivedData(withRootObject: superProperties, requiringSecureCoding: false)
+            defaults.set(superPropertiesData, forKey: "\(prefix)\(MixpanelUserDefaultsKeys.superProperties)")
+            defaults.synchronize()
+        } catch {
+            Logger.warn(message: "Failed to archive super properties")
+        }
     }
     
-    static func loadSuperProperties(apiToken: String) -> InternalProperties {
+    static func loadSuperProperties(instanceName: String) -> InternalProperties {
         guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
             return InternalProperties()
         }
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
+        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(instanceName)-"
         guard let superPropertiesData  = defaults.data(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.superProperties)") else {
             return InternalProperties()
         }
-        return NSKeyedUnarchiver.unarchiveObject(with: superPropertiesData) as? InternalProperties ?? InternalProperties()
+        do {
+            return try NSKeyedUnarchiver.unarchivedObject(ofClasses: archivedClasses, from: superPropertiesData) as? InternalProperties ?? InternalProperties()
+        } catch {
+            Logger.warn(message: "Failed to unarchive super properties")
+            return InternalProperties()
+        }
     }
     
-    static func saveIdentity(_ mixpanelIdentity: MixpanelIdentity, apiToken: String) {
+    static func saveIdentity(_ mixpanelIdentity: MixpanelIdentity, instanceName: String) {
         guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
             return
         }
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
+        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(instanceName)-"
         defaults.set(mixpanelIdentity.distinctID, forKey: "\(prefix)\(MixpanelUserDefaultsKeys.distinctID)")
         defaults.set(mixpanelIdentity.peopleDistinctID, forKey: "\(prefix)\(MixpanelUserDefaultsKeys.peopleDistinctID)")
         defaults.set(mixpanelIdentity.anonymousId, forKey: "\(prefix)\(MixpanelUserDefaultsKeys.anonymousId)")
@@ -244,7 +203,7 @@ class MixpanelPersistence {
         defaults.synchronize()
     }
     
-    static func loadIdentity(apiToken: String) -> MixpanelIdentity {
+    static func loadIdentity(instanceName: String) -> MixpanelIdentity {
         guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
             return MixpanelIdentity.init(distinctID: "",
                                          peopleDistinctID: nil,
@@ -253,7 +212,7 @@ class MixpanelPersistence {
                                          alias: nil,
                                          hadPersistedDistinctId: nil)
         }
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
+        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(instanceName)-"
         return MixpanelIdentity.init(
             distinctID: defaults.string(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.distinctID)") ?? "",
             peopleDistinctID: defaults.string(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.peopleDistinctID)"),
@@ -263,19 +222,17 @@ class MixpanelPersistence {
             hadPersistedDistinctId: defaults.bool(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.hadPersistedDistinctId)"))
     }
     
-    static func deleteMPUserDefaultsData(apiToken: String) {
+    static func deleteMPUserDefaultsData(instanceName: String) {
         guard let defaults = UserDefaults(suiteName: MixpanelUserDefaultsKeys.suiteName) else {
             return
         }
-        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(apiToken)-"
+        let prefix = "\(MixpanelUserDefaultsKeys.prefix)-\(instanceName)-"
         defaults.removeObject(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.distinctID)")
         defaults.removeObject(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.peopleDistinctID)")
         defaults.removeObject(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.anonymousId)")
         defaults.removeObject(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.userID)")
         defaults.removeObject(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.alias)")
         defaults.removeObject(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.hadPersistedDistinctId)")
-        defaults.removeObject(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.automaticEventEnabled)")
-        defaults.removeObject(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.automaticEventEnabledFromDecide)")
         defaults.removeObject(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.optOutStatus)")
         defaults.removeObject(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.timedEvents)")
         defaults.removeObject(forKey: "\(prefix)\(MixpanelUserDefaultsKeys.superProperties)")
@@ -299,75 +256,69 @@ class MixpanelPersistence {
              hadPersistedDistinctId,
              peopleDistinctId,
              peopleUnidentifiedQueue,
-             optOutStatus,
-             automaticEventsEnabled) = unarchiveFromLegacy()
+             optOutStatus) = unarchiveFromLegacy()
         saveEntities(eventsQueue, type: PersistenceType.events)
         saveEntities(peopleUnidentifiedQueue, type: PersistenceType.people, flag: PersistenceConstant.unIdentifiedFlag)
         saveEntities(peopleQueue, type: PersistenceType.people)
         saveEntities(groupsQueue, type: PersistenceType.groups)
-        MixpanelPersistence.saveSuperProperties(superProperties: superProperties, apiToken: apiToken)
-        MixpanelPersistence.saveTimedEvents(timedEvents: timedEvents, apiToken: apiToken)
+        MixpanelPersistence.saveSuperProperties(superProperties: superProperties, instanceName: instanceName)
+        MixpanelPersistence.saveTimedEvents(timedEvents: timedEvents, instanceName: instanceName)
         MixpanelPersistence.saveIdentity(MixpanelIdentity.init(
-                        distinctID: distinctId,
-                        peopleDistinctID: peopleDistinctId,
-                        anonymousId: anonymousId,
-                        userId: userId,
-                        alias: alias,
-                        hadPersistedDistinctId: hadPersistedDistinctId), apiToken: apiToken)
+            distinctID: distinctId,
+            peopleDistinctID: peopleDistinctId,
+            anonymousId: anonymousId,
+            userId: userId,
+            alias: alias,
+            hadPersistedDistinctId: hadPersistedDistinctId), instanceName: instanceName)
         if let optOutFlag = optOutStatus {
-            MixpanelPersistence.saveOptOutStatusFlag(value: optOutFlag, apiToken: apiToken)
-        }
-        if let automaticEventsFlag = automaticEventsEnabled {
-            MixpanelPersistence.saveAutomaticEventsEnabledFlag(value: automaticEventsFlag, fromDecide: false, apiToken: apiToken)
+            MixpanelPersistence.saveOptOutStatusFlag(value: optOutFlag, instanceName: instanceName)
         }
         return
     }
     
     private func filePathWithType(_ type: String) -> String? {
-        let filename = "mixpanel-\(apiToken)-\(type)"
+        let filename = "mixpanel-\(instanceName)-\(type)"
         let manager = FileManager.default
-
-        #if os(iOS)
-            let url = manager.urls(for: .libraryDirectory, in: .userDomainMask).last
-        #else
-            let url = manager.urls(for: .cachesDirectory, in: .userDomainMask).last
-        #endif // os(iOS)
+        
+#if os(iOS)
+        let url = manager.urls(for: .libraryDirectory, in: .userDomainMask).last
+#else
+        let url = manager.urls(for: .cachesDirectory, in: .userDomainMask).last
+#endif // os(iOS)
         guard let urlUnwrapped = url?.appendingPathComponent(filename).path else {
             return nil
         }
-
+        
         return urlUnwrapped
     }
     
     private func unarchiveFromLegacy() -> (eventsQueue: Queue,
-                                            peopleQueue: Queue,
-                                            groupsQueue: Queue,
-                                            superProperties: InternalProperties,
-                                            timedEvents: InternalProperties,
-                                            distinctId: String,
-                                            anonymousId: String?,
-                                            userId: String?,
-                                            alias: String?,
-                                            hadPersistedDistinctId: Bool?,
-                                            peopleDistinctId: String?,
-                                            peopleUnidentifiedQueue: Queue,
-                                            optOutStatus: Bool?,
-                                            automaticEventsEnabled: Bool?) {
+                                           peopleQueue: Queue,
+                                           groupsQueue: Queue,
+                                           superProperties: InternalProperties,
+                                           timedEvents: InternalProperties,
+                                           distinctId: String,
+                                           anonymousId: String?,
+                                           userId: String?,
+                                           alias: String?,
+                                           hadPersistedDistinctId: Bool?,
+                                           peopleDistinctId: String?,
+                                           peopleUnidentifiedQueue: Queue,
+                                           optOutStatus: Bool?) {
         let eventsQueue = unarchiveEvents()
         let peopleQueue = unarchivePeople()
         let groupsQueue = unarchiveGroups()
         let optOutStatus = unarchiveOptOutStatus()
-
+        
         let (superProperties,
-            timedEvents,
-            distinctId,
-            anonymousId,
-            userId,
-            alias,
-            hadPersistedDistinctId,
-            peopleDistinctId,
-            peopleUnidentifiedQueue,
-            automaticEventsEnabled) = unarchiveProperties()
+             timedEvents,
+             distinctId,
+             anonymousId,
+             userId,
+             alias,
+             hadPersistedDistinctId,
+             peopleDistinctId,
+             peopleUnidentifiedQueue) = unarchiveProperties()
         
         if let eventsFile = filePathWithType(PersistenceType.events.rawValue) {
             removeArchivedFile(atPath: eventsFile)
@@ -397,14 +348,13 @@ class MixpanelPersistence {
                 hadPersistedDistinctId,
                 peopleDistinctId,
                 peopleUnidentifiedQueue,
-                optOutStatus,
-                automaticEventsEnabled)
+                optOutStatus)
     }
-
+    
     private func unarchiveWithFilePath(_ filePath: String) -> Any? {
         if #available(iOS 11.0, macOS 10.13, watchOS 4.0, tvOS 11.0, *) {
             guard let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
-                  let unarchivedData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)  else {
+                  let unarchivedData = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: MixpanelPersistence.archivedClasses, from: data) else {
                 Logger.info(message: "Unable to read file at path: \(filePath)")
                 removeArchivedFile(atPath: filePath)
                 return nil
@@ -419,7 +369,7 @@ class MixpanelPersistence {
             return unarchivedData
         }
     }
-
+    
     private func removeArchivedFile(atPath filePath: String) {
         do {
             try FileManager.default.removeItem(atPath: filePath)
@@ -427,92 +377,88 @@ class MixpanelPersistence {
             Logger.info(message: "Unable to remove file at path: \(filePath), error: \(err)")
         }
     }
-
+    
     private func unarchiveEvents() -> Queue {
         let data = unarchiveWithType(PersistenceType.events.rawValue)
         return data as? Queue ?? []
     }
-
+    
     private func unarchivePeople() -> Queue {
         let data = unarchiveWithType(PersistenceType.people.rawValue)
         return data as? Queue ?? []
     }
-
+    
     private func unarchiveGroups() -> Queue {
         let data = unarchiveWithType(PersistenceType.groups.rawValue)
         return data as? Queue ?? []
     }
-
+    
     private func unarchiveOptOutStatus() -> Bool? {
         return unarchiveWithType("optOutStatus") as? Bool
     }
-
+    
     private func unarchiveProperties() -> (InternalProperties,
-        InternalProperties,
-        String,
-        String?,
-        String?,
-        String?,
-        Bool?,
-        String?,
-        Queue,
-        Bool?) {
-            let properties = unarchiveWithType("properties") as? InternalProperties
-            let superProperties =
-                properties?["superProperties"] as? InternalProperties ?? InternalProperties()
-            let timedEvents =
-                properties?["timedEvents"] as? InternalProperties ?? InternalProperties()
-            let distinctId =
-                properties?["distinctId"] as? String ?? ""
-            let anonymousId =
-                properties?["anonymousId"] as? String ?? nil
-            let userId =
-                properties?["userId"] as? String ?? nil
-            let alias =
-                properties?["alias"] as? String ?? nil
-            let hadPersistedDistinctId =
-                properties?["hadPersistedDistinctId"] as? Bool ?? nil
-            let peopleDistinctId =
-                properties?["peopleDistinctId"] as? String ?? nil
-            let peopleUnidentifiedQueue =
-                properties?["peopleUnidentifiedQueue"] as? Queue ?? Queue()
-            let automaticEventsEnabled =
-                properties?["automaticEvents"] as? Bool ?? nil
+                                           InternalProperties,
+                                           String,
+                                           String?,
+                                           String?,
+                                           String?,
+                                           Bool?,
+                                           String?,
+                                           Queue) {
+        let properties = unarchiveWithType("properties") as? InternalProperties
+        let superProperties =
+        properties?["superProperties"] as? InternalProperties ?? InternalProperties()
+        let timedEvents =
+        properties?["timedEvents"] as? InternalProperties ?? InternalProperties()
+        let distinctId =
+        properties?["distinctId"] as? String ?? ""
+        let anonymousId =
+        properties?["anonymousId"] as? String ?? nil
+        let userId =
+        properties?["userId"] as? String ?? nil
+        let alias =
+        properties?["alias"] as? String ?? nil
+        let hadPersistedDistinctId =
+        properties?["hadPersistedDistinctId"] as? Bool ?? nil
+        let peopleDistinctId =
+        properties?["peopleDistinctId"] as? String ?? nil
+        let peopleUnidentifiedQueue =
+        properties?["peopleUnidentifiedQueue"] as? Queue ?? Queue()
         
-            return (superProperties,
-                    timedEvents,
-                    distinctId,
-                    anonymousId,
-                    userId,
-                    alias,
-                    hadPersistedDistinctId,
-                    peopleDistinctId,
-                    peopleUnidentifiedQueue,
-                    automaticEventsEnabled)
+        return (superProperties,
+                timedEvents,
+                distinctId,
+                anonymousId,
+                userId,
+                alias,
+                hadPersistedDistinctId,
+                peopleDistinctId,
+                peopleUnidentifiedQueue)
     }
-
+    
     private func unarchiveWithType(_ type: String) -> Any? {
         let filePath = filePathWithType(type)
         guard let path = filePath else {
             Logger.info(message: "bad file path, cant fetch file")
             return nil
         }
-
+        
         guard let unarchivedData = unarchiveWithFilePath(path) else {
             Logger.info(message: "can't unarchive file")
             return nil
         }
-
+        
         return unarchivedData
     }
     
     private func needMigration() -> Bool {
         return fileExists(type: LegacyArchiveType.events.rawValue) ||
-            fileExists(type: LegacyArchiveType.people.rawValue) ||
-            fileExists(type: LegacyArchiveType.people.rawValue) ||
-            fileExists(type: LegacyArchiveType.groups.rawValue) ||
-            fileExists(type: LegacyArchiveType.properties.rawValue) ||
-            fileExists(type: LegacyArchiveType.optOutStatus.rawValue)
+        fileExists(type: LegacyArchiveType.people.rawValue) ||
+        fileExists(type: LegacyArchiveType.people.rawValue) ||
+        fileExists(type: LegacyArchiveType.groups.rawValue) ||
+        fileExists(type: LegacyArchiveType.properties.rawValue) ||
+        fileExists(type: LegacyArchiveType.optOutStatus.rawValue)
     }
     
     private func fileExists(type: String) -> Bool {

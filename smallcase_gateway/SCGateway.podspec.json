@@ -17,10 +17,7 @@
   },
   "dependencies": {
     "Mixpanel-swift": [
-      "3.3.0"
-    ],
-    "SCLoans": [
-      "~> 2.0"
+      "4.2.7"
     ]
   }
 }
