@@ -24,8 +24,6 @@ trigger_map:
   workflow: test
 workflows:
   assemble:
-    envs:
-    - SC_ASSEMBLE_SCHEME: $BITRISE_SCHEME
     steps:
     - script@1:
         title: Assemble

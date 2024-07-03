@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-scheme="${SC_ASSEMBLE_SCHEME:-SmartInvesting}"
+scheme="${BITRISE_SCHEME:-SmartInvesting}"
 
 if [ -d ".build" ]; then
     find .build -mindepth 1 -delete
