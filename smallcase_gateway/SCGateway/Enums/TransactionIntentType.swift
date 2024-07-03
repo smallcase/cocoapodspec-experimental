@@ -14,6 +14,7 @@ public enum TransactionIntent {
     case onboarding(response: String)
     case subscription(_ response: String)
     case transaction(smallcaseAuthToken: String, transactionData: Transaction.SuccessData)
+    case mfTransaction(data: String?)
     case holdingsImport(smallcaseAuthToken: String, broker: String, status: Bool,transactionId: String, signup: Bool?)
     case fetchFunds(smallcaseAuthToken:String, fund:Double, transactionId:String, signup: Bool?)
     case authoriseHoldings(smallcaseAuthToken:String, status:Bool,transactionId:String, signup: Bool?)

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -183,6 +183,7 @@
 		A970031324ED0A9D00B4C6B0 /* GraphikApp-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A970030C24ED0A9D00B4C6B0 /* GraphikApp-MediumItalic.ttf */; };
 		A970031424ED0A9D00B4C6B0 /* GraphikApp-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A970030D24ED0A9D00B4C6B0 /* GraphikApp-Semibold.ttf */; };
 		A970031524ED0A9D00B4C6B0 /* GraphikApp-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A970030E24ED0A9D00B4C6B0 /* GraphikApp-Medium.ttf */; };
+		AB005BD32C3562E9000B75F7 /* CodableWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB005BD22C3562E9000B75F7 /* CodableWrappers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -342,6 +343,7 @@
 		A970030C24ED0A9D00B4C6B0 /* GraphikApp-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GraphikApp-MediumItalic.ttf"; sourceTree = "<group>"; };
 		A970030D24ED0A9D00B4C6B0 /* GraphikApp-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GraphikApp-Semibold.ttf"; sourceTree = "<group>"; };
 		A970030E24ED0A9D00B4C6B0 /* GraphikApp-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GraphikApp-Medium.ttf"; sourceTree = "<group>"; };
+		AB005BD22C3562E9000B75F7 /* CodableWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableWrappers.swift; sourceTree = "<group>"; };
 		C474DC02E84DBB541349D5D7 /* Pods-SCGateway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCGateway.debug.xcconfig"; path = "Target Support Files/Pods-SCGateway/Pods-SCGateway.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -683,6 +685,7 @@
 				3677E85C24BDC99C002FD96B /* DeviceType.swift */,
 				366E86EC24E44A04006EB915 /* ConsentTextHelper.swift */,
 				1505A43B28DC75C800BE7856 /* MFTransactionStatusResponse.swift */,
+				AB005BD22C3562E9000B75F7 /* CodableWrappers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1204,6 +1207,7 @@
 				88E851D626B19DEA005B9691 /* SmallplugCoordinatorVMDelegate.swift in Sources */,
 				36DC3F392382B8C80058DE04 /* TransactionErrorData.swift in Sources */,
 				888BC309286C693B00D8CF2C /* BrokerChooserViewController+BrokerSelectVMDelegate.swift in Sources */,
+				AB005BD32C3562E9000B75F7 /* CodableWrappers.swift in Sources */,
 				36589766238519A10083F299 /* UIViewController+ext.swift in Sources */,
 				88337C7428FEA07F00B1B18D /* USEAccountOpeningConstants.swift in Sources */,
 				36AEFD81237D3F8500E45E63 /* AnchoredConstraints.swift in Sources */,
