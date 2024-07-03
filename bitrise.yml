@@ -17,6 +17,11 @@ meta:
   bitrise.io:
     machine_type_id: g2-m1.4core
     stack: osx-xcode-15.2.x
+trigger_map:
+- push_branch: dev
+  workflow: test
+- pull_request_source_branch: '*'
+  workflow: test
 workflows:
   assemble:
     envs:
@@ -213,6 +218,20 @@ workflows:
               echo "Releasing SCLoans..."
               $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$LOANS_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$loans_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
             fi
+  test:
+    before_run:
+    - ci-setup
+    steps:
+    - script@1:
+        title: Validate
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -e
+            set -o pipefail
+            set -x
+
+            sh BuildScripts/test.sh
   z-install-scli:
     steps:
     - script@1:
