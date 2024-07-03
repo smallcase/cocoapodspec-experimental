@@ -1,0 +1,79 @@
+name: Custom Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      scheme:
+        type: choice
+        description: "Scheme"
+        required: true
+        options:
+          - release
+          - debug
+      repo:
+        description: "The cocoa repo name"
+        default: "sc-cocoapodspec-internal"
+      repoUrl:
+        description: "The cocoa repo url (SSH)"
+        default: "git@github.com:smallcase/cocoapodspec-internal.git"
+      remix:
+        description: "The remix name of the SDK"
+        default: "internal"
+      scg:
+        description: "SCGateway"
+        type: boolean
+        default: false
+      loans:
+        description: "SCLoans"
+        type: boolean
+        default: false
+      bitriseWorkflow:
+        type: choice
+        description: "Bitrise Workflow"
+        required: true
+        options:
+          - none
+          - release-app
+          - release-sdks
+      scliVersion:
+        description: "scli version"
+        default: "v0.2.0"
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Git configuration
+        run: |
+          git config --global user.name "Github Action Bot"
+          git config --global user.email "gatewaytech@smallcase.com"
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install scli
+        uses: ./.github/actions/install-scli
+        with:
+          token: "${{ secrets.GH_ACCESS_TOKEN }}"
+          version: "${{ github.event.inputs.scliVersion }}"
+
+      - name: Trigger Bitrise Workflow
+        if: ${{ inputs.bitriseWorkflow != 'none' }}
+        run: |
+          WORKFLOW_ID="${{ inputs.bitriseWorkflow }}"
+          
+          release_scg="${{ inputs.scg }}"
+          scg_podspec="smallcase_gateway/podspecs/${{ github.event.inputs.scheme }}/SCGateway-${{ github.event.inputs.remix }}.podspec.json"
+          release_loans="${{ inputs.loans }}"
+          loans_podspec="loans/podspecs/${{ github.event.inputs.scheme }}/SCLoans-${{ github.event.inputs.remix }}.podspec.json"
+
+          envs="OVERRIDE_RELEASE_SCG=$release_scg,\
+          OVERRIDE_SCG_PODSPEC=$scg_podspec,\
+          OVERRIDE_RELEASE_LOANS=$release_loans,\
+          OVERRIDE_LOANS_PODSPEC=$loans_podspec,\
+          OVERRIDE_COCOA_REPO_URL=${{ inputs.repoUrl }},\
+          OVERRIDE_COCOA_REPO=${{ inputs.repo }}"
+
+          scli triggerBitrise --appSlug "${{ vars.BITRISE_APP_SLUG }}" --workflowId "$WORKFLOW_ID" --branch "${{ github.head_ref || github.ref_name }}" \
+          --bitriseToken "${{ secrets.BITRISE_API_TOKEN }}" \
+          --envs "$envs" \
+          --message "$(git log -1 --pretty=%B%n%H)"
