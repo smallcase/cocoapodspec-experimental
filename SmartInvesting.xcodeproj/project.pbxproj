@@ -256,7 +256,6 @@
 			files = (
 				157BA5352C1594170020ECF5 /* Loans.framework in Frameworks */,
 				157BA5372C1594170020ECF5 /* SCGateway.framework in Frameworks */,
-				66DA7FFFA1FD2C8F9C088204 /* Pods_SmartInvesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,7 +978,6 @@
 				8872E8092878568B0002B389 /* Dictionary+Ext.swift in Sources */,
 				36F7D44722A9485A003B357A /* ViewController.swift in Sources */,
 				36DC3F2B2382A5AA0058DE04 /* Constituent.swift in Sources */,
-				88017AAC29657C0A00A6A83E /* USEAOViewController.swift in Sources */,
 				366C262E2464892300C638B1 /* PublicSmallcaseCell.swift in Sources */,
 				36DC3F432382E3B60058DE04 /* LoadingOverlay.swift in Sources */,
 				36F7D4AD22B0E936003B357A /* Stock.swift in Sources */,
