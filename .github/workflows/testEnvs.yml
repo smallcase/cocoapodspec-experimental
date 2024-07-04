@@ -15,4 +15,4 @@ jobs:
 
       - name: Display Repo ENV vars
         run: |
-          echo ${{ vars }}
+          echo "${{ toJSON(vars) }}"
