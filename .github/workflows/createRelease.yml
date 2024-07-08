@@ -3,8 +3,12 @@ name: Create Release
 on:
   workflow_dispatch:
     inputs:
-      version:
-        description: 'Release version'
+      scgVersion:
+        description: 'Scg version'
+        required: true
+        type: string
+      loansVersion:
+        description: 'Loans version'
         required: true
         type: string
 
@@ -19,10 +23,27 @@ jobs:
         fetch-depth: 1
 
     - name: Create and push release branch
+      id: create_branch
       run: |
         git branch | cat
         git log --max-count=5 "--pretty=format:%H%n%an%n%ad%n%B" | cat
-        RELEASE_BRANCH=release/${{ github.event.inputs.version }}
+        
+        scg="scg-v${{ inputs.scgVersion }}"
+        loans="loans-v${{ inputs.loansVersion }}"
+        
+        RELEASE_BRANCH="release/"
+        release_version=""
+        if [[ -n "$scg" && -n "$loans" ]]; then
+          release_version="${scg}_${loans}"
+          RELEASE_BRANCH+="$release_version"
+        else
+          release_version="${scg}${loans}"
+          RELEASE_BRANCH+="$release_version"
+        fi
+        
+        echo "::set-output name=release_branch::$RELEASE_BRANCH"
+        echo "::set-output name=release_version::$release_version"
+        
         git checkout -b ${RELEASE_BRANCH}
         
         git branch | cat
@@ -34,4 +55,6 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        gh pr create --base dev --head release/${{ github.event.inputs.version }} --title "Release/${{ github.event.inputs.version }}" --body "" --label "release"
+        branch="${{ steps.create_branch.outputs.release_branch }}"
+        release_version="${{ steps.create_branch.outputs.release_version }}"
+        gh pr create --base prod --head "$branch" --title "Release/$release_version" --body "" --label "release"
