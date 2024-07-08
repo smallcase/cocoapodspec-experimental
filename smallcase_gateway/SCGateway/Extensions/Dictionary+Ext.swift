@@ -25,4 +25,13 @@ extension Dictionary {
         }
     }
     
+    mutating func combine(dict: [Key: Value]?) {
+        guard let safeDict = dict else {
+            return
+        }
+        for (k, v) in safeDict {
+            updateValue(v, forKey: k)
+        }
+    }
+    
 }

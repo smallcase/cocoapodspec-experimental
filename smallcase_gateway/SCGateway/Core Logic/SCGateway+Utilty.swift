@@ -75,40 +75,40 @@ internal extension SCGateway {
             
             getRedirectParams(paramString: stringQueryForRedirectParams, brokerName: brokerConfig.broker) {result in
                 switch result {
-                    case .success(let response):
-                        guard let redirectParams = response.data?.redirectParams else {
-                            completion(.failure(TransactionError.invalidUrl))
-                            return
+                case .success(let response):
+                    guard let redirectParams = response.data?.redirectParams else {
+                        completion(.failure(TransactionError.invalidUrl))
+                        return
+                    }
+                    
+                    var urlComponent = URLComponents(string: brokerConfig.baseLoginURL + "?\(redirectParams)" )
+                    
+                    if SessionManager.utmParams != nil {
+                        var params: [URLQueryItem] = urlComponent?.queryItems ?? []
+                        
+                        for (key, value) in SessionManager.utmParams! {
+                            params.append(URLQueryItem(name: key, value: value))
                         }
-                        
-                        var urlComponent = URLComponents(string: brokerConfig.baseLoginURL + "?\(redirectParams)" )
-                        
-                        if SessionManager.utmParams != nil {
-                            var params: [URLQueryItem] = urlComponent?.queryItems ?? []
-                            
-                            for (key, value) in SessionManager.utmParams! {
-                                params.append(URLQueryItem(name: key, value: value))
-                            }
-                            urlComponent?.queryItems = params
-                        }
-                        if SessionManager.baseEnvironment == .staging {
-                            var params: [URLQueryItem] = urlComponent?.queryItems ?? []
-                            params.append(URLQueryItem(name: "staging",value: "true"))
-                            urlComponent?.queryItems = params
-                        }
-                        
-                        guard let url = urlComponent?.url else {
-                            completion(.failure(TransactionError.invalidUrl))
-                            return
-                        }
-                        
-                        //                           print(url)
-                        completion(.success(url))
-                        
-                    case .failure(let error):
-                        print("error: \(error)")
-                        completion(.failure(error))
-                        
+                        urlComponent?.queryItems = params
+                    }
+                    if SessionManager.baseEnvironment == .staging {
+                        var params: [URLQueryItem] = urlComponent?.queryItems ?? []
+                        params.append(URLQueryItem(name: "staging",value: "true"))
+                        urlComponent?.queryItems = params
+                    }
+                    
+                    guard let url = urlComponent?.url else {
+                        completion(.failure(TransactionError.invalidUrl))
+                        return
+                    }
+                    
+                    //                           print(url)
+                    completion(.success(url))
+                    
+                case .failure(let error):
+                    print("error: \(error)")
+                    completion(.failure(error))
+                    
                 }
             }
         }
@@ -134,49 +134,49 @@ internal extension SCGateway {
         
         getRedirectParams(paramString: stringQueryForRedirectParams, brokerName: brokerConfig.broker) {result in
             switch result {
-                case .success(let response):
+            case .success(let response):
+                
+                guard let redirectParams = response.data?.redirectParams else {
+                    completion(.failure(TransactionError.invalidUrl))
+                    return
+                }
+                
+                var urlComponent = URLComponents(string: brokerConfig.platformURL! + stringQueryForRedirectParams)
+                
+                if isleprechaunActivated {
+                    urlComponent = URLComponents(string: brokerConfig.leprechaunURL! + stringQueryForRedirectParams)
+                } else {
                     
-                    guard let redirectParams = response.data?.redirectParams else {
-                        completion(.failure(TransactionError.invalidUrl))
-                        return
-                    }
-                    
-                    var urlComponent = URLComponents(string: brokerConfig.platformURL! + stringQueryForRedirectParams)
-                    
-                    if isleprechaunActivated {
-                        urlComponent = URLComponents(string: brokerConfig.leprechaunURL! + stringQueryForRedirectParams)
+                    if brokerConfig.isIframePlatform {
+                        urlComponent = URLComponents(string: brokerConfig.platformURL! + "/?\(redirectParams)" )
                     } else {
-                        
-                        if brokerConfig.isIframePlatform {
-                            urlComponent = URLComponents(string: brokerConfig.platformURL! + "/?\(redirectParams)" )
-                        } else {
-                            urlComponent = URLComponents(string: brokerConfig.platformURL! + stringQueryForRedirectParams)
-                        }
+                        urlComponent = URLComponents(string: brokerConfig.platformURL! + stringQueryForRedirectParams)
                     }
-                    
-                    var params: [URLQueryItem] = urlComponent?.queryItems ?? []
-                    
-                    if SessionManager.baseEnvironment == .staging {
-                        params.append(URLQueryItem(name: "staging",value: "true"))
-                    }
-                    
-                    params.append(URLQueryItem(name: "gateway", value: SessionManager.gatewayName!))
-                    params.append(URLQueryItem(name: "gatewayName", value: SessionManager.gateway!.displayName!))
-                    params.append(URLQueryItem(name: "nativeLoginEnabled", value: isNativeLoginEnabled.description))
-                    
-                    urlComponent?.queryItems = params
-                    
-                    guard let url = urlComponent?.url else {
-                        completion(.failure(TransactionError.invalidUrl))
-                        return
-                    }
-                    
-                    completion(.success(url))
-                    
-                case .failure(let error):
-                    print("error: \(error)")
-                    completion(.failure(error))
-                    
+                }
+                
+                var params: [URLQueryItem] = urlComponent?.queryItems ?? []
+                
+                if SessionManager.baseEnvironment == .staging {
+                    params.append(URLQueryItem(name: "staging",value: "true"))
+                }
+                
+                params.append(URLQueryItem(name: "gateway", value: SessionManager.gatewayName!))
+                params.append(URLQueryItem(name: "gatewayName", value: SessionManager.gateway!.displayName!))
+                params.append(URLQueryItem(name: "nativeLoginEnabled", value: isNativeLoginEnabled.description))
+                
+                urlComponent?.queryItems = params
+                
+                guard let url = urlComponent?.url else {
+                    completion(.failure(TransactionError.invalidUrl))
+                    return
+                }
+                
+                completion(.success(url))
+                
+            case .failure(let error):
+                print("error: \(error)")
+                completion(.failure(error))
+                
             }
         }
     }
@@ -240,40 +240,40 @@ internal extension SCGateway {
             
             getRedirectParams(paramString: stringQueryForRedirectParams, brokerName: brokerConfig.broker) {result in
                 switch result {
-                    case .success(let response):
+                case .success(let response):
+                    
+                    guard let redirectParams = response.data?.redirectParams else {
+                        completion(.failure(TransactionError.invalidUrl))
+                        return
+                    }
+                    
+                    var urlComponent = URLComponents(string: brokerConfig.baseLoginURL + "?\(redirectParams)%26nativeLoginEnabled%3D\(SessionManager.nativeBrokerLoginEnabled)%26intent%3D\(SessionManager.currentIntentString ?? "")")
+                    
+                    if SessionManager.baseEnvironment == .staging {
+                        urlComponent = URLComponents(string: brokerConfig.baseLoginURL + "?\(redirectParams)%26staging%3Dtrue%26nativeLoginEnabled%3D\(SessionManager.nativeBrokerLoginEnabled)%26intent%3D\(SessionManager.currentIntentString ?? "")")
+                    }
+                    
+                    if SessionManager.utmParams != nil {
+                        var params: [URLQueryItem] = urlComponent?.queryItems ?? []
                         
-                        guard let redirectParams = response.data?.redirectParams else {
-                            completion(.failure(TransactionError.invalidUrl))
-                            return
+                        for (key, value) in SessionManager.utmParams! {
+                            params.append(URLQueryItem(name: key, value: value))
                         }
-                        
-                        var urlComponent = URLComponents(string: brokerConfig.baseLoginURL + "?\(redirectParams)%26nativeLoginEnabled%3D\(SessionManager.nativeBrokerLoginEnabled)%26intent%3D\(SessionManager.currentIntentString ?? "")")
-                        
-                        if SessionManager.baseEnvironment == .staging {
-                            urlComponent = URLComponents(string: brokerConfig.baseLoginURL + "?\(redirectParams)%26staging%3Dtrue%26nativeLoginEnabled%3D\(SessionManager.nativeBrokerLoginEnabled)%26intent%3D\(SessionManager.currentIntentString ?? "")")
-                        }
-                        
-                        if SessionManager.utmParams != nil {
-                            var params: [URLQueryItem] = urlComponent?.queryItems ?? []
-                            
-                            for (key, value) in SessionManager.utmParams! {
-                                params.append(URLQueryItem(name: key, value: value))
-                            }
-                            urlComponent?.queryItems = params
-                        }
-                        
-                        guard let url = urlComponent?.url else {
-                            completion(.failure(TransactionError.invalidUrl))
-                            return
-                        }
-                        
-                        //                    print(url)
-                        completion(.success(url))
-                        
-                    case .failure(let error):
-                        print("error: \(error)")
-                        completion(.failure(error))
-                        
+                        urlComponent?.queryItems = params
+                    }
+                    
+                    guard let url = urlComponent?.url else {
+                        completion(.failure(TransactionError.invalidUrl))
+                        return
+                    }
+                    
+                    //                    print(url)
+                    completion(.success(url))
+                    
+                case .failure(let error):
+                    print("error: \(error)")
+                    completion(.failure(error))
+                    
                 }
             }
         }
@@ -284,32 +284,32 @@ internal extension SCGateway {
         
         sessionProvider.request(type: TransactionStatusResponse.self, service: GatewayService.getTransactionStatus(trxid: transactionId)) { [weak self] (result) in
             switch result {
+                
+            case .success(let response):
+                print(response)
+                guard let transaction = response.data?.transaction
+                else {
+                    completion(.failure(TransactionError.invalidTransactionId))
+                    return
                     
-                case .success(let response):
-                    print(response)
-                    guard let transaction = response.data?.transaction
-                    else {
-                        completion(.failure(TransactionError.invalidTransactionId))
-                        return
-                        
-                    }
-                    
-                    //                    if transaction.expired != nil && transaction.expired!{
-                    //                        completion()
-                    //                        return
-                    //
-                    //                    }
-                    
-                    guard self?.getTransactionType(transactionData: transaction) != nil else {
-                        completion(.failure(.invalidTransactionId))
-                        return
-                    }
-                    
-                    completion(.success(response))
-                    
-                case .failure(let error):
-                    print(error)
-                    completion(.failure(.apiError))
+                }
+                
+                //                    if transaction.expired != nil && transaction.expired!{
+                //                        completion()
+                //                        return
+                //
+                //                    }
+                
+                guard self?.getTransactionType(transactionData: transaction) != nil else {
+                    completion(.failure(.invalidTransactionId))
+                    return
+                }
+                
+                completion(.success(response))
+                
+            case .failure(let error):
+                print(error)
+                completion(.failure(.apiError))
             }
         }
     }
@@ -317,17 +317,17 @@ internal extension SCGateway {
     func fetchMfTransactionStatus(transactionId: String, completion: @escaping ((Result<MFTransactionStatusResponse, TransactionError>) -> Void)) -> Void {
         sessionProvider.request(type: MFTransactionStatusResponse.self, service: GatewayService.getTransactionStatus(trxid: transactionId)) { (result) in
             switch result {
-                case .success(let response):
-                    print(response)
-                    guard (response.data?.transaction) != nil
-                    else {
-                        completion(.failure(TransactionError.invalidTransactionId))
-                        return
-                    }
-                    completion(.success(response))
-                case .failure(let error):
-                    print(error)
-                    completion(.failure(.apiError))
+            case .success(let response):
+                print(response)
+                guard (response.data?.transaction) != nil
+                else {
+                    completion(.failure(TransactionError.invalidTransactionId))
+                    return
+                }
+                completion(.success(response))
+            case .failure(let error):
+                print(error)
+                completion(.failure(.apiError))
             }
         }
     }
@@ -336,29 +336,29 @@ internal extension SCGateway {
         
         sessionProvider.request(type: TransactionStatusResponse.self, service: GatewayService.getTransactionStatus(trxid: transactionId)) { [weak self] (result) in
             switch result {
-                case .success(let response):
-                    print(response)
-                    guard let transaction = response.data?.transaction
-                    else {
-                        if response.errorType == "InputException" {
-                            completion(.failure(TransactionError.invalidTransactionId))
-                        } else {
-                            completion(.failure(TransactionError.apiError))
-                        }
-                        
-                        return
+            case .success(let response):
+                print(response)
+                guard let transaction = response.data?.transaction
+                else {
+                    if response.errorType == "InputException" {
+                        completion(.failure(TransactionError.invalidTransactionId))
+                    } else {
+                        completion(.failure(TransactionError.apiError))
                     }
                     
-                    
-                    guard self?.getTransactionType(transactionData: transaction) != nil else {
-                        completion(.failure(.apiError))
-                        return
-                    }
-                    completion(.success(response))
-                    
-                case .failure(let error):
-                    print(error)
+                    return
+                }
+                
+                
+                guard self?.getTransactionType(transactionData: transaction) != nil else {
                     completion(.failure(.apiError))
+                    return
+                }
+                completion(.success(response))
+                
+            case .failure(let error):
+                print(error)
+                completion(.failure(.apiError))
             }
         }
     }
@@ -368,13 +368,13 @@ internal extension SCGateway {
         
         sessionProvider.request(type: MarkErroredResponse.self, service: GatewayService.markTransactionErrored(trxId: transactionId, error: error)) { (result) in
             switch result {
-                case .success(let response):
-                    print(response)
-                    completion(.success(response.success))
-                    
-                case .failure(let error):
-                    completion(.failure(error))
-                    
+            case .success(let response):
+                print(response)
+                completion(.success(response.success))
+                
+            case .failure(let error):
+                completion(.failure(error))
+                
             }
         }
     }
@@ -384,17 +384,17 @@ internal extension SCGateway {
         sessionProvider.request(type: MarketStatusResponse.self, service: GatewayService.marketStatus) { (result) in
             
             switch result {
-                    
-                case .success(let response):
-                    
-                    print(response)
-                    completion(.success(response.data?.marketOpen ?? false || (response.data?.amoActive ?? false && SessionManager.isAmoEnabled)))
-                    
-                case .failure(let error):
-                    
-                    print(error)
-                    completion(.failure(error))
-                    
+                
+            case .success(let response):
+                
+                print(response)
+                completion(.success(response.data?.marketOpen ?? false || (response.data?.amoActive ?? false && SessionManager.isAmoEnabled)))
+                
+            case .failure(let error):
+                
+                print(error)
+                completion(.failure(error))
+                
             }
         }
     }
@@ -403,18 +403,18 @@ internal extension SCGateway {
         
         sessionProvider.request(type: [String: GatewayCopyConfig].self, service: GatewayService.getGatewayCopy) { (result) in
             switch result {
-                case .success(let response):
-                    guard let configData = response[SessionManager.gatewayName!] else {
-                        SessionManager.copyConfig = response["default"]
-                        completion(.success(SessionManager.copyConfig != nil))
-                        return
-                    }
-                    SessionManager.copyConfig = configData
-                    completion(.success(true))
-                    
-                case .failure(let error):
-                    print(error)
-                    completion(.failure(error))
+            case .success(let response):
+                guard let configData = response[SessionManager.gatewayName!] else {
+                    SessionManager.copyConfig = response["default"]
+                    completion(.success(SessionManager.copyConfig != nil))
+                    return
+                }
+                SessionManager.copyConfig = configData
+                completion(.success(true))
+                
+            case .failure(let error):
+                print(error)
+                completion(.failure(error))
             }
         }
     }
@@ -424,18 +424,18 @@ internal extension SCGateway {
         
         sessionProvider.request(type: [String: GatewayCopyConfig].self, service: GatewayService.getPartnerConfig) { (result) in
             switch result {
-                case .success(let response):
-                    print(response)
-                    guard let configData = response["copyConfig"] else {
-                        completion(.success(SessionManager.copyConfig != nil))
-                        return
-                    }
-                    SessionManager.copyConfig = configData
+            case .success(let response):
+                print(response)
+                guard let configData = response["copyConfig"] else {
                     completion(.success(SessionManager.copyConfig != nil))
-                    
-                case .failure(let error):
-                    print(error)
-                    completion(.failure(error))
+                    return
+                }
+                SessionManager.copyConfig = configData
+                completion(.success(SessionManager.copyConfig != nil))
+                
+            case .failure(let error):
+                print(error)
+                completion(.failure(error))
             }
         }
     }
@@ -443,15 +443,15 @@ internal extension SCGateway {
     func getTweetConfig(completion: @escaping(Result<Bool, Error>) -> Void) {
         sessionProvider.request(type: UpcomingBrokerConfig.self, service: GatewayService.getTweetConfig){ (result) in
             switch result {
-                case .success(let response):
-                    print(response)
-                    SessionManager.tweetConfig = response.upcomingBrokers
-                    completion(.success(true))
-                    
-                case .failure(let error):
-                    print(error)
-                    completion(.failure(error))
-                    
+            case .success(let response):
+                print(response)
+                SessionManager.tweetConfig = response.upcomingBrokers
+                completion(.success(true))
+                
+            case .failure(let error):
+                print(error)
+                completion(.failure(error))
+                
             }
             
             
@@ -490,50 +490,56 @@ internal extension SCGateway {
         
         
         switch transactionData.intent! {
-                
-            case Intent.SUBSCRIPTION:
-                
-                return .subscription(genericResponseDict.toJsonString!)
+            
+        case Intent.SUBSCRIPTION:
+            
+            return .subscription(genericResponseDict.toJsonString!)
             
         case Intent.ONBOARDING:
             return .onboarding(response: genericResponseDict.toJsonString!)
+            
+        case Intent.INTENT_CONNECT:
+            
+            return .connect(response: genericResponseDict.toJsonString!)
+            
+        case Intent.INTENT_HOLDINGS:
+            
+            return .holdingsImport(smallcaseAuthToken: authToken, broker: broker, status: true, transactionId: transactionId, signup: signup)
+            
+        case Intent.AUTHORISE_HOLDINGS:
+            
+            return .authoriseHoldings(smallcaseAuthToken: authToken, status: true,transactionId: transactionId, signup: signup)
+            
+        case Intent.INTENT_TRANSACTION:
+            
+            if transactionData.orderConfig?.assetUniverse == ScAssetUniverse.MUTUAL_FUND.rawValue {
+                let orderData = transactionData.successString
+                return .mfTransaction(data: orderData)
                 
-            case Intent.INTENT_CONNECT:
-                
-                return .connect(response: genericResponseDict.toJsonString!)
-                
-            case Intent.INTENT_HOLDINGS:
-                
-                return .holdingsImport(smallcaseAuthToken: authToken, broker: broker, status: true, transactionId: transactionId, signup: signup)
-                
-            case Intent.AUTHORISE_HOLDINGS:
-                
-                return .authoriseHoldings(smallcaseAuthToken: authToken, status: true,transactionId: transactionId, signup: signup)
-                
-            case Intent.INTENT_TRANSACTION:
-                
+            } else {
                 let orderData = transactionData.success
                 return .transaction(smallcaseAuthToken: authToken, transactionData: orderData)
                 
-            case Intent.SIP_SETUP:
-                //                let sipAction = transactionData.success.data?.sipDetails ?? SipDetail(sipActive: nil, sipAction: nil, amount: nil, frequency: nil, iscid: nil, scheduledDate: nil, scid: nil, sipType: nil)
-                
-                let sipAction = transactionData.success.data?.sipDetails ?? SipDetail()
-                return .sipSetup(smallcaseAuthToken: authToken, sipAction: sipAction, transactionId: transactionId, signup: signup)
-                
-            case Intent.FETCH_FUNDS:
-                
-                let funds = transactionData.success.data?.funds ?? 0.0
-                return .fetchFunds(smallcaseAuthToken: authToken, fund: funds, transactionId: transactionId, signup: signup)
-                
-            case Intent.CANCEL_AMO:
-                
-                return .cancelAMO(transactionData.success.toJSONString())
-                
-            case Intent.MF_HOLDINGS_IMPORT:
-                return .mfHoldingsImport(data: nil)
-            default:
-                return nil
+            }
+        case Intent.SIP_SETUP:
+            //                let sipAction = transactionData.success.data?.sipDetails ?? SipDetail(sipActive: nil, sipAction: nil, amount: nil, frequency: nil, iscid: nil, scheduledDate: nil, scid: nil, sipType: nil)
+            
+            let sipAction = transactionData.success.data?.sipDetails ?? SipDetail()
+            return .sipSetup(smallcaseAuthToken: authToken, sipAction: sipAction, transactionId: transactionId, signup: signup)
+            
+        case Intent.FETCH_FUNDS:
+            
+            let funds = transactionData.success.data?.funds ?? 0.0
+            return .fetchFunds(smallcaseAuthToken: authToken, fund: funds, transactionId: transactionId, signup: signup)
+            
+        case Intent.CANCEL_AMO:
+            
+            return .cancelAMO(transactionData.success.toJSONString())
+            
+        case Intent.MF_HOLDINGS_IMPORT:
+            return .mfHoldingsImport(data: nil)
+        default:
+            return nil
         }
     }
     
@@ -542,12 +548,12 @@ internal extension SCGateway {
         
         sessionProvider.request(type: RedirectURLParamsResponse.self, service: GatewayService.getBrokerRedirectParams(txId: paramString, brokerName: brokerName )) { (result) in
             switch result {
-                case .success(let response):
-                    print(response)
-                    completion(result)
-                case .failure(let error):
-                    print(error)
-                    completion(result)
+            case .success(let response):
+                print(response)
+                completion(result)
+            case .failure(let error):
+                print(error)
+                completion(result)
             }
         }
     }
@@ -579,12 +585,12 @@ internal extension SCGateway {
         sessionProvider.request(type: FivePaisaLeadAuthResponse.self, service: GatewayService.getFivePaisaLead(email: email, source: source)) { result in
             
             switch result {
-                case .success(let fivePaisaLeadGenToken):
-                    print(fivePaisaLeadGenToken)
-                    completion(result)
-                case .failure(let error):
-                    print(error)
-                    completion(result)
+            case .success(let fivePaisaLeadGenToken):
+                print(fivePaisaLeadGenToken)
+                completion(result)
+            case .failure(let error):
+                print(error)
+                completion(result)
             }
         }
     }

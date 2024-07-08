@@ -21,11 +21,42 @@ public struct Transaction: Codable {
     var transactionId: String?
     var createdAt: String?
     var updatedAt: String?
-    var success: SuccessData
+    var successData: Data?
     var error: TransactionErrorResponse?
     var authId: String?
     var expired: Bool?
     var flags: TransactionFlags?
+    
+    var successDict: [String:Any]? {
+        guard let dataDictFromBackend = successData?.toJson() else {
+            return nil
+        }
+        var partnerDataDict = dataDictFromBackend
+        if let nestedDataDict = dataDictFromBackend["data"] as? [String:Any] {
+            partnerDataDict["data"] = nil
+            partnerDataDict.combine(dict: nestedDataDict)
+        }
+        return partnerDataDict
+    }
+    
+    var successString: String? {
+        return successDict?.toJsonString
+    }
+    
+    var success: SuccessData {
+        get {
+            let defaultValue = SuccessData()
+            guard let data = successData else {
+                return defaultValue
+            }
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode(SuccessData.self, from: data) {
+                return decoded
+            }
+            return defaultValue
+        }
+    }
+    
     
     internal struct Platform: Codable {
         var url: String?
@@ -60,7 +91,7 @@ public struct Transaction: Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case orderConfig, config, expireAt, intent, platform, status, gateway, transactionId, createdAt, updatedAt, success, error, authId, expired, flags
+        case orderConfig, config, expireAt, intent, platform, status, gateway, transactionId, createdAt, updatedAt, successData = "success", error, authId, expired, flags, subscriptionConfig
     }
     
     func getPlatformUrl() -> URL {
@@ -84,6 +115,35 @@ public struct Transaction: Codable {
         }
         return URL(string: "https://")!
     }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.orderConfig = try container.decodeIfPresent(OrderConfig.self, forKey: .orderConfig)
+        self.config = try container.decodeIfPresent(MetaOrderConfig.self, forKey: .config)
+        self.expireAt = try container.decodeIfPresent(String.self, forKey: .expireAt)
+        self.intent = try container.decodeIfPresent(String.self, forKey: .intent)
+        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+        self.gateway = try container.decodeIfPresent(String.self, forKey: .gateway)
+        self.transactionId = try container.decodeIfPresent(String.self, forKey: .transactionId)
+        self.createdAt = try container.decodeIfPresent(String.self, forKey: .createdAt)
+        self.updatedAt = try container.decodeIfPresent(String.self, forKey: .updatedAt)
+        do {
+            let dictDecodable = try container.decode(Dictionary<String, AnyDecodable>.self, forKey: .successData)
+            let dictAny = dictDecodable.mapValues { $0.value }
+            let data = try JSONSerialization.data(withJSONObject: dictAny, options: [])
+            self.successData = data
+        } catch {
+            self.successData = nil
+        }
+        self.error = try container.decodeIfPresent(TransactionErrorResponse.self, forKey: .error)
+        self.authId = try container.decodeIfPresent(String.self, forKey: .authId)
+        self.expired = try container.decodeIfPresent(Bool.self, forKey: .expired)
+        self.platform = try container.decodeIfPresent(Platform.self, forKey: .platform)
+        self.subscriptionConfig = try container.decodeIfPresent(SubscriptionConfig.self, forKey: .subscriptionConfig)
+        self.flags = try container.decodeIfPresent(TransactionFlags.self, forKey: .flags)
+
+    }
+    
 }
 
 // Required only for intent = SUBSCRIPTION

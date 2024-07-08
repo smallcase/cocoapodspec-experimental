@@ -11,10 +11,9 @@ import Foundation
 struct MarkErroredResponse : Codable {
     
     var success: Bool
-    var data: Int?
     var errors: [String]?
     
     enum CodingKeys: String, CodingKey {
-        case success, data, errors
+        case success, errors
     }
 }
