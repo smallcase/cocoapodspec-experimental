@@ -5,8 +5,16 @@ scheme="${BITRISE_SCHEME:-release}"
 
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
-  -scheme $scheme \
-  -destination "generic/platform=iOS Simulator" \
+  -scheme "SCGatewayXcFramework" \
+  -destination "generic/platform=iOS" \
+  SC_XC_FRAMEWORKS_OUT_DIR="$(pwd)/.build/Frameworks/$scheme" \
+  build
+
+xcodebuild \
+  -workspace SmartInvesting.xcworkspace \
+  -scheme "LoansXCFramework" \
+  -destination "generic/platform=iOS" \
+  SC_XC_FRAMEWORKS_OUT_DIR="$(pwd)/.build/Frameworks/$scheme" \
   build
 
 xcodebuild \
@@ -14,6 +22,8 @@ xcodebuild \
   -scheme $scheme \
   -destination "generic/platform=iOS" \
   USE_XC_FRAMEWORKS=YES \
+  SCG_XCF_PATH=".build/Frameworks/$scheme/xcframeworks/SCGateway.xcframework" \
+  LOANS_XCF_PATH=".build/Frameworks/$scheme/xcframeworks/Loans.xcframework" \
   build
 
 
