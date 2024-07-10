@@ -22,9 +22,9 @@ class SmartinvestingApi {
         switch ENVIRONMENT {
         case .staging:
             //                return "https://smartinvesting-ddd.stag.smallcase.com"
-            return "https://api.stag.smartinvesting.io"
+            return "https://api-stag.smartinvesting.io"
         case .development:
-            return "https://api.dev.smartinvesting.io"
+            return "https://api-dev.smartinvesting.io"
         default:
             return "https://api.smartinvesting.io"
         }
