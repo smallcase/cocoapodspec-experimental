@@ -39,8 +39,9 @@ runs:
           new_version="$new_version-${{ inputs.versionCode }}"
         fi
 
-        if [[ "${{ inputs.scheme }}" != "release" ]];then
-          new_version="$new_version-${{ inputs.scheme }}"
+        scheme="${{ inputs.scheme }}"
+        if [[ "$scheme" != "release" ]];then
+          new_version="$new_version-$scheme"
         fi
         
         remix="${{ inputs.remix }}"
