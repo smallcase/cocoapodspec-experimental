@@ -3,14 +3,9 @@ name: Bump Version
 on:
   workflow_dispatch:
     inputs:
-      releaseType:
-        type: choice
-        description: "Release type"
-        required: true
-        options:
-          - qa
-          - internal
-          - prod
+      remix:
+        description: "The remix name of the SDK"
+        default: "internal"
       scheme:
         type: choice
         description: "Scheme"
@@ -22,6 +17,7 @@ on:
         type: choice
         description: "Version bump type"
         options:
+          - onlyCode
           - patch
           - minor
           - major
@@ -30,14 +26,30 @@ on:
         description: "SCGateway"
         type: boolean
         default: false
+      scgRemixBucket:
+        type: choice
+        description: "SCG internal bucket"
+        options:
+          - scgateway_internal
+          - laons_internal
       loans:
         description: "SCLoans"
         type: boolean
         default: false
-      bitrise:
-        description: "Trigger Bitrise"
-        type: boolean
-        default: false
+      loansRemixBucket:
+        type: choice
+        description: "Loans internal bucket"
+        options:
+          - loans_internal
+          - laons_internal
+      bitriseWorkflow:
+        type: choice
+        description: "Bitrise Workflow"
+        required: true
+        options:
+          - none
+          - release-app
+          - release-sdks
       scliVersion:
         description: "scli version"
         default: "v0.2.0"
@@ -70,7 +82,7 @@ jobs:
         if: ${{ inputs.scg }}
         id: bump-scg
         run: |
-          if [ "${{ github.event.inputs.releaseType }}" == "prod" ];then
+          if [[ "${{ github.event.inputs.bumpType }}" != "onlyCode" ]];then
             scli versionBump "$SCG_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --vckey "$VERSION_CODE_KEY"
           else
             scli versionBump "$SCG_INFO_PLIST" --onlyCode --vckey "$VERSION_CODE_KEY"
@@ -79,7 +91,7 @@ jobs:
         if: ${{ inputs.loans }}
         id: bump-loans
         run: |
-          if [ "${{ github.event.inputs.releaseType }}" == "prod" ];then
+          if [[ "${{ github.event.inputs.bumpType }}" != "onlyCode" ]];then
             scli versionBump "$LOANS_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --vckey "$VERSION_CODE_KEY"
           else
             scli versionBump "$LOANS_INFO_PLIST" --onlyCode --vckey "$VERSION_CODE_KEY"
@@ -87,7 +99,7 @@ jobs:
       - name: Bump smart investing
         id: bump-si
         run: |
-          if [ "${{ github.event.inputs.releaseType }}" == "prod" ];then
+          if [[ "${{ github.event.inputs.bumpType }}" != "onlyCode" ]];then
             scli versionBump "$SI_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --vckey "$VERSION_CODE_KEY"
           else
             scli versionBump "$SI_INFO_PLIST" --onlyCode --vckey "$VERSION_CODE_KEY"
@@ -114,17 +126,6 @@ jobs:
           echo "::set-output name=loans_version::$loans_version"
           echo "::set-output name=loans_version_code::$loans_version_code"
 
-          scg_podspec="smallcase_gateway/podspecs/${{ github.event.inputs.scheme }}/SCGateway-${{ github.event.inputs.releaseType }}.podspec.json"
-          loans_podspec="loans/podspecs/${{ github.event.inputs.scheme }}/SCLoans-${{ github.event.inputs.releaseType }}.podspec.json"
-          
-          if [[ "${{ github.event.inputs.releaseType }}" == "prod" ]];then
-            scg_podspec="smallcase_gateway/SCGateway.podspec.json"
-            loans_podspec="loans/SCLoans.podspec.json"
-          fi
-
-          echo "::set-output name=scg_podspec::$scg_podspec"
-          echo "::set-output name=loans_podspec::$loans_podspec"
-
       - name: Outputs
         run: |
           echo ${{ steps.set-versions.outputs.scg_version }}
@@ -136,105 +137,58 @@ jobs:
           echo ${{ steps.set-versions.outputs.si_version }}
           echo ${{ steps.set-versions.outputs.si_version_code }}
           
-          echo ${{ steps.set-versions.outputs.scg_podspec }}
-          echo ${{ steps.set-versions.outputs.loans_podspec }}
       - name: Update SCG Podspec
         if: ${{ inputs.scg }}
         uses: ./.github/actions/update-podspec
         with:
           version: "${{ steps.set-versions.outputs.scg_version }}"
-          versionCode: "${{ github.event.inputs.releaseType != 'prod' && steps.set-versions.outputs.scg_version_code || '' }}"
+          versionCode: "${{ steps.set-versions.outputs.scg_version_code }}"
+          remix: "${{ github.event.inputs.remix }}"
           scheme: "${{ github.event.inputs.scheme }}"
-          podspec: "${{ steps.set-versions.outputs.scg_podspec }}"
+          remixBucket: "${{ github.event.inputs.scgRemixBucket }}"
+          podspec: "${{ vars.SCG_PODSPEC }}"
       - name: Update Loans Podspec
         if: ${{ inputs.loans }}
         uses: ./.github/actions/update-podspec
         with:
           version: "${{ steps.set-versions.outputs.loans_version }}"
-          versionCode: "${{ github.event.inputs.releaseType != 'prod' && steps.set-versions.outputs.loans_version_code || '' }}"
+          versionCode: "${{ steps.set-versions.outputs.loans_version_code }}"
+          remix: "${{ github.event.inputs.remix }}"
           scheme: "${{ github.event.inputs.scheme }}"
-          podspec: "${{ steps.set-versions.outputs.loans_podspec }}"
+          remixBucket: "${{ github.event.inputs.loansRemixBucket }}"
+          podspec: "${{ vars.LOANS_PODSPEC }}"
 
       - name: Commit, Tag & Push
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          commit_type="chore(${{ github.event.inputs.releaseType }}):"
-          si="si/${{ steps.set-versions.outputs.si_version }}"
-          scg="scg/${{ steps.set-versions.outputs.scg_version }}"
-          loans="loans/${{ steps.set-versions.outputs.loans_version }}"
+        uses: ./.github/actions/commit-tag-push
+        with:
+          siVersion: "${{ steps.set-versions.outputs.si_version }}"
+          siVersionCode: "${{ steps.set-versions.outputs.si_version_code }}"
+          scg: ${{ inputs.scg }}
+          scgVersion: "${{ steps.set-versions.outputs.scg_version }}"
+          scgVersionCode: "${{ steps.set-versions.outputs.scg_version_code }}"
+          loans: ${{ inputs.loans }}
+          loansVersion: "${{ steps.set-versions.outputs.loans_version }}"
+          loansVersionCode: "${{ steps.set-versions.outputs.loans_version_code }}"
+          remix: "${{ inputs.remix }}"
+          tag: "${{ inputs.bitriseWorkflow == 'release-sdks' }}"
 
-          if [[ "${{ github.event.inputs.releaseType }}" != "prod" ]];then
-            si+="-${{ steps.set-versions.outputs.si_version_code }}"
-            scg+="-${{ steps.set-versions.outputs.scg_version_code }}"
-            loans+="-${{ steps.set-versions.outputs.loans_version_code }}"
-          fi
-
-          commit_msg=""
-          commit_desc="$scg, $loans, $si"
-
-          if [[ "${{ inputs.scg }}" == "true" && "${{ inputs.loans }}" == "true" ]];then
-            commit_msg="$commit_type $scg $loans"
-          elif [[ "${{ inputs.scg }}" == true ]];then
-            commit_msg="$commit_type $scg"
-          elif [[ "${{ inputs.loans }}" == "true" ]];then
-            commit_msg="$commit_type $loans"
-          else
-            commit_msg="$commit_type $si"
-          fi
-
-          git add .
-          git status
-          git commit -m "$commit_msg" -m "$commit_desc"
-          
-          git push
-
-          if [[ "${{ github.event.inputs.releaseType }}" != "qa" ]];then
-            tag_name=""
-            if [[ "${{ inputs.scg }}" == "true" && "${{ inputs.loans }}" == "true" ]];then
-              tag_name+="$scg-$loans"
-            elif [[ "${{ inputs.scg }}" == "true" ]]; then
-              tag_name+="$scg"
-            elif [[ "${{ inputs.loans }}" == "true" ]]; then
-              tag_name+="$loans"
-            else
-              tag_name+="$si"
-            fi
-            
-            git tag "$tag_name"
-            git push --tags
-
-            if [[ "${{ github.event.inputs.releaseType }}" == "prod" ]];then
-              gh release create "$tag_name" --title "$tag_name"
-            fi
-          fi
-      
       - name: Trigger Bitrise Workflow
-        if: ${{ inputs.bitrise }}
+        if: ${{ inputs.bitriseWorkflow != 'none' }}
         run: |
-          BITRISE_APP_SLUG="d6c77e34-9075-4262-8c39-12b4d5adf82c"
-
-          WORKFLOW_ID="release-app"
-          release_scg=false
-          release_loans=false
-
-          if [[ "${{ inputs.releaseType }}" != "qa" ]];then
-            WORKFLOW_ID="release-sdks"
-            release_scg="${{ inputs.scg }}"
-            release_loans="${{ inputs.loans }}"
-          fi
+          WORKFLOW_ID="${{ inputs.bitriseWorkflow }}"
+          
+          release_scg="${{ inputs.scg }}"
+          scg_podspec="smallcase_gateway/podspecs/${{ github.event.inputs.scheme }}/SCGateway-${{ github.event.inputs.remix }}.podspec.json"
+          release_loans="${{ inputs.loans }}"
+          loans_podspec="loans/podspecs/${{ github.event.inputs.scheme }}/SCLoans-${{ github.event.inputs.remix }}.podspec.json"
 
           envs="OVERRIDE_RELEASE_SCG=$release_scg,\
-          OVERRIDE_RELEASE_LOANS=$release_loans,\
+          OVERRIDE_SCG_PODSPEC=$scg_podspec,\
           OVERRIDE_BITRISE_SCHEME=${{ inputs.scheme }},\
-          OVERRIDE_SCG_PODSPEC=${{ steps.set-versions.outputs.scg_podspec }},\
-          OVERRIDE_LOANS_PODSPEC=${{ steps.set-versions.outputs.loans_podspec }}"
+          OVERRIDE_RELEASE_LOANS=$release_loans,\
+          OVERRIDE_LOANS_PODSPEC=$loans_podspec"
 
-          if [[ "${{ github.event.inputs.releaseType }}" == "prod" ]];then
-            envs+=",OVERRIDE_COCOA_REPO=trunk"
-          fi
-
-          scli triggerBitrise --appSlug "$BITRISE_APP_SLUG" --workflowId "${WORKFLOW_ID}" --branch "${{ github.head_ref || github.ref_name }}" \
+          scli triggerBitrise --appSlug "${{ vars.BITRISE_APP_SLUG }}" --workflowId "$WORKFLOW_ID" --branch "${{ github.head_ref || github.ref_name }}" \
           --bitriseToken "${{ secrets.BITRISE_API_TOKEN }}" \
           --envs "$envs" \
           --message "$(git log -1 --pretty=%B%n%H)"
