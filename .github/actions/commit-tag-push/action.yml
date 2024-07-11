@@ -41,15 +41,15 @@ runs:
     - name: Run Script with Input
       shell: bash
       run: |
-        commit_type="chore(${{ github.event.inputs.remix || 'prod' }}):"
-        si="si/${{ steps.set-versions.outputs.si_version }}"
-        scg="scg/${{ steps.set-versions.outputs.scg_version }}"
-        loans="loans/${{ steps.set-versions.outputs.loans_version }}"
+        commit_type="chore(${{ inputs.remix || 'prod' }}):"
+        si="si/${{ inputs.siVersion }}"
+        scg="scg/${{ inputs.scgVersion }}"
+        loans="loans/${{ inputs.loansVersion }}"
 
-        if [[ "${{ github.event.inputs.remix }}" != "" ]];then
-          si+="-${{ steps.set-versions.outputs.si_version_code }}"
-          scg+="-${{ steps.set-versions.outputs.scg_version_code }}"
-          loans+="-${{ steps.set-versions.outputs.loans_version_code }}"
+        if [[ "${{ inputs.remix }}" != "" ]];then
+          si+="-${{ inputs.siVersionCode }}"
+          scg+="-${{ inputs.scgVersionCode }}"
+          loans+="-${{ inputs.loansVersionCode }}"
         fi
 
         commit_msg=""

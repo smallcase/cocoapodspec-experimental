@@ -43,7 +43,10 @@ runs:
         if [[ "${{ inputs.scheme }}" != "release" ]];then
           new_version="$new_version-${{ inputs.scheme }}"
         fi
-
+        
+        remix="${{ inputs.remix }}"
+        remixBucket="${{ inputs.remixBucket }}"
+        
         if [[ "${{ inputs.remix }}" != "" ]];then
           podRoot=$(echo "$podspec" | awk -F'/' '{print $1}')
           podspec_name=$(basename "$podspec" | awk -F'.' '{print $1}')
