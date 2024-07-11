@@ -184,6 +184,7 @@ jobs:
 
           envs="OVERRIDE_RELEASE_SCG=$release_scg,\
           OVERRIDE_SCG_PODSPEC=$scg_podspec,\
+          OVERRIDE_BITRISE_SCHEME=${{ inputs.scheme }},\
           OVERRIDE_RELEASE_LOANS=$release_loans,\
           OVERRIDE_LOANS_PODSPEC=$loans_podspec"
 
