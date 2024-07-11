@@ -1,0 +1,88 @@
+name: "Commit Tag Push"
+description: "A reusable step that can be called with different inputs"
+inputs:
+  siVersion:
+    description: "SI Version"
+    required: true
+  siVersionCode:
+    description: "SI Version Code"
+    required: true
+  scg:
+    description: "SCGateway"
+    type: boolean
+    default: false
+  scgVersion:
+    description: "SCG Version"
+    required: true
+  scgVersionCode:
+    description: "SCG Version Code"
+    required: true
+  loans:
+    description: "Loans"
+    type: boolean
+    default: false
+  loansVersion:
+    description: "Loans Version"
+    required: true
+  loansVersionCode:
+    description: "Loans Version Code"
+    required: true
+  remix:
+    description: "Remix"
+    required: true
+  tag:
+    description: "Create tag?"
+    type: boolean
+    default: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run Script with Input
+      shell: bash
+      run: |
+        commit_type="chore(${{ github.event.inputs.remix || 'prod' }}):"
+        si="si/${{ steps.set-versions.outputs.si_version }}"
+        scg="scg/${{ steps.set-versions.outputs.scg_version }}"
+        loans="loans/${{ steps.set-versions.outputs.loans_version }}"
+
+        if [[ "${{ github.event.inputs.remix }}" != "" ]];then
+          si+="-${{ steps.set-versions.outputs.si_version_code }}"
+          scg+="-${{ steps.set-versions.outputs.scg_version_code }}"
+          loans+="-${{ steps.set-versions.outputs.loans_version_code }}"
+        fi
+
+        commit_msg=""
+        commit_desc="$scg, $loans, $si"
+
+        if [[ "${{ inputs.scg }}" == "true" && "${{ inputs.loans }}" == "true" ]];then
+          commit_msg="$commit_type $scg $loans"
+        elif [[ "${{ inputs.scg }}" == true ]];then
+          commit_msg="$commit_type $scg"
+        elif [[ "${{ inputs.loans }}" == "true" ]];then
+          commit_msg="$commit_type $loans"
+        else
+          commit_msg="$commit_type $si"
+        fi
+
+        git add .
+        git status
+        git commit -m "$commit_msg" -m "$commit_desc"
+
+        git push
+
+        if [[ "${{ inputs.tag }}" == "true" ]];then
+          tag_name=""
+          if [[ "${{ inputs.scg }}" == "true" && "${{ inputs.loans }}" == "true" ]];then
+            tag_name+="$scg-$loans"
+          elif [[ "${{ inputs.scg }}" == "true" ]]; then
+            tag_name+="$scg"
+          elif [[ "${{ inputs.loans }}" == "true" ]]; then
+            tag_name+="$loans"
+          else
+            tag_name+="$si"
+          fi
+          
+          git tag "$tag_name"
+          git push --tags
+        fi

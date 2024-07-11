@@ -10,6 +10,12 @@ inputs:
   scheme:
     description: 'Scheme'
     required: false
+  remix:
+    description: 'Remix'
+    required: false
+  remixBucket:
+    description: 'Remix Bucket'
+    required: false
   podspec:
     description: 'Podspec path'
     required: true
@@ -25,6 +31,11 @@ runs:
 
         new_version="${{ inputs.version }}"
 
+        source=$(jq -r '.source.http' "$podspec")
+        updated_source=$(echo $source | sed -E "s|(/[^/]+/)[^/]+(/[^/]+$)|\1${new_version}\2|")
+        jq --arg value "$updated_source" ".source.http = \$value" "$podspec" > tmp.$$.json && mv tmp.$$.json "$podspec"
+        jq --arg value "$new_version" ".version = \$value" "$podspec" > tmp.$$.json && mv tmp.$$.json "$podspec"
+
         if [[ "${{ inputs.versionCode }}" != "" ]];then
           new_version="$new_version-${{ inputs.versionCode }}"
         fi
@@ -33,9 +44,16 @@ runs:
           new_version="$new_version-${{ inputs.scheme }}"
         fi
 
-        source=$(jq -r '.source.http' "$podspec")
-        updated_source=$(echo $source | sed -E "s|(/[^/]+/)[^/]+(/[^/]+$)|\1${new_version}\2|")
-        jq --arg value "$updated_source" ".source.http = \$value" "$podspec" > tmp.$$.json && mv tmp.$$.json "$podspec"
-        jq --arg value "$new_version" ".version = \$value" "$podspec" > tmp.$$.json && mv tmp.$$.json "$podspec"
+        if [[ "${{ inputs.remix }}" != "" ]];then
+          podRoot=$(echo "$podspec" | awk -F'/' '{print $1}')
+          podspec_name=$(basename "$podspec" | awk -F'.' '{print $1}')
+          remixPodspec="$podRoot/podspecs/$scheme/$podspec_name-$remix.podspec.json"
 
+          base_url=$(echo "$source" | awk -F'/' '{print $1 "//" $3}')
+          framework_name=$(echo "$source" | awk -F'/' '{print $NF}')
+          new_source="$base_url/$remixBucket/$new_version/$framework_name"
+
+          jq --arg new_source "$new_source" '.source.http = $new_source' "$podspec" > "$remixPodspec"
+          cat $remixPodspec
+        fi
         cat $podspec
