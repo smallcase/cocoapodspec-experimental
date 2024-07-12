@@ -5,7 +5,6 @@ on:
     inputs:
       remix:
         description: "The remix name of the SDK"
-        default: "internal"
       scheme:
         type: choice
         description: "Scheme"
@@ -83,7 +82,7 @@ jobs:
         id: bump-scg
         run: |
           if [[ "${{ github.event.inputs.bumpType }}" != "onlyCode" ]];then
-            scli versionBump "$SCG_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --vckey "$VERSION_CODE_KEY"
+            scli versionBump "$SCG_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --skipCode
           else
             scli versionBump "$SCG_INFO_PLIST" --onlyCode --vckey "$VERSION_CODE_KEY"
           fi
@@ -92,7 +91,7 @@ jobs:
         id: bump-loans
         run: |
           if [[ "${{ github.event.inputs.bumpType }}" != "onlyCode" ]];then
-            scli versionBump "$LOANS_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --vckey "$VERSION_CODE_KEY"
+            scli versionBump "$LOANS_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --skipCode
           else
             scli versionBump "$LOANS_INFO_PLIST" --onlyCode --vckey "$VERSION_CODE_KEY"
           fi    
@@ -100,7 +99,7 @@ jobs:
         id: bump-si
         run: |
           if [[ "${{ github.event.inputs.bumpType }}" != "onlyCode" ]];then
-            scli versionBump "$SI_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --vckey "$VERSION_CODE_KEY"
+            scli versionBump "$SI_INFO_PLIST" --bumpType "${{ github.event.inputs.bumpType }}" --vkey "$VERSION_KEY" --skipCode
           else
             scli versionBump "$SI_INFO_PLIST" --onlyCode --vckey "$VERSION_CODE_KEY"
           fi
