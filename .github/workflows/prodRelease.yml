@@ -75,6 +75,8 @@ jobs:
 
           gh release create "$tag_name" --title "$tag_name"
 
+          gh pr create --base dev --head prod --title "Backmerge Prod/$tag_name" --body "" --label "backmerge"
+
       - name: Trigger Bitrise Workflow
         if: ${{ inputs.bitrise }}
         run: |
