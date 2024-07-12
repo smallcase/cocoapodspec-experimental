@@ -78,7 +78,6 @@ jobs:
           gh pr create --base dev --head prod --title "Backmerge Prod/$tag_name" --body "" --label "backmerge"
 
       - name: Trigger Bitrise Workflow
-        if: ${{ inputs.bitrise }}
         run: |
 
           WORKFLOW_ID="release-sdks"
@@ -87,6 +86,8 @@ jobs:
 
           envs="OVERRIDE_RELEASE_SCG=$release_scg,\
           OVERRIDE_RELEASE_LOANS=$release_loans,\
+          OVERRIDE_SCG_PODSPEC=${{ vars.SCG_PODSPEC }},\
+          OVERRIDE_LOANS_PODSPEC=${{ vars.LOANS_PODSPEC }},\
           OVERRIDE_COCOA_REPO=trunk"
 
           scli triggerBitrise --appSlug "${{ vars.BITRISE_APP_SLUG }}" --workflowId "${WORKFLOW_ID}" --branch "${{ github.head_ref || github.ref_name }}" \

@@ -16,7 +16,12 @@ internal enum SessionManager {
     static var hybridSdkVersion: String? = nil
     static let sdkModule = "loans"
     static var sdkVersion: String {
-        let version = Bundle.init(for: ScLoan.self).infoDictionary!["ScLoanVersion"] ?? "0.0.1"
+        let version = Bundle.init(for: ScLoan.self).infoDictionary!["CFBundleShortVersionString"] ?? "0.0.1"
+        return String(describing: version)
+    }
+    
+    static var sdkVersionCode: String {
+        let version = Bundle.init(for: ScLoan.self).infoDictionary!["CFBundleVersion"] ?? "0"
         return String(describing: version)
     }
     
