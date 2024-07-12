@@ -431,7 +431,7 @@ class LoginViewController: UIViewController {
 
                         self?.presentedViewController?.dismiss(animated: false)
 
-                    self?.showPopup(title: "Error", msg: "\(error.message) \(error.rawValue)")
+                    self?.showPopup(title: "Error", msg: "\(error.message) \(error.rawValue) \(error.data)")
 
 
                 }

@@ -1,0 +1,96 @@
+name: Prod Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      scg:
+        description: "SCGateway"
+        type: boolean
+        default: false
+      loans:
+        description: "SCLoans"
+        type: boolean
+        default: false
+      scliVersion:
+        description: "scli version"
+        default: "v0.2.0"
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Git configuration
+        run: |
+          git config --global user.name "Github Action Bot"
+          git config --global user.email "gatewaytech@smallcase.com"
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install scli
+        uses: ./.github/actions/install-scli
+        with:
+          token: "${{ secrets.GH_ACCESS_TOKEN }}"
+          version: "${{ github.event.inputs.scliVersion }}"
+
+      - name: Set Versions
+        id: set-versions
+        run: |
+          VERSION_KEY=${{ vars.VERSION_KEY }}
+          si_version=$(scli prop ${{ vars.SI_PLIST }} "$VERSION_KEY")
+          echo "::set-output name=si_version::$si_version"
+
+          scg_version=$(scli prop ${{ vars.SCG_PLIST }} "$VERSION_KEY")
+          echo "::set-output name=scg_version::$scg_version"
+
+          loans_version=$(scli prop ${{ vars.LOANS_PLIST }} "$VERSION_KEY")
+          echo "::set-output name=loans_version::$loans_version"
+
+      - name: Outputs
+        run: |
+          echo ${{ steps.set-versions.outputs.scg_version }}
+          echo ${{ steps.set-versions.outputs.loans_version }}
+          echo ${{ steps.set-versions.outputs.si_version }}
+
+      - name: Create Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          si="si/${{ steps.set-versions.outputs.si_version }}"
+          scg="scg/${{ steps.set-versions.outputs.scg_version }}"
+          loans="loans/${{ steps.set-versions.outputs.loans_version }}"
+
+          tag_name=""
+          if [[ "${{ inputs.scg }}" == "true" && "${{ inputs.loans }}" == "true" ]];then
+            tag_name+="$scg-$loans"
+          elif [[ "${{ inputs.scg }}" == "true" ]]; then
+            tag_name+="$scg"
+          elif [[ "${{ inputs.loans }}" == "true" ]]; then
+            tag_name+="$loans"
+          else
+            tag_name+="$si"
+          fi
+          
+          git tag "$tag_name"
+          git push --tags
+
+          gh release create "$tag_name" --title "$tag_name"
+
+          gh pr create --base dev --head prod --title "Backmerge Prod/$tag_name" --body "" --label "backmerge"
+
+      - name: Trigger Bitrise Workflow
+        run: |
+
+          WORKFLOW_ID="release-sdks"
+          release_scg="${{ inputs.scg }}"
+          release_loans="${{ inputs.loans }}"
+
+          envs="OVERRIDE_RELEASE_SCG=$release_scg,\
+          OVERRIDE_RELEASE_LOANS=$release_loans,\
+          OVERRIDE_SCG_PODSPEC=${{ vars.SCG_PODSPEC }},\
+          OVERRIDE_LOANS_PODSPEC=${{ vars.LOANS_PODSPEC }},\
+          OVERRIDE_COCOA_REPO=trunk"
+
+          scli triggerBitrise --appSlug "${{ vars.BITRISE_APP_SLUG }}" --workflowId "${WORKFLOW_ID}" --branch "${{ github.head_ref || github.ref_name }}" \
+          --bitriseToken "${{ secrets.BITRISE_API_TOKEN }}" \
+          --envs "$envs" \
+          --message "$(git log -1 --pretty=%B%n%H)"

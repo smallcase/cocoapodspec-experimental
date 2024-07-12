@@ -3,146 +3,27 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: ios
 app:
   envs:
-  - SCLI_VERSION: v0.0.4-17-g9ee90d9
+  - SCLI_VERSION: v0.2.0
   - SCLI_PATH: scli
   - RELEASE_SCG: false
   - RELEASE_LOANS: false
-  - RELEASE_TYPE: qa
-  - BINARY_PATH: ".build/Products/SmartInvesting/Smart Investing.ipa"
   - COCOA_REPO: sc-cocoapodspec-internal
-  - COCOA_REPO_URL: https://github.com/smallcase/cocoapodspec-internal.git
-  - SCG_PODSPEC: smallcase_gateway/internal/SCGateway-ci.podspec.json
-  - LOANS_PODSPEC: loans/internal/SCLoans-ci.podspec.json
+  - COCOA_REPO_URL: git@github.com:smallcase/cocoapodspec-internal.git
+  - SCG_PODSPEC: smallcase_gateway/podspecs/release/SCGateway-qa.podspec.json
+  - LOANS_PODSPEC: loans/podspecs/release/SCLoans-qa.podspec.json
+  - BITRISE_PROJECT_PATH: SmartInvesting.xcworkspace
+  - BITRISE_SCHEME: release
 meta:
   bitrise.io:
     machine_type_id: g2-m1.4core
     stack: osx-xcode-15.2.x
+trigger_map:
+- push_branch: dev
+  workflow: test
+- pull_request_source_branch: '*'
+  workflow: test
 workflows:
-  release-internal:
-    before_run:
-    - x-ci-setup
-    after_run:
-    - z-assemble
-    - release-sdks
-    - z-generate-changelogs
-    - z-firebase-deploy
-    envs:
-    - RELEASE_TYPE: internal
-    - COCOA_REPO: sc-cocoapodspec-internal
-    - COCOA_REPO_URL: https://github.com/smallcase/cocoapodspec-internal.git
-    - SCG_PODSPEC: smallcase_gateway/internal/SCGateway-internal.podspec.json
-    - LOANS_PODSPEC: loans/internal/SCLoans-internal.podspec.json
-  release-prod:
-    before_run:
-    - x-ci-setup
-    after_run:
-    - z-assemble
-    - release-sdks
-    - z-generate-changelogs
-    - z-firebase-deploy
-    envs:
-    - RELEASE_TYPE: prod
-    - COCOA_REPO: trunk
-    - SCG_PODSPEC: smallcase_gateway/SCGateway.podspec.json
-    - LOANS_PODSPEC: loans/SCLoans.podspec.json
-  release-qa:
-    before_run:
-    - x-ci-setup
-    after_run:
-    - z-assemble
-    - z-generate-changelogs
-    - z-firebase-deploy
-    envs:
-    - RELEASE_TYPE: qa
-      opts:
-        is_expand: false
-  release-sdks:
-    envs:
-    - SCG_XC_FRAMEWORK_PATH: .build/Products/SCGateway.xcframework
-    - LOANS_XC_FRAMEWORK_PATH: .build/Products/Loans.xcframework
-    steps:
-    - script@1:
-        title: Install AWS CLI
-        run_if: .IsCI
-        inputs:
-        - content: |-
-            #!/usr/bin/env bash
-            # fail if any commands fails
-            set -e
-            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
-            set -o pipefail
-            # debug log
-            set -x
-
-            # Fetch aws cli tool
-            curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg
-            # Install aws cli tool with mac installer
-            sudo installer -pkg AWSCLIV2.pkg -target 
-            # Print out the aws cli installation details
-            which aws
-            aws --version
-    - script@1:
-        title: Release SDKs
-        inputs:
-        - content: |-
-            #!/usr/bin/env bash
-            set -e
-            set -o pipefail
-            set -x
-
-            scg_podspec="$SCG_PODSPEC"
-            loans_podspec="$LOANS_PODSPEC"
-            repo="$COCOA_REPO"
-            repo_url="$COCOA_REPO_URL"
-
-            if [[ "$RELEASE_SCG" == "true" ]];then
-              echo "Releasing SCGateway..."
-              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$SCG_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$scg_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
-            fi
-
-            if [[ "$RELEASE_LOANS" == "true" ]];then
-              echo "Releasing SCLoans..."
-              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$LOANS_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$loans_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
-            fi
-  x-ci-setup:
-    steps:
-    - set-git-credentials@1:
-        run_if: .IsCI
-        inputs:
-        - git_email_address: gatewaytech@smallcase.com
-        - git_user_name: gateway-tech-bot
-    - activate-ssh-key@4: {}
-    - certificate-and-profile-installer@1: {}
-    - git-clone@8.2:
-        inputs:
-        - fetch_tags: "yes"
-        - clone_depth: "-1"
-    - cocoapods-install@2:
-        run_if: .IsCI
-        inputs:
-        - podfile_directory: ./smallcase_gateway
-        - is_cache_disabled: "true"
-    - cocoapods-install@2:
-        run_if: .IsCI
-        inputs:
-        - podfile_directory: ./loans
-        - is_cache_disabled: "true"
-    - cocoapods-install@2:
-        run_if: .IsCI
-        inputs:
-        - is_cache_disabled: "true"
-    - script@1:
-        title: Install SCLI
-        inputs:
-        - content: |-
-            #!/usr/bin/env bash
-            set -e
-            set -o pipefail
-            set -x
-
-            curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/master/install.sh | bash -s -- $SCLI_VERSION $GITHUB_ACCESS_TOKEN
-    - manage-ios-code-signing@2: {}
-  z-assemble:
+  assemble:
     steps:
     - script@1:
         title: Assemble
@@ -156,10 +37,41 @@ workflows:
             # debug log
             set -x
 
-            echo "$RELEASE_TYPE"
-
+            sh BuildScripts/clean.sh
             sh BuildScripts/assemble.sh
-  z-firebase-deploy:
+  ci-setup:
+    after_run:
+    - z-install
+    steps:
+    - set-git-credentials@1:
+        run_if: .IsCI
+        inputs:
+        - git_email_address: gatewaytech@smallcase.com
+        - git_user_name: gateway-tech-bot
+    - activate-ssh-key@4: {}
+    - certificate-and-profile-installer@1: {}
+    - git-clone@8.2:
+        inputs:
+        - fetch_tags: "yes"
+        - clone_depth: "-1"
+    - script@1:
+        title: Set Env variables
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+
+            # Fail if any commands fail
+            set -e
+            # Make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # Debug log
+            set -x
+
+            sh BuildScripts/bitrise-set-envs.sh
+    - manage-ios-code-signing@2: {}
+  firebase-deploy:
+    envs:
+    - BINARY_PATH: .build/Products/$BITRISE_SCHEME/SmartInvesting/Smart Investing.ipa
     steps:
     - script@1:
         title: Install Firebase CLI
@@ -233,21 +145,48 @@ workflows:
             set -o pipefail
             set -x
 
-            echo "$RELEASE_TYPE"
+            echo "$BINARY_PATH"
+            echo "$FIREBASE_APP_ID"
 
-            changelog_file_path=".build/changelog.md"
+            scope="smallcase_gateway,loans"
+            firebase_changelog=$($SCLI_PATH changelog --format "firebase" --dirs "$scope")
 
-            # Check if file exists
-
-            if [[ -f "$changelog_file_path" ]]; then
-              firebase appdistribution:distribute "$BINARY_PATH" --app "$FIREBASE_APP_ID" --release-notes-file "$changelog_file_path" --groups "smallcase"
-            else
-              firebase appdistribution:distribute "$BINARY_PATH" --app "$FIREBASE_APP_ID" --groups "smallcase"
-            fi
-  z-generate-changelogs:
+            firebase appdistribution:distribute "$BINARY_PATH" --app "$FIREBASE_APP_ID" --release-notes "$firebase_changelog" --groups "smallcase"
+  release-app:
+    before_run:
+    - ci-setup
+    - assemble
+    after_run:
+    - firebase-deploy
+  release-sdks:
+    before_run:
+    - ci-setup
+    - assemble
+    after_run:
+    - firebase-deploy
     steps:
     - script@1:
-        title: Generate Changelogs
+        title: Install AWS CLI
+        run_if: .IsCI
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            # Fetch aws cli tool
+            curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+            # Install aws cli tool with mac installer
+            sudo installer -pkg AWSCLIV2.pkg -target /
+            # Print out the aws cli installation details
+            which aws
+            aws --version
+    - script@1:
+        title: Release SDK
         inputs:
         - content: |-
             #!/usr/bin/env bash
@@ -255,14 +194,58 @@ workflows:
             set -o pipefail
             set -x
 
-            echo "$RELEASE_TYPE"
+            scg_podspec="$SCG_PODSPEC"
+            loans_podspec="$LOANS_PODSPEC"
+            repo="$COCOA_REPO"
+            repo_url="$COCOA_REPO_URL"
 
+            scheme="$BITRISE_SCHEME"
+            
             if [[ "$RELEASE_SCG" == "true" ]];then
-              echo "Generating SCGateway Changelog..."
-              $SCLI_PATH changelog --githubToken "$GITHUB_ACCESS_TOKEN"
+              SCG_XC_FRAMEWORK_PATH=${SCG_XC_FRAMEWORK_PATH:-".build/Frameworks/$scheme/xcframeworks/SCGateway.xcframework"}
+              echo "Releasing SCGateway..."
+              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$SCG_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$scg_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
             fi
 
             if [[ "$RELEASE_LOANS" == "true" ]];then
-              echo "Generating Loans Changelog..."
-              $SCLI_PATH changelog --githubToken "$GITHUB_ACCESS_TOKEN"
+              LOANS_XC_FRAMEWORK_PATH=${LOANS_XC_FRAMEWORK_PATH:-".build/Frameworks/$scheme/xcframeworks/Loans.xcframework"}
+              echo "Releasing SCLoans..."
+              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$LOANS_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$loans_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
             fi
+  test:
+    before_run:
+    - ci-setup
+    steps:
+    - script@1:
+        title: Validate
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -e
+            set -o pipefail
+            set -x
+
+            sh BuildScripts/test.sh
+  z-install:
+    steps:
+    - script@1:
+        title: Install SCLI
+        run_if: not .IsPR
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -e
+            set -o pipefail
+            set -x
+
+            curl -H "Authorization: token $GITHUB_ACCESS_TOKEN" -s https://raw.githubusercontent.com/smallcase/scli/master/install.sh | bash -s -- $SCLI_VERSION $GITHUB_ACCESS_TOKEN
+    - script@1:
+        title: Install xcpretty
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            set -e
+            set -o pipefail
+            set -x
+
+            gem install xcpretty

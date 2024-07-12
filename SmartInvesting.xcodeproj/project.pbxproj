@@ -72,7 +72,6 @@
 		36F7D4B922B10397003B357A /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F7D4B722B10397003B357A /* SearchCell.xib */; };
 		36F7D4BC22B106EF003B357A /* CreateViewController+SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7D4BB22B106EF003B357A /* CreateViewController+SearchDelegate.swift */; };
 		5F3E81B1B9193D38CB7C606A /* Pods_SmartInvestingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8802EE63438A0420F3127721 /* Pods_SmartInvestingTests.framework */; };
-		88017AAC29657C0A00A6A83E /* USEAOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88017AAB29657C0A00A6A83E /* USEAOViewController.swift */; };
 		8817B54826E7C55A00DCFD33 /* Encodable+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8817B54726E7C55A00DCFD33 /* Encodable+ext.swift */; };
 		8832CA992A0D05C0000508A7 /* LASScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8832CA982A0D05C0000508A7 /* LASScreen.swift */; };
 		8832CA9C2A0D0803000508A7 /* SmartInvestingLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8832CA9B2A0D0803000508A7 /* SmartInvestingLaunchScreen.swift */; };
@@ -872,7 +871,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n$SRCROOT/BuildScripts/create_xc_frameworks.sh\n";
+			shellScript = "\n$SRCROOT/BuildScripts/embed_xc_frameworks.sh\n";
 		};
 		2DCDF6DD7BA67550D00D35D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -979,7 +978,6 @@
 				8872E8092878568B0002B389 /* Dictionary+Ext.swift in Sources */,
 				36F7D44722A9485A003B357A /* ViewController.swift in Sources */,
 				36DC3F2B2382A5AA0058DE04 /* Constituent.swift in Sources */,
-				88017AAC29657C0A00A6A83E /* USEAOViewController.swift in Sources */,
 				366C262E2464892300C638B1 /* PublicSmallcaseCell.swift in Sources */,
 				36DC3F432382E3B60058DE04 /* LoadingOverlay.swift in Sources */,
 				36F7D4AD22B0E936003B357A /* Stock.swift in Sources */,

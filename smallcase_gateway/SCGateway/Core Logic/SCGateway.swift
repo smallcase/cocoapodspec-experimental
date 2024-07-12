@@ -602,7 +602,7 @@ import UIKit
     }
     
     @objc public func getSdkVersion() -> String {
-        let version = Bundle.init(for: SCGateway.self).infoDictionary!["SCGatewayVersion"]!
+        let version = Bundle.init(for: SCGateway.self).infoDictionary!["CFBundleShortVersionString"]!
         return String(describing: version)
     }
     

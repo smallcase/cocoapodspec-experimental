@@ -6,5 +6,5 @@ target 'SCGateway' do
   use_frameworks! :linkage => :static
 
   # Pods for SCGateway
-  pod 'Mixpanel-swift', '~>3.3.0'
+  pod 'Mixpanel-swift', '~>4.2.7'
 end

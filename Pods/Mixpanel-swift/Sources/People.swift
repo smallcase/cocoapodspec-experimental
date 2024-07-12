@@ -44,11 +44,6 @@ open class People {
         if mixpanelInstance?.hasOptedOutTracking() ?? false {
             return
         }
-        #if DEBUG
-        if !(properties.keys.first?.hasPrefix("$ae_") ?? true) {
-            UserDefaults.standard.set(true, forKey: InternalKeys.mpDebugUsedPeopleKey)
-        }
-        #endif
         let epochMilliseconds = round(Date().timeIntervalSince1970 * 1000)
         let ignoreTimeCopy = ignoreTime
 
@@ -99,7 +94,7 @@ open class People {
         }
 
         if MixpanelInstance.isiOSAppExtension() {
-            delegate?.flush(completion: nil)
+            delegate?.flush(performFullFlush: false, completion: nil)
         }
     }
 
@@ -266,7 +261,7 @@ open class People {
      Delete current user's revenue history.
      */
     open func clearCharges() {
-        set(properties: ["$transactions": []])
+        set(properties: ["$transactions": [] as [Any]])
     }
 
     /**

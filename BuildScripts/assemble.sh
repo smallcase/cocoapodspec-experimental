@@ -1,38 +1,40 @@
 #!/bin/sh
 set -e
 
-if [ -d ".build" ]; then
-    find .build -mindepth 1 -delete
-else
-    echo ".build directory does not exist"
-fi
+scheme="${BITRISE_SCHEME:-release}"
 
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
-  -scheme SmartInvesting \
-  clean
-
-xcodebuild \
-  -workspace SmartInvesting.xcworkspace \
-  -scheme SmartInvesting \
-  -destination "generic/platform=iOS Simulator" \
+  -scheme "SCGatewayXcFramework" \
+  -destination "generic/platform=iOS" \
+  SC_XC_FRAMEWORKS_OUT_DIR="$(pwd)/.build/Frameworks/$scheme" \
   build
 
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
-  -scheme SmartInvesting \
+  -scheme "LoansXCFramework" \
+  -destination "generic/platform=iOS" \
+  SC_XC_FRAMEWORKS_OUT_DIR="$(pwd)/.build/Frameworks/$scheme" \
+  build
+
+xcodebuild \
+  -workspace SmartInvesting.xcworkspace \
+  -scheme $scheme \
   -destination "generic/platform=iOS" \
   USE_XC_FRAMEWORKS=YES \
+  SCG_XCF_PATH=".build/Frameworks/$scheme/xcframeworks/SCGateway.xcframework" \
+  LOANS_XCF_PATH=".build/Frameworks/$scheme/xcframeworks/Loans.xcframework" \
   build
 
 
 # # Define the path to the archives directory
-archives_dir=./.build/Products/Archives
-archivePath="$archives_dir/SmartInvesting.xcarchive"
+archives_dir_default=./.build/Archives
+archives_dir="${SC_ARCHIVE_DIR:-$archives_dir_default}"
+archivePath="$archives_dir/$scheme/SmartInvesting.xcarchive"
 
 xcodebuild \
   -workspace SmartInvesting.xcworkspace \
-  -scheme SmartInvesting \
+  -scheme $scheme \
   -destination 'generic/platform=iOS' \
   -archivePath "$archivePath" \
   archive
@@ -49,5 +51,5 @@ latest_archive_path="$archives_dir/$latest_archive/$(ls -t "$archives_dir/$lates
 xcodebuild \
   -exportArchive \
   -archivePath "$archivePath" \
-  -exportPath ./.build/Products/SmartInvesting/ \
+  -exportPath ./.build/Products/$scheme/SmartInvesting/ \
   -exportOptionsPlist './ExportOptions.plist'

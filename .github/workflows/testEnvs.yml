@@ -1,0 +1,18 @@
+name: Test ENVs
+on:
+  workflow_dispatch:
+jobs:
+  bump-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Git configuration
+        run: |
+          git config --global user.name "Github Action Bot"
+          git config --global user.email "gatewaytech@smallcase.com"
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Display Repo ENV vars
+        run: |
+          echo "${{ toJSON(vars) }}"

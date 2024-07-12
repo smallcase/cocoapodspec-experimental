@@ -12,7 +12,7 @@ protocol AEDelegate: AnyObject {
     func increment(property: String, by: Double)
 }
 
-#if DECIDE || TV_AUTO_EVENTS
+#if os(iOS) || os(tvOS) || os(visionOS)
 import Foundation
 import UIKit
 import StoreKit
@@ -45,11 +45,11 @@ class AutomaticEvents: NSObject, SKPaymentTransactionObserver, SKProductsRequest
     var sessionStartTime: TimeInterval = Date().timeIntervalSince1970
     var hasAddedObserver = false
     
-    let awaitingTransactionsWriteLock = DispatchQueue(label: "com.mixpanel.awaiting_transactions_writeLock", qos: .utility)
+    let awaitingTransactionsWriteLock = DispatchQueue(label: "com.mixpanel.awaiting_transactions_writeLock", qos: .userInitiated, autoreleaseFrequency: .workItem)
     
-    func initializeEvents(apiToken: String) {
+    func initializeEvents(instanceName: String) {
         let legacyFirstOpenKey = "MPFirstOpen"
-        let firstOpenKey = "MPFirstOpen-\(apiToken)"
+        let firstOpenKey = "MPFirstOpen-\(instanceName)"
         // do not track `$ae_first_open` again if the legacy key exist,
         // but we will start using the key with the mixpanel token in favour of multiple instances support
         if let defaults = defaults, !defaults.bool(forKey: legacyFirstOpenKey) {
@@ -86,9 +86,7 @@ class AutomaticEvents: NSObject, SKPaymentTransactionObserver, SKProductsRequest
                                                name: UIApplication.didBecomeActiveNotification,
                                                object: nil)
         
-        #if DECIDE
         SKPaymentQueue.default().add(self)
-        #endif
     }
     
     @objc func appWillResignActive(_ notification: Notification) {
@@ -108,7 +106,7 @@ class AutomaticEvents: NSObject, SKPaymentTransactionObserver, SKProductsRequest
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         var productsRequest = SKProductsRequest()
         var productIdentifiers: Set<String> = []
-        awaitingTransactionsWriteLock.sync {
+        awaitingTransactionsWriteLock.async { [self] in
             for transaction: AnyObject in transactions {
                 if let trans = transaction as? SKPaymentTransaction {
                     switch trans.transactionState {
@@ -121,13 +119,14 @@ class AutomaticEvents: NSObject, SKPaymentTransactionObserver, SKProductsRequest
                     }
                 }
             }
+            if !productIdentifiers.isEmpty {
+                productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
+                productsRequest.delegate = self
+                productsRequest.start()
+            }
         }
         
-        if !productIdentifiers.isEmpty {
-            productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
-            productsRequest.delegate = self
-            productsRequest.start()
-        }
+
     }
     
     func roundOneDigit(num: TimeInterval) -> TimeInterval {
@@ -135,7 +134,7 @@ class AutomaticEvents: NSObject, SKPaymentTransactionObserver, SKProductsRequest
     }
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        awaitingTransactionsWriteLock.sync {
+        awaitingTransactionsWriteLock.async { [self] in
             for product in response.products {
                 if let trans = awaitingTransactions[product.productIdentifier] {
                     delegate?.track(event: "$ae_iap", properties: ["$ae_iap_price": "\(product.price)",
@@ -147,5 +146,4 @@ class AutomaticEvents: NSObject, SKPaymentTransactionObserver, SKProductsRequest
         }
     }
 }
-
 #endif
