@@ -42,11 +42,13 @@ runs:
       shell: bash
       run: |
         commit_type="chore(${{ inputs.remix || 'prod' }}):"
+        remix="${{ inputs.remix }}"
+        remix_suffix=${remix:+-$remix}
         si="si/${{ inputs.siVersion }}"
         scg="scg/${{ inputs.scgVersion }}"
         loans="loans/${{ inputs.loansVersion }}"
 
-        if [[ "${{ inputs.remix }}" != "" ]];then
+        if [[ "$remix" != "" ]];then
           si+="-${{ inputs.siVersionCode }}"
           scg+="-${{ inputs.scgVersionCode }}"
           loans+="-${{ inputs.loansVersionCode }}"
