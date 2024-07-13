@@ -9,8 +9,8 @@ app:
   - RELEASE_LOANS: false
   - COCOA_REPO: sc-cocoapodspec-internal
   - COCOA_REPO_URL: git@github.com:smallcase/cocoapodspec-internal.git
-  - SCG_PODSPEC: smallcase_gateway/podspecs/release/SCGateway-qa.podspec.json
-  - LOANS_PODSPEC: loans/podspecs/release/SCLoans-qa.podspec.json
+  - SCG_PODSPEC: smallcase_gateway/SCGateway.podspec
+  - LOANS_PODSPEC: loans/SCLoans.podspec
   - BITRISE_PROJECT_PATH: SmartInvesting.xcworkspace
   - BITRISE_SCHEME: release
 meta:
@@ -194,24 +194,7 @@ workflows:
             set -o pipefail
             set -x
 
-            scg_podspec="$SCG_PODSPEC"
-            loans_podspec="$LOANS_PODSPEC"
-            repo="$COCOA_REPO"
-            repo_url="$COCOA_REPO_URL"
-
-            scheme="$BITRISE_SCHEME"
-            
-            if [[ "$RELEASE_SCG" == "true" ]];then
-              SCG_XC_FRAMEWORK_PATH=${SCG_XC_FRAMEWORK_PATH:-".build/Frameworks/$scheme/xcframeworks/SCGateway.xcframework"}
-              echo "Releasing SCGateway..."
-              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$SCG_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$scg_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
-            fi
-
-            if [[ "$RELEASE_LOANS" == "true" ]];then
-              LOANS_XC_FRAMEWORK_PATH=${LOANS_XC_FRAMEWORK_PATH:-".build/Frameworks/$scheme/xcframeworks/Loans.xcframework"}
-              echo "Releasing SCLoans..."
-              $SCLI_PATH cocoapodDeploy --cocoapodDeploy.framework "$LOANS_XC_FRAMEWORK_PATH" --cocoapodDeploy.podspec "$loans_podspec" --cocoapodDeploy.repo "$repo" --cocoapodDeploy.repoUrl "$repo_url"
-            fi
+            sh BuildScripts/bitrise/release-sdks.sh
   test:
     before_run:
     - ci-setup

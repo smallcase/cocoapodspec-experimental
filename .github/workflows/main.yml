@@ -25,22 +25,10 @@ on:
         description: "SCGateway"
         type: boolean
         default: false
-      scgRemixBucket:
-        type: choice
-        description: "SCG internal bucket"
-        options:
-          - scgateway_internal
-          - laons_internal
       loans:
         description: "SCLoans"
         type: boolean
         default: false
-      loansRemixBucket:
-        type: choice
-        description: "Loans internal bucket"
-        options:
-          - loans_internal
-          - laons_internal
       bitriseWorkflow:
         type: choice
         description: "Bitrise Workflow"
@@ -135,27 +123,6 @@ jobs:
 
           echo ${{ steps.set-versions.outputs.si_version }}
           echo ${{ steps.set-versions.outputs.si_version_code }}
-          
-      - name: Update SCG Podspec
-        if: ${{ inputs.scg }}
-        uses: ./.github/actions/update-podspec
-        with:
-          version: "${{ steps.set-versions.outputs.scg_version }}"
-          versionCode: "${{ steps.set-versions.outputs.scg_version_code }}"
-          remix: "${{ github.event.inputs.remix }}"
-          scheme: "${{ github.event.inputs.scheme }}"
-          remixBucket: "${{ github.event.inputs.scgRemixBucket }}"
-          podspec: "${{ vars.SCG_PODSPEC }}"
-      - name: Update Loans Podspec
-        if: ${{ inputs.loans }}
-        uses: ./.github/actions/update-podspec
-        with:
-          version: "${{ steps.set-versions.outputs.loans_version }}"
-          versionCode: "${{ steps.set-versions.outputs.loans_version_code }}"
-          remix: "${{ github.event.inputs.remix }}"
-          scheme: "${{ github.event.inputs.scheme }}"
-          remixBucket: "${{ github.event.inputs.loansRemixBucket }}"
-          podspec: "${{ vars.LOANS_PODSPEC }}"
 
       - name: Commit, Tag & Push
         uses: ./.github/actions/commit-tag-push
@@ -177,15 +144,11 @@ jobs:
           WORKFLOW_ID="${{ inputs.bitriseWorkflow }}"
           
           release_scg="${{ inputs.scg }}"
-          scg_podspec="smallcase_gateway/podspecs/${{ github.event.inputs.scheme }}/SCGateway-${{ github.event.inputs.remix }}.podspec.json"
           release_loans="${{ inputs.loans }}"
-          loans_podspec="loans/podspecs/${{ github.event.inputs.scheme }}/SCLoans-${{ github.event.inputs.remix }}.podspec.json"
 
           envs="OVERRIDE_RELEASE_SCG=$release_scg,\
-          OVERRIDE_SCG_PODSPEC=$scg_podspec,\
           OVERRIDE_BITRISE_SCHEME=${{ inputs.scheme }},\
-          OVERRIDE_RELEASE_LOANS=$release_loans,\
-          OVERRIDE_LOANS_PODSPEC=$loans_podspec"
+          OVERRIDE_RELEASE_LOANS=$release_loans"
 
           scli triggerBitrise --appSlug "${{ vars.BITRISE_APP_SLUG }}" --workflowId "$WORKFLOW_ID" --branch "${{ github.head_ref || github.ref_name }}" \
           --bitriseToken "${{ secrets.BITRISE_API_TOKEN }}" \
