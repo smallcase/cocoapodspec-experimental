@@ -36,7 +36,7 @@ on:
           - release-app
       scliVersion:
         description: "scli version"
-        default: "v0.2.0"
+        default: "v0.2.1"
 jobs:
   release:
     runs-on: ubuntu-latest

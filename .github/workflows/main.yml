@@ -39,7 +39,7 @@ on:
           - release-sdks
       scliVersion:
         description: "scli version"
-        default: "v0.2.0"
+        default: "v0.2.1"
 
 env:
   SCG_INFO_PLIST: smallcase_gateway/SCGateway/Helpers/Info.plist
