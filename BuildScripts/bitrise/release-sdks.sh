@@ -3,7 +3,7 @@
 # IT USES BITRISE SPECIFIC ENV VARIABLES
 set -e
 set -o pipefail
-# set -x
+set -x
 
 create_pod() {
     local should_release="$1"

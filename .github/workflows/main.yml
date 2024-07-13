@@ -147,6 +147,7 @@ jobs:
           release_loans="${{ inputs.loans }}"
 
           envs="OVERRIDE_RELEASE_SCG=$release_scg,\
+          OVERRIDE_REMIX=${{ inputs.remix }},\
           OVERRIDE_BITRISE_SCHEME=${{ inputs.scheme }},\
           OVERRIDE_RELEASE_LOANS=$release_loans"
 
