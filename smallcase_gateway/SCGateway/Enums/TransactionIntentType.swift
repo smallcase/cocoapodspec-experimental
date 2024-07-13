@@ -107,6 +107,17 @@ final public class _ObjcTransactionIntentTransaction: NSObject {
     
 }
 
+//MARK:  Intent = MF-TRANSACTION
+@objc(ObjcMfTransactionIntentTransaction)
+final public class _ObjcMfTransactionIntentTransaction: NSObject {
+    @objc public let data: String?
+        
+    init(_ data: String?) {
+        self.data = data
+    }
+    
+}
+
 //MARK:  Intent = HOLDINGS_IMPORT
 @objc(ObjcTransactionIntentHoldingsImport)
 final public class _ObjcTransactionIntentHoldingsImport: NSObject {

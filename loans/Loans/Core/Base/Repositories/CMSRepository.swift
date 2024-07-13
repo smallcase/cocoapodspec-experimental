@@ -25,7 +25,7 @@ internal class CMSRepository: CMSRepositoryProtocol {
                     self.lenderConfig = lenderConfigs
                     let dictionary: [String: Any] = [
                         "version": SessionManager.sdkVersion,
-                        "versionCode": 1
+                        "versionCode": SessionManager.sdkVersionCode
                     ]
                     let data = dictionary.toJsonString
                     completion(.success(ScLoanSuccess(

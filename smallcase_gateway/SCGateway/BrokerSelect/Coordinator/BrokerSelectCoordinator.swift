@@ -139,6 +139,9 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
                        
                            case let .transaction(authToken, transactionData):
                                self.objcTransactionCompletion!(_ObjcTransactionIntentTransaction(authToken, transactionData), nil)
+                           
+                           case let .mfTransaction(data):
+                                self.objcTransactionCompletion!(_ObjcMfTransactionIntentTransaction(data), nil)
                         
                            case let .connect(response):
                                self.objcTransactionCompletion!(_ObjCTransactionIntentConnect(response), nil)

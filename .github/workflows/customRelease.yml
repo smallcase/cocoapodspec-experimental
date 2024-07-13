@@ -70,6 +70,7 @@ jobs:
           OVERRIDE_SCG_PODSPEC=$scg_podspec,\
           OVERRIDE_RELEASE_LOANS=$release_loans,\
           OVERRIDE_LOANS_PODSPEC=$loans_podspec,\
+          OVERRIDE_BITRISE_SCHEME=${{ inputs.scheme }},\
           OVERRIDE_COCOA_REPO_URL=${{ inputs.repoUrl }},\
           OVERRIDE_COCOA_REPO=${{ inputs.repo }}"
 

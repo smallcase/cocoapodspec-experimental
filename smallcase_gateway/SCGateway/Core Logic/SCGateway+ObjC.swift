@@ -27,6 +27,9 @@ extension SCGateway {
                         case let .transaction(authToken, transactionData):
                             completion(_ObjcTransactionIntentTransaction(authToken, transactionData), nil)
                      
+                        case let .mfTransaction(data):
+                            completion(_ObjcMfTransactionIntentTransaction(data), nil)
+                        
                         case let .connect(response):
                             completion(_ObjCTransactionIntentConnect(response), nil)
                
