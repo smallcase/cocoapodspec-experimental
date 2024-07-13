@@ -67,7 +67,7 @@ workflows:
             # Debug log
             set -x
 
-            sh BuildScripts/bitrise-set-envs.sh
+            sh BuildScripts/bitrise/bitrise-set-envs.sh
     - manage-ios-code-signing@2: {}
   firebase-deploy:
     envs:
