@@ -25,8 +25,12 @@ create_pod() {
 
 pods=()
 
-pods+=("$(create_pod "$RELEASE_SCG" "$SCG_PODSPEC" "${SCG_XC_FRAMEWORK_PATH:-.build/Frameworks/SCGateway.xcframework}")")
-pods+=("$(create_pod "$RELEASE_LOANS" "$LOANS_PODSPEC" "${LOANS_XC_FRAMEWORK_PATH:-.build/Frameworks/Loans.xcframework}")")
+scheme="$BITRISE_SCHEME"
+SCG_XC_FRAMEWORK_PATH=${SCG_XC_FRAMEWORK_PATH:-".build/Frameworks/$scheme/xcframeworks/SCGateway.xcframework"}
+LOANS_XC_FRAMEWORK_PATH=${LOANS_XC_FRAMEWORK_PATH:-".build/Frameworks/$scheme/xcframeworks/Loans.xcframework"}
+
+pods+=("$(create_pod "$RELEASE_SCG" "$SCG_PODSPEC" "$SCG_XC_FRAMEWORK_PATH")")
+pods+=("$(create_pod "$RELEASE_LOANS" "$LOANS_PODSPEC" "$LOANS_XC_FRAMEWORK_PATH")")
 
 # Prints the array
 # echo ${pods[@]}
