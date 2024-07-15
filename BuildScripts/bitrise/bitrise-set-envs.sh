@@ -36,12 +36,9 @@ for var in $(env | grep -o '^OVERRIDE_[^=]*'); do
     # Get the value of the OVERRIDE_ variable
     override_value=$(eval echo \$$var)
 
-    # Check if the base variable exists
-    if [[ -n $(eval echo \$$base_var) ]]; then
-        echo "Overriding $base_var with $override_value"
-        envman add --key "$base_var" --value "$override_value"
-        export "$base_var=$override_value"
-    fi
+    echo "Overriding $base_var with $override_value"
+    envman add --key "$base_var" --value "$override_value"
+    export "$base_var=$override_value"
 done
 
 printenv | sort

@@ -13,7 +13,7 @@ on:
         default: false
       scliVersion:
         description: "scli version"
-        default: "v0.2.0"
+        default: "v0.2.1"
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -86,8 +86,6 @@ jobs:
 
           envs="OVERRIDE_RELEASE_SCG=$release_scg,\
           OVERRIDE_RELEASE_LOANS=$release_loans,\
-          OVERRIDE_SCG_PODSPEC=${{ vars.SCG_PODSPEC }},\
-          OVERRIDE_LOANS_PODSPEC=${{ vars.LOANS_PODSPEC }},\
           OVERRIDE_COCOA_REPO=trunk"
 
           scli triggerBitrise --appSlug "${{ vars.BITRISE_APP_SLUG }}" --workflowId "${WORKFLOW_ID}" --branch "${{ github.head_ref || github.ref_name }}" \
