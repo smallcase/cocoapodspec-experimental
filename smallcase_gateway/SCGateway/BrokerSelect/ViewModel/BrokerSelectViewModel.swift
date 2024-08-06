@@ -716,7 +716,16 @@ class BrokerSelectViewModel: NSObject, BrokerSelectViewModelProtocol, LeadGenCon
         
         self.markTransactionErrored(transactionError)
         
-        self.coordinatorDelegate?.transactionErrored(error: transactionError, successData: transactionResponse?.success)
+        SCGateway.shared.fetchTransactionStatus(transactionId: transactionId) { [weak self] (result) in
+            switch result {
+            case .success(let response):
+                self?.coordinatorDelegate?.transactionErrored(error: transactionError, successData: response.data?.transaction?.success)
+                break
+            case .failure(_):
+                self?.coordinatorDelegate?.transactionErrored(error: transactionError, successData: transactionResponse?.success)
+                break
+            }
+        }
     }
     
     internal func markTransactionErrored(_ error: TransactionError) {
