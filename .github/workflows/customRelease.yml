@@ -39,7 +39,7 @@ on:
         default: "v0.2.1"
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: arc-runner-set
     steps:
       - name: Set Git configuration
         run: |
