@@ -49,7 +49,7 @@ env:
   VERSION_CODE_KEY: CFBundleVersion
 jobs:
   bump-versions:
-    runs-on: ubuntu-latest
+    runs-on: arc-runner-set
     steps:
       - name: Set Git configuration
         run: |
