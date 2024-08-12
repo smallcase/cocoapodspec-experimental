@@ -32,20 +32,24 @@ on:
         description: "Bitrise Workflow"
         required: true
         options:
-          - none
-          - release-app
           - release-sdks
+          - release-app
       scliVersion:
         description: "scli version"
-        default: "v0.2.0"
+        default: "v0.2.1"
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: arc-runner-set
     steps:
       - name: Set Git configuration
         run: |
           git config --global user.name "Github Action Bot"
           git config --global user.email "gatewaytech@smallcase.com"
+          
+      - name: Set up GitHub CLI
+        uses: ksivamuthu/actions-setup-gh-cli@v3
+        with:
+          version: 2.45.0
 
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -57,19 +61,15 @@ jobs:
           version: "${{ github.event.inputs.scliVersion }}"
 
       - name: Trigger Bitrise Workflow
-        if: ${{ inputs.bitriseWorkflow != 'none' }}
         run: |
           WORKFLOW_ID="${{ inputs.bitriseWorkflow }}"
           
           release_scg="${{ inputs.scg }}"
-          scg_podspec="smallcase_gateway/podspecs/${{ github.event.inputs.scheme }}/SCGateway-${{ github.event.inputs.remix }}.podspec.json"
           release_loans="${{ inputs.loans }}"
-          loans_podspec="loans/podspecs/${{ github.event.inputs.scheme }}/SCLoans-${{ github.event.inputs.remix }}.podspec.json"
 
           envs="OVERRIDE_RELEASE_SCG=$release_scg,\
-          OVERRIDE_SCG_PODSPEC=$scg_podspec,\
           OVERRIDE_RELEASE_LOANS=$release_loans,\
-          OVERRIDE_LOANS_PODSPEC=$loans_podspec,\
+          OVERRIDE_REMIX=${{ inputs.remix }},\
           OVERRIDE_BITRISE_SCHEME=${{ inputs.scheme }},\
           OVERRIDE_COCOA_REPO_URL=${{ inputs.repoUrl }},\
           OVERRIDE_COCOA_REPO=${{ inputs.repo }}"
