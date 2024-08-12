@@ -16,3 +16,17 @@ jobs:
       - name: Display Repo ENV vars
         run: |
           echo "${{ toJSON(vars) }}"
+
+      - name: Set up GitHub CLI
+        uses: ksivamuthu/actions-setup-gh-cli@v3
+        with:
+          version: 2.45.0
+
+      - name: Verify GitHub CLI installation
+        run: gh --version
+
+      - name: GH cli create Dummy PR
+        env:
+          GH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+        run: |
+          gh pr create --base prod --head "$branch" --title "Dummy PR" --body ""

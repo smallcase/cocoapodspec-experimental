@@ -23,6 +23,11 @@ jobs:
           git config --global user.name "Github Action Bot"
           git config --global user.email "gatewaytech@smallcase.com"
 
+      - name: Set up GitHub CLI
+        uses: ksivamuthu/actions-setup-gh-cli@v3
+        with:
+          version: 2.45.0
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
