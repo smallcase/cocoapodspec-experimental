@@ -32,7 +32,17 @@ class LoginFallbackView: UIView {
             ])
         
         self.viewModel?.markTransactionErrored(.safariTabClosedInitialised)
-        self.viewModel?.coordinatorDelegate?.transactionErrored(error: .safariTabClosedInitialised, successData: nil)
+        SCGateway.shared.fetchTransactionStatus(transactionId: SessionManager.currentTransactionId ?? "") { [weak self] (result) in
+            switch result {
+            case .success(let response):
+                self?.viewModel?.coordinatorDelegate?.transactionErrored(error: .safariTabClosedInitialised, successData: response.data?.transaction?.success)
+                break
+            case .failure(_):
+                self?.viewModel?.coordinatorDelegate?.transactionErrored(error: .safariTabClosedInitialised, successData: nil)
+                break
+            }
+        }
+       
     }
     
     
