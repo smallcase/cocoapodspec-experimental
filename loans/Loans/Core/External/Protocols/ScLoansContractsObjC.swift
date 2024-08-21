@@ -38,6 +38,12 @@ protocol ScLoansContract {
         completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Void)
     )
     
+    func triggerInteraction(
+        presentingController: UIViewController,
+        loanInfo: ScLoanInfo,
+        completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Void)
+    )
+    
     func closeLoanAccount(
         presentingController: UIViewController,
         loanInfo: ScLoanInfo,

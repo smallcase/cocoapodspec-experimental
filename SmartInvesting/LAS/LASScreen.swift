@@ -223,6 +223,20 @@ struct LASScreen: View {
                     
                 }.padding()
                 
+                Button(action: {
+                    triggerInteraction()
+                }) {
+                    Text("Trigger Interaction")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }.edgesIgnoringSafeArea(.horizontal)
+                .padding()
+            
+                
             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }.onAppear {
             self.registerNewOrExistingUser()
@@ -373,6 +387,21 @@ struct LASScreen: View {
             }
         }
     }
+
+func triggerInteraction() {
+    ScLoan.instance.triggerInteraction(presentingController: hostingProvider.viewController!, loanInfo: ScLoanInfo(interactionToken: interactionToken!)) { result in
+        switch result {
+        case .success(let scLoanSuccess):
+            print(scLoanSuccess.data ?? "")
+            showAlertDialog("Success", scLoanSuccess.data ?? "")
+        case .failure(let error):
+            showAlertDialog("Error in trigger interaction", "\(String(describing: error.toPrettyJson()))")
+            print(error.code)
+        }
+    }
+}
+
+
     
     func showAlertDialog(_ title: String, _ message: String) {
         showingAlert = true
