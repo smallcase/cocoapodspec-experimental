@@ -16,7 +16,7 @@ on:
         default: "v0.2.1"
 jobs:
   release:
-    runs-on: arc-runner-set
+    runs-on: arc-runner-set-frontend
     steps:
       - name: Set Git configuration
         run: |
