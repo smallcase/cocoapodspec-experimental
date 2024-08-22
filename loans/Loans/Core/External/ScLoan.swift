@@ -41,24 +41,32 @@ public class ScLoan : NSObject, ScLoansContract {
         cmsRepo.loadLenderConfig(completion: completion)
     }
     
+    @available(*, deprecated, message: "Use triggerInteraction() instead.")
     public func apply(presentingController: UIViewController, loanInfo: ScLoanInfo, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Void)) {
-        trigger(presentingController: presentingController, loanInfo: loanInfo, methodIntent: .LOAN_APPLICATION, completion: completion)
+        trigger(presentingController: presentingController, loanInfo: loanInfo.toInternal(methodIntent: .LOAN_APPLICATION), completion: completion)
     }
 
+    @available(*, deprecated, message: "Use triggerInteraction() instead.")
     public func pay(presentingController: UIViewController, loanInfo: ScLoanInfo, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Void)) {
-        trigger(presentingController: presentingController, loanInfo: loanInfo, methodIntent: .PAYMENT, completion: completion)
+        trigger(presentingController: presentingController, loanInfo: loanInfo.toInternal(methodIntent: .PAYMENT), completion: completion)
     }
 
+    @available(*, deprecated, message: "Use triggerInteraction() instead.")
     public func withdraw(presentingController: UIViewController, loanInfo: ScLoanInfo, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Void)) {
-        trigger(presentingController: presentingController, loanInfo: loanInfo, methodIntent: .WITHDRAW, completion: completion)
+        trigger(presentingController: presentingController, loanInfo: loanInfo.toInternal(methodIntent: .WITHDRAW), completion: completion)
     }
 
+    @available(*, deprecated, message: "Use triggerInteraction() instead.")
     public func service(presentingController: UIViewController, loanInfo: ScLoanInfo, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Void)) {
-        trigger(presentingController: presentingController, loanInfo: loanInfo, methodIntent: .SERVICE, completion: completion)
+        trigger(presentingController: presentingController, loanInfo: loanInfo.toInternal(methodIntent: .SERVICE), completion: completion)
+    }
+    
+    public func triggerInteraction(presentingController: UIViewController, loanInfo: ScLoanInfo, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Void)) {
+        trigger(presentingController: presentingController, loanInfo: loanInfo.toInternal(), completion: completion)
     }
 
-    private func trigger(presentingController: UIViewController, loanInfo: ScLoanInfo, methodIntent: ScLoanIntent, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Void)) {
-        SessionManager.loanInfo = loanInfo.toInternal(methodIntent: methodIntent)
+    private func trigger(presentingController: UIViewController, loanInfo: ScLoanInfoInternal, completion: @escaping ((ScLoanResult<ScLoanSuccess>) -> Void)) {
+        SessionManager.loanInfo = loanInfo
         if !isInitialised {
             self.registerMixpanelEvent(
                 eventName: MixpanelConstants.EVENT_RESPONSE_SENT_TO_PARTNER,
@@ -74,7 +82,7 @@ public class ScLoan : NSObject, ScLoansContract {
         self.registerMixpanelEvent(
             eventName: MixpanelConstants.EVENT_TRIGGERED_INTERACTION,
             additionalProperties: [
-                "methodIntent": methodIntent.rawValue
+                "methodIntent": loanInfo.methodIntent?.rawValue
             ])
         lasCoordinator?.launchLoadingScreen()
     }

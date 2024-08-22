@@ -15,16 +15,16 @@ import Foundation
         self.interactionToken = interactionToken
     }
     
-    func toInternal(methodIntent: ScLoanIntent) -> ScLoanInfoInternal {
+    func toInternal(methodIntent: ScLoanIntent? = nil) -> ScLoanInfoInternal {
         return ScLoanInfoInternal(methodIntent: methodIntent, interactionToken: interactionToken)
     }
 }
 
 class ScLoanInfoInternal: ScLoanInfo {
     
-    let methodIntent: ScLoanIntent
+    let methodIntent: ScLoanIntent?
     
-    init(methodIntent: ScLoanIntent, interactionToken: String) {
+    init(methodIntent: ScLoanIntent? = nil, interactionToken: String) {
         self.methodIntent = methodIntent
         super.init(interactionToken: interactionToken)
     }

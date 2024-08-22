@@ -96,10 +96,18 @@ class LASViewModel: NSObject, LASViewModelProtocol {
                                                 "isAuthRequired": lenderInfo.isAuthRequired
                                               ])
         
-        guard lenderInfo.intent == currentLoanInfo.methodIntent.rawValue else {
-            coordinatorDelegate?.concludeLOSJourney(.failure(ScLoanError.invalidInteractionIntent))
-            return
+        // To support newer intents, we have added a new function triggerInteraction which does not take any specific methodIntent as input hence this code will only check for those conditions where methodIntent is specified.
+        if let methodIntent = currentLoanInfo.methodIntent {
+            let isValidIntent = lenderInfo.intent == methodIntent.rawValue ||
+                                methodIntent.subIntents.contains(lenderInfo.intent)
+            
+            guard isValidIntent else {
+                coordinatorDelegate?.concludeLOSJourney(.failure(ScLoanError.invalidInteractionIntent))
+                return
+            }
         }
+
+       
         
         self.lenderInfo = lenderInfo
         

@@ -12,4 +12,13 @@ enum ScLoanIntent: String {
     case PAYMENT = "PAYMENT"
     case WITHDRAW = "WITHDRAW"
     case SERVICE = "SERVICE"
+    
+    var subIntents: [String] {
+        switch self {
+        case .LOAN_APPLICATION:
+            return ["LOAN_APPLICATION:TOP_UP", "LOAN_APPLICATION:RENEWAL"]
+        default:
+            return []
+        }
+    }
 }

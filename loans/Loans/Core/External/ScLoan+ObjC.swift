@@ -70,6 +70,18 @@ extension ScLoan: ScLoansContractsObjC {
         }
     }
     
+    @objc public func triggerInteraction(presentingController: UIViewController, loanInfo: ScLoanInfo, completion: @escaping(ScLoanSuccess?, ScLoanError?) -> Void) {
+        triggerInteraction(presentingController: presentingController, loanInfo: loanInfo) {
+            result in
+            switch(result) {
+            case .success(let response):
+                completion(response, nil)
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
     //TO be implemented
     func closeLoanAccount(presentingController: UIViewController, loanInfo: ScLoanInfo, completion: @escaping (ScLoanSuccess?, ScLoanError?) -> Void) {
         
