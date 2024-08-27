@@ -93,6 +93,7 @@
 		88EB14D92A266B5F008438F6 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB14D82A266B5F008438F6 /* View+Ext.swift */; };
 		88EB14E42A273609008438F6 /* LASUserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EB14E32A273609008438F6 /* LASUserMode.swift */; };
 		E768F9D4ADC3E1F479CF9714 /* Pods_SmartInvestingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB9DDC89BA5D35CB085076C /* Pods_SmartInvestingUITests.framework */; };
+		FFD45134BF680472B9A35E44 /* Pods_SmartInvesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FEF8E9F4A6D2FBEDDA8A71 /* Pods_SmartInvesting.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +257,7 @@
 			files = (
 				157BA5352C1594170020ECF5 /* Loans.framework in Frameworks */,
 				157BA5372C1594170020ECF5 /* SCGateway.framework in Frameworks */,
+				FFD45134BF680472B9A35E44 /* Pods_SmartInvesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
