@@ -38,5 +38,5 @@ Pod::Spec.new do |spec|
     spec.vendored_framework = 'Loans.xcframework'
     spec.source ={ :http => "https://gateway.smallcase.com/#{aws_bucket}/#{source_target_dir}/Loans.xcframework.zip"}  
 
-    spec.dependency "Mixpanel-swift", "4.2.7"
+    spec.dependency "Mixpanel-swift", "~> 4.2.5"
 end
