@@ -18,7 +18,6 @@ enum GatewayService: ServiceProtocol {
     case getTweetConfig
     case getPartnerConfig
     case getTransactionStatus(trxid: String)
-    case getFivePaisaLead(email: String, source: String)
     case marketStatus
     case markTransactionErrored(trxId: String, error: TransactionError)
     case markSmallcaseArchive(params: [String: Any])
@@ -106,13 +105,6 @@ enum GatewayService: ServiceProtocol {
             return [
                 "url": urlEndpoint,
                 "broker": brokerName
-            ]
-            
-        case let .getFivePaisaLead(email, source):
-            
-            return [
-                "email": email,
-                "source": source
             ]
             
         case let .getTransactionStatus(trxid):
@@ -246,9 +238,6 @@ enum GatewayService: ServiceProtocol {
         case .getPartnerConfig:
             return "partnerConfig"
             
-        case .getFivePaisaLead:
-            return "5paisaPwa/token"
-            
         case .markSmallcaseArchive:
             return "user/cancelBatch"
                 
@@ -313,9 +302,6 @@ enum GatewayService: ServiceProtocol {
             return .post
             
         case .getPartnerConfig:
-            return .get
-                
-        case .getFivePaisaLead:
             return .get
             
         case .markSmallcaseArchive:
@@ -438,9 +424,6 @@ enum GatewayService: ServiceProtocol {
             
         case .updateConsent:
             return .json
-            
-        case .getFivePaisaLead:
-            return .url
             
         case .markSmallcaseArchive:
             return .json
