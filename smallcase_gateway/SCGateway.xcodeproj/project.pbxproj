@@ -123,7 +123,6 @@
 		88157F68285A05970008E7E3 /* SmallplugViewController+WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88157F66285A05970008E7E3 /* SmallplugViewController+WebView.swift */; };
 		881FFC03268AEA7500236168 /* BrokerChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881FFC02268AEA7500236168 /* BrokerChooserViewController.swift */; };
 		88226BF729430DF100A36C7E /* UtmParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88226BF629430DF100A36C7E /* UtmParams.swift */; };
-		882C50342844DDBF008F9273 /* FivePaisaPwaControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882C50332844DDBF008F9273 /* FivePaisaPwaControllerDelegate.swift */; };
 		88337C7428FEA07F00B1B18D /* USEAccountOpeningConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88337C7328FEA07F00B1B18D /* USEAccountOpeningConstants.swift */; };
 		8840CD2325DD3CD7008738C7 /* SwiftUiColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8840CD2225DD3CD7008738C7 /* SwiftUiColor.swift */; };
 		88477D6328FD758B00E0CFD1 /* USEAccOpeningCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88477D6228FD758B00E0CFD1 /* USEAccOpeningCoordinator.swift */; };
@@ -152,9 +151,6 @@
 		888D7A782859FFD3008D2EF3 /* SmallplugHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D7A742859FFD3008D2EF3 /* SmallplugHeader.swift */; };
 		888D7A792859FFD3008D2EF3 /* SmallplugHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888D7A752859FFD3008D2EF3 /* SmallplugHeader.xib */; };
 		88A2886A296F2B510090F98F /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A28869296F2B510090F98F /* UserInfo.swift */; };
-		88A3832B25B59EC00066D7FC /* FivePaisaPwaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88A3832925B59EC00066D7FC /* FivePaisaPwaViewController.xib */; };
-		88A3832C25B59EC00066D7FC /* FivePaisaPwaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A3832A25B59EC00066D7FC /* FivePaisaPwaViewController.swift */; };
-		88A3835025B5BDDA0066D7FC /* FivePaisaLeadAuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A3834F25B5BDDA0066D7FC /* FivePaisaLeadAuthResponse.swift */; };
 		88A5B14D28BDEA4500402804 /* BrokerSelectViewModel+NativeLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5B14C28BDEA4500402804 /* BrokerSelectViewModel+NativeLogin.swift */; };
 		88A9373027C5433E00A6A98A /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9372F27C5433E00A6A98A /* Dictionary+Ext.swift */; };
 		88AAF08C281FEDDF006C9621 /* BrokerSelectViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AAF08B281FEDDF006C9621 /* BrokerSelectViewModelProtocol.swift */; };
@@ -282,7 +278,6 @@
 		88157F66285A05970008E7E3 /* SmallplugViewController+WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SmallplugViewController+WebView.swift"; sourceTree = "<group>"; };
 		881FFC02268AEA7500236168 /* BrokerChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerChooserViewController.swift; sourceTree = "<group>"; };
 		88226BF629430DF100A36C7E /* UtmParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtmParams.swift; sourceTree = "<group>"; };
-		882C50332844DDBF008F9273 /* FivePaisaPwaControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FivePaisaPwaControllerDelegate.swift; sourceTree = "<group>"; };
 		88337C7328FEA07F00B1B18D /* USEAccountOpeningConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USEAccountOpeningConstants.swift; sourceTree = "<group>"; };
 		8840CD2225DD3CD7008738C7 /* SwiftUiColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiColor.swift; sourceTree = "<group>"; };
 		88477D6228FD758B00E0CFD1 /* USEAccOpeningCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USEAccOpeningCoordinator.swift; sourceTree = "<group>"; };
@@ -312,9 +307,6 @@
 		888D7A742859FFD3008D2EF3 /* SmallplugHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallplugHeader.swift; sourceTree = "<group>"; };
 		888D7A752859FFD3008D2EF3 /* SmallplugHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallplugHeader.xib; sourceTree = "<group>"; };
 		88A28869296F2B510090F98F /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		88A3832925B59EC00066D7FC /* FivePaisaPwaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FivePaisaPwaViewController.xib; sourceTree = "<group>"; };
-		88A3832A25B59EC00066D7FC /* FivePaisaPwaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FivePaisaPwaViewController.swift; sourceTree = "<group>"; };
-		88A3834F25B5BDDA0066D7FC /* FivePaisaLeadAuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FivePaisaLeadAuthResponse.swift; sourceTree = "<group>"; };
 		88A5B14C28BDEA4500402804 /* BrokerSelectViewModel+NativeLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrokerSelectViewModel+NativeLogin.swift"; sourceTree = "<group>"; };
 		88A9372F27C5433E00A6A98A /* Dictionary+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
 		88AAF08B281FEDDF006C9621 /* BrokerSelectViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerSelectViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -529,8 +521,6 @@
 			isa = PBXGroup;
 			children = (
 				36BBD4CE24E1894E0020C9EA /* LeadGenController.swift */,
-				88A3832A25B59EC00066D7FC /* FivePaisaPwaViewController.swift */,
-				88A3832925B59EC00066D7FC /* FivePaisaPwaViewController.xib */,
 			);
 			path = LeadGen;
 			sourceTree = "<group>";
@@ -657,7 +647,6 @@
 				36AEFD78237C484E00E45E63 /* MarketStatusResponse.swift */,
 				367363DC24B48C6F00E83C3C /* UpdateBrokerRes.swift */,
 				36A194A424E52A860022736F /* UpdateConsentData.swift */,
-				88A3834F25B5BDDA0066D7FC /* FivePaisaLeadAuthResponse.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -765,7 +754,6 @@
 		882C50322844DDA0008F9273 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				882C50332844DDBF008F9273 /* FivePaisaPwaControllerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1002,7 +990,6 @@
 			files = (
 				A970031424ED0A9D00B4C6B0 /* GraphikApp-Semibold.ttf in Resources */,
 				3658976E238557590083F299 /* smallcase-loader.gif in Resources */,
-				88A3832B25B59EC00066D7FC /* FivePaisaPwaViewController.xib in Resources */,
 				8877D2A628587E9500337DEA /* LoginFallbackView.xib in Resources */,
 				A970030F24ED0A9D00B4C6B0 /* GraphikApp-Bold.ttf in Resources */,
 				888D7A772859FFD3008D2EF3 /* SmallplugLoader.xib in Resources */,
@@ -1104,7 +1091,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88A3832C25B59EC00066D7FC /* FivePaisaPwaViewController.swift in Sources */,
 				3658977B238677FE0083F299 /* SCGateway+Utilty.swift in Sources */,
 				36F1DE902372BA4C00E36C39 /* InitSessionResponse.swift in Sources */,
 				365506552374618E0021ADE8 /* UIImage+ext.swift in Sources */,
@@ -1174,12 +1160,10 @@
 				36AEFD79237C484E00E45E63 /* MarketStatusResponse.swift in Sources */,
 				88F8C55026AFEB6D00483F13 /* SmallPlugViewController.swift in Sources */,
 				36F1DE832372AA3A00E36C39 /* Environment.swift in Sources */,
-				88A3835025B5BDDA0066D7FC /* FivePaisaLeadAuthResponse.swift in Sources */,
 				367363DD24B48C6F00E83C3C /* UpdateBrokerRes.swift in Sources */,
 				36F1DEFB2372EFFF00E36C39 /* Images.swift in Sources */,
 				888D7A702859FF17008D2EF3 /* SmallplugUiConfig.swift in Sources */,
 				1543E58E2B21C07700BCD6B1 /* ScLoadingViewController.swift in Sources */,
-				882C50342844DDBF008F9273 /* FivePaisaPwaControllerDelegate.swift in Sources */,
 				3655064B23743B300021ADE8 /* GatewayLoadingView.swift in Sources */,
 				36F1DF052373FC6300E36C39 /* BrokerSelectCoordinator.swift in Sources */,
 				36A194A724E53F300022736F /* ConnectedConsentView.swift in Sources */,
