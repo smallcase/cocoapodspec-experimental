@@ -19,8 +19,7 @@ protocol LeadGenControllerDelegate: AnyObject {
 class LeadGenController: UIViewController,
                          WKUIDelegate,
                          WKNavigationDelegate,
-                         WKScriptMessageHandler,
-                         FivePaisaPwaControllerDelegate {
+                         WKScriptMessageHandler {
     
     
     enum MessageHandlers {
@@ -228,7 +227,7 @@ class LeadGenController: UIViewController,
                 self.delegate?.dismissLeadGen()
             })
             
-            case MessageHandlers.openThirdPartyUrlWithData:
+        case MessageHandlers.openThirdPartyUrlWithData, MessageHandlers.openPwaWithData:
                 
                 if let messageBody = message.body as? String {
                     
@@ -272,32 +271,11 @@ class LeadGenController: UIViewController,
                     
                         if let jsonObjDict = jsonObject as? [String: String] {
                             
-                            launchPwaFlow(params: jsonObjDict)
                     }
                 } catch {
                     print("Error opening PWA flow")
                 }
             }
-                
-            case MessageHandlers.openPwaWithData:
-                
-                if let jsonString = message.body as? String {
-                    
-                    if let leadDict = jsonString.toDictionary {
-                        
-                        let leadData = leadDict["data"] as! [String : Any]
-                        
-                        self.leadStatus = leadData["leadStatus"] as? [String : Any]
-                        
-                        var pwaDict: [String : String] = [:]
-                        
-                        pwaDict["pwaUrL"] = leadDict["url"] as? String
-                        pwaDict["email"] = leadData["email"] as? String
-                        
-                        launchPwaFlow(params: pwaDict)
-                    }
-                    
-                }
         
             case MessageHandlers.closeWebView:
 //                print("LeadGenController: closeWebView \(message.body)")
@@ -324,46 +302,10 @@ class LeadGenController: UIViewController,
         }
     }
     
-    func launchPwaFlow(params: [String: String]) {
-        
-        let pwaViewController = FivePaisaPwaViewController(params: params, showSmallcaseLoader: self.showLoader)
-        pwaViewController.delegate = self
-        pwaViewController.modalPresentationStyle = .overFullScreen
-        
-        if(self.showLoader) {
-            pwaViewController.view.backgroundColor = UIColor.init(white: 0, alpha: 0.8)
-        } else {
-            pwaViewController.view.backgroundColor = .clear
-        }
-        self.present(pwaViewController, animated: false, completion: {
-            self.webView.isHidden = true
-            self.smallcaseLoaderImageView.isHidden = true
-        })
-
-    }
-    
     //MARK: Dismiss Webview
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         self.dismiss(animated: false, completion: nil)
         delegate?.dismissLeadGen()
-    }
-    
-    func dismissFivePaisaPwa() {
-        
-        self.dismiss(animated: false, completion: nil)
-        presentingViewController?.dismiss(animated: false, completion: nil)
-        
-        if let leadStatus = self.leadStatus {
-            
-            if self.leadGenCompletion != nil {
-                self.leadGenCompletion!(leadStatus.toJsonString)
-            } else {
-                delegate?.dismissLeadGen(leadStatus)
-            }
-        
-        } else {
-            delegate?.dismissLeadGen()
-        }
     }
     
 }

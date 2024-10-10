@@ -581,20 +581,6 @@ internal extension SCGateway {
         }
     }
     
-    func getFivePaisaLeadAuthToken(email: String, source: String, completion: @escaping(Result<FivePaisaLeadAuthResponse, NetworkError>) -> Void) {
-        sessionProvider.request(type: FivePaisaLeadAuthResponse.self, service: GatewayService.getFivePaisaLead(email: email, source: source)) { result in
-            
-            switch result {
-            case .success(let fivePaisaLeadGenToken):
-                print(fivePaisaLeadGenToken)
-                completion(result)
-            case .failure(let error):
-                print(error)
-                completion(result)
-            }
-        }
-    }
-    
     func registerAllFonts() {
         UIFont.jbs_registerFont(
             withFilenameString: "GraphikApp-Bold.ttf",
