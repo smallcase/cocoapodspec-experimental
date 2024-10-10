@@ -227,7 +227,7 @@ class LeadGenController: UIViewController,
                 self.delegate?.dismissLeadGen()
             })
             
-            case MessageHandlers.openThirdPartyUrlWithData:
+        case MessageHandlers.openThirdPartyUrlWithData, MessageHandlers.openPwaWithData:
                 
                 if let messageBody = message.body as? String {
                     
@@ -276,25 +276,6 @@ class LeadGenController: UIViewController,
                     print("Error opening PWA flow")
                 }
             }
-                
-            case MessageHandlers.openPwaWithData:
-                
-                if let jsonString = message.body as? String {
-                    
-                    if let leadDict = jsonString.toDictionary {
-                        
-                        let leadData = leadDict["data"] as! [String : Any]
-                        
-                        self.leadStatus = leadData["leadStatus"] as? [String : Any]
-                        
-                        var pwaDict: [String : String] = [:]
-                        
-                        pwaDict["pwaUrL"] = leadDict["url"] as? String
-                        pwaDict["email"] = leadData["email"] as? String
-                        
-                    }
-                    
-                }
         
             case MessageHandlers.closeWebView:
 //                print("LeadGenController: closeWebView \(message.body)")
