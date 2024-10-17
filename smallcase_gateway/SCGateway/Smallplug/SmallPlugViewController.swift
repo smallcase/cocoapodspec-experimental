@@ -155,12 +155,11 @@ class SmallPlugViewController: UIViewController, WKUIDelegate {
         
         NSLayoutConstraint.activate([
             webView.topAnchor.constraint(equalTo: self.containerView.bottomAnchor),
-            webView.leftAnchor
-                .constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
-            webView.bottomAnchor.constraint(equalToSystemSpacingBelow: self.view.bottomAnchor, multiplier: 1.0),
-            webView.rightAnchor
-                .constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor)
+            webView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
+            webView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor), 
+            webView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor)
         ])
+
         
         containerView.alpha = 0
         webView.alpha = 0
