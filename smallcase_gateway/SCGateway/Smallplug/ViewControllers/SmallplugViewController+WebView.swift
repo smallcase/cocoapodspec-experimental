@@ -34,6 +34,7 @@ extension SmallPlugViewController: WKNavigationDelegate {
                 
                 self.containerView.alpha = 1
                 webView.alpha = 1
+                self.bottomSpacerView.alpha = 1
                 
                 if #available(iOS 13, *) {
                     
