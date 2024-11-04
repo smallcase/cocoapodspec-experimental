@@ -172,7 +172,7 @@ class SmallPlugViewController: UIViewController, WKUIDelegate {
             bottomSpacerView.leftAnchor.constraint(equalTo: view.leftAnchor),
             bottomSpacerView.rightAnchor.constraint(equalTo: view.rightAnchor),
             bottomSpacerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bottomSpacerView.heightAnchor.constraint(equalToConstant: 40) 
+            bottomSpacerView.heightAnchor.constraint(equalToConstant: 20)
         ])
 
         
