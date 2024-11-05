@@ -28,6 +28,7 @@ class SmallPlugViewController: UIViewController, WKUIDelegate {
     internal var viewModel: SmallplugViewModelProtocol!
     
     //MARK: UI Variables
+    var bottomSpacerHeightConstraint: NSLayoutConstraint?
     
     // Shows smallcase loading Icon
     fileprivate lazy var smallcaseLoaderImageView: UIImageView = {
@@ -45,6 +46,14 @@ class SmallPlugViewController: UIViewController, WKUIDelegate {
         view.backgroundColor = .clear
         return view
     }()
+    
+    lazy var bottomSpacerView: UIView = {
+           let view = UIView()
+           view.backgroundColor = .white
+           view.translatesAutoresizingMaskIntoConstraints = false
+           view.alpha = 0
+           return view
+       }()
     
     lazy var webView: WKWebView = {
         let preferences = WKPreferences()
@@ -73,6 +82,7 @@ class SmallPlugViewController: UIViewController, WKUIDelegate {
         webView.scrollView.backgroundColor = .clear
         webView.backgroundColor = .clear
         webView.layer.cornerRadius = 11.8
+        webView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         webView.clipsToBounds = true
         
         return webView
@@ -105,6 +115,7 @@ class SmallPlugViewController: UIViewController, WKUIDelegate {
     }
     
     func setupUI() {
+        view.addSubview(bottomSpacerView)
         
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.startAnimating()
@@ -155,12 +166,16 @@ class SmallPlugViewController: UIViewController, WKUIDelegate {
         
         NSLayoutConstraint.activate([
             webView.topAnchor.constraint(equalTo: self.containerView.bottomAnchor),
-            webView.leftAnchor
-                .constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
-            webView.bottomAnchor.constraint(equalToSystemSpacingBelow: self.view.bottomAnchor, multiplier: 1.0),
-            webView.rightAnchor
-                .constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor)
+            webView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
+            webView.bottomAnchor.constraint(equalTo: bottomSpacerView.topAnchor),
+            webView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
+            
+            bottomSpacerView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            bottomSpacerView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            bottomSpacerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+        bottomSpacerHeightConstraint = bottomSpacerView.heightAnchor.constraint(equalToConstant: 0)
+        bottomSpacerHeightConstraint?.isActive = true
         
         containerView.alpha = 0
         webView.alpha = 0
@@ -178,6 +193,11 @@ class SmallPlugViewController: UIViewController, WKUIDelegate {
         webView.load(viewModel.getSmallplugLaunchURL())
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let bottomInset = view.safeAreaInsets.bottom > 0 ? 20.0 : 0.0
+        bottomSpacerHeightConstraint?.constant = bottomInset
+    }
     
     
     @objc func didTapDismiss() {
