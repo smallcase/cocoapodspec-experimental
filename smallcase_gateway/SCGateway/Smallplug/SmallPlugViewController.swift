@@ -28,6 +28,7 @@ class SmallPlugViewController: UIViewController, WKUIDelegate {
     internal var viewModel: SmallplugViewModelProtocol!
     
     //MARK: UI Variables
+    var bottomSpacerHeightConstraint: NSLayoutConstraint?
     
     // Shows smallcase loading Icon
     fileprivate lazy var smallcaseLoaderImageView: UIImageView = {
@@ -172,9 +173,9 @@ class SmallPlugViewController: UIViewController, WKUIDelegate {
             bottomSpacerView.leftAnchor.constraint(equalTo: view.leftAnchor),
             bottomSpacerView.rightAnchor.constraint(equalTo: view.rightAnchor),
             bottomSpacerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bottomSpacerView.heightAnchor.constraint(equalToConstant: 20)
         ])
-
+        bottomSpacerHeightConstraint = bottomSpacerView.heightAnchor.constraint(equalToConstant: 0)
+        bottomSpacerHeightConstraint?.isActive = true
         
         containerView.alpha = 0
         webView.alpha = 0
@@ -192,6 +193,11 @@ class SmallPlugViewController: UIViewController, WKUIDelegate {
         webView.load(viewModel.getSmallplugLaunchURL())
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let bottomInset = view.safeAreaInsets.bottom > 0 ? 20.0 : 0.0
+        bottomSpacerHeightConstraint?.constant = bottomInset
+    }
     
     
     @objc func didTapDismiss() {
