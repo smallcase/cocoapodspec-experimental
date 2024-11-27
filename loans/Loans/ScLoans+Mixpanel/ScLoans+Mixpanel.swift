@@ -71,6 +71,8 @@ internal extension ScLoan {
         finalProps["SDK type"] = SessionManager.sdkType
         finalProps["SDK module"] = SessionManager.sdkModule
         finalProps["interactionToken"] = SessionManager.loanInfo?.interactionToken
+        finalProps["lender"] = SessionManager.currentlenderInfo?.lenderName
+        finalProps["productType"] = SessionManager.currentlenderInfo?.productType
         if self.mixpanelSetupComplete {
             Mixpanel.mainInstance().track(event: eventName, properties: finalProps)
         } else if self.mixpanelSetupInProgress {
