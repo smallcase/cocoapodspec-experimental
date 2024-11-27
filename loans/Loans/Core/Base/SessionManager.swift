@@ -33,6 +33,8 @@ internal enum SessionManager {
     
     //MARK: Loan Specific
     static var loanInfo: ScLoanInfoInternal? = nil
+        
+    static var currentlenderInfo: LenderInfo? = nil
     
     static var gatewayIosConfig: GatewayIosConfig? = nil
 }
