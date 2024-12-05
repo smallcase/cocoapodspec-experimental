@@ -87,7 +87,7 @@ class LASViewModel: NSObject, LASViewModelProtocol {
             (resData["isAuthRequired"] as? Bool) ?? false,
             (resData["productType"] as? String) ?? "lamf"
         )
-        SessionManager.currentlenderInfo = lenderInfo
+        SessionManager.currentlenderInfoMap[currentLoanInfo.interactionToken] = lenderInfo
         
         ScLoan.instance.registerMixpanelEvent(eventName: MixpanelConstants.EVENT_INTERACTION_INITIALISED,
                                               additionalProperties: [
