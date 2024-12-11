@@ -15,9 +15,9 @@
 		<key>CFBundlePackageType</key>
 		<string>FMWK</string>
 		<key>CFBundleShortVersionString</key>
-		<string>3.1.1</string>
+		<string>3.1.2</string>
 		<key>CFBundleVersion</key>
-		<string>24</string>
+		<string>27</string>
 		<key>UIAppFonts</key>
 		<array>
 			<string>GraphikApp-Bold.ttf</string>

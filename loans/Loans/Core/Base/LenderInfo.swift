@@ -14,12 +14,14 @@ internal class LenderInfo: NSObject {
     let openPlatform: Bool
     let intent: String
     let isAuthRequired: Bool
+    let productType: String
     
-    init(_ lenderName: String,_ losUrl: String, _ openPlatform: Bool, _ intent: String, _ isAuthRequired: Bool) {
+    init(_ lenderName: String,_ losUrl: String, _ openPlatform: Bool, _ intent: String, _ isAuthRequired: Bool, _ productType: String = "lamf") {
         self.lenderName = lenderName
         self.losUrl = losUrl
         self.openPlatform = openPlatform
         self.intent = intent
         self.isAuthRequired = isAuthRequired
+        self.productType = productType
     }
 }

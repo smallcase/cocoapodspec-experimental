@@ -33,6 +33,15 @@ internal enum SessionManager {
     
     //MARK: Loan Specific
     static var loanInfo: ScLoanInfoInternal? = nil
+        
+    static var currentlenderInfoMap: [String: LenderInfo] = [:]
+    
+    static var currentLenderInfo: LenderInfo? {
+        guard let interactionToken = loanInfo?.interactionToken else {
+            return nil
+        }
+        return currentlenderInfoMap[interactionToken]
+    }
     
     static var gatewayIosConfig: GatewayIosConfig? = nil
 }

@@ -84,13 +84,14 @@ class LASViewModel: NSObject, LASViewModelProtocol {
             resData["url"] as! String,
             resData["openPlatform"] as! Bool,
             resData["intent"] as! String,
-            (resData["isAuthRequired"] as? Bool) ?? false
+            (resData["isAuthRequired"] as? Bool) ?? false,
+            (resData["productType"] as? String) ?? "lamf"
         )
+        SessionManager.currentlenderInfoMap[currentLoanInfo.interactionToken] = lenderInfo
         
         ScLoan.instance.registerMixpanelEvent(eventName: MixpanelConstants.EVENT_INTERACTION_INITIALISED,
                                               additionalProperties: [
                                                 "intent": lenderInfo.intent,
-                                                "lender": lenderInfo.lenderName,
                                                 "url": lenderInfo.losUrl,
                                                 "openPlatform": lenderInfo.openPlatform,
                                                 "isAuthRequired": lenderInfo.isAuthRequired
