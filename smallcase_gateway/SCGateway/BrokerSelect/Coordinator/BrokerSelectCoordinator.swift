@@ -250,9 +250,9 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
                     self.brokerChooserViewController.webView.alpha = 0
                 })
                 
-            }, completion:{ _ in
-                
-                self.brokerChooserViewController.dismiss(animated: false, completion: {
+            }, completion: { _ in
+                self.brokerChooserViewController.dismiss(animated: true, completion: {
+                    self.brokerChooserViewController = nil
                     completion?()
                 })
                 
