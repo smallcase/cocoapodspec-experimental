@@ -16,6 +16,7 @@ extension BrokerSelectViewModel {
     //MARK: Logout
     internal func initiateLogoutWebView(){
         SCGateway.shared.getLogoutUrl(brokerConfig: userBrokerConfig!, isleprechaunActivated: leprechaunActivated) { [weak self] (result) in
+            print("AD:: logout happening")
             switch result {
                 
                 case .success(let url):
@@ -36,6 +37,7 @@ extension BrokerSelectViewModel {
         }
         let result = extractTxnStatusFromBpResponse(callbackURL.query)
         if result.status != nil {
+            print("AD:: THIS IS NOW CALLED")
             switch result.status {
             case .completed:
                 self.coordinatorDelegate?.logoutSuccessful()

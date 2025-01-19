@@ -105,6 +105,7 @@ internal class BrokerSelectCoordinator: NSObject, Coordinator, UIViewControllerT
         brokerChooserViewController = BrokerChooserViewController(viewModel: viewModel)
         brokerChooserViewController.modalPresentationStyle = .overFullScreen
         brokerChooserViewController.transitioningDelegate = self
+        print("AD:: Presenting BrokerChooserViewController")
         presentingViewController.present(brokerChooserViewController, animated: false, completion: nil)
     }
     
@@ -207,11 +208,34 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
     func logoutSuccessful() {
         dismissBrokerSelect{ [weak self] in
                    guard let self = self else { return }
-                   if self.logoutCompletion != nil {
-                    self.logoutCompletion!(true,nil)
-                   }
+            self.dismissTopMostViewController() // Fallback
+            print("AD:: logout successs block")
+            self.brokerChooserViewController = nil
+            self.logoutCompletion!(true,nil)
         }
     }
+    
+    func dismissTopMostViewController() {
+        if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+           let window = windowScene.windows.first(where: { $0.isKeyWindow }),
+           var topController = window.rootViewController {
+            
+            var viewControllerCount = 1 // Start with the rootViewController
+            while let presented = topController.presentedViewController {
+                viewControllerCount += 1
+                topController = presented
+            }
+            
+            print("AD:: Number of view controllers in the stack: \(viewControllerCount)")
+            
+            // Dismiss the top-most view controller
+            topController.dismiss(animated: true) {
+                print("AD:: Top-most view controller dismissed")
+            }
+        }
+    }
+
+
     
     func logoutFailed(error: Error) {
         dismissBrokerSelect{ [weak self] in
@@ -248,28 +272,12 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
                     self.brokerChooserViewController.webView.alpha = 0
                 })
             }, completion: { _ in
-                // Attempt to dismiss brokerChooserViewController
-                if let brokerChooserVC = self.brokerChooserViewController {
-                    brokerChooserVC.dismiss(animated: true, completion: {
-                        self.brokerChooserViewController = nil
-                        completion?()
-                    })
-                } else {
-                    // Fallback: Dismiss the topmost view controller using UIWindowScene
-                    if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
-                       let window = windowScene.windows.first(where: { $0.isKeyWindow }) {
-                        var topController = window.rootViewController
-                        while let presentedViewController = topController?.presentedViewController {
-                            topController = presentedViewController
-                        }
-                        topController?.dismiss(animated: true, completion: {
-                            self.brokerChooserViewController = nil
-                            completion?()
-                        })
-                    } else {
-                        completion?()
-                    }
-                }
+                self.brokerChooserViewController.dismiss(animated: true, completion: {
+                    print("AD:: this will happen now ")
+                    self.brokerChooserViewController = nil
+                    completion?()
+                })
+                
             })
         }
     }
