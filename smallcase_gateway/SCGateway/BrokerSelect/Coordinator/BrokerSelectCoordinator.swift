@@ -205,13 +205,23 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
     
     
     func logoutSuccessful() {
-        dismissBrokerSelect{ [weak self] in
-                   guard let self = self else { return }
-                   if self.logoutCompletion != nil {
-                    self.logoutCompletion!(true,nil)
-                   }
+        if SessionManager.userStatus == .guest {
+            SessionManager.broker = nil
+        }
+        self.dismissTopMostViewController()
+        self.brokerChooserViewController = nil
+        self.logoutCompletion!(true,nil)
+    }
+    
+    func dismissTopMostViewController() {
+        if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+           let window = windowScene.windows.first(where: { $0.isKeyWindow }),
+           let topController = window.rootViewController {
+            topController.dismiss(animated: true)
         }
     }
+
+
     
     func logoutFailed(error: Error) {
         dismissBrokerSelect{ [weak self] in
@@ -244,7 +254,7 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
         
         DispatchQueue.main.async {
             UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: [.beginFromCurrentState], animations: {
-                
+
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.3, animations: {
                     self.brokerChooserViewController.webView.frame.origin.y += 32
                     self.brokerChooserViewController.webView.alpha = 0
@@ -253,6 +263,7 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
             }, completion:{ _ in
                 
                 self.brokerChooserViewController.dismiss(animated: false, completion: {
+                    
                     completion?()
                 })
                 
