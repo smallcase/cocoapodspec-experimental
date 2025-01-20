@@ -1389,7 +1389,7 @@
 				FRAMEWORK_SEARCH_PATHS = "\"${PODS_CONFIGURATION_BUILD_DIR}/Mixpanel-swift\"";
 				INFOPLIST_FILE = SCGateway/Helpers/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1428,7 +1428,7 @@
 				FRAMEWORK_SEARCH_PATHS = "\"${PODS_CONFIGURATION_BUILD_DIR}/Mixpanel-swift\"";
 				INFOPLIST_FILE = SCGateway/Helpers/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
