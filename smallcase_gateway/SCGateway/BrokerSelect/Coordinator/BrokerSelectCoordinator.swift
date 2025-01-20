@@ -207,18 +207,17 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
     func logoutSuccessful() {
         dismissBrokerSelect{ [weak self] in
                    guard let self = self else { return }
-//            self.dismissTopMostViewController()
-//            self.brokerChooserViewController = nil
-            self.logoutCompletion!(true,nil)
+           self.dismissTopMostViewController()
+           self.brokerChooserViewController = nil
+           self.logoutCompletion!(true,nil)
         }
     }
     
     func dismissTopMostViewController() {
         if let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
            let window = windowScene.windows.first(where: { $0.isKeyWindow }),
-           var topController = window.rootViewController {
-            // Dismiss the top-most view controller
-            topController.dismiss(animated: true) {}
+           let topController = window.rootViewController {
+            topController.dismiss(animated: true)
         }
     }
 
@@ -258,10 +257,8 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
                     self.brokerChooserViewController.webView.frame.origin.y += 32
                     self.brokerChooserViewController.webView.alpha = 0
                 })
-            }, completion: { [weak self] _ in
-                guard let self = self else { return }
+            }, completion: { _ in
                 self.brokerChooserViewController.dismiss(animated: true, completion: {
-                    self.brokerChooserViewController = nil
                     completion?()
                 })
                 
