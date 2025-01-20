@@ -205,12 +205,12 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
     
     
     func logoutSuccessful() {
-        dismissBrokerSelect{ [weak self] in
-                   guard let self = self else { return }
-           self.dismissTopMostViewController()
-           self.brokerChooserViewController = nil
-           self.logoutCompletion!(true,nil)
+        if SessionManager.userStatus == .guest {
+            SessionManager.broker = nil
         }
+        self.dismissTopMostViewController()
+        self.brokerChooserViewController = nil
+        self.logoutCompletion!(true,nil)
     }
     
     func dismissTopMostViewController() {
@@ -263,6 +263,7 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
             }, completion:{ _ in
                 
                 self.brokerChooserViewController.dismiss(animated: false, completion: {
+                    
                     completion?()
                 })
                 
