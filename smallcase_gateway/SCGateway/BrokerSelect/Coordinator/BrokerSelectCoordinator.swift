@@ -251,7 +251,7 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
         if SessionManager.userStatus == .guest {
             SessionManager.broker = nil
         }
-            
+        
         DispatchQueue.main.async {
             UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: [.beginFromCurrentState], animations: {
 
@@ -260,9 +260,9 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
                     self.brokerChooserViewController.webView.alpha = 0
                 })
                 
-            }, completion: { _ in
+            }, completion:{ _ in
                 
-                self.brokerChooserViewController.dismiss(animated: true, completion: {
+                self.brokerChooserViewController.dismiss(animated: false, completion: {
                     completion?()
                 })
                 
