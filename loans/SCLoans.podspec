@@ -32,7 +32,7 @@ Pod::Spec.new do |spec|
     spec.author       = { "gatewaytech" => "gatewaytech@smallcase.com" }
     spec.platform     = :ios
 
-    spec.ios.deployment_target = "12.0"
+    spec.ios.deployment_target = "14.0"
     spec.swift_versions = ["5.10"]
 
     spec.vendored_framework = 'Loans.xcframework'
