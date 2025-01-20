@@ -247,17 +247,21 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
     }
     
     func dismissBrokerSelect(completion: (() -> Void)?) {
+
         if SessionManager.userStatus == .guest {
             SessionManager.broker = nil
         }
         
         DispatchQueue.main.async {
             UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: [.beginFromCurrentState], animations: {
+
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.3, animations: {
                     self.brokerChooserViewController.webView.frame.origin.y += 32
                     self.brokerChooserViewController.webView.alpha = 0
                 })
+
             }, completion: { _ in
+
                 self.brokerChooserViewController.dismiss(animated: true, completion: {
                     completion?()
                 })
@@ -265,6 +269,7 @@ extension BrokerSelectCoordinator: BrokerSelectCoordinatorVMDelegate {
             })
         }
     }
+    
 
     
     func launchLeadGen(_ leadGenView: UIViewController, completion: (() -> Void)?) {
