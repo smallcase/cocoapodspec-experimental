@@ -136,8 +136,6 @@
 		886288B62930EC3E00B73BFB /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886288B52930EC3E00B73BFB /* Mixpanel.framework */; };
 		886607C72697358D005658BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886607C62697358D005658BE /* Constants.swift */; };
 		8871634D27B260BB00E5AC2E /* NonTransactionalIntentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871634C27B260BB00E5AC2E /* NonTransactionalIntentType.swift */; };
-		8877D2A628587E9500337DEA /* LoginFallbackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8877D2A528587E9500337DEA /* LoginFallbackView.xib */; };
-		8877D2AC2858A28B00337DEA /* LoginFallbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8877D2AB2858A28B00337DEA /* LoginFallbackView.swift */; };
 		8877D2B02858D56F00337DEA /* android-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8877D2AF2858D56F00337DEA /* android-loader.gif */; };
 		888BBDF6284F1C1A0082CC5D /* BrokerSelectViewModel+NonTransactional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BBDF5284F1C1A0082CC5D /* BrokerSelectViewModel+NonTransactional.swift */; };
 		888BBDF8284F1EA30082CC5D /* BrokerSelectViewModel+BrokerChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BBDF7284F1EA30082CC5D /* BrokerSelectViewModel+BrokerChooser.swift */; };
@@ -180,6 +178,8 @@
 		A970031424ED0A9D00B4C6B0 /* GraphikApp-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A970030D24ED0A9D00B4C6B0 /* GraphikApp-Semibold.ttf */; };
 		A970031524ED0A9D00B4C6B0 /* GraphikApp-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A970030E24ED0A9D00B4C6B0 /* GraphikApp-Medium.ttf */; };
 		AB005BD32C3562E9000B75F7 /* CodableWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB005BD22C3562E9000B75F7 /* CodableWrappers.swift */; };
+		ABD21C702DA68B3000FCBA89 /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD21C6F2DA68B3000FCBA89 /* UIColor+ext.swift */; };
+		ABD21DF52DA69B6800FCBA89 /* LoginFallbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD21DF42DA69B6800FCBA89 /* LoginFallbackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -292,8 +292,6 @@
 		886288B52930EC3E00B73BFB /* Mixpanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mixpanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		886607C62697358D005658BE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8871634C27B260BB00E5AC2E /* NonTransactionalIntentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonTransactionalIntentType.swift; sourceTree = "<group>"; };
-		8877D2A528587E9500337DEA /* LoginFallbackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginFallbackView.xib; sourceTree = "<group>"; };
-		8877D2AB2858A28B00337DEA /* LoginFallbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFallbackView.swift; sourceTree = "<group>"; };
 		8877D2AF2858D56F00337DEA /* android-loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "android-loader.gif"; sourceTree = "<group>"; };
 		888BBDF5284F1C1A0082CC5D /* BrokerSelectViewModel+NonTransactional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrokerSelectViewModel+NonTransactional.swift"; sourceTree = "<group>"; };
 		888BBDF7284F1EA30082CC5D /* BrokerSelectViewModel+BrokerChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrokerSelectViewModel+BrokerChooser.swift"; sourceTree = "<group>"; };
@@ -336,6 +334,8 @@
 		A970030D24ED0A9D00B4C6B0 /* GraphikApp-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GraphikApp-Semibold.ttf"; sourceTree = "<group>"; };
 		A970030E24ED0A9D00B4C6B0 /* GraphikApp-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GraphikApp-Medium.ttf"; sourceTree = "<group>"; };
 		AB005BD22C3562E9000B75F7 /* CodableWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableWrappers.swift; sourceTree = "<group>"; };
+		ABD21C6F2DA68B3000FCBA89 /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
+		ABD21DF42DA69B6800FCBA89 /* LoginFallbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFallbackView.swift; sourceTree = "<group>"; };
 		C474DC02E84DBB541349D5D7 /* Pods-SCGateway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCGateway.debug.xcconfig"; path = "Target Support Files/Pods-SCGateway/Pods-SCGateway.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -416,6 +416,7 @@
 				88A9372F27C5433E00A6A98A /* Dictionary+Ext.swift */,
 				888BC30A286C775500D8CF2C /* URL+ext.swift */,
 				888BC311286DAC9300D8CF2C /* WKWebView+ext.swift */,
+				ABD21C6F2DA68B3000FCBA89 /* UIColor+ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -511,8 +512,7 @@
 				3655064A23743B300021ADE8 /* GatewayLoadingView.swift */,
 				36AEFD83237D40B300E45E63 /* TransactionCompletionStatusView.swift */,
 				36A194A624E53F300022736F /* ConnectedConsentView.swift */,
-				8877D2A528587E9500337DEA /* LoginFallbackView.xib */,
-				8877D2AB2858A28B00337DEA /* LoginFallbackView.swift */,
+				ABD21DF42DA69B6800FCBA89 /* LoginFallbackView.swift */,
 			);
 			path = ViewStates;
 			sourceTree = "<group>";
@@ -990,7 +990,6 @@
 			files = (
 				A970031424ED0A9D00B4C6B0 /* GraphikApp-Semibold.ttf in Resources */,
 				3658976E238557590083F299 /* smallcase-loader.gif in Resources */,
-				8877D2A628587E9500337DEA /* LoginFallbackView.xib in Resources */,
 				A970030F24ED0A9D00B4C6B0 /* GraphikApp-Bold.ttf in Resources */,
 				888D7A772859FFD3008D2EF3 /* SmallplugLoader.xib in Resources */,
 				36997E26238BD4C6002597BF /* connecting-loader.gif in Resources */,
@@ -1116,6 +1115,7 @@
 				36F1DE9B2372C02800E36C39 /* SessionManager.swift in Sources */,
 				36AEFD6E237AEC6E00E45E63 /* RedirectURLParamsResponse.swift in Sources */,
 				88477D6D28FD7A7B00E0CFD1 /* USEAccOpeningCoordinator+VMDelegate.swift in Sources */,
+				ABD21DF52DA69B6800FCBA89 /* LoginFallbackView.swift in Sources */,
 				88477D7028FD87B200E0CFD1 /* SignUpConfig.swift in Sources */,
 				88157F68285A05970008E7E3 /* SmallplugViewController+WebView.swift in Sources */,
 				36550657237462450021ADE8 /* UIImageView+ext.swift in Sources */,
@@ -1130,7 +1130,6 @@
 				36F1DE722372A31500E36C39 /* ServiceProtocol.swift in Sources */,
 				367750462437C81A0044D1DA /* AddBorder.swift in Sources */,
 				36AEFD77237C2E7F00E45E63 /* TransactionStatusResponse.swift in Sources */,
-				8877D2AC2858A28B00337DEA /* LoginFallbackView.swift in Sources */,
 				888BC30B286C775500D8CF2C /* URL+ext.swift in Sources */,
 				361995CB241923B60054D5CF /* TransactionCallbackStatus.swift in Sources */,
 				88FF0B92283CA5A20090A1F8 /* SCGateway+Mixpanel.swift in Sources */,
@@ -1221,6 +1220,7 @@
 				88477D6328FD758B00E0CFD1 /* USEAccOpeningCoordinator.swift in Sources */,
 				888D7A782859FFD3008D2EF3 /* SmallplugHeader.swift in Sources */,
 				884EC3EE28EF091700EEB640 /* SCGateway+USEAccountOpening.swift in Sources */,
+				ABD21C702DA68B3000FCBA89 /* UIColor+ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

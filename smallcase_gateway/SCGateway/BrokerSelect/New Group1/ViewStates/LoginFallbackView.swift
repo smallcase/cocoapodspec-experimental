@@ -2,25 +2,191 @@
 //  LoginFallbackView.swift
 //  SCGateway
 //
-//  Created by Ankit Deshmukh on 14/06/22.
-//  Copyright © 2022 smallcase. All rights reserved.
+//  Created by Aaditya Singh on 09/04/25.
+//  Copyright © 2025 smallcase. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class LoginFallbackView: UIView {
     
-    let loginFallbackXib = "LoginFallbackView"
+    // MARK: - Properties
     
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var labelLoginWithBroker: UILabel!
-    @IBOutlet weak var brokerLogo: UIImageView!
-    @IBOutlet weak var btnContinueOnBroker: UIButton!
-    @IBOutlet weak var btnContinueWithWeb: UIButton!
+    weak var delegate: ViewStateComponentDelegate?
+    internal var viewModel: BrokerSelectViewModelProtocol?
     
-    @IBOutlet weak var crossIcon: UIButton!
+    var brokerName: String = ""
+    var brokerConfig: BrokerConfig? {
+        didSet {
+            self.brokerName = brokerConfig?.broker ?? ""
+            loadVariables()
+        }
+    }
     
-    @IBAction func clickedCrossIcon(_ sender: Any) {
+    // UI Components
+    private let contentView = UIView()
+    
+    private let brokerLogo: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private let labelLoginWithBroker: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        label.textColor = .primaryTextDarkColor()
+        return label
+    }()
+    
+    private let continueOnWebButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Login with User ID", for: .normal)
+        button.backgroundColor = UIColor.primaryBlue()
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 4
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        return button
+    }()
+        
+    private let crossIcon: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.tintColor = .crossButton()
+        return button
+    }()
+    
+    private let suggestionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "We suggest you try login with User ID"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .primaryTextMediumColor()
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private let retryLoginLabel: UILabel = {
+        let label = UILabel()
+        label.text = "You can also retry login with"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .primaryTextMediumColor()
+        label.textAlignment = .right
+        return label
+    }()
+
+    private let continueWithKiteAppButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Kite app", for: .normal)
+        button.setTitleColor(UIColor.primaryBlue(), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        button.contentEdgeInsets = .zero
+        return button
+    }()
+
+    private lazy var retryLoginStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [retryLoginLabel, continueWithKiteAppButton])
+        stack.axis = .horizontal
+        stack.spacing = 4
+        stack.alignment = .center
+        stack.distribution = .fill
+        return stack
+    }()
+
+    
+    // MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+        setupConstraints()
+        loadVariables()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupViews()
+        setupConstraints()
+        loadVariables()
+    }
+    
+    // MARK: - Setup
+    
+    private func setupViews() {
+        contentView.layer.cornerRadius = 4
+        contentView.backgroundColor = .white
+        addSubview(contentView)
+        
+        [brokerLogo, labelLoginWithBroker, suggestionLabel, continueOnWebButton, retryLoginStackView, crossIcon].forEach {
+            contentView.addSubview($0)
+        }
+        
+        crossIcon.addTarget(self, action: #selector(clickedCrossIcon), for: .touchUpInside)
+        continueOnWebButton.addTarget(self, action: #selector(clickedContinueOnWeb), for: .touchUpInside)
+        continueWithKiteAppButton.addTarget(self, action: #selector(clickedContinueOnBrokerApp), for: .touchUpInside)
+
+    }
+    
+    private func setupConstraints() {
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        brokerLogo.translatesAutoresizingMaskIntoConstraints = false
+        labelLoginWithBroker.translatesAutoresizingMaskIntoConstraints = false
+        continueOnWebButton.translatesAutoresizingMaskIntoConstraints = false
+        crossIcon.translatesAutoresizingMaskIntoConstraints = false
+        suggestionLabel.translatesAutoresizingMaskIntoConstraints = false
+        retryLoginStackView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: self.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+            crossIcon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            crossIcon.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            crossIcon.widthAnchor.constraint(equalToConstant: 12),
+            crossIcon.heightAnchor.constraint(equalToConstant: 12),
+            
+            brokerLogo.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 32),
+            brokerLogo.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            brokerLogo.widthAnchor.constraint(equalToConstant: 40),
+            brokerLogo.heightAnchor.constraint(equalToConstant: 40),
+            
+            labelLoginWithBroker.topAnchor.constraint(equalTo: brokerLogo.bottomAnchor, constant: 20),
+            labelLoginWithBroker.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            labelLoginWithBroker.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            
+            suggestionLabel.topAnchor.constraint(equalTo: labelLoginWithBroker.bottomAnchor, constant: 8),
+            suggestionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            suggestionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            
+            continueOnWebButton.topAnchor.constraint(equalTo: suggestionLabel.bottomAnchor, constant: 24),
+            continueOnWebButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            continueOnWebButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            continueOnWebButton.heightAnchor.constraint(equalToConstant: 52),
+            
+            retryLoginStackView.topAnchor.constraint(equalTo: continueOnWebButton.bottomAnchor, constant: 16),
+            retryLoginStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            retryLoginStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -16)
+
+        ])
+    }
+    
+    // MARK: - Load Variables
+    
+    private func loadVariables() {
+        brokerName = SessionManager.userBrokerConfig?.broker ?? ""
+        labelLoginWithBroker.text = "Unable to login on \(brokerName) app?"
+        
+        if let brokerLogoUrl = URL(string: "https://assets.smallcase.com/smallcase/assets/brokerLogo/native/\(brokerName.lowercased()).png") {
+            brokerLogo.load(url: brokerLogoUrl)
+        }
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func clickedCrossIcon() {
         SCGateway.shared.registerMixpanelEvent(
             eventName: MixpanelConstants.EVENT_USER_CLOSED,
             additionalProperties: [
@@ -32,21 +198,18 @@ class LoginFallbackView: UIView {
             ])
         
         self.viewModel?.markTransactionErrored(.safariTabClosedInitialised)
-        SCGateway.shared.fetchTransactionStatus(transactionId: SessionManager.currentTransactionId ?? "") { [weak self] (result) in
+        
+        SCGateway.shared.fetchTransactionStatus(transactionId: SessionManager.currentTransactionId ?? "") { [weak self] result in
             switch result {
             case .success(let response):
                 self?.viewModel?.coordinatorDelegate?.transactionErrored(error: .safariTabClosedInitialised, successData: response.data?.transaction?.success)
-                break
             case .failure(_):
                 self?.viewModel?.coordinatorDelegate?.transactionErrored(error: .safariTabClosedInitialised, successData: nil)
-                break
             }
         }
-       
     }
     
-    
-    @IBAction func clickedContinueOnBrokerApp(_ sender: Any) {
+    @objc private func clickedContinueOnBrokerApp() {
         SCGateway.shared.registerMixpanelEvent(
             eventName: MixpanelConstants.EVENT_NATIVE_LOGIN_FALLBACK, additionalProperties: [
                 "transactionId": SessionManager.currentTransactionId ?? "NA",
@@ -58,12 +221,12 @@ class LoginFallbackView: UIView {
         self.viewModel?.launchNativeBrokerApp()
     }
     
-    @IBAction func clickedContinueOnWeb(_ sender: Any) {
+    @objc private func clickedContinueOnWeb() {
         SCGateway.shared.registerMixpanelEvent(
             eventName: MixpanelConstants.EVENT_NATIVE_LOGIN_FALLBACK, additionalProperties: [
-                "intent": SessionManager.currentIntentString ?? "NA",
                 "transactionId": SessionManager.currentTransactionId ?? "NA",
                 "transactionStatus": SessionManager.currentTransactionIdStatus?.status ?? "NA",
+                "intent": SessionManager.currentIntentString ?? "NA",
                 "continuedWith": "web"
             ])
         
@@ -71,49 +234,4 @@ class LoginFallbackView: UIView {
             viewModel.initiateTransactionWebView(transactionId: viewModel.transactionId, isNativeLogin: false)
         }
     }
-    
-    var brokerName: String = ""
-    
-    var brokerConfig: BrokerConfig? = nil {
-        didSet {
-            self.brokerName = brokerConfig?.broker ?? ""
-            loadVariables()
-        }
-    }
-    
-    weak var delegate: ViewStateComponentDelegate?
-    
-    internal var viewModel: BrokerSelectViewModelProtocol?
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        Bundle.init(for: SCGateway.self).loadNibNamed(loginFallbackXib, owner: self, options: nil)
-        contentView.layer.cornerRadius = 4
-        
-        addSubview(contentView)
-        contentView.frame = self.bounds
-        self.brokerName = SessionManager.userBrokerConfig?.broker ?? ""
-
-        loadVariables()
-    }
-    
-    private func loadVariables() {
-        labelLoginWithBroker.text = "Login with \(brokerName.capitalized)"
-        
-        if let brokerLogoUrl = URL(string: "https://assets.smallcase.com/smallcase/assets/brokerLogo/native/\(brokerName.lowercased()).png") {
-            brokerLogo.load(url: brokerLogoUrl)
-        }
-        
-        btnContinueOnBroker.setTitle("Continue on \(brokerName.capitalized) app", for: UIControl.State.normal)
-    }
-    
 }
