@@ -11,17 +11,14 @@ import Foundation
 class LoginFallbackView: UIView {
     
     // MARK: - Properties
-    
-    weak var delegate: ViewStateComponentDelegate?
     internal var viewModel: BrokerSelectViewModelProtocol?
-    
-    var brokerName: String = ""
     var brokerConfig: BrokerConfig? {
-        didSet {
-            self.brokerName = brokerConfig?.broker ?? ""
-            loadVariables()
-        }
-    }
+           didSet {
+               self.brokerName = brokerConfig?.broker ?? ""
+               loadVariables()
+           }
+       }
+    var brokerName: String = ""
     
     // UI Components
     private let contentView = UIView()
@@ -178,8 +175,8 @@ class LoginFallbackView: UIView {
     private func loadVariables() {
         brokerName = SessionManager.userBrokerConfig?.broker ?? ""
         labelLoginWithBroker.text = "Unable to login on \(brokerName) app?"
-        
-        if let brokerLogoUrl = URL(string: "https://assets.smallcase.com/smallcase/assets/brokerLogo/native/\(brokerName.lowercased()).png") {
+
+        if let brokerLogoUrl = Constants.brokerLogoURL(type: "native", brokerName: brokerName) {
             brokerLogo.load(url: brokerLogoUrl)
         }
     }
