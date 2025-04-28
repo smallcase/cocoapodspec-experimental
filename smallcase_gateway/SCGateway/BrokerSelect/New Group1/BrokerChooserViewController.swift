@@ -63,7 +63,6 @@ class BrokerChooserViewController: UIViewController,
     fileprivate lazy var loginFallbackView: LoginFallbackView = {
         let lfv = LoginFallbackView()
         lfv.translatesAutoresizingMaskIntoConstraints = false
-        lfv.delegate = self
         lfv.viewModel = self.viewModel
         return lfv
     }()
