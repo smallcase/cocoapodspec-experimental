@@ -32,6 +32,12 @@ internal enum Constants {
     
     static let INTENT_TRANSACTION = "TRANSACTION"
     static let INTENT_HOLDINGS_IMPORT = "HOLDINGS_IMPORT"
+    static let brokerLogoBaseURL = "https://assets.smallcase.com/smallcase/assets/brokerLogo"
+    
+    static func brokerLogoURL(type: String, brokerName: String) -> URL? {
+           let name = brokerName.lowercased()
+           return URL(string: "\(brokerLogoBaseURL)/\(type)/\(name).png")
+       }
 }
 
 internal enum MixpanelConstants {
