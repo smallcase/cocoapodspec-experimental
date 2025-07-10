@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '11.0'
+ platform :ios, '15.0'
 
 #source 'https://github.com/smallcase/cocoapodspecs.git'
 source 'https://github.com/smallcase/cocoapodspec-internal.git'
@@ -14,7 +14,7 @@ target 'SmartInvesting' do
   
 #  pod 'PopupDialog', '~> 1.1'
   
-  pod 'Mixpanel-swift','~> 4.2.7'
+  pod 'Mixpanel-swift','~> 5'
 
 #  pod 'SCGateway' , '3.11.0'
 #  pod 'SCLoans' , '2.0.0'

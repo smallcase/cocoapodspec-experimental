@@ -32,11 +32,11 @@ Pod::Spec.new do |spec|
     spec.author       = { "gatewaytech" => "gatewaytech@smallcase.com" }
     spec.platform     = :ios
 
-    spec.ios.deployment_target = "12.0"
+    spec.ios.deployment_target = "15.0"
     spec.swift_versions = ["5.10"]
 
     spec.vendored_framework = 'SCGateway.xcframework'
     spec.source ={ :http => "https://gateway.smallcase.com/#{aws_bucket}/#{source_target_dir}/SCGateway.xcframework.zip"}  
 
-    spec.dependency "Mixpanel-swift", "~> 4.2.5"
+    spec.dependency "Mixpanel-swift", "~> 5"
 end

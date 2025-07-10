@@ -28,6 +28,7 @@ class Flush: AppLifecycle {
     private var _serverURL =  BasePath.DefaultMixpanelAPI
     private let flushRequestReadWriteLock: DispatchQueue
 
+    var useGzipCompression: Bool
     
     var serverURL: String {
         get {
@@ -68,8 +69,9 @@ class Flush: AppLifecycle {
         }
     }
 
-    required init(serverURL: String) {
+    required init(serverURL: String, useGzipCompression: Bool) {
         self.flushRequest = FlushRequest(serverURL: serverURL)
+        self.useGzipCompression = useGzipCompression
         _serverURL = serverURL
         flushRequestReadWriteLock = DispatchQueue(label: "com.mixpanel.flush_interval.lock", qos: .utility, attributes: .concurrent, autoreleaseFrequency: .workItem)
     }
@@ -122,8 +124,8 @@ class Flush: AppLifecycle {
                 (entity["id"] as? Int32) ?? 0
             }
             // Log data payload sent
-            Logger.debug(message: "Sending batch of data")
-            Logger.debug(message: batch as Any)
+            MixpanelLogger.debug(message: "Sending batch of data")
+            MixpanelLogger.debug(message: batch as Any)
             let requestData = JSONHandler.encodeAPIData(batch)
             if let requestData = requestData {
                 #if os(iOS)
@@ -135,7 +137,7 @@ class Flush: AppLifecycle {
                                                        type: type,
                                                        useIP: useIPAddressForGeoLocation,
                                                        headers: headers,
-                                                       queryItems: queryItems)
+                                                       queryItems: queryItems, useGzipCompression: useGzipCompression)
                 #if os(iOS)
                 if !MixpanelInstance.isiOSAppExtension() {
                     delegate?.updateNetworkActivityIndicator(false)
