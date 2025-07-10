@@ -75,7 +75,9 @@ public struct ProxyServerConfig {
 }
 
 /// The class that represents the Mixpanel Instance
-open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDelegate {
+open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDelegate, MixpanelFlagDelegate {
+
+    private let options: MixpanelOptions
     
     /// apiToken string that identifies the project to track data to
     open var apiToken = ""
@@ -101,6 +103,9 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
     
     /// Accessor to the Mixpanel People API object.
     open var people: People!
+    
+    /// Accessor the Mixpanel Feature Flags API object.
+    open var flags: MixpanelFlags!
     
     let mixpanelPersistence: MixpanelPersistence
     
@@ -170,6 +175,12 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
             flushInstance.serverURL = serverURL
         }
     }
+
+        open var useGzipCompression: Bool = false {
+            didSet {
+                flushInstance.useGzipCompression = useGzipCompression
+            }
+        }
     
     /// The a MixpanelProxyServerDelegate object that gives config control over Proxy Server's network activity.
     open weak var proxyServerDelegate: MixpanelProxyServerDelegate? = nil
@@ -188,20 +199,20 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
     open var loggingEnabled: Bool = false {
         didSet {
             if loggingEnabled {
-                Logger.enableLevel(.debug)
-                Logger.enableLevel(.info)
-                Logger.enableLevel(.warning)
-                Logger.enableLevel(.error)
-                Logger.info(message: "Logging Enabled")
+                MixpanelLogger.enableLevel(.debug)
+                MixpanelLogger.enableLevel(.info)
+                MixpanelLogger.enableLevel(.warning)
+                MixpanelLogger.enableLevel(.error)
+                MixpanelLogger.info(message: "MixpanelLogging Enabled")
             } else {
-                Logger.info(message: "Logging Disabled")
-                Logger.disableLevel(.debug)
-                Logger.disableLevel(.info)
-                Logger.disableLevel(.warning)
-                Logger.disableLevel(.error)
+                MixpanelLogger.info(message: "MixpanelLogging Disabled")
+                MixpanelLogger.disableLevel(.debug)
+                MixpanelLogger.disableLevel(.info)
+                MixpanelLogger.disableLevel(.warning)
+                MixpanelLogger.disableLevel(.error)
             }
 #if DEBUG
-            var trackProps: Properties = ["Logging Enabled": loggingEnabled]
+            var trackProps: Properties = ["MixpanelLogging Enabled": loggingEnabled]
             if (superProperties["mp_lib"] != nil) {
                 trackProps["mp_lib"] = self.superProperties["mp_lib"] as! String
             }
@@ -259,26 +270,21 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
 #if os(iOS) || os(tvOS) || os(visionOS)
     let automaticEvents = AutomaticEvents()
 #endif
+    private let registerSuperPropertiesNotificationName = Notification.Name("com.mixpanel.properties.register")
+    private let unregisterSuperPropertiesNotificationName = Notification.Name("com.mixpanel.properties.unregister")
     
-    convenience init(
-        apiToken: String?,
-        flushInterval: Double,
-        name: String,
-        trackAutomaticEvents: Bool,
-        optOutTrackingByDefault: Bool = false,
-        useUniqueDistinctId: Bool = false,
-        superProperties: Properties? = nil,
-        proxyServerConfig: ProxyServerConfig
-    ) {
-        self.init(apiToken: apiToken,
-                  flushInterval: flushInterval,
-                  name: name,
-                  trackAutomaticEvents: trackAutomaticEvents,
-                  optOutTrackingByDefault: optOutTrackingByDefault,
-                  useUniqueDistinctId: useUniqueDistinctId,
-                  superProperties: superProperties,
-                  serverURL: proxyServerConfig.serverUrl,
-                  proxyServerDelegate: proxyServerConfig.delegate)
+    convenience init(options: MixpanelOptions) {
+        self.init(apiToken: options.token,
+                  flushInterval: options.flushInterval,
+                  name: options.instanceName ?? options.token,
+                  trackAutomaticEvents: options.trackAutomaticEvents,
+                  optOutTrackingByDefault: options.optOutTrackingByDefault,
+                  useUniqueDistinctId: options.useUniqueDistinctId,
+                  superProperties: options.superProperties,
+                  serverURL: options.serverURL,
+                  proxyServerDelegate: options.proxyServerConfig?.delegate,
+                  useGzipCompression: options.useGzipCompression,
+                  options: options)
     }
     
     convenience init(
@@ -289,7 +295,31 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
         optOutTrackingByDefault: Bool = false,
         useUniqueDistinctId: Bool = false,
         superProperties: Properties? = nil,
-        serverURL: String? = nil
+        proxyServerConfig: ProxyServerConfig,
+        useGzipCompression: Bool = false
+    ) {
+        self.init(apiToken: apiToken,
+                  flushInterval: flushInterval,
+                  name: name,
+                  trackAutomaticEvents: trackAutomaticEvents,
+                  optOutTrackingByDefault: optOutTrackingByDefault,
+                  useUniqueDistinctId: useUniqueDistinctId,
+                  superProperties: superProperties,
+                  serverURL: proxyServerConfig.serverUrl,
+                  proxyServerDelegate: proxyServerConfig.delegate,
+                  useGzipCompression: useGzipCompression)
+    }
+    
+    convenience init(
+        apiToken: String?,
+        flushInterval: Double,
+        name: String,
+        trackAutomaticEvents: Bool,
+        optOutTrackingByDefault: Bool = false,
+        useUniqueDistinctId: Bool = false,
+        superProperties: Properties? = nil,
+        serverURL: String? = nil,
+        useGzipCompression: Bool = false
     ) {
         self.init(apiToken: apiToken,
                   flushInterval: flushInterval,
@@ -299,7 +329,8 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
                   useUniqueDistinctId: useUniqueDistinctId,
                   superProperties: superProperties,
                   serverURL: serverURL,
-                  proxyServerDelegate: nil)
+                  proxyServerDelegate: nil,
+                  useGzipCompression: useGzipCompression)
     }
     
     
@@ -312,8 +343,23 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
         useUniqueDistinctId: Bool = false,
         superProperties: Properties? = nil,
         serverURL: String? = nil,
-        proxyServerDelegate: MixpanelProxyServerDelegate? = nil
+        proxyServerDelegate: MixpanelProxyServerDelegate? = nil,
+        useGzipCompression: Bool = false,
+        options: MixpanelOptions? = nil
     ) {
+        // Store the config if provided, otherwise create one with the current values
+        self.options = options ?? MixpanelOptions(
+            token: apiToken ?? "",
+            flushInterval: flushInterval,
+            instanceName: name,
+            trackAutomaticEvents: trackAutomaticEvents,
+            optOutTrackingByDefault: optOutTrackingByDefault,
+            useUniqueDistinctId: useUniqueDistinctId,
+            superProperties: superProperties,
+            serverURL: serverURL,
+            useGzipCompression: useGzipCompression
+        )
+        
         if let apiToken = apiToken, !apiToken.isEmpty {
             self.apiToken = apiToken
         }
@@ -321,6 +367,7 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
         if let serverURL = serverURL {
             self.serverURL = serverURL
         }
+        self.useGzipCompression = useGzipCompression
         self.proxyServerDelegate = proxyServerDelegate
         let label = "com.mixpanel.\(self.apiToken)"
         trackingQueue = DispatchQueue(label: "\(label).tracking)", qos: .utility, autoreleaseFrequency: .workItem)
@@ -332,13 +379,15 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
         self.useUniqueDistinctId = useUniqueDistinctId
         
         readWriteLock = ReadWriteLock(label: "com.mixpanel.globallock")
-        flushInstance = Flush(serverURL: self.serverURL)
+        flushInstance = Flush(serverURL: self.serverURL, useGzipCompression: useGzipCompression)
         sessionMetadata = SessionMetadata(trackingQueue: trackingQueue)
         trackInstance = Track(apiToken: self.apiToken,
                               instanceName: self.name,
                               lock: self.readWriteLock,
                               metadata: sessionMetadata, mixpanelPersistence: mixpanelPersistence)
+        flags = FeatureFlagManager(serverURL: self.serverURL)
         trackInstance.mixpanelInstance = self
+        flags.delegate = self
 #if os(iOS) && !targetEnvironment(macCatalyst)
         if let reachability = MixpanelInstance.reachability {
             var context = SCNetworkReachabilityContext(version: 0, info: nil, retain: nil, release: nil, copyDescription: nil)
@@ -349,7 +398,7 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
                 AutomaticProperties.automaticPropertiesLock.write {
                     AutomaticProperties.properties["$wifi"] = wifi
                 }
-                Logger.info(message: "reachability changed, wifi=\(wifi)")
+                MixpanelLogger.info(message: "reachability changed, wifi=\(wifi)")
             }
             if SCNetworkReachabilitySetCallback(reachability, reachabilityCallback, &context) {
                 if !SCNetworkReachabilitySetDispatchQueue(reachability, trackingQueue) {
@@ -390,6 +439,15 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
             automaticEvents.initializeEvents(instanceName: self.name)
         }
 #endif
+        flags.loadFlags()
+    }
+    
+    public func getOptions() -> MixpanelOptions {
+        return options
+    }
+    
+    public func getDistinctId() -> String {
+        return distinctId
     }
     
 #if !os(OSX) && !os(watchOS)
@@ -421,6 +479,18 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
                                            selector: #selector(applicationWillEnterForeground(_:)),
                                            name: UIApplication.willEnterForegroundNotification,
                                            object: nil)
+            notificationCenter.addObserver(
+                self,
+                selector: #selector(handleSuperPropertiesRegistrationNotification(_:)),
+                name: registerSuperPropertiesNotificationName,
+                object: nil
+            )
+            notificationCenter.addObserver(
+                self,
+                selector: #selector(handleSuperPropertiesRegistrationNotification(_:)),
+                name: unregisterSuperPropertiesNotificationName,
+                object: nil
+            )
         }
     }
 #elseif os(OSX)
@@ -442,10 +512,10 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
 #if os(iOS) && !os(watchOS) && !targetEnvironment(macCatalyst)
         if let reachability = MixpanelInstance.reachability {
             if !SCNetworkReachabilitySetCallback(reachability, nil, nil) {
-                Logger.error(message: "\(self) error unsetting reachability callback")
+                MixpanelLogger.error(message: "\(self) error unsetting reachability callback")
             }
             if !SCNetworkReachabilitySetDispatchQueue(reachability, nil) {
-                Logger.error(message: "\(self) error unsetting reachability dispatch queue")
+                MixpanelLogger.error(message: "\(self) error unsetting reachability dispatch queue")
             }
         }
 #endif
@@ -499,6 +569,9 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
         }
         
         taskId = sharedApplication.beginBackgroundTask(expirationHandler: completionHandler)
+        
+        // Ensure that any session replay ID is cleared when the app enters the background
+        unregisterSuperProperty("$mp_replay_id")
         
         if flushOnBackground {
             flush(performFullFlush: true, completion: completionHandler)
@@ -632,6 +705,20 @@ open class MixpanelInstance: CustomDebugStringConvertible, FlushDelegate, AEDele
 #endif
 #endif // os(iOS)
     
+    @objc func handleSuperPropertiesRegistrationNotification(_ notification: Notification) {
+        guard let data = notification.userInfo else { return }
+        
+        if notification.name.rawValue == registerSuperPropertiesNotificationName.rawValue {
+            guard let properties = data as? Properties else { return }
+            registerSuperProperties(properties)
+        } else {
+            for (key, _) in data {
+                if let keyToUnregister = key as? String {
+                    unregisterSuperProperty(keyToUnregister)
+                }
+            }
+        }
+    }
 }
 
 extension MixpanelInstance {
@@ -673,7 +760,7 @@ extension MixpanelInstance {
             return
         }
         if distinctId.isEmpty {
-            Logger.error(message: "\(self) cannot identify blank distinct id")
+            MixpanelLogger.error(message: "\(self) cannot identify blank distinct id")
             if let completion = completion {
                 DispatchQueue.main.async(execute: completion)
             }
@@ -702,6 +789,7 @@ extension MixpanelInstance {
                     self.distinctId = distinctId
                     self.userId = distinctId
                 }
+                self.flags.loadFlags()
                 self.track(event: "$identify", properties: ["$anon_distinct_id": oldDistinctId])
             }
             
@@ -763,7 +851,7 @@ extension MixpanelInstance {
         }
         
         if distinctId.isEmpty {
-            Logger.error(message: "\(self) cannot identify blank distinct id")
+            MixpanelLogger.error(message: "\(self) cannot identify blank distinct id")
             if let completion = completion {
                 DispatchQueue.main.async(execute: completion)
             }
@@ -771,7 +859,7 @@ extension MixpanelInstance {
         }
         
         if alias.isEmpty {
-            Logger.error(message: "\(self) create alias called with empty alias")
+            MixpanelLogger.error(message: "\(self) create alias called with empty alias")
             if let completion = completion {
                 DispatchQueue.main.async(execute: completion)
             }
@@ -822,7 +910,7 @@ extension MixpanelInstance {
             }
             flush(completion: completion)
         } else {
-            Logger.error(message: "alias: \(alias) matches distinctId: \(distinctId) - skipping api call.")
+            MixpanelLogger.error(message: "alias: \(alias) matches distinctId: \(distinctId) - skipping api call.")
             if let completion = completion {
                 DispatchQueue.main.async(execute: completion)
             }
@@ -881,7 +969,7 @@ extension MixpanelInstance {
     }
     
     func unarchive() {
-        self.readWriteLock.write {
+        let didCreateIdentity = self.readWriteLock.write {
             optOutStatus = MixpanelPersistence.loadOptOutStatusFlag(instanceName: self.name)
             superProperties = MixpanelPersistence.loadSuperProperties(instanceName: self.name)
             timedEvents = MixpanelPersistence.loadTimedEvents(instanceName: self.name)
@@ -899,6 +987,14 @@ extension MixpanelInstance {
                 distinctId = addPrefixToDeviceId(deviceId: anonymousId)
                 hadPersistedDistinctId = true
                 userId = nil
+                return true
+            } else {
+                return false
+            }
+        }
+
+        if didCreateIdentity {
+            self.readWriteLock.read {
                 MixpanelPersistence.saveIdentity(MixpanelIdentity.init(
                     distinctID: distinctId,
                     peopleDistinctID: people.distinctId,
@@ -1029,14 +1125,13 @@ extension MixpanelInstance {
      - parameter properties: properties dictionary
      */
     public func track(event: String?, properties: Properties? = nil) {
-        if hasOptedOutTracking() {
-            return
-        }
-        
         let epochInterval = Date().timeIntervalSince1970
         
         trackingQueue.async { [weak self, event, properties, epochInterval] in
-            guard let self = self else {
+            guard let self else {
+                return
+            }
+            if self.hasOptedOutTracking() {
                 return
             }
             var shadowTimedEvents = InternalProperties()
@@ -1131,7 +1226,7 @@ extension MixpanelInstance {
         
         if !(group.groupKey == groupKey && group.groupID.equals(rhs: groupID)) {
             // we somehow hit a collision on the map key, return a new group with the correct key and ID
-            Logger.info(message: "groups dictionary key collision: \(key)")
+            MixpanelLogger.info(message: "groups dictionary key collision: \(key)")
             let newGroup = Group(apiToken: apiToken,
                                  serialQueue: trackingQueue,
                                  lock: self.readWriteLock,

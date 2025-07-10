@@ -14,6 +14,11 @@ import UIKit
 /// The primary class for integrating Mixpanel with your app.
 open class Mixpanel {
     
+    @discardableResult
+    open class func initialize(options: MixpanelOptions) -> MixpanelInstance {
+        return MixpanelManager.sharedInstance.initialize(options: options)
+    }
+    
 #if !os(OSX) && !os(watchOS)
     /**
      Initializes an instance of the API with the given project token.
@@ -31,6 +36,7 @@ open class Mixpanel {
      - parameter useUniqueDistinctId:       Optional. whether or not to use the unique device identifier as the distinct_id
      - parameter superProperties:           Optional. Super properties dictionary to register during initialization
      - parameter serverURL:                 Optional. Mixpanel cluster URL
+     - parameter useGzipCompression:        Optional. Whether to use gzip compression for network requests.
      
      - important: If you have more than one Mixpanel instance, it is beneficial to initialize
      the instances with an instanceName. Then they can be reached by calling getInstance with name.
@@ -46,7 +52,8 @@ open class Mixpanel {
                                optOutTrackingByDefault: Bool = false,
                                useUniqueDistinctId: Bool = false,
                                superProperties: Properties? = nil,
-                               serverURL: String? = nil) -> MixpanelInstance {
+                               serverURL: String? = nil,
+                               useGzipCompression: Bool = false) -> MixpanelInstance {
         return MixpanelManager.sharedInstance.initialize(token: apiToken,
                                                          flushInterval: flushInterval,
                                                          instanceName: ((instanceName != nil) ? instanceName! : apiToken),
@@ -54,7 +61,8 @@ open class Mixpanel {
                                                          optOutTrackingByDefault: optOutTrackingByDefault,
                                                          useUniqueDistinctId: useUniqueDistinctId,
                                                          superProperties: superProperties,
-                                                         serverURL: serverURL)
+                                                         serverURL: serverURL,
+                                                         useGzipCompression: useGzipCompression)
     }
     
     /**
@@ -73,6 +81,7 @@ open class Mixpanel {
      - parameter useUniqueDistinctId:       Optional. whether or not to use the unique device identifier as the distinct_id
      - parameter superProperties:           Optional. Super properties dictionary to register during initialization
      - parameter proxyServerConfig:         Optional. Setup for proxy server.
+     - parameter useGzipCompression:        Optional. Whether to use gzip compression for network requests.
      
      - important: If you have more than one Mixpanel instance, it is beneficial to initialize
      the instances with an instanceName. Then they can be reached by calling getInstance with name.
@@ -89,7 +98,8 @@ open class Mixpanel {
                                optOutTrackingByDefault: Bool = false,
                                useUniqueDistinctId: Bool = false,
                                superProperties: Properties? = nil,
-                               proxyServerConfig: ProxyServerConfig) -> MixpanelInstance {
+                               proxyServerConfig: ProxyServerConfig,
+                               useGzipCompression: Bool = false) -> MixpanelInstance {
         return MixpanelManager.sharedInstance.initialize(token: apiToken,
                                                          flushInterval: flushInterval,
                                                          instanceName: ((instanceName != nil) ? instanceName! : apiToken),
@@ -97,7 +107,8 @@ open class Mixpanel {
                                                          optOutTrackingByDefault: optOutTrackingByDefault,
                                                          useUniqueDistinctId: useUniqueDistinctId,
                                                          superProperties: superProperties,
-                                                         proxyServerConfig: proxyServerConfig)
+                                                         proxyServerConfig: proxyServerConfig,
+                                                         useGzipCompression: useGzipCompression)
     }
 #else
     /**
@@ -115,6 +126,7 @@ open class Mixpanel {
      - parameter useUniqueDistinctId:       Optional. whether or not to use the unique device identifier as the distinct_id
      - parameter superProperties:           Optional. Super properties dictionary to register during initialization
      - parameter serverURL:                 Optional. Mixpanel cluster URL
+     - parameter useGzipCompression:        Optional. Whether to use gzip compression for network requests.
      
      - important: If you have more than one Mixpanel instance, it is beneficial to initialize
      the instances with an instanceName. Then they can be reached by calling getInstance with name.
@@ -130,7 +142,8 @@ open class Mixpanel {
                                optOutTrackingByDefault: Bool = false,
                                useUniqueDistinctId: Bool = false,
                                superProperties: Properties? = nil,
-                               serverURL: String? = nil) -> MixpanelInstance {
+                               serverURL: String? = nil,
+                               useGzipCompression: Bool = false) -> MixpanelInstance {
         return MixpanelManager.sharedInstance.initialize(token: apiToken,
                                                          flushInterval: flushInterval,
                                                          instanceName: ((instanceName != nil) ? instanceName! : apiToken),
@@ -138,7 +151,8 @@ open class Mixpanel {
                                                          optOutTrackingByDefault: optOutTrackingByDefault,
                                                          useUniqueDistinctId: useUniqueDistinctId,
                                                          superProperties: superProperties,
-                                                         serverURL: serverURL)
+                                                         serverURL: serverURL,
+                                                         useGzipCompression: useGzipCompression)
     }
     
     /**
@@ -156,6 +170,7 @@ open class Mixpanel {
      - parameter useUniqueDistinctId:       Optional. whether or not to use the unique device identifier as the distinct_id
      - parameter superProperties:           Optional. Super properties dictionary to register during initialization
      - parameter proxyServerConfig:         Optional. Setup for proxy server.
+     - parameter useGzipCompression:        Optional. Whether to use gzip compression for network requests.
      
      - important: If you have more than one Mixpanel instance, it is beneficial to initialize
      the instances with an instanceName. Then they can be reached by calling getInstance with name.
@@ -171,7 +186,8 @@ open class Mixpanel {
                                optOutTrackingByDefault: Bool = false,
                                useUniqueDistinctId: Bool = false,
                                superProperties: Properties? = nil,
-                               proxyServerConfig: ProxyServerConfig) -> MixpanelInstance {
+                               proxyServerConfig: ProxyServerConfig,
+                               useGzipCompression: Bool = false) -> MixpanelInstance {
         return MixpanelManager.sharedInstance.initialize(token: apiToken,
                                                          flushInterval: flushInterval,
                                                          instanceName: ((instanceName != nil) ? instanceName! : apiToken),
@@ -179,7 +195,8 @@ open class Mixpanel {
                                                          optOutTrackingByDefault: optOutTrackingByDefault,
                                                          useUniqueDistinctId: useUniqueDistinctId,
                                                          superProperties: superProperties,
-                                                         proxyServerConfig: proxyServerConfig)
+                                                         proxyServerConfig: proxyServerConfig,
+                                                         useGzipCompression: useGzipCompression)
     }
 #endif // os(OSX)
     
@@ -219,6 +236,17 @@ open class Mixpanel {
         }
     }
     
+    /// Returns the main Mixpanel instance if it has been initialized.
+    /// - Returns: An optional MixpanelInstance, or nil if not yet initialized.
+    public class func safeMainInstance() -> MixpanelInstance? {
+        if let instance = MixpanelManager.sharedInstance.getMainInstance() {
+            return instance
+        } else {
+            MixpanelLogger.warn(message: "WARNING: Mixpanel main instance is NOT initialized. Call Mixpanel.initialize(...) first.")
+            return nil
+        }
+    }
+    
     /**
      Sets the main instance based on the instance name
      
@@ -248,29 +276,15 @@ final class MixpanelManager {
     
     init() {
         instances = [String: MixpanelInstance]()
-        Logger.addLogging(PrintLogging())
+        MixpanelLogger.addLogging(PrintLogging())
         readWriteLock = ReadWriteLock(label: "com.mixpanel.instance.manager.lock")
         instanceQueue = DispatchQueue(label: "com.mixpanel.instance.manager.instance", qos: .utility, autoreleaseFrequency: .workItem)
     }
     
-    func initialize(token apiToken: String,
-                    flushInterval: Double,
-                    instanceName: String,
-                    trackAutomaticEvents: Bool,
-                    optOutTrackingByDefault: Bool = false,
-                    useUniqueDistinctId: Bool = false,
-                    superProperties: Properties? = nil,
-                    serverURL: String? = nil
-    ) -> MixpanelInstance {
+    func initialize(options: MixpanelOptions) -> MixpanelInstance {
+        let instanceName = options.instanceName ?? options.token
         return dequeueInstance(instanceName: instanceName) {
-            return MixpanelInstance(apiToken: apiToken,
-                                    flushInterval: flushInterval,
-                                    name: instanceName,
-                                    trackAutomaticEvents: trackAutomaticEvents,
-                                    optOutTrackingByDefault: optOutTrackingByDefault,
-                                    useUniqueDistinctId: useUniqueDistinctId,
-                                    superProperties: superProperties,
-                                    serverURL: serverURL)
+            return MixpanelInstance(options: options)
         }
     }
     
@@ -281,7 +295,8 @@ final class MixpanelManager {
                     optOutTrackingByDefault: Bool = false,
                     useUniqueDistinctId: Bool = false,
                     superProperties: Properties? = nil,
-                    proxyServerConfig: ProxyServerConfig
+                    serverURL: String? = nil,
+                    useGzipCompression: Bool = false
     ) -> MixpanelInstance {
         return dequeueInstance(instanceName: instanceName) {
             return MixpanelInstance(apiToken: apiToken,
@@ -291,7 +306,31 @@ final class MixpanelManager {
                                     optOutTrackingByDefault: optOutTrackingByDefault,
                                     useUniqueDistinctId: useUniqueDistinctId,
                                     superProperties: superProperties,
-                                    proxyServerConfig: proxyServerConfig)
+                                    serverURL: serverURL,
+                                    useGzipCompression: useGzipCompression)
+        }
+    }
+    
+    func initialize(token apiToken: String,
+                    flushInterval: Double,
+                    instanceName: String,
+                    trackAutomaticEvents: Bool,
+                    optOutTrackingByDefault: Bool = false,
+                    useUniqueDistinctId: Bool = false,
+                    superProperties: Properties? = nil,
+                    proxyServerConfig: ProxyServerConfig,
+                    useGzipCompression: Bool = false
+    ) -> MixpanelInstance {
+        return dequeueInstance(instanceName: instanceName) {
+            return MixpanelInstance(apiToken: apiToken,
+                                    flushInterval: flushInterval,
+                                    name: instanceName,
+                                    trackAutomaticEvents: trackAutomaticEvents,
+                                    optOutTrackingByDefault: optOutTrackingByDefault,
+                                    useUniqueDistinctId: useUniqueDistinctId,
+                                    superProperties: superProperties,
+                                    proxyServerConfig: proxyServerConfig,
+                                    useGzipCompression: useGzipCompression)
         }
     }
     
@@ -318,7 +357,7 @@ final class MixpanelManager {
             instance = instances[instanceName]
         }
         if instance == nil {
-            Logger.warn(message: "no such instance: \(instanceName)")
+            MixpanelLogger.warn(message: "no such instance: \(instanceName)")
             return nil
         }
         return instance
@@ -355,6 +394,7 @@ final class MixpanelManager {
             instances[instanceName] = nil
         }
     }
+    
     
 }
 
